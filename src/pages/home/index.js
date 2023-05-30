@@ -3,14 +3,36 @@ import image from './Background.png'
 import foto from './fot.png'
 import social from './Black.png'
 import NavBar from '../../components/navbar'
+import { useEffect, useState } from 'react'
+import { cms } from '../../service/client'
 
 export const HomePage = () => {
+  const [images, setImages] = useState([])
+  useEffect(() => {
+    cms.get('api/eventos').then(async (response) => {
+      const { data } = response.data
+      setImages(data.map((data) => data.attributes))
+    })
+  }, [])
+  console.log(image)
   return (
     <Home>
       <NavBar />
       <main>
         <section className='carrossel'>
           <h1>EVENTOS</h1>
+          <tbody>
+          {images.map((attributes, index) =>
+          <tr key={index} >
+            <td>
+              <p>{attributes.titulo}</p>
+              <p>{attributes.descricao}</p>
+              <img src={attributes.imagem_url}/>
+              </td>
+          </tr>
+          )
+          }
+          </tbody>
         </section>
         <section className='about'>
           <div className='content'>
