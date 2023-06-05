@@ -39,7 +39,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "chromatic": "npx chromatic --project-token=35d06d6a9940"
+    "chromatic": "npx chromatic --project-token=35d06d6a9940",
+    "prepare": "husky install"
   },
   "resolutions": {
     "babel-loader": "8.1.0",
@@ -77,10 +78,10 @@
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "@storybook/addon-actions": "^6.4.4",
-    "@storybook/addon-essentials": "^6.4.4",
+    "@storybook/addon-essentials": "^7.0.18",
     "@storybook/addon-links": "^6.4.4",
     "@storybook/node-logger": "^6.4.4",
-    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/preset-create-react-app": "^7.0.18",
     "@storybook/react": "^7.0.12",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
@@ -93,7 +94,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^7.0.4",
+    "husky": "^8.0.0",
     "prettier": "^2.3.2"
   },
   "config": {
