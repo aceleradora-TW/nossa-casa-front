@@ -49,7 +49,7 @@ const Home = styled.div`
 
     .galeria {
       height: 1036px;
-      background-color: #DADADA;
+      background-color: #516B84;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
@@ -57,7 +57,8 @@ const Home = styled.div`
 
       h2 {
         text-align: center;
-        font-size: 2.5rem;
+        font-size: 3.125rem;
+        color: #FFFFFF;
       }
 
       .painel {
@@ -70,12 +71,15 @@ const Home = styled.div`
       }
 
       button {
-        background-color: #424B5A;
-        color: #FFFFFF;
+        background: linear-gradient(180deg, #516B848F 0%, #FFFFFF 100%);
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.40);
+        border-radius: 3px;
+        color: #000000;
         border: none;
-        font-size: 1.4rem;
-        width: 220px;
-        height: 60px;
+        font-size: 14px;
+        width: 182px;
+        height: 40px;
+        cursor: pointer;
       }
     }
 
@@ -114,25 +118,6 @@ const Home = styled.div`
             text-align: center;
           }
         }
-      }
-    }
-
-    footer {
-      background-color: #DADADA;
-      height: 155px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-
-      h3 {
-        font-size: 1.5rem;
-      }
-
-      div {
-        width: 15%;
-        display: flex;
-        justify-content: space-between;
       }
     }
   }

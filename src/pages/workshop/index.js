@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { client } from '../../service/client'
+import NavBar from '../../components/navbar'
 
 export const WorkshopList = () => {
   const [workshop, setWorkshop] = useState([])
@@ -11,6 +12,7 @@ export const WorkshopList = () => {
   }, [])
   return (
     <>
+    <NavBar/>
       <h1>Lista de Oficinas</h1>
         <ul>
         {workshop.map((user, index) => (
