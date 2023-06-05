@@ -32,6 +32,7 @@
 
 No diretório do projeto, você pode executar:
 
+
 ### `yarn start`
 
 Executando o app no modo desenvolvedor\
