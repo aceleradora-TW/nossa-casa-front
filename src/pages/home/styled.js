@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-
+import mural from './mural.png'
 const Home = styled.div`
   background-color: white;
   width: 100%;
   height: 100vh;
-
+  
   main {
     height: 100vh;
     .carrossel{
@@ -17,7 +17,11 @@ const Home = styled.div`
         font-size: 2em;
       }
     }
-
+    slide1 {
+      background-image: url(${mural});
+      width: 100%;
+      height: 100%
+    }
     .about {
       background-color: #FFFFFF;
       height: 627px;
