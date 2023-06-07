@@ -6,6 +6,9 @@ const NavBarComponent = styled.nav`
   display: flex;
   align-items: center;
   padding: 0 5%;
+  position: fixed;
+  top: 0;
+  width: 100%;
 
   div {
     width: 100%;
@@ -18,7 +21,7 @@ const NavBarComponent = styled.nav`
     text-decoration: none;
     text-align: center;
     padding: 20px;
-    font-family: 'Ubuntu';
+    font-family: 'Arial';
     font-weight: 400;
     font-size: 16px;
     line-height: 14px;
