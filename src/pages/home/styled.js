@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import mural from './mural.png'
 const Home = styled.div`
   background-color: white;
   width: 100%;
@@ -8,20 +7,46 @@ const Home = styled.div`
   main {
     height: 100vh;
     .carrossel{
-      height: 652px;
-      background-color: #E9EEF1;
-
+      height: 707px;
+      background-color: #516B84;
+      color: #FFFFFF;
+  
       h1 {
-        padding-left: 140px;
-        padding-top: 60px;
-        font-size: 2em;
+        font-size: 2.25rem;
+        padding-left: 200px;
+        margin-bottom: 30px;
+        padding-top: 30px;
       }
     }
-    slide1 {
-      background-image: url(${mural});
-      width: 100%;
-      height: 100%
+    .swiper {
+      height: 560px;
+      width 70%;
     }
+    .mySwiper {
+      width: 70%;
+      margin: auto;
+    }
+    .swiper-slide {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+
+      p {
+        margin: auto;
+        width: 80%;
+        font-size: 2rem;
+      }
+
+      img {
+        margin: auto;
+        width: 100%;
+      }
+      .swiper-pagination > .swiper-pagination-bullet-inactive {
+        color: black;
+        opacity: 1;
+      }
+    }
+
     .about {
       background-color: #FFFFFF;
       height: 627px;

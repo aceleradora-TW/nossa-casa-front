@@ -5,14 +5,14 @@ import Home from './styled'
 import image from './Background.png'
 import foto from './fot.png'
 import mural from './mural.png'
-import fot from '../../components/navbar/logoMarca.png'
+import evento from './evento.png'
 // import { cms } from '../../service/client'
 import Footer from '../../components/footer'
 import ModalGallery from '../../components/galery-modal'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { Pagination, Navigation } from 'swiper'
+import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper'
 
 // import required modules
 // import { A11y, Navigation, Pagination, Scrollbar } from 'swiper'
@@ -32,62 +32,91 @@ export const HomePage = () => {
   //   console.log(index)
   // }
   const swiperStyle = {
-    '--swiper-pagination-color': '#fff'
+    '--swiper-pagination-color': '#FFFFFF',
+    '--swiper-pagination-bullet-inactive-color': '#000000',
+    '--swiper-navigation-color': '#FFFFFF',
+    heigh: '100px',
+    width: '100%'
   }
   return (
     <Home background={mural}>
       <NavBar />
       <main>
-        <section className="teste">
+        <section className="carrossel">
           <h1>EVENTOS</h1>
-              {/* {images.map((attributes, key) => (
-                <Carousel.Item key={key}>
-                  <img src={attributes.imagem_url} className='d-block w-100 h-500' alt='Slide' />
-                  <Carousel.Caption>
-                    <p>{attributes.titulo}</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              ))} */}
+          <Swiper
+            modules={[Pagination, Navigation, Keyboard, Autoplay]}
+            pagination={{
+              type: 'bullets',
+              clickable: 'true'
+            }}
+            navigation={true}
+            className="mySwiper"
+            style={swiperStyle}
+            keyboard={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true
+            }}
+          >
+            <SwiperSlide>
+            <p>
+                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
 
-  <Swiper
-        pagination={{
-          type: 'bullets'
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
-        style={swiperStyle}
-      >
-        <SwiperSlide>
-          <div className='slide1'>
-          <p > teste teste teste teste teste teste teste teste teste </p>
-          </div>
-          </SwiperSlide>
-        <SwiperSlide>
-          <img src={mural} className='slide'/>
-          </SwiperSlide>
-        <SwiperSlide>
-          <img src={mural} className='slide'
-          /></SwiperSlide>
-        <SwiperSlide>
-          <img src={fot} className='slide'/>
-          </SwiperSlide>
-        <SwiperSlide>
-          <img src={fot} className='slide'/>
-          </SwiperSlide>
-        <SwiperSlide>
-          <img src={fot} className='slide'/>
-          </SwiperSlide>
-        <SwiperSlide>
-          <img src={fot} className='slide'/>
-          </SwiperSlide>
-        <SwiperSlide>
-          <img src={fot} className='slide'/>
-          </SwiperSlide>
-        <SwiperSlide>
-          <img src={fot} className='slide'/>
-          </SwiperSlide>
-      </Swiper>
+              </p>
+              <img src={evento} className="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+                  <p>
+                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+
+              </p>
+              <img src={evento} className="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+                  <p>
+                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+
+              </p>
+              <img src={evento} className="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+                  <p>
+                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+
+              </p>
+              <img src={evento} className="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+                  <p>
+                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+
+              </p>
+              <img src={evento} className="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+                  <p>
+                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+
+              </p>
+              <img src={evento} className="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+                  <p>
+                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+
+              </p>
+              <img src={evento} className="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+                  <p>
+                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+
+              </p>
+              <img src={evento} className="slide" />
+            </SwiperSlide>
+          </Swiper>
         </section>
         <section className="about">
           <div className="content">
