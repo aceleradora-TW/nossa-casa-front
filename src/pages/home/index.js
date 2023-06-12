@@ -33,11 +33,11 @@ export const HomePage = () => {
   // }
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
-    '--swiper-pagination-bullet-inactive-color': '#000000',
     '--swiper-navigation-color': '#FFFFFF',
     heigh: '100px',
     width: '100%'
   }
+
   return (
     <Home background={mural}>
       <NavBar />
@@ -54,66 +54,85 @@ export const HomePage = () => {
             className="mySwiper"
             style={swiperStyle}
             keyboard={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true
-            }}
+            // autoplay={{
+            //   delay: 2500,
+            //   disableOnInteraction: false,
+            //   pauseOnMouseEnter: true
+            // }}
           >
             <SwiperSlide>
-            <p>
-                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
-
+              <div>
+              <h2 className='slidetitulo'> II Festa Preta </h2>
+              <p className='descricao'>
+                A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
               </p>
+              </div>
               <img src={evento} className="slide" />
             </SwiperSlide>
             <SwiperSlide>
-                  <p>
-                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
-
-              </p>
+                <div>
+                <h2 className='slidetitulo'> II Festa Preta </h2>
+                <p className='descricao'>
+                   II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+                 </p>
+               </div>
+               <img src={evento} className="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <div>
+                <h2 className='slidetitulo'>
+                 II Festa Preta
+                </h2>
+                <p className='descricao'>
+                 II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade.
+                 Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+                </p>
+              </div>
               <img src={evento} className="slide" />
             </SwiperSlide>
             <SwiperSlide>
-                  <p>
-                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
-
-              </p>
+              <div>
+                <h2 className='slidetitulo'> II Festa Preta </h2>
+                <p className='descricao'>
+                 II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+                </p>
+              </div>
               <img src={evento} className="slide" />
             </SwiperSlide>
             <SwiperSlide>
-                  <p>
-                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
-
-              </p>
+              <div>
+                <h2 className='slidetitulo'> II Festa Preta </h2>
+                <p className='descricao'>
+                 II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+                </p>
+              </div>
               <img src={evento} className="slide" />
             </SwiperSlide>
             <SwiperSlide>
-                  <p>
-                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
-
-              </p>
+              <div>
+                <h2 className='slidetitulo'> II Festa Preta </h2>
+                <p className='descricao'>
+                 II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+                </p>
+              </div>
               <img src={evento} className="slide" />
             </SwiperSlide>
             <SwiperSlide>
-                  <p>
-                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
-
-              </p>
+              <div>
+                <h2 className='slidetitulo'> II Festa Preta </h2>
+                <p className='descricao'>
+                 II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+                </p>
+              </div>
               <img src={evento} className="slide" />
             </SwiperSlide>
             <SwiperSlide>
-                  <p>
-                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
-
-              </p>
-              <img src={evento} className="slide" />
-            </SwiperSlide>
-            <SwiperSlide>
-                  <p>
-                II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
-
-              </p>
+              <div>
+              <h2 className='slidetitulo'> II Festa Preta </h2>
+                <p className='descricao'>
+                 II Festa Preta A Nossa Casa a convite da Subsecretaria de Igualdade Racial do Município de Guarulhos realizou a II FESTA PRETA na cidade. Em comemoração ao dia 20 de Novembro - Consciência Negra! O evento aconteceu no Parque Bosque Maia e mexeu com as estruturas culturais, pretas, periféricas e independentes da cidade.
+                </p>
+              </div>
               <img src={evento} className="slide" />
             </SwiperSlide>
           </Swiper>

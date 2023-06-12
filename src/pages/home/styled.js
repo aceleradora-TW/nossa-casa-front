@@ -10,7 +10,7 @@ const Home = styled.div`
       height: 707px;
       background-color: #516B84;
       color: #FFFFFF;
-  
+     
       h1 {
         font-size: 2.25rem;
         padding-left: 200px;
@@ -30,23 +30,39 @@ const Home = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
+      
+      div {
+        display: flex;
+        flex-direction: column;
+      }
 
-      p {
-        margin: auto;
-        width: 80%;
+      .slidetitulo {
+        margin: 20px auto 30px 50px;
         font-size: 2rem;
+        font-family: Inter;
+      }
+
+      .descricao {
+        margin: 50px 10px 10px 50px;
+        width: 80%;
+        font-size: 36px;
+        font-family: Inter;
+        cursor: default;
+        
+      }
+      @media (max-width: 375px) {
+          font-size: 20px;
+          color: red;
       }
 
       img {
         margin: auto;
-        width: 100%;
-      }
-      .swiper-pagination > .swiper-pagination-bullet-inactive {
-        color: black;
-        opacity: 1;
+        width: 85%;
       }
     }
-
+    .swiper-pagination {
+    }
+    
     .about {
       background-color: #FFFFFF;
       height: 627px;
@@ -59,6 +75,7 @@ const Home = styled.div`
         grid-template-columns: 1fr 1fr;
         gap: 30px;
       }
+      
       .content > div {
         width: 80%;
         margin: 0 auto;
@@ -150,7 +167,8 @@ const Home = styled.div`
       }
     }
   }
-
+  
+  
 `
 
 export default Home
