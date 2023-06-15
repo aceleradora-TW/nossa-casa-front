@@ -2,25 +2,27 @@ import styled from 'styled-components'
 
 const NavBarComponent = styled.nav`
   background-color: black;
-  height: 4em;
   display: flex;
   align-items: center;
-  padding: 0 5%;
-  position: fixed;
-  top: 0;
-  width: 100%;
+  color: white;
+  flex-wrap: wrap;
+  padding: 15px 10px;
+  justify-content: space-between;
 
   div {
-    width: 100%;
     display: flex;
     justify-content: center;
+  }
+
+  .redirecionamento {
+    gap: 10px;
+    flex-wrap: wrap;
   }
   
   a {
     color: #ffffff;
     text-decoration: none;
     text-align: center;
-    padding: 20px;
     font-family: 'Arial';
     font-weight: 400;
     font-size: 16px;
@@ -58,31 +60,33 @@ const NavBarComponent = styled.nav`
 
   }
 
-  @media screen and (max-width: 768px) {
-    /* Estilos para telas menores que 768px */
-    padding: 0 2%;
-
-    div {
-      padding: 0;
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+  @media (min-width:320px)  { 
+    .icon-menu {
+      display: block;
     }
 
-    button {
-      width: 120px;
+    .redirecionamento {
+      display: none;
     }
   }
-
-  @media screen and (max-width: 480px) {
-    /* Estilos para telas menores que 480px */
-    padding: 0 1%;
-
-    div {
-      padding: 0;
+  /* smartphones, Android phones, landscape iPhone */
+  @media (min-width:480px)  {
+    
+  }
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+  @media (min-width:600px)  {
+    .icon-menu {
+      display: none;
     }
 
-    button {
-      width: 100px;
+    .redirecionamento {
+      display: flex;
     }
   }
+  @media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+  @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+  @media (min-width:1281px) { /* hi-res laptops and desktops */ }
 `
 
 export default NavBarComponent
