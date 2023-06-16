@@ -3,14 +3,14 @@ const Home = styled.div`
   background-color: white;
   width: 100%;
   height: 100vh;
-  
+
   main {
     height: 100vh;
-    .carrossel{
+    .carrossel {
       height: 707px;
-      background-color: #516B84;
-      color: #FFFFFF;
-     
+      background-color: #516b84;
+      color: #ffffff;
+
       h1 {
         font-size: 2.25rem;
         padding-left: 200px;
@@ -20,7 +20,7 @@ const Home = styled.div`
     }
     .swiper {
       height: 560px;
-      width 70%;
+      width: 70%;
     }
     .mySwiper {
       width: 70%;
@@ -30,41 +30,50 @@ const Home = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
-      
+
       div {
         display: flex;
         flex-direction: column;
+        background-size: cover;
+        width: 100%;
       }
 
       .slidetitulo {
         margin: 20px auto 30px 50px;
         font-size: 2rem;
         font-family: Inter;
+        position: fixed;
+        z-index: 1;
       }
 
       .descricao {
         margin: 50px 10px 10px 50px;
         width: 80%;
-        font-size: 36px;
+        font-size: 35px;
         font-family: Inter;
         cursor: default;
-        
-      }
-      @media (max-width: 375px) {
+        text-align: justify;
+        position: fixed;
+        z-index: 1;
+
+        @media (max-width: 375px) {
           font-size: 20px;
           color: red;
+        }
       }
 
       img {
         margin: auto;
-        width: 85%;
+        width: 100vw;
+        heigh: 100vh;
+        position: fixed;
       }
     }
     .swiper-pagination {
     }
-    
+
     .about {
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       height: 627px;
       display: flex;
       flex-direction: column;
@@ -75,7 +84,7 @@ const Home = styled.div`
         grid-template-columns: 1fr 1fr;
         gap: 30px;
       }
-      
+
       .content > div {
         width: 80%;
         margin: 0 auto;
@@ -85,8 +94,8 @@ const Home = styled.div`
         }
       }
       button {
-        background-color: #424B5A;
-        color: #FFFFFF;
+        background-color: #424b5a;
+        color: #ffffff;
         border: none;
         width: 168px;
         height: 40px;
@@ -95,7 +104,7 @@ const Home = styled.div`
 
     .galeria {
       height: 1036px;
-      background-color: #516B84;
+      background-color: #516b84;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
@@ -104,7 +113,7 @@ const Home = styled.div`
       h2 {
         text-align: center;
         font-size: 3.125rem;
-        color: #FFFFFF;
+        color: #ffffff;
       }
 
       .painel {
@@ -113,12 +122,12 @@ const Home = styled.div`
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 10px;
-        grid-row-gap: 10px; 
+        grid-row-gap: 10px;
       }
 
       button {
-        background: linear-gradient(180deg, #516B848F 0%, #FFFFFF 100%);
-        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.40);
+        background: linear-gradient(180deg, #516b848f 0%, #ffffff 100%);
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
         border-radius: 3px;
         color: #000000;
         border: none;
@@ -157,7 +166,7 @@ const Home = styled.div`
           width: 30%;
 
           h3 {
-          text-align: center;
+            text-align: center;
           }
 
           p {
@@ -167,8 +176,6 @@ const Home = styled.div`
       }
     }
   }
-  
-  
 `
 
 export default Home
