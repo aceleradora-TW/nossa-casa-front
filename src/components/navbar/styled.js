@@ -15,10 +15,21 @@ const NavBarComponent = styled.nav`
   }
 
   .redirecionamento {
-    gap: 10px;
+    gap: 20px;
     flex-wrap: wrap;
+    align-items: center;
+    a{
+      text-transform: capitalize;
+    }
   }
   
+  .ser-parceire{
+    background-color: #F5BC4A;
+    color: black;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
   a {
     color: #ffffff;
     text-decoration: none;
@@ -57,7 +68,17 @@ const NavBarComponent = styled.nav`
     width: 65px;
     left: 121px;
     border-radius: 250px;
+  }
+  
+  .icon-menu {
+    font-size: 30px;
+    cursor: pointer;
+  }
 
+  .aparece{
+    display: flex !important;
+    flex-direction: column;
+    
   }
 
   /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
