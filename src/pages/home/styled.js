@@ -7,16 +7,9 @@ const Home = styled.div`
   main {
     height: 100vh;
     .carrossel {
-      height: 707px;
       background-color: #516b84;
       color: #ffffff;
 
-      h1 {
-        font-size: 2.25rem;
-        padding-left: 200px;
-        margin-bottom: 30px;
-        padding-top: 30px;
-      }
     }
     .swiper {
       height: 560px;
@@ -27,33 +20,34 @@ const Home = styled.div`
       margin: auto;
     }
     .swiper-slide {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr;
 
       div {
         display: flex;
+        justify-content: space-between;
         flex-direction: column;
         background-size: cover;
         width: 100%;
+        
       }
 
       .slidetitulo {
         margin: 20px auto 30px 50px;
         font-size: 2rem;
-        font-family: Inter;
-        position: fixed;
+        font-family: 'Inter', sans-serif;
+        float: inline-start;
         z-index: 1;
+        align-items:center;
       }
 
       .descricao {
         margin: 50px 10px 10px 50px;
-        width: 80%;
-        font-size: 35px;
-        font-family: Inter;
+        width: 50%;
+        font-size: 24px;
+        font-family: 'Inter', sans-serif;
+        line-height: 30px;
         cursor: default;
         text-align: justify;
-        position: fixed;
+        float: inline-start;
         z-index: 1;
 
         @media (max-width: 375px) {
@@ -63,10 +57,25 @@ const Home = styled.div`
       }
 
       img {
-        margin: auto;
+
         width: 100vw;
-        heigh: 100vh;
+        height: 100vh;
         position: fixed;
+      }
+      .ver-mais {
+        float:inline-start;
+        z-index:1;
+        background-color: #F5BC4A;
+        border: 1px solid ;
+        border-radius: 5px ;
+        width: 250px;
+        height: 40px;
+        margin-left: 10%;
+        text-align:center;
+        padding:15px;
+        color: black;
+
+
       }
     }
     .swiper-pagination {

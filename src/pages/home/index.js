@@ -13,6 +13,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper'
+import { Link } from 'react-router-dom'
 
 // import required modules
 // import { A11y, Navigation, Pagination, Scrollbar } from 'swiper'
@@ -70,8 +71,9 @@ export const HomePage = () => {
                   estruturas culturais, pretas, periféricas e independentes da
                   cidade.
                 </p>
+                <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
+                <img src={evento} className="slideimage" />
               </div>
-              <img src={evento} className="slideimage" />
             </SwiperSlide>
             <SwiperSlide>
               <div>
