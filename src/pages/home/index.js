@@ -1,15 +1,11 @@
 import Home from './styled'
-import image from './Background.png'
-import foto from './fot.png'
 import NavBar from '../../components/navbar'
-import Footer from '../../components/footer'
-import ModalGallery from '../../components/galery-modal'
 
 export const HomePage = () => {
   return (
     <Home>
       <NavBar />
-      <main>
+      {/* <main>
         <section className='carrossel'>
           <h1>EVENTOS</h1>
         </section>
@@ -70,7 +66,7 @@ export const HomePage = () => {
           </div>
         </section>
         <Footer/>
-      </main>
+      </main> */}
     </Home>
   )
 }

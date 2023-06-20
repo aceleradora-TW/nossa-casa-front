@@ -83,12 +83,45 @@ const NavBarComponent = styled.nav`
 
   /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
   @media (min-width:320px)  { 
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "logo . icon" 
+    "menu menu menu";
+    
+    .container-logo{
+      grid-area: logo;
+      justify-self:start;
+    }
+
+
     .icon-menu {
       display: block;
+      grid-area: icon;
+      justify-self:end;
+
     }
 
     .redirecionamento {
       display: none;
+      grid-area: menu;
+      gap:0;
+      padding-top:15px;
+      a {
+        width:100%;
+        text-align:left;
+        padding:10px 0;
+        border-top:1px solid darkgray;
+      }
+
+      .ser-parceire{
+        text-align:center;
+        border-top:none;
+      }
+    }
+
+    .aparece{
+      
     }
   }
   /* smartphones, Android phones, landscape iPhone */
@@ -97,14 +130,42 @@ const NavBarComponent = styled.nav`
   }
   /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
   @media (min-width:600px)  {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-wrap: wrap;
+    padding: 15px 30px;
+    justify-content: space-between;
+
     .icon-menu {
       display: none;
     }
 
     .redirecionamento {
       display: flex;
+      flex-direction:row;
+    }
+
+    .redirecionamento {
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    a{
+      border:none;
+      width:auto;
+      text-transform: capitalize;
     }
   }
+  
+  .ser-parceire{
+    background-color: #F5BC4A;
+    color: black;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  }
+
   @media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
   @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
   @media (min-width:1281px) { /* hi-res laptops and desktops */ }

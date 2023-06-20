@@ -14,17 +14,17 @@ const NavBar = () => {
 
   return (
     <NavBarComponent>
-      <NavLink to={'../'}>
         <div className='container-logo'>
-          <img src={logo} />
+          <NavLink to={'../'}>
+            <img src={logo} />
+          </NavLink>
         </div>
-      </NavLink>
       <div className={`redirecionamento ${toggle}`}>
         <NavLink to={'../'}>Sobre</NavLink>
         <NavLink to={'/events'}>Eventos</NavLink>
         <NavLink to={'/therapies'}>Terapias</NavLink>
         <NavLink to={'/workshops'}>Oficinas</NavLink>
-        <a className='ser-parceire' href={linkParceiro}>
+        <a target='_blank' className='ser-parceire' href={linkParceiro } rel="noreferrer" >
           Ser parceire
         </a>
       </div>
