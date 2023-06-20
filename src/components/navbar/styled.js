@@ -34,9 +34,8 @@ const NavBarComponent = styled.nav`
     color: #ffffff;
     text-decoration: none;
     text-align: center;
-    font-family: 'Arial';
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 14px;
     text-transform: uppercase;
 
@@ -65,7 +64,6 @@ const NavBarComponent = styled.nav`
 
   img {
     height: 63px;
-    width: 65px;
     left: 121px;
     border-radius: 250px;
   }
