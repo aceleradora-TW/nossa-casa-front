@@ -15,7 +15,7 @@ const NavBarComponent = styled.nav`
   }
 
   .redirecionamento {
-    gap: 20px;
+    gap: 40px;
     flex-wrap: wrap;
     align-items: center;
     a{
@@ -30,20 +30,7 @@ const NavBarComponent = styled.nav`
     border-radius: 5px;
   }
 
-  a {
-    color: #ffffff;
-    text-decoration: none;
-    text-align: center;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 14px;
-    text-transform: uppercase;
-
-    &:hover {
-      color: #F5BC4A;
-    }
-  }
-
+ 
   button {
     background: linear-gradient(180deg, rgba(81, 107, 132, 1) 0%, rgba(187, 197, 207, 1) 50%, rgba(255, 255, 255, 1) 100%);
     width: 146px;
@@ -62,12 +49,6 @@ const NavBarComponent = styled.nav`
     display: flex;
   }
 
-  img {
-    height: 63px;
-    left: 121px;
-    border-radius: 250px;
-  }
-  
   .icon-menu {
     font-size: 30px;
     cursor: pointer;
@@ -79,7 +60,7 @@ const NavBarComponent = styled.nav`
     
   }
 
-  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+  /* smartphones */
   @media (min-width:320px)  { 
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -122,18 +103,15 @@ const NavBarComponent = styled.nav`
       
     }
   }
-  /* smartphones, Android phones, landscape iPhone */
-  @media (min-width:480px)  {
-    
-  }
-  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+
+  /* Desktop , PCs*/
   @media (min-width:600px)  {
     background-color: black;
     display: flex;
     align-items: center;
     color: white;
     flex-wrap: wrap;
-    padding: 15px 30px;
+    padding: 15px 60px;
     justify-content: space-between;
 
     .icon-menu {
@@ -162,11 +140,28 @@ const NavBarComponent = styled.nav`
     padding: 15px;
     border-radius: 5px;
   }
+
+  
+  img {
+    height: 80px;
+    left: 121px;
   }
 
-  @media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
-  @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
-  @media (min-width:1281px) { /* hi-res laptops and desktops */ }
+   a {
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 14px;
+    text-transform: uppercase;
+
+    &:hover {
+      color: #F5BC4A;
+    }
+  }
+  }
+
 `
 
 export default NavBarComponent
