@@ -1,9 +1,9 @@
 import Home from './styled'
 import image from './Background.png'
-import foto from './fot.png'
 import NavBar from '../../components/navbar'
 import Footer from '../../components/footer'
 import ModalGallery from '../../components/galery-modal'
+import fotoGaleria from './nossacasa.png'
 
 export const HomePage = () => {
   return (
@@ -28,12 +28,12 @@ export const HomePage = () => {
         <section className='galeria'>
           <h2>Galeria de fotos</h2>
           <div className='painel'>
-            <img src={foto} />
-            <img src={foto} />
-            <img src={foto} />
-            <img src={foto} />
-            <img src={foto} />
-            <img src={foto} />
+            <img src={fotoGaleria} />
+            <img src={fotoGaleria} />
+            <img src={fotoGaleria} />
+            <img src={fotoGaleria} />
+            <img src={fotoGaleria} />
+            <img src={fotoGaleria} />
           </div>
           <ModalGallery />
         </section>
