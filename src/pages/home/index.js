@@ -54,24 +54,27 @@ export const HomePage = () => {
             className="mySwiper"
             style={swiperStyle}
             keyboard={true}
-            // autoplay={{
-            //   delay: 2500,
-            //   disableOnInteraction: false,
-            //   pauseOnMouseEnter: true
-            // }}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          //   pauseOnMouseEnter: true
+          // }}
           >
             <SwiperSlide>
-              <div>
+              <div className='slide-container'>
                 <h2 className="slidetitulo"> II Festa Preta </h2>
-                <p className="descricao">
-                  A Nossa Casa a convite da Subsecretaria de Igualdade Racial do
-                  Município de Guarulhos realizou a II FESTA PRETA na cidade. Em
-                  comemoração ao dia 20 de Novembro - Consciência Negra! O
-                  evento aconteceu no Parque Bosque Maia e mexeu com as
-                  estruturas culturais, pretas, periféricas e independentes da
-                  cidade.
-                </p>
-                <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
+                <div className='event-container'>
+                  <p className="descricao">
+                    A Nossa Casa a convite da Subsecretaria de Igualdade Racial do
+                    Município de Guarulhos realizou a II FESTA PRETA na cidade.
+
+                    Em comemoração ao dia 20 de Novembro - Consciência Negra!
+                    O evento aconteceu no Parque Bosque Maia e mexeu com as
+                    estruturas culturais, pretas, periféricas e independentes da
+                    cidade.
+                  </p>
+                  <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
+                </div>
                 <img src={evento} className="slideimage" />
               </div>
             </SwiperSlide>

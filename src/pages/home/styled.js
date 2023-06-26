@@ -7,7 +7,7 @@ const Home = styled.div`
   main {
     height: 100vh;
     .carrossel {
-      background-color: #516b84;
+      background-color: #010101;
       color: #ffffff;
 
     }
@@ -23,13 +23,13 @@ const Home = styled.div`
 
       div {
         display: flex;
-        justify-content: space-between;
         flex-direction: column;
-        background-size: cover;
         width: 100%;
         
       }
-
+      .slide-container {
+        display: flex;
+      }
       .slidetitulo {
         margin: 20px auto 30px 50px;
         font-size: 2rem;
@@ -42,28 +42,29 @@ const Home = styled.div`
       .descricao {
         margin: 50px 10px 10px 50px;
         width: 50%;
-        font-size: 24px;
         font-family: 'Inter', sans-serif;
+        font-size: 1.3rem;
         line-height: 30px;
         cursor: default;
         text-align: justify;
-        float: inline-start;
         z-index: 1;
 
         @media (max-width: 375px) {
           font-size: 20px;
           color: red;
         }
+
       }
-
       img {
-
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         position: fixed;
+        opacity: 50%;
+      }
+      .event-container {
+        
       }
       .ver-mais {
-        float:inline-start;
         z-index:1;
         background-color: #F5BC4A;
         border: 1px solid ;
@@ -71,10 +72,27 @@ const Home = styled.div`
         width: 250px;
         height: 40px;
         margin-left: 10%;
-        text-align:center;
-        padding:15px;
+        text-align: center;
+        padding: 10px;
         color: black;
+        text-decoration: none;
+        margin-top: 3%;
+      }
+      @media (min-width: 375px) and (max-width: 480px) {
+        .descricao {
+          font-size: 0.8em;
+        }
+      }
+      
+      @media (min-width: 481px) and (max-width: 768px) {
 
+      }
+      
+      @media (min-width: 769px) and (max-width: 992px) {
+
+      }
+      
+      @media (min-width: 993px) and (max-width: 1280px) {
 
       }
     }
