@@ -2,26 +2,8 @@ import styled from 'styled-components'
 
 const NavBarComponent = styled.nav`
   background-color: black;
-  display: flex;
   align-items: center;
   color: white;
-  flex-wrap: wrap;
-  padding: 15px 10px;
-  justify-content: space-between;
-
-  div {
-    display: flex;
-    justify-content: center;
-  }
-
-  .redirecionamento {
-    gap: 40px;
-    flex-wrap: wrap;
-    align-items: center;
-    a{
-      text-transform: capitalize;
-    }
-  }
   
   .ser-parceire{
     background-color: #F5BC4A;
@@ -40,19 +22,12 @@ const NavBarComponent = styled.nav`
     text-decoration: none;
     text-align: center;
     font-weight: 400;
-    font-size: 0.90rem;
+    font-size: 1.2rem;
     line-height: 14px;
     text-transform: uppercase;
     &:hover {
       color: #F5BC4A;
     }
-  }
-
-  button {
-    background: linear-gradient(180deg, rgba(81, 107, 132, 1) 0%, rgba(187, 197, 207, 1) 50%, rgba(255, 255, 255, 1) 100%);
-    width: 146px;
-    height: 40px;
-    border-radius: 3px;
   }
 
   .container-logo {
@@ -70,7 +45,6 @@ const NavBarComponent = styled.nav`
   .aparece{
     display: flex !important;
     flex-direction: column;
-    
   }
 
   /* smartphones */
@@ -111,18 +85,12 @@ const NavBarComponent = styled.nav`
         border-top:none;
       }
     }
-
-    .aparece{
-      
-    }
   }
 
   /* Desktop , PCs*/
   @media (min-width:600px)  {
-    background-color: black;
     display: flex;
     align-items: center;
-    color: white;
     flex-wrap: wrap;
     padding: 15px 60px;
     justify-content: space-between;
@@ -137,7 +105,7 @@ const NavBarComponent = styled.nav`
     }
 
     .redirecionamento {
-    gap: 20px;
+    gap: 40px;
     flex-wrap: wrap;
     align-items: center;
     a{
@@ -148,30 +116,13 @@ const NavBarComponent = styled.nav`
   }
   
   .ser-parceire{
-    background-color: #F5BC4A;
     color: black;
     padding: 15px;
-    border-radius: 5px;
   }
-
   
   img {
     height: 80px;
     left: 121px;
-  }
-
-    a {
-    color: #ffffff;
-    text-decoration: none;
-    text-align: center;
-    font-weight: 400;
-    font-size: 1.2rem;
-    line-height: 14px;
-    text-transform: uppercase;
-
-    &:hover {
-      color: #F5BC4A;
-    }
   }
   }
 
