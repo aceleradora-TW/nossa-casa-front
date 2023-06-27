@@ -25,21 +25,34 @@ const NavBarComponent = styled.nav`
   
   .ser-parceire{
     background-color: #F5BC4A;
-    color: black;
-    padding: 15px;
+    font-weight: bold;
     border-radius: 5px;
+    &:hover {
+      color:#E4E7EB;
+    }
+    &:active {
+      background: linear-gradient(360deg, rgba(81, 107, 132, 1) 0%, rgba(187, 197, 207, 1) 50%, rgba(255, 255, 255, 1) 100%);
+    }
   }
 
- 
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 400;
+    font-size: 0.90rem;
+    line-height: 14px;
+    text-transform: uppercase;
+    &:hover {
+      color: #F5BC4A;
+    }
+  }
+
   button {
     background: linear-gradient(180deg, rgba(81, 107, 132, 1) 0%, rgba(187, 197, 207, 1) 50%, rgba(255, 255, 255, 1) 100%);
     width: 146px;
     height: 40px;
     border-radius: 3px;
-
-    &:active {
-      background: linear-gradient(360deg, rgba(81, 107, 132, 1) 0%, rgba(187, 197, 207, 1) 50%, rgba(255, 255, 255, 1) 100%);
-    }
   }
 
   .container-logo {
@@ -89,7 +102,7 @@ const NavBarComponent = styled.nav`
       a {
         width:100%;
         text-align:left;
-        padding:10px 0;
+        padding: 15px;
         border-top:1px solid darkgray;
       }
 
@@ -147,7 +160,7 @@ const NavBarComponent = styled.nav`
     left: 121px;
   }
 
-   a {
+    a {
     color: #ffffff;
     text-decoration: none;
     text-align: center;

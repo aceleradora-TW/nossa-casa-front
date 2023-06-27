@@ -25,7 +25,7 @@ const NavBar = () => {
         <NavLink to={'/events'}>Eventos</NavLink>
         <NavLink to={'/therapies'}>Terapias</NavLink>
         <NavLink to={'/workshops'}>Oficinas</NavLink>
-        <a target='_blank' className={newLocal} href={linkParceiro } rel="noreferrer" >
+        <a target='_blank' className={newLocal} href={linkParceiro } rel="noreferrer">
           Ser parceire
         </a>
       </div>
