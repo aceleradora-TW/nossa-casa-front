@@ -1,12 +1,10 @@
-// import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import NavBar from '../../components/navbar'
 import Home from './styled'
-import image from './Background.png'
 import foto from './fot.png'
 import mural from './mural.png'
-import evento from './evento.png'
-// import { cms } from '../../service/client'
+import { cms } from '../../service/client'
 import Footer from '../../components/footer'
 import ModalGallery from '../../components/galery-modal'
 import 'swiper/css'
@@ -19,26 +17,36 @@ import { Link } from 'react-router-dom'
 // import { A11y, Navigation, Pagination, Scrollbar } from 'swiper'
 
 export const HomePage = () => {
-  // const [images, setImages] = useState([])
-  // const [index, setIndex] = useState(0)
-  // useEffect(() => {
-  //   cms.get('api/eventos').then(async (response) => {
-  // const { data } = response.data
-  // setImages(data.map((data) => data.attributes))
-  //   })
-  // }, [])
-  // const handleSelect = (selectedIndex) => {
-  //   console.log(index)
-  //   setIndex(selectedIndex + 1)
-  //   console.log(index)
-  // }
+  const [image, setImage] = useState([])
+
+  const dataAttributes = async (response) => {
+    const { attributes } = await response.data.data
+    console.log(response.data.data)
+    if (attributes.destaque) {
+      return attributes
+    }
+    return false
+  }
+
+  useEffect(() => {
+    cms.get('api/eventos/8?populate=Foto_divulgacao').then(async (response) => {
+      if (dataAttributes(response)) {
+        const images = await dataAttributes(response)
+        return setImage(images.Foto_divulgacao.data.map((data) => {
+          return data.attributes
+        }))
+      }
+      console.log('hahah')
+      return console.log(dataAttributes(response))
+    })
+  }, [])
+  console.log(image)
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
     '--swiper-navigation-color': '#FFFFFF',
     heigh: '100px',
     width: '100%'
   }
-
   return (
     <Home background={mural}>
       <NavBar />
@@ -60,22 +68,15 @@ export const HomePage = () => {
           //   pauseOnMouseEnter: true
           // }}
           >
-            <SwiperSlide>
+            <SwiperSlide >
               <div className='slide-container'>
-                <h2 className="slidetitulo"> II Festa Preta </h2>
+                <h2 className="slidetitulo"> {'asdasdsasad'} </h2>
                 <div className='event-container'>
                   <p className="descricao">
-                    A Nossa Casa a convite da Subsecretaria de Igualdade Racial do
-                    Município de Guarulhos realizou a II FESTA PRETA na cidade.
-
-                    Em comemoração ao dia 20 de Novembro - Consciência Negra!
-                    O evento aconteceu no Parque Bosque Maia e mexeu com as
-                    estruturas culturais, pretas, periféricas e independentes da
-                    cidade.
                   </p>
                   <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
                 </div>
-                <img src={evento} className="slideimage" />
+                <img src={`http://localhost:1337${image.map((data) => data.url)}`} className="slideimage" />
               </div>
             </SwiperSlide>
             <SwiperSlide>

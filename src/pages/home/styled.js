@@ -61,9 +61,7 @@ const Home = styled.div`
         position: fixed;
         opacity: 50%;
       }
-      .event-container {
-        
-      }
+
       .ver-mais {
         z-index:1;
         background-color: #F5BC4A;
