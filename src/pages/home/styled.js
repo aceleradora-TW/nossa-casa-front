@@ -5,6 +5,7 @@ const Home = styled.div`
   width: 100%;
   height: 100vh;
 
+
   main {
     height: 100vh;
     .carrossel{

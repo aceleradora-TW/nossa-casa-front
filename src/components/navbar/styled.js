@@ -1,19 +1,28 @@
 import styled from 'styled-components'
 
-const NavBarComponent = styled.nav`
-  background-color: black;
+const NavBarComponent = styled.nav.attrs(props => ({ className: props.className || '' }))`
+
+.oiw{
+  background-color:red;
+}
+
   align-items: center;
   color: white;
-  
-  .ser-parceire{
-    background-color: #F5BC4A;
+
+  .ser-parceire {
+    background-color: #f5bc4a;
     font-weight: bold;
     border-radius: 5px;
     &:hover {
-      color:#E4E7EB;
+      color: #e4e7eb;
     }
     &:active {
-      background: linear-gradient(360deg, rgba(81, 107, 132, 1) 0%, rgba(187, 197, 207, 1) 50%, rgba(255, 255, 255, 1) 100%);
+      background: linear-gradient(
+        360deg,
+        rgba(81, 107, 132, 1) 0%,
+        rgba(187, 197, 207, 1) 50%,
+        rgba(255, 255, 255, 1) 100%
+      );
     }
   }
 
@@ -26,7 +35,7 @@ const NavBarComponent = styled.nav`
     line-height: 14px;
     text-transform: uppercase;
     &:hover {
-      color: #F5BC4A;
+      color: #f5bc4a;
     }
   }
 
@@ -42,53 +51,54 @@ const NavBarComponent = styled.nav`
     cursor: pointer;
   }
 
-  .aparece{
+  .aparece {
     display: flex !important;
     flex-direction: column;
   }
 
   /* smartphones */
-  @media (min-width:320px)  { 
-    display:grid;
+  @media (min-width: 320px) {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 
-    "logo . icon" 
-    "menu menu menu";
-    
-    .container-logo{
-      grid-area: logo;
-      justify-self:start;
-    }
+    grid-template-areas:
+      "logo . icon"
+      "menu menu menu";
 
+    .container-logo {
+      grid-area: logo;
+      justify-self: start;
+    }
 
     .icon-menu {
       display: block;
       grid-area: icon;
-      justify-self:end;
-
+      justify-self: end;
     }
 
     .redirecionamento {
       display: none;
       grid-area: menu;
-      gap:0;
-      padding-top:15px;
+      gap: 0;
+      padding-top: 15px;
       a {
-        width:100%;
-        text-align:left;
+        width: 100%;
+        text-align: left;
         padding: 15px;
-        border-top:1px solid darkgray;
+        border-top: 1px solid darkgray;
       }
 
-      .ser-parceire{
-        text-align:center;
-        border-top:none;
+      .ser-parceire {
+        text-align: center;
+        border-top: none;
       }
     }
   }
 
   /* Desktop , PCs*/
-  @media (min-width:600px)  {
+  @media (min-width: 600px) {
+      .oiw{
+    background:red;
+  }
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -101,31 +111,30 @@ const NavBarComponent = styled.nav`
 
     .redirecionamento {
       display: flex;
-      flex-direction:row;
+      flex-direction: row;
     }
 
     .redirecionamento {
-    gap: 40px;
-    flex-wrap: wrap;
-    align-items: center;
-    a{
-      border:none;
-      width:auto;
-      text-transform: capitalize;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+      a {
+        border: none;
+        width: auto;
+        text-transform: capitalize;
+      }
+    }
+
+    .ser-parceire {
+      color: black;
+      padding: 15px;
+    }
+
+    img {
+      height: 80px;
+      left: 121px;
     }
   }
-  
-  .ser-parceire{
-    color: black;
-    padding: 15px;
-  }
-  
-  img {
-    height: 80px;
-    left: 121px;
-  }
-  }
-
 `
 
 export default NavBarComponent

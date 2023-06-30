@@ -12,26 +12,49 @@ const NavBar = () => {
     setToggle(toggle === 'aparece' ? '' : 'aparece')
   }
 
+  // const [setIsFixed] = useState(false)
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY > 0) {
+  //       setIsFixed(true)
+  //     } else {
+  //       setIsFixed(false)
+  //     }
+  //   }
+
+  //   window.addEventListener('scroll', handleScroll)
+
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll)
+  //   }
+  // }, [])
+
   const newLocal = 'ser-parceire'
+
   return (
-    <NavBarComponent>
-        <div className='container-logo'>
+    <NavBarComponent className="oiw" >
+        <div className="container-logo">
           <NavLink to={'../'}>
             <img src={logo} />
           </NavLink>
         </div>
-      <div className={`redirecionamento ${toggle}`}>
-        <NavLink to={'../'}>Sobre</NavLink>
-        <NavLink to={'/events'}>Eventos</NavLink>
-        <NavLink to={'/therapies'}>Terapias</NavLink>
-        <NavLink to={'/workshops'}>Oficinas</NavLink>
-        <a target='_blank' className={newLocal} href={linkParceiro } rel="noreferrer">
-          Ser parceire
-        </a>
-      </div>
-      <span className='icon-menu' onClick={onClickMenu}>
-        <FontAwesomeIcon icon={faBars} />
-      </span>
+        <div className={`redirecionamento ${toggle}`}>
+          <NavLink to={'../'}>Sobre</NavLink>
+          <NavLink to={'/events'}>Eventos</NavLink>
+          <NavLink to={'/therapies'}>Terapias</NavLink>
+          <NavLink to={'/workshops'}>Oficinas</NavLink>
+          <a
+            target="_blank"
+            className={newLocal}
+            href={linkParceiro}
+            rel="noreferrer"
+          >
+            Ser parceire
+          </a>
+        </div>
+        <span className="icon-menu" onClick={onClickMenu}>
+          <FontAwesomeIcon icon={faBars} />
+        </span>
     </NavBarComponent>
   )
 }
