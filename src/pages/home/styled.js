@@ -48,7 +48,7 @@ const Home = styled.div`
     }
 
     .galeria {
-      height: 1036px;
+      height: 1041px;
       background-color: #FAFAFA;
       display: flex;
       flex-direction: column;
@@ -129,6 +129,23 @@ const Home = styled.div`
           p {
             text-align: center;
           }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1920px) {
+    main {
+      .galeria {
+        height: 1200px;
+        padding: 30px 0;
+
+        .painel {
+          height: 95%;
+        }
+
+        button {
+          margin-bottom: 16px;
         }
       }
     }

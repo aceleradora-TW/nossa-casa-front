@@ -12,6 +12,8 @@ import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 
+const IMAGES = [nossacasa, casa, casadentro, nossacasa, nossacasa, nossacasa]
+
 const ModalGallery = () => {
   const [toggleGallery, setToggleGallery] = useState(false)
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
@@ -37,26 +39,13 @@ const ModalGallery = () => {
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
-        className='my-swiper-1'
+        className='swiper-slide-view'
         >
-          <SwiperSlide>
-            <img src={nossacasa}/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={casa}/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={casadentro}/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={nossacasa}/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={nossacasa}/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={nossacasa}/>
-          </SwiperSlide>
+          {IMAGES.map((image, index) => (
+            <SwiperSlide key={index}>
+              <img src={image} />
+            </SwiperSlide>
+          ))}
         </Swiper>
         <Swiper
         onSwiper={setThumbsSwiper}
@@ -65,26 +54,13 @@ const ModalGallery = () => {
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className='my-swiper-2'
+        className='swiper-thumbnails'
       >
-        <SwiperSlide>
-          <img src={nossacasa}/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={casa}/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={casadentro}/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={nossacasa}/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={nossacasa}/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={nossacasa}/>
-        </SwiperSlide>
+        {IMAGES.map((image, index) => (
+          <SwiperSlide key={index}>
+            <img src={image} />
+          </SwiperSlide>
+        ))}
       </Swiper>
       </ModalContainer>}
   </>

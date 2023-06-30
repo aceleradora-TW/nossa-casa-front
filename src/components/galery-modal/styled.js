@@ -34,60 +34,20 @@ export const ModalContainer = styled.div`
 
   .swiper {
     width: 100%;
-    height: 100%;
-  }
-
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .swiper {
-    width: 100%;
     height: 300px;
     margin-left: auto;
     margin-right: auto;
   }
 
   .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-size: cover;
     background-position: center;
-  }
-
-  .my-swiper-1 {
-    height: 65%;
-    width: 50%;
-  }
-
-  .my-swiper-2 {
-    height: 13%;
-    width: 50%;
-    box-sizing: border-box;
-    padding: 10px 0;
-  }
-
-  .my-swiper-2 .swiper-slide {
-    width: 25%;
-    height: 100%;
-    opacity: 0.4;
-  }
-
-  .my-swiper-2 .swiper-slide-thumb-active {
-    opacity: 1;
-    border: 4px solid #F5BC4A;
   }
 
   .swiper-slide img {
@@ -97,23 +57,67 @@ export const ModalContainer = styled.div`
     object-fit: cover;
   }
 
-  @media (min-width: 1290px) {
+  .swiper-slide-view {
+    height: 65%;
+    width: 50%;
+  }
+
+  .swiper-thumbnails {
+    height: 13%;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px 0;
+  }
+
+  .swiper-thumbnails .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+  }
+
+  .swiper-thumbnails .swiper-slide-thumb-active {
+    opacity: 1;
+    border: 4px solid #F5BC4A;
+  }
+
+  @media (max-width: 1280px) {
 
     .topo {
       margin-bottom: 30px;
     }
 
     .topo > .h2-modal-galery {
-      margin-left: 17.5%;
+      margin-left: 20%;
     }
-    .my-swiper-1 {
+    .swiper-slide-view {
       height: 65%;
-      width: 65%;
+      width: 60%;
     }
 
-    .my-swiper-2 {
-      height: 10%;
-      width: 65%;
+    .swiper-thumbnails {
+      height: 12%;
+      width: 60%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+  }
+
+  @media (min-width: 1281px) {
+
+    .topo > .h2-modal-galery {
+      margin-left: 20%;
+    }
+    .swiper {
+      margin-top: 25px;
+    }
+    .swiper-slide-view {
+      height: 65%;
+      width: 60%;
+    }
+
+    .swiper-thumbnails {
+      height: 12%;
+      width: 60%;
       box-sizing: border-box;
       padding: 10px 0;
     }
