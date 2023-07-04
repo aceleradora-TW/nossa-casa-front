@@ -5,6 +5,7 @@ import NavBar from '../../components/navbar'
 import Footer from '../../components/footer'
 import ModalGallery from '../../components/galery-modal'
 import Parceires from '../../components/parceires/index.js'
+import fotoNossaCasa from './nossacasa.png'
 
 export const HomePage = () => {
   return (
