@@ -1,6 +1,13 @@
 import styled from 'styled-components'
 
 const NavBarComponent = styled.nav.attrs(props => ({ className: props.className || '' }))`
+  top:0;
+  position: fixed;
+  overflow: hidden;
+  background-color: black;
+  width: 100%;
+
+
 
 .oiw{
   background-color:red;
