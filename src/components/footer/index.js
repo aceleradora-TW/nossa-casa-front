@@ -12,7 +12,7 @@ const Footer = () => {
       <img className='logo' src={NossaCasa}/>
       <div>
       <a href={'https://chat.whatsapp.com/BndMXO2VZY7CS04IiJ9An2'}><img src={Whatsapp}/></a>
-      <img src={Spotify}/>
+      <a href={'https://open.spotify.com/playlist/0ww2odZFyDmLVaz7Cfho4x?si=0578cc6f81c142c6&nd=1'}><img src={Spotify}/></a>
       <img src={Facebook}/>
       <a href={'https://www.instagram.com/nossacasa_at/'}><img src={Instagram}/></a>
       </div>
