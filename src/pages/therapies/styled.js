@@ -95,16 +95,6 @@ const Therapies = styled.div`
     }
 
     footer {
-      background-color: #DADADA;
-      height: 155px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-
-      h3 {
-        font-size: 1.5rem;
-      }
 
       div {
         width: 15%;

@@ -1,6 +1,6 @@
 import Home from './styled'
-import image from './Background.png'
-import foto from './fot.png'
+import foto from '../../components/parceires/fot.png'
+import fotoNossaCasa from './nossacasa.png'
 import NavBar from '../../components/navbar'
 import Footer from '../../components/footer'
 import ModalGallery from '../../components/galery-modal'
@@ -15,15 +15,17 @@ export const HomePage = () => {
         </section>
         <section className='about'>
           <div className='content'>
-            <div>
+            <div className='text'>
               <h2>SOBRE O NOSSA CASA</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis est eget mi condimentum, in dictum massa molestie. Vivamus mattis, mauris ac fringilla congue, massa nisi ultrices arcu, sit amet vestibulum turpis ipsum id enim. In sit amet nisi a tortor maximus egestas. Donec bibendum maximus leo. Aliquam volutpat ullamcorper mauris, sed vehicula leo vehicula ac. Aliquam erat volutpat. Quisque pulvinar diam ac velit imperdiet scelerisque in a eros.
+              <p className='Textparagraph'>
+                A Nossa Casa existe há 5 anos no Município de Guarulhos, a segunda maior cidade do Estado de São Paulo, com cerca de 1.379.182 habitantes, sendo destes 45% autodeclarados negros (soma de pretos e pardos), 51,3% mulheres e em sua maioria residentes de áreas periféricas da cidade e de alguma forma em situação de vulnerabilidade, seja financeira, social ou emocional. Guarulhos é gigante e tem muitas necessidades.
               </p>
+              <ModalGallery type={'about'} />
             </div>
-            <img src={image}/>
+            <div className='foto'>
+            <img src={fotoNossaCasa}/>
+            </div>
           </div>
-          <button>SAIBA MAIS</button>
         </section>
         <section className='galeria'>
           <h2>Galeria de fotos</h2>
@@ -35,7 +37,7 @@ export const HomePage = () => {
             <img src={foto} />
             <img src={foto} />
           </div>
-          <ModalGallery />
+          <ModalGallery type={'gallery'} />
         </section>
         <section className='parceires'>
           <h2>Parceires</h2>
@@ -72,5 +74,6 @@ export const HomePage = () => {
         <Footer/>
       </main>
     </Home>
+
   )
 }
