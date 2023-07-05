@@ -54,9 +54,9 @@ export const ModalContainer = styled.div`
     }
 
     p {
-      color:#54636E;
-      font-size: 1rem;
-      text-align: justify;
+      color:#000;
+      font-size:1rem;
+      text-align:justify;
     }
   } 
 
@@ -99,7 +99,7 @@ export const ModalContainer = styled.div`
 
       p {
         
-        font-size: 1rem;
+        font-size: 1.5rem;
       }
     }
   }
@@ -151,9 +151,9 @@ h3 {
 }
 
 p {
- 
+
   font-size: 1rem;
-  line-height:1;
+  line-height:1.5rem;
   
 }
 }

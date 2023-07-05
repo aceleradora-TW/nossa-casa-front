@@ -1,10 +1,9 @@
 import Home from './styled'
-import image from './Background.png'
 import foto from '../../components/parceires/fot.png'
+import fotoNossaCasa from './nossacasa.png'
 import NavBar from '../../components/navbar'
 import Footer from '../../components/footer'
 import ModalGallery from '../../components/galery-modal'
-import Parceires from '../../components/parceires/index.js'
 
 export const HomePage = () => {
   return (
@@ -26,7 +25,6 @@ export const HomePage = () => {
             <div className='foto'>
             <img src={fotoNossaCasa}/>
             </div>
-            <img src={image} />
           </div>
         </section>
         <section className='galeria'>
@@ -41,9 +39,41 @@ export const HomePage = () => {
           </div>
           <ModalGallery type={'gallery'} />
         </section>
-        <Parceires />
-        <Footer />
+        <section className='parceires'>
+          <h2>Parceires</h2>
+          <p>
+            A Nossa Casa é uma Associação sem fins lucrativos, composta por profissionais, artistas e ativistas do Município de Guarulhos.
+          </p>
+          <div className='carrossel-perfis'>
+            <div className='perfil'>
+              <img />
+              <h3>Fulano</h3>
+              <p>CEO</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+              </p>
+            </div>
+            <div className='perfil'>
+              <img />
+              <h3>Fulano</h3>
+              <p>CEO</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+              </p>
+            </div>
+            <div className='perfil'>
+              <img />
+              <h3>Fulano</h3>
+              <p>CEO</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+              </p>
+            </div>
+          </div>
+        </section>
+        <Footer/>
       </main>
-    </Home >
+    </Home>
+
   )
 }

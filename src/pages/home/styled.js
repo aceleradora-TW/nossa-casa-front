@@ -74,9 +74,9 @@ const Home = styled.div`
         grid-row-gap: 10px;
       }
 
-      button{
-        background: linear-gradient(180deg, #516B848F 0%, #FFFFFF 100%);
-        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.40);
+      button {
+        background: linear-gradient(180deg, #516b848f 0%, #ffffff 100%);
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
         border-radius: 3px;
         color: #000000;
         border: none;
