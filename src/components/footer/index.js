@@ -16,7 +16,7 @@ const Footer = () => {
       <img src={Facebook}/>
       <a href={'https://www.instagram.com/nossacasa_at/'}><img src={Instagram}/></a>
       </div>
-      <p>©2023 - Nossa Casa | All rights reserved</p>
+      <p>©2023 - Nossa Casa | Todos os direitos reservados</p>
     </footer>
     </FooterComponent>
   )
