@@ -1,42 +1,48 @@
 import styled from 'styled-components'
 
-const NavBarComponent = styled.nav`
+const NavBarComponent = styled.nav.attrs(props => ({ className: props.className || '' }))`
+  top:0;
+  position: fixed;
+  overflow: hidden;
   background-color: black;
-  height: 4em;
-  display: flex;
-  align-items: center;
-  padding: 0 5%;
+  width: 100%;
 
-  div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+
+
+.oiw{
+  background-color:red;
+}
+
+  align-items: center;
+  color: white;
+
+  .ser-parceire {
+    background-color: #f5bc4a;
+    font-weight: bold;
+    border-radius: 5px;
+    &:hover {
+      color: #e4e7eb;
+    }
+    &:active {
+      background: linear-gradient(
+        360deg,
+        rgba(81, 107, 132, 1) 0%,
+        rgba(187, 197, 207, 1) 50%,
+        rgba(255, 255, 255, 1) 100%
+      );
+    }
   }
-  
+
   a {
     color: #ffffff;
     text-decoration: none;
     text-align: center;
-    padding: 20px;
-    font-family: 'Ubuntu';
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.2rem;
     line-height: 14px;
     text-transform: uppercase;
-
     &:hover {
-      color: #F5BC4A;
-    }
-  }
-
-  button {
-    background: linear-gradient(180deg, rgba(81, 107, 132, 1) 0%, rgba(187, 197, 207, 1) 50%, rgba(255, 255, 255, 1) 100%);
-    width: 146px;
-    height: 40px;
-    border-radius: 3px;
-
-    &:active {
-      background: linear-gradient(360deg, rgba(81, 107, 132, 1) 0%, rgba(187, 197, 207, 1) 50%, rgba(255, 255, 255, 1) 100%);
+      color: #f5bc4a;
     }
   }
 
@@ -47,37 +53,93 @@ const NavBarComponent = styled.nav`
     display: flex;
   }
 
-  img {
-    height: 63px;
-    width: 65px;
-    left: 121px;
-    border-radius: 250px;
-
+  .icon-menu {
+    font-size: 30px;
+    cursor: pointer;
   }
 
-  @media screen and (max-width: 768px) {
-    /* Estilos para telas menores que 768px */
-    padding: 0 2%;
+  .aparece {
+    display: flex !important;
+    flex-direction: column;
+  }
 
-    div {
-      padding: 0;
+  /* smartphones */
+  @media (min-width: 320px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "logo . icon"
+      "menu menu menu";
+
+    .container-logo {
+      grid-area: logo;
+      justify-self: start;
     }
 
-    button {
-      width: 120px;
+    .icon-menu {
+      display: block;
+      grid-area: icon;
+      justify-self: end;
+    }
+
+    .redirecionamento {
+      display: none;
+      grid-area: menu;
+      gap: 0;
+      padding-top: 15px;
+      a {
+        width: 100%;
+        text-align: left;
+        padding: 15px;
+        border-top: 1px solid darkgray;
+      }
+
+      .ser-parceire {
+        text-align: center;
+        border-top: none;
+      }
     }
   }
 
-  @media screen and (max-width: 480px) {
-    /* Estilos para telas menores que 480px */
-    padding: 0 1%;
+  /* Desktop , PCs*/
+  @media (min-width: 600px) {
+      .oiw{
+    background:red;
+  }
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 60px;
+    justify-content: space-between;
 
-    div {
-      padding: 0;
+    .icon-menu {
+      display: none;
     }
 
-    button {
-      width: 100px;
+    .redirecionamento {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .redirecionamento {
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+      a {
+        border: none;
+        width: auto;
+        text-transform: capitalize;
+      }
+    }
+
+    .ser-parceire {
+      color: black;
+      padding: 15px;
+    }
+
+    img {
+      height: 80px;
+      left: 121px;
     }
   }
 `
