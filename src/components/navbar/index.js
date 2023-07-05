@@ -2,13 +2,9 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import NavBarComponent from './styled'
 import logo from './logoMarca.png'
-<<<<<<< HEAD
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 const linkParceiro = process.env.REACT_APP_LINK_PARCEIRO
-=======
-const linkParceiro = process.env.REACT_APP_LINK_PARCEIRE
->>>>>>> 9b7cda91b3a49d096394938f0320392e27a65a11
 
 const NavBar = () => {
   const [toggle, setToggle] = useState('')
