@@ -4,11 +4,8 @@ import fotoNossaCasa from './nossacasa.png'
 import NavBar from '../../components/navbar'
 import Footer from '../../components/footer'
 import ModalGallery from '../../components/galery-modal'
-<<<<<<< HEAD
 import Parceires from '../../components/parceires/index.js'
 import fotoNossaCasa from './nossacasa.png'
-=======
->>>>>>> 9b7cda91b3a49d096394938f0320392e27a65a11
 
 export const HomePage = () => {
   return (
