@@ -21,14 +21,17 @@ const ModalGallery = () => {
   const toggleGalleryHandler = () => {
     setToggleGallery(!toggleGallery)
   }
-
+  const closeAndRefresh = () => {
+    toggleGalleryHandler()
+    window.location.reload()
+  }
   return <>
     <button onClick={toggleGalleryHandler}>Saber mais</button>
     {toggleGallery &&
       <ModalContainer>
         <div className='topo'>
           <h2 className='h2-modal-galery'>Fotos da Nossa Casa</h2>
-          <img className='exit' src={closeIcon} onClick={toggleGalleryHandler}/>
+          <img className='exit' src={closeIcon} onClick={closeAndRefresh}/>
         </div>
         <Swiper
         style={{
