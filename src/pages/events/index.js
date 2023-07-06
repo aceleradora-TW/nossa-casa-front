@@ -4,6 +4,7 @@ import evimg from '../home/Background.png'
 import NavBar from '../../components/navbar'
 import Parceires from '../../components/parceires'
 import Footer from '../../components/footer'
+import Events from '../../components/events-carrosel'
 
 const EventsPage = () => {
   return (
@@ -18,6 +19,7 @@ const EventsPage = () => {
             <input type='text' placeholder='Buscar' />
           </form>
         </section>
+        <Events />
         <section className='carrossel-eventos'>
           <div className='evento'>
             <img src={evimg} />
