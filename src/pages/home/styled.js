@@ -1,12 +1,17 @@
 import styled from 'styled-components'
 const Home = styled.div`
+
   background-color: white;
   width: 100%;
   height: 100vh;
 
+
   main {
+
     height: 100vh;
+
     .carrossel {
+      height: 100%;
       background-color: #010101;
       color: #ffffff;
 
@@ -99,12 +104,14 @@ const Home = styled.div`
 
     .about {
       background-color: #ffffff;
-      height: 627px;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
+
       .content {
+
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 30px;
@@ -117,14 +124,28 @@ const Home = styled.div`
           font-size: 26px;
           margin-bottom: 30px;
         }
+        align-items: center;
+
       }
+     
+
       button {
-        background-color: #424b5a;
-        color: #ffffff;
+        background: #F5BC4A;
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
+        border-radius: 3px;
+        color: #000000;
         border: none;
-        width: 168px;
-        height: 40px;
+        font-size: 1rem;
+        width: 163px;
+        height: 56px;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 10px;
+        margin-top: 1.6rem;
+        margin-bottom: 1.6rem;
       }
+ 
+      
     }
 
     .galeria {
@@ -138,7 +159,7 @@ const Home = styled.div`
       h2 {
         text-align: center;
         font-size: 3.125rem;
-        color: #ffffff;
+        color: #516B84;
       }
 
       .painel {
@@ -156,10 +177,11 @@ const Home = styled.div`
         border-radius: 3px;
         color: #000000;
         border: none;
-        font-size: 14px;
+        font-size: 0.75rem;
         width: 182px;
         height: 40px;
         cursor: pointer;
+       
       }
     }
 
@@ -200,7 +222,76 @@ const Home = styled.div`
         }
       }
     }
+    .about {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  align-items: center;
+  height: 627px;
+}
+
+main .about {
+  height: auto;
+  padding: 10px;
+}
+
+main .about .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+}
+
+.content .text {
+  box-sizing: border-box;
+  text-align: justify;
+  width: 40%;
+  margin-bottom: auto;
+}
+
+.foto img {
+  width: 110%;
+  max-width: auto;
+  margin-left: 3%;
+  border-radius: 3px;
+  margin-bottom: 4.6rem;
+}
+
+@media screen and (min-width: 720px) and (max-width:2920px) {
+  .content > div {
+    width: auto;
+    max-width: auto;
   }
+
+  .content h2 {
+    font-size: 2.25rem;
+    margin-bottom: 30px;
+  }
+
+  .content .Textparagraph {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 35px;
+  }
+
+  .content .text h2 {
+    font-size: 2rem;
+    color: #516B84;
+  }
+
+  .content .text .Textparagraph {
+    font-size: 25px;
+    color: #54636F;
+  }
+}
+
+  
+
 `
 
 export default Home

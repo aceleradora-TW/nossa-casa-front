@@ -4,7 +4,7 @@ const FooterComponent = styled.nav`
 
 footer {
   background-color: #000;
-  height: 155px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -12,13 +12,13 @@ footer {
   color: #fff;
 
   .logo{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    height: 90px;
+    margin-bottom: 20px;
   }
 
   div {
-    width: 155px;
+    color: white;
+    width: 180px;
     display: flex;
     align-items: center;
     justify-content: space-between;
