@@ -18,30 +18,49 @@ import { Link } from 'react-router-dom'
 // import { A11y, Navigation, Pagination, Scrollbar } from 'swiper'
 
 export const HomePage = () => {
-  const [image, setImage] = useState([])
+  const [attributes, setAttributes] = useState([])
+  // const [images, setImages] = useState([])
 
   const dataAttributes = async (response) => {
-    const { attributes } = await response.data.data
-    console.log(response.data.data)
-    if (attributes.destaque) {
-      return attributes
-    }
-    return false
+    const attribute = await response.data.data.map((data) => {
+      // console.log(data.attributes)
+      if (data.attributes.destaque) {
+        return data.attributes
+      }
+      return false
+    })
+    setAttributes(attribute)
+    return attribute
   }
 
   useEffect(() => {
-    cms.get('api/eventos/8?populate=Foto_divulgacao').then(async (response) => {
-      if (dataAttributes(response)) {
-        const images = await dataAttributes(response)
-        return setImage(images.Foto_divulgacao.data.map((data) => {
+    cms.get('api/events/?populate=foto_divulgacao').then((response) => {
+      const { data } = response.data
+      const attribute = data.map((data) => {
+        if (data.attributes.destaque) {
           return data.attributes
-        }))
-      }
-      console.log('hahah')
-      return console.log(dataAttributes(response))
+        }
+        return false
+      })
+      setAttributes(attribute)
+      // dataAttributes(response).then((attribute) => {
+      //   if (attribute) {
+      //     console.log(attributes)
+      //   }
+      // })
+      // console.log(attributes)
+      // if (dataAttributes(response)) {
+      //   console.log(attributes)
+      //   attributes.foto_divulgacao.map((data) => {
+      //     console.log(data)
+      //     return setImages(data.attributes.url)
+      //   })
+      // }
+      // console.log('hahah')
+      // return console.log('asdadasd')
     })
   }, [])
-  console.log(image)
+  console.log(attributes)
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
     '--swiper-navigation-color': '#FFFFFF',
@@ -69,17 +88,21 @@ export const HomePage = () => {
           //   pauseOnMouseEnter: true
           // }}
           >
-            <SwiperSlide >
-              <div className='slide-container'>
-                <h2 className="slidetitulo"> {'asdasdsasad'} </h2>
-                <div className='event-container'>
-                  <p className="descricao">
-                  </p>
-                  <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
-                </div>
-                <img src={`http://localhost:1337${image.map((data) => data.url)}`} className="slideimage" />
-              </div>
-            </SwiperSlide>
+            <ul>
+              {attributes.map((attribute) =>
+                <SwiperSlide key={attribute.id} >
+                  <div className='slide-container'>
+                    <h2 className="slidetitulo"> {'asdasdsasad'} </h2>
+                    <div className='event-container'>
+                      <p className="descricao">
+                      </p>
+                      <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
+                    </div>
+                    <img src={`http://localhost:1337${attributes.map((data) => data.foto_divulgacao.data.attributes.url)}`} className="slideimage" />
+                  </div>
+                </SwiperSlide>
+              )}
+            </ul>
             <SwiperSlide>
               <div>
                 <h2 className="slidetitulo"> II Festa Preta </h2>
