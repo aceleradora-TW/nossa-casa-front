@@ -4,12 +4,17 @@ const EventsContainer = styled.div`
   background-color: white;
   width: 100%;
   height: 100vh;
+  
+
 
   main {
     height: 100vh;
     .carrossel{
       height: 652px;
       background-color: #E9EEF1;
+     
+     
+
 
       h1 {
         padding-left: 140px;

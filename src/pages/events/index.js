@@ -8,17 +8,14 @@ import Events from '../../components/events-carrosel'
 
 const EventsPage = () => {
   return (
+    
     <EventsContainer>
-      <NavBar />
+  <NavBar/>
       <main>
         <section className='carrossel'>
           <h1>EVENTOS</h1>
         </section>
-        <section className='search'>
-          <form>
-            <input type='text' placeholder='Buscar' />
-          </form>
-        </section>
+
         <Events />
         <section className='carrossel-eventos'>
           <div className='evento'>
@@ -41,7 +38,7 @@ const EventsPage = () => {
           </div>
         </section>
         <Parceires />
-       <Footer />
+        <Footer />
       </main>
     </EventsContainer>
   )

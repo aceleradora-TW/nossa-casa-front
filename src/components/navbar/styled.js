@@ -111,6 +111,7 @@ const NavBarComponent = styled.nav.attrs(props => ({ className: props.className 
     flex-wrap: wrap;
     padding: 15px 60px;
     justify-content: space-between;
+    z-index: 1000;
 
     .icon-menu {
       display: none;

@@ -11,6 +11,8 @@ const Events = () => {
     <EventsComponent
       style={{
         background: "#FFFFFF",
+  
+
       }}
     >
       <Swiper
@@ -20,7 +22,7 @@ const Events = () => {
         breakpoints={{
           "@0.00": {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 30,
           },
           "@0.75": {
             slidesPerView: 2,
@@ -31,7 +33,7 @@ const Events = () => {
             spaceBetween: 40,
           },
         }}
-        modules={[Navigation]}
+        modules={[Navigation, ]}
         className="mySwiper"
       >
         <section className="events">
