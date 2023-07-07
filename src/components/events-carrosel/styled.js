@@ -10,6 +10,7 @@ const EventsComponent = styled.div`
   /* .date, .title{
     color: #516B84;
   } */
+
 div {
   color: #516B84;
 }
@@ -22,7 +23,7 @@ div > img {
 }
 p {
   color: #54636E;
-  margin-bottom:0.475rem;
+  margin-bottom:0.975rem;
 }
   .button{
     background-color: #F5BC4A;
@@ -31,6 +32,8 @@ p {
     border: none;
     margin-top: 1rem;
     cursor: pointer;
+    font-weight: bold;
+    
   }
 `
 

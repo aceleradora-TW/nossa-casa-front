@@ -1,3 +1,4 @@
+
 import foto from "../parceires/fot.png"
 import EventsComponent from "./styled.js"
 import React from "react"
@@ -45,7 +46,7 @@ const Events = () => {
                 <h3 className="title">
                   Impact Of Extrinsic Motivation On Intrinsic Motivation
                 </h3>
-                <button className="button">VER MAIS</button>
+                <button className="button">Ver Mais</button>
               </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -55,7 +56,7 @@ const Events = () => {
                 <h3 className="title">
                   Impact Of Extrinsic Motivation On Intrinsic Motivation
                 </h3>
-                <button className="button">VER MAIS</button>
+                <button className="button">Ver Mais</button>
               </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -65,7 +66,7 @@ const Events = () => {
                 <h3 className="title">
                   Impact Of Extrinsic Motivation On Intrinsic Motivation
                 </h3>
-                <button className="button">VER MAIS</button>
+                <button className="button">Ver Mais</button>
               </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -75,7 +76,7 @@ const Events = () => {
                 <h3 className="title">
                   Impact Of Extrinsic Motivation On Intrinsic Motivation
                 </h3>
-                <button className="button">VER MAIS</button>
+                <button className="button">Ver Mais</button>
               </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -85,7 +86,7 @@ const Events = () => {
                 <h3 className="title">
                   Impact Of Extrinsic Motivation On Intrinsic Motivation
                 </h3>
-                <button className="button">VER MAIS</button>
+                <button className="button">Ver Mais</button>
               </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -95,7 +96,7 @@ const Events = () => {
                 <h3 className="title">
                   Impact Of Extrinsic Motivation On Intrinsic Motivation
                 </h3>
-                <button className="button">VER MAIS</button>
+                <button className="button">Ver Mais</button>
               </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -105,7 +106,7 @@ const Events = () => {
                 <h3 className="title">
                   Impact Of Extrinsic Motivation On Intrinsic Motivation
                 </h3>
-                <button className="button">VER MAIS</button>
+                <button className="button">Ver Mais</button>
               </div>
             </SwiperSlide>
           </div>
