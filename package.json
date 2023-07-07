@@ -43,7 +43,7 @@
     "chromatic": "npx chromatic --project-token=35d06d6a9940"
   },
   "resolutions": {
-    "babel-loader": "8.1.0",
+    "babel-loader": "^8.2.3",
     "styled-components": "^5"
   },
   "eslintConfig": {
