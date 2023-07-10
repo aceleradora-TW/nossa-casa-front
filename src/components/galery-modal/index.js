@@ -3,6 +3,8 @@ import { useState } from 'react'
 import closeIcon from './close-icon.svg'
 import { buttonTextByTypes } from '../../constants/constants'
 
+// novabrant
+
 const ModalGallery = ({ type }) => {
   const [toggleGallery, setToggleGallery] = useState(false)
 
