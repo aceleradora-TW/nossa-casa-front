@@ -1,8 +1,9 @@
 import Therapies from './styled'
-import foto from './fot.png'
+// import foto from './fot.png'
 import NavBar from '../../components/navbar/index'
 import Parceires from '../../components/parceires'
 import Footer from '../../components/footer'
+import TherapyCarousel from '../../components/therapy-carousel'
 
 export const TherapiesPage = () => {
   return (
@@ -12,38 +13,38 @@ export const TherapiesPage = () => {
         <section className='carrossel'>
           <h1>TERAPIAS</h1>
         </section>
-
-        <section className='search'>
+        {/* <section className='search'>
           <div className='search-box'>
-            <div>
-              <input type='text' placeholder='Busca' className='search-input'></input>
-            </div>
+          <div>
+          <input type='text' placeholder='Busca' className='search-input'></input>
           </div>
-        </section>
+          </div>
+        </section> */}
 
       <section className='terapias'>
         <h1>Terapias</h1>
-        <div >
+        <TherapyCarousel/>
+        {/* <div >
           <ul className='painel'>
              <li >
-                <img src={foto} />
+                <img  />
                 <p>Impact Of Extrinsic Motivation On Intrinsic Motivation</p>
                 <button>ver mais</button>
              </li>
 
              <li>
-                <img src={foto} />
+                <img  />
                 <p>Impact Of Extrinsic Motivation On Intrinsic Motivation</p>
                 <button>ver mais</button>
              </li>
 
              <li>
-                <img src={foto} />
+                <img  />
                 <p>Impact Of Extrinsic Motivation On Intrinsic Motivation</p>
                 <button>ver mais</button>
              </li>
          </ul>
-        </div>
+        </div> */}
       </section>
         <Parceires />
         <Footer />
