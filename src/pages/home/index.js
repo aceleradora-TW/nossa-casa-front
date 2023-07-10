@@ -13,54 +13,30 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper'
 import { Link } from 'react-router-dom'
-
+import env from 'react-dotenv'
 // import required modules
 // import { A11y, Navigation, Pagination, Scrollbar } from 'swiper'
 
 export const HomePage = () => {
   const [attributes, setAttributes] = useState([])
-  // const [images, setImages] = useState([])
-
-  const dataAttributes = async (response) => {
-    const attribute = await response.data.data.map((data) => {
-      // console.log(data.attributes)
-      if (data.attributes.destaque) {
-        return data.attributes
-      }
-      return false
-    })
-    setAttributes(attribute)
-    return attribute
-  }
+  const [toggle, setToggle] = useState(false)
+  const urlCms = env.URL_CMS
 
   useEffect(() => {
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
-      const attribute = data.map((data) => {
+      const event = data.map((data) => {
         if (data.attributes.destaque) {
+          setToggle(!toggle)
           return data.attributes
         }
         return false
       })
-      setAttributes(attribute)
-      // dataAttributes(response).then((attribute) => {
-      //   if (attribute) {
-      //     console.log(attributes)
-      //   }
-      // })
-      // console.log(attributes)
-      // if (dataAttributes(response)) {
-      //   console.log(attributes)
-      //   attributes.foto_divulgacao.map((data) => {
-      //     console.log(data)
-      //     return setImages(data.attributes.url)
-      //   })
-      // }
-      // console.log('hahah')
-      // return console.log('asdadasd')
+      setAttributes(event)
     })
   }, [])
-  console.log(attributes)
+  // console.log(attributes)
+  // console.log(attributes)
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
     '--swiper-navigation-color': '#FFFFFF',
@@ -71,131 +47,45 @@ export const HomePage = () => {
     <Home background={mural}>
       <NavBar />
       <main>
-        <section className="carrossel">
-          <Swiper
-            modules={[Pagination, Navigation, Keyboard, Autoplay]}
-            pagination={{
-              type: 'bullets',
-              clickable: 'true'
-            }}
-            navigation={true}
-            className="mySwiper"
-            style={swiperStyle}
-            keyboard={true}
-          // autoplay={{
-          //   delay: 2500,
-          //   disableOnInteraction: false,
-          //   pauseOnMouseEnter: true
-          // }}
-          >
-            <ul>
-              {attributes.map((attribute) =>
-                <SwiperSlide key={attribute.id} >
-                  <div className='slide-container'>
-                    <h2 className="slidetitulo"> {'asdasdsasad'} </h2>
-                    <div className='event-container'>
-                      <p className="descricao">
-                      </p>
-                      <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
-                    </div>
-                    <img src={`http://localhost:1337${attributes.map((data) => data.foto_divulgacao.data.attributes.url)}`} className="slideimage" />
-                  </div>
-                </SwiperSlide>
-              )}
-            </ul>
-            <SwiperSlide>
-              <div>
-                <h2 className="slidetitulo"> II Festa Preta </h2>
-                <p className="descricao">
-                  II Festa Preta A Nossa Casa a convite da Subsecretaria de
-                  Igualdade Racial do Município de Guarulhos realizou a II FESTA
-                  PRETA na cidade. Em comemoração ao dia 20 de Novembro -
-                  Consciência Negra! O evento aconteceu no Parque Bosque Maia e
-                  mexeu com as estruturas culturais, pretas, periféricas e
-                  independentes da cidade.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <h2 className="slidetitulo">II Festa Preta</h2>
-                <p className="descricao">
-                  II Festa Preta A Nossa Casa a convite da Subsecretaria de
-                  Igualdade Racial do Município de Guarulhos realizou a II FESTA
-                  PRETA na cidade. Em comemoração ao dia 20 de Novembro -
-                  Consciência Negra! O evento aconteceu no Parque Bosque Maia e
-                  mexeu com as estruturas culturais, pretas, periféricas e
-                  independentes da cidade.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <h2 className="slidetitulo"> II Festa Preta </h2>
-                <p className="descricao">
-                  II Festa Preta A Nossa Casa a convite da Subsecretaria de
-                  Igualdade Racial do Município de Guarulhos realizou a II FESTA
-                  PRETA na cidade. Em comemoração ao dia 20 de Novembro -
-                  Consciência Negra! O evento aconteceu no Parque Bosque Maia e
-                  mexeu com as estruturas culturais, pretas, periféricas e
-                  independentes da cidade.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <h2 className="slidetitulo"> II Festa Preta </h2>
-                <p className="descricao">
-                  II Festa Preta A Nossa Casa a convite da Subsecretaria de
-                  Igualdade Racial do Município de Guarulhos realizou a II FESTA
-                  PRETA na cidade. Em comemoração ao dia 20 de Novembro -
-                  Consciência Negra! O evento aconteceu no Parque Bosque Maia e
-                  mexeu com as estruturas culturais, pretas, periféricas e
-                  independentes da cidade.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <h2 className="slidetitulo"> II Festa Preta </h2>
-                <p className="descricao">
-                  II Festa Preta A Nossa Casa a convite da Subsecretaria de
-                  Igualdade Racial do Município de Guarulhos realizou a II FESTA
-                  PRETA na cidade. Em comemoração ao dia 20 de Novembro -
-                  Consciência Negra! O evento aconteceu no Parque Bosque Maia e
-                  mexeu com as estruturas culturais, pretas, periféricas e
-                  independentes da cidade.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <h2 className="slidetitulo"> II Festa Preta </h2>
-                <p className="descricao">
-                  II Festa Preta A Nossa Casa a convite da Subsecretaria de
-                  Igualdade Racial do Município de Guarulhos realizou a II FESTA
-                  PRETA na cidade. Em comemoração ao dia 20 de Novembro -
-                  Consciência Negra! O evento aconteceu no Parque Bosque Maia e
-                  mexeu com as estruturas culturais, pretas, periféricas e
-                  independentes da cidade.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <h2 className="slidetitulo"> II Festa Preta </h2>
-                <p className="descricao">
-                  II Festa Preta A Nossa Casa a convite da Subsecretaria de
-                  Igualdade Racial do Município de Guarulhos realizou a II FESTA
-                  PRETA na cidade. Em comemoração ao dia 20 de Novembro -
-                  Consciência Negra! O evento aconteceu no Parque Bosque Maia e
-                  mexeu com as estruturas culturais, pretas, periféricas e
-                  independentes da cidade.
-                </p>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </section>
+        {toggle &&
+          <section className="carrossel">
+            <Swiper
+              modules={[Pagination, Navigation, Keyboard, Autoplay]}
+              pagination={{
+                type: 'bullets',
+                clickable: 'true'
+              }}
+              navigation={true}
+              className="mySwiper"
+              style={swiperStyle}
+              keyboard={true}
+            // autoplay={{
+            //   delay: 2500,
+            //   disableOnInteraction: false,
+            //   pauseOnMouseEnter: true
+            // }}
+            >
+              <ul>
+                {
+                  attributes.map((attribute, index) =>
+                    attribute &&
+                    <SwiperSlide key={index} >
+                      <div className='slide-container'>
+                        <h2 className="slidetitulo"> {attribute.nome} </h2>
+                        <div className='event-container'>
+                          <p className="descricao"> {attribute.descricao}</p>
+                          <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
+                        </div>
+                        <img src={urlCms + attribute.foto_divulgacao.data.attributes.url} className="slideimage" />
+                      </div>
+                    </SwiperSlide>
+                  )
+                }
+
+              </ul>
+            </Swiper>
+          </section>
+        }
         <section className='about'>
           <div className='content'>
             <div className='text'>
