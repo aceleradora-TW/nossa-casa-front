@@ -14,8 +14,6 @@ import 'swiper/css/navigation'
 import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper'
 import { Link } from 'react-router-dom'
 import env from 'react-dotenv'
-// import required modules
-// import { A11y, Navigation, Pagination, Scrollbar } from 'swiper'
 
 export const HomePage = () => {
   const [attributes, setAttributes] = useState([])
@@ -35,8 +33,6 @@ export const HomePage = () => {
       setAttributes(event)
     })
   }, [])
-  // console.log(attributes)
-  // console.log(attributes)
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
     '--swiper-navigation-color': '#FFFFFF',
