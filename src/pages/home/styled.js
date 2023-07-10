@@ -11,18 +11,24 @@ const Home = styled.div`
     height: 100vh;
 
     .carrossel {
-      height: 100%;
       background-color: #010101;
       color: #ffffff;
-
+      .swiper-button-next {
+        margin-right: 25px
+      }
+      .swiper-button-prev {
+        margin-left: 25px;
+      }
     }
     .swiper {
       height: 560px;
       width: 70%;
+      
     }
     .mySwiper {
       width: 70%;
       margin: auto;
+     
     }
     .swiper-slide {
 
@@ -35,6 +41,11 @@ const Home = styled.div`
       .slide-container {
         display: flex;
       }
+      .event-container {
+        width: 60%;
+        height: 240px;
+        margin-left: 50px
+      }
       .slidetitulo {
         margin: 20px auto 30px 50px;
         font-size: 2rem;
@@ -46,7 +57,6 @@ const Home = styled.div`
 
       .descricao {
         margin: 50px 10px 10px 50px;
-        width: 50%;
         font-family: 'Inter', sans-serif;
         font-size: 1.3rem;
         line-height: 30px;
@@ -66,40 +76,24 @@ const Home = styled.div`
         position: fixed;
         opacity: 50%;
       }
+      
 
       .ver-mais {
         z-index:1;
         background-color: #F5BC4A;
-        border: 1px solid ;
-        border-radius: 5px ;
+        border: 1px solid;
+        border-radius: 5px;
         width: 250px;
         height: 40px;
         margin-left: 10%;
         text-align: center;
         padding: 10px;
-        color: black;
+        color: #000000;
         text-decoration: none;
         margin-top: 3%;
+        font-weight: bold;
       }
-      @media (min-width: 375px) and (max-width: 480px) {
-        .descricao {
-          font-size: 0.8em;
-        }
-      }
-      
-      @media (min-width: 481px) and (max-width: 768px) {
-
-      }
-      
-      @media (min-width: 769px) and (max-width: 992px) {
-
-      }
-      
-      @media (min-width: 993px) and (max-width: 1280px) {
-
-      }
-    }
-    .swiper-pagination {
+     
     }
 
     .about {

@@ -40,6 +40,9 @@ export const HomePage = () => {
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
     '--swiper-navigation-color': '#FFFFFF',
+    '--swiper-navigation-prev': {
+      'margin- left': '50px'
+    },
     heigh: '100px',
     width: '100%'
   }
@@ -59,26 +62,28 @@ export const HomePage = () => {
               className="mySwiper"
               style={swiperStyle}
               keyboard={true}
-            // autoplay={{
-            //   delay: 2500,
-            //   disableOnInteraction: false,
-            //   pauseOnMouseEnter: true
-            // }}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+              }}
             >
               <ul>
                 {
                   attributes.map((attribute, index) =>
                     attribute &&
-                    <SwiperSlide key={index} >
-                      <div className='slide-container'>
-                        <h2 className="slidetitulo"> {attribute.nome} </h2>
-                        <div className='event-container'>
-                          <p className="descricao"> {attribute.descricao}</p>
+                    <li>
+                      <SwiperSlide key={index} >
+                        <div className='slide-container'>
+                          <h2 className="slidetitulo"> {attribute.nome} </h2>
+                          <div className='event-container'>
+                            <p className="descricao"> {attribute.descricao}</p>
+                          </div>
                           <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
+                          <img src={urlCms + attribute.foto_divulgacao.data.attributes.url} className="slideimage" />
                         </div>
-                        <img src={urlCms + attribute.foto_divulgacao.data.attributes.url} className="slideimage" />
-                      </div>
-                    </SwiperSlide>
+                      </SwiperSlide>
+                    </li>
                   )
                 }
 
