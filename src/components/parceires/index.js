@@ -48,9 +48,9 @@ const Parceires = () => {
                 <div>
                   <img className='img-perfil' src={foto} />
                 </div>
-                <h3>Fulano</h3>
-                <p>CEO</p>
-                <p>
+                <h3>Nicole</h3>
+                <p>Terapeuta</p>
+                <p className='perfil-descricao'>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
                 </p>
                 <div className='icones-rede-sociais'>
@@ -66,9 +66,27 @@ const Parceires = () => {
                 <div>
                   <img className='img-perfil' src={foto} />
                 </div>
-                <h3>Fulano 1</h3>
-                <p>CEO</p>
-                <p>
+                <h3>Julio</h3>
+                <p>Massoterapeuta</p>
+                <p className='perfil-descricao'>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. aaaaaa
+                </p>
+                <div className='icones-rede-sociais'>
+                  <a href={'https://chat.whatsapp.com/BndMXO2VZY7CS04IiJ9An2'}><img src={Whatsapp} /></a>
+                  <a href={'#'}><img src={Twitter} /></a>
+                  <a href={'#'}><img src={Facebook} /></a>
+                  <a href={'https://www.instagram.com/nossacasa_at/'}><img src={Instagram} /></a>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className='perfil'>
+                <div>
+                  <img className='img-perfil' src={foto} />
+                </div>
+                <h3>Gabriela Gomes</h3>
+                <p>Psicologia</p>
+                <p className='perfil-descricao'>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
                 </p>
                 <div className='icones-rede-sociais'>
@@ -84,9 +102,9 @@ const Parceires = () => {
                 <div>
                   <img className='img-perfil' src={foto} />
                 </div>
-                <h3>Fulano 2</h3>
-                <p>CEO</p>
-                <p>
+                <h3>Aleatorio</h3>
+                <p>Nada</p>
+                <p className='perfil-descricao'>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
                 </p>
                 <div className='icones-rede-sociais'>
@@ -102,9 +120,9 @@ const Parceires = () => {
                 <div>
                   <img className='img-perfil' src={foto} />
                 </div>
-                <h3>Fulano 3</h3>
-                <p>CEO</p>
-                <p>
+                <h3>Aleatoria</h3>
+                <p>Nadinha</p>
+                <p className='perfil-descricao'>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
                 </p>
                 <div className='icones-rede-sociais'>
@@ -120,9 +138,9 @@ const Parceires = () => {
                 <div>
                   <img className='img-perfil' src={foto} />
                 </div>
-                <h3>Fulano 4</h3>
-                <p>CEO</p>
-                <p>
+                <h3>Angelo</h3>
+                <p>Animador</p>
+                <p className='perfil-descricao'>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
                 </p>
                 <div className='icones-rede-sociais'>
@@ -138,27 +156,9 @@ const Parceires = () => {
                 <div>
                   <img className='img-perfil' src={foto} />
                 </div>
-                <h3>Fulano 5</h3>
-                <p>CEO</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                </p>
-                <div className='icones-rede-sociais'>
-                  <a href={'https://chat.whatsapp.com/BndMXO2VZY7CS04IiJ9An2'}><img src={Whatsapp} /></a>
-                  <a href={'#'}><img src={Twitter} /></a>
-                  <a href={'#'}><img src={Facebook} /></a>
-                  <a href={'https://www.instagram.com/nossacasa_at/'}><img src={Instagram} /></a>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='perfil'>
-                <div>
-                  <img className='img-perfil' src={foto} />
-                </div>
-                <h3>Fulano 6</h3>
-                <p>CEO</p>
-                <p>
+                <h3>Barbara</h3>
+                <p>Backend</p>
+                <p className='perfil-descricao'>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
                 </p>
                 <div className='icones-rede-sociais'>
