@@ -10,7 +10,7 @@ export const ModalContainer = styled.div`
   top: 0;
   z-index: 1;
  
-  background-color: ${props => props.theme === 'about' ? '#FFFFFF' : '#516B84'};
+  background-color: ${props => props.theme === 'about' ? '#FFFFFF' : '#A49D9D'};
                                                           
    .exit {
     display: block;
