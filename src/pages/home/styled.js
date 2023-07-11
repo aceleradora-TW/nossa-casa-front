@@ -30,7 +30,6 @@ const Home = styled.div`
         align-items: center;
 
       }
-     
 
       button {
 
@@ -48,47 +47,63 @@ const Home = styled.div`
         margin-top: 1.6rem;
         margin-bottom: 1.6rem;
       }
- 
       
     }
-
+//esse e nosso
     .galeria {
-      height: 1036px;
-      background-color: #516b84;
+      height: 1180px;
+      background-color: #FAFAFA;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: center;
       align-items: center;
+      gap: 30px;
 
       h2 {
+        align-self: flex-start;
+        margin-left: 7.5%;
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #516B84;
+        line-height: 64px;
         text-align: center;
         font-size: 3.125rem;
         color: #516B84;
       }
 
       .painel {
-        height: 55%;
+        width: 75%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 25px;
+        grid-row-gap: 25px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+
+          max-width: auto;
+          margin-left: 3%;
+          border-radius: 3px;
+          margin-bottom: 2.5rem;
+        }
       }
 
       button {
-        background: linear-gradient(180deg, #516b848f 0%, #ffffff 100%);
-        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
+        background: #516B84;
         border-radius: 3px;
-        color: #000000;
+        color: #FAFAFA;
         border: none;
         font-size: 0.75rem;
         width: 182px;
         height: 40px;
         cursor: pointer;
-       
       }
     }
 
+//aqui não
     .parceires {
       background-color: aliceblue;
       height: 697px;
