@@ -4,14 +4,19 @@ import closeIcon from './close-icon.svg'
 import { buttonTextByTypes } from '../../constants/constants'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper'
-import casadentro from './casadentro.png'
+import casaDentro from './casadentro.png'
+import casaFora from './casafora.png'
+import arteCasa from './artecasa.png'
+import pinturaCasa from './pinturacasa.png'
+import quadroCasa from './qadrocasa.png'
+import quadrosCasa from './quadroscasa.png'
 
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 
-const IMAGES = [casadentro, casadentro, casadentro, casadentro, casadentro]
+const IMAGES = [casaDentro, casaFora, arteCasa, pinturaCasa, quadroCasa, quadrosCasa]
 
 const ModalGallery = ({ type }) => {
   const [toggleGallery, setToggleGallery] = useState(false)

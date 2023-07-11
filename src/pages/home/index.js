@@ -5,6 +5,10 @@ import Footer from '../../components/footer'
 import ModalGallery from '../../components/galery-modal'
 import posterNossaCasa from './image-0.png'
 import espaçoTerapias from './image-1.png'
+import quadroNossaCasa from './image-2.png'
+import espacoNossaCasa from './image-3.png'
+import pinturaNossaCasa from './image-4.png'
+import pinturaNossaCasa2 from './image-5.png'
 
 
 export const HomePage = () => {
@@ -34,10 +38,10 @@ export const HomePage = () => {
           <div className='painel'>
             <img src={posterNossaCasa} />
             <img src={espaçoTerapias} />
-            <img src={posterNossaCasa} />
-            <img src={espaçoTerapias} />
-            <img src={posterNossaCasa} />
-            <img src={espaçoTerapias} />
+            <img src={quadroNossaCasa} />
+            <img src={espacoNossaCasa} />
+            <img src={pinturaNossaCasa} />
+            <img src={pinturaNossaCasa2} />
           </div>
           
           <ModalGallery type={'gallery'} />

@@ -9,10 +9,9 @@ export const ModalContainer = styled.div`
   left: 0;
   top: 0;
   z-index: 1;
- 
-  background-color: ${props => props.theme === 'about' ? '#FFFFFF' : '#A49D9D'};
-                                                          
-   .exit {
+  background-color: ${props => props.theme === 'about' ? '#FFFFFF' : '#fff'};
+
+    .exit {
     display: block;
     width: 73px;
     margin-left: 90%;
@@ -60,7 +59,6 @@ export const ModalContainer = styled.div`
     }
   } 
 
- 
 //IOS
   @media (max-width: 720px) {
     .content-container {
@@ -73,8 +71,6 @@ export const ModalContainer = styled.div`
     
 
     .about-title {
-      
-     
       align-items: center;
 
       width: 38%;
@@ -87,12 +83,11 @@ export const ModalContainer = styled.div`
     }
 
     .topic {
-       width: 48%;
-     
-      margin: 0 -30px;
+    width: 48%;
+    margin: 0 -30px;
 
       h3 {
-         width: 70%; 
+        width: 70%; 
         font-size: 1.3rem;
         margin-bottom: 8px;
       }
@@ -111,7 +106,7 @@ export const ModalContainer = styled.div`
 
 .content-container   {
 text-align:justify;
- width: 100%; 
+width: 100%; 
 grid-template-columns: 1fr 1fr ;
 grid-template-rows: auto;
 grid-row-gap: 55px;
@@ -134,18 +129,15 @@ margin-bottom:3%;
 }
 
 .exit {
-  
 margin-left: 95%;
 }
 
 .topic {
-
-  width: 70%; 
-
+width: 70%; 
 margin: 0 20px;
 
 h3 { 
-  
+
   font-size: 1.3rem;
   margin-bottom: 15px;
 }
@@ -165,7 +157,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 25px;
+    margin-top: -35px;
     padding-right: 20px;
   }
 
@@ -173,6 +165,7 @@ p {
     margin: 0;
     margin-left: 25%;
     font-size: 2.25rem;
+    color: #54636E;
   }
 
   .exit {

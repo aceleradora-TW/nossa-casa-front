@@ -24,15 +24,12 @@ const Home = styled.div`
 
 
       .content {
-
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
-
       }
 
       button {
-
         background: #F5BC4A;
         box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
         border-radius: 3px;
@@ -49,9 +46,9 @@ const Home = styled.div`
       }
       
     }
-//esse e nosso
+
     .galeria {
-      height: 1180px;
+      height: 1210px;
       background-color: #FAFAFA;
       display: flex;
       flex-direction: column;
@@ -69,6 +66,7 @@ const Home = styled.div`
         text-align: center;
         font-size: 3.125rem;
         color: #516B84;
+        cursor: default;
       }
 
       .painel {
@@ -103,7 +101,13 @@ const Home = styled.div`
       }
     }
 
-//aqui não
+
+@media (max-width: 1280px) {
+  .galeria{
+    height: 950px;
+  }
+    }
+
     .parceires {
       background-color: aliceblue;
       height: 697px;
@@ -115,10 +119,13 @@ const Home = styled.div`
         font-size: 2.5rem;
         margin-top: 30px;
         margin-bottom: 10px;
+        cursor: default;
+
       }
 
       p {
         margin-bottom: 40px;
+        cursor: default;
       }
 
       .carrossel-perfis {
@@ -126,6 +133,7 @@ const Home = styled.div`
         display: flex;
         justify-content: center;
         gap: 20px;
+        cursor: default;
 
         .perfil {
           background-color: cadetblue;
@@ -133,10 +141,12 @@ const Home = styled.div`
 
           h3 {
             text-align: center;
+            cursor: default;
           }
 
           p {
             text-align: center;
+            cursor: default;
           }
         }
       }
@@ -201,16 +211,15 @@ main .about .content {
   .content .text h2 {
     font-size: 2rem;
     color: #516B84;
+    cursor: default;
   }
 
   .content .text .Textparagraph {
     font-size: 25px;
     color: #54636F;
+    cursor: default;
   }
 }
-
-  
-
 `
 
 export default Home
