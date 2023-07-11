@@ -24,7 +24,7 @@ div > img {
 
 p {
   color: #54636E;
-  margin-bottom:0.475rem;
+  margin-bottom:0.975rem;
 }
 
 .button{
