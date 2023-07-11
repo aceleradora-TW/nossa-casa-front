@@ -65,10 +65,10 @@ export const HomePage = () => {
             >
               <ul>
                 {
-                  attributes.map((attribute, index) =>
+                  attributes.map((attribute) =>
                     attribute &&
-                    <li>
-                      <SwiperSlide key={index} >
+                    <li key={attribute.nome}>
+                      <SwiperSlide key={attribute.nome} >
                         <div className='slide-container'>
                           <h2 className="slidetitulo"> {attribute.nome} </h2>
                           <div className='event-container'>
