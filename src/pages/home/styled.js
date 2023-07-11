@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 const Home = styled.div`
 
   background-color: white;
@@ -12,20 +11,112 @@ const Home = styled.div`
     height: 100vh;
 
     .carrossel {
-      height: 652px;
-      background-color: #e9eef1;
-
-      h1 {
-        padding-left: 140px;
-        padding-top: 60px;
-        font-size: 2em;
+      background-color: #010101;
+      color: #ffffff;
+      .swiper-button-next {
+        margin-right: 25px
+      }
+      .swiper-button-prev {
+        margin-left: 25px;
       }
     }
+    .swiper {
+      height: 560px;
+      width: 70%;
+      
+    }
+    .mySwiper {
+      width: 70%;
+      margin: auto;
+     
+    }
+    .swiper-slide {
 
+      div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+      }
+      .slide-container {
+        display: flex;
+      }
+      .event-container {
+        width: 60%;
+        height: 240px;
+        margin-left: 50px
+      }
+      .slidetitulo {
+        margin: 20px auto 30px 50px;
+        font-size: 2rem;
+        font-family: 'Inter', sans-serif;
+        float: inline-start;
+        z-index: 1;
+        align-items:center;
+      }
+
+      .descricao {
+        margin: 50px 10px 10px 50px;
+        font-family: 'Inter', sans-serif;
+        font-size: 1.3rem;
+        line-height: 30px;
+        cursor: default;
+        text-align: justify;
+        z-index: 1;
+
+        @media (max-width: 375px) {
+          font-size: 20px;
+          color: red;
+        }
+
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        opacity: 50%;
+      }
+      
+
+      .ver-mais {
+        z-index:1;
+        background-color: #F5BC4A;
+        border: 1px solid;
+        border-radius: 5px;
+        width: 250px;
+        height: 40px;
+        margin-left: 10%;
+        text-align: center;
+        padding: 10px;
+        color: #000000;
+        text-decoration: none;
+        margin-top: 3%;
+        font-weight: bold;
+      }
+     
+    }
+
+    .about {
+      background-color: #ffffff;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
 
       .content {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .content > div {
+        width: 80%;
+        margin: 0 auto;
+        h2 {
+          font-size: 26px;
+          margin-bottom: 30px;
+        }
         align-items: center;
       }
 

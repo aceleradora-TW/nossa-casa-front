@@ -107,7 +107,8 @@
   },
   "react-dotenv": {
     "whitelist": [
-      "URL_BACKEND"
+      "URL_BACKEND",
+      "URL_CMS"
     ]
   }
 }
