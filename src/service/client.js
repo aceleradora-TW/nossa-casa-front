@@ -6,5 +6,5 @@ export const client = axios.create({
 })
 
 export const cms = axios.create({
-  baseURL: 'http://localhost:1337'
+  baseURL: env.URL_CMS
 })

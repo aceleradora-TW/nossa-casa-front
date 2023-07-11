@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import foto from '../../components/parceires/fot.png'
-import fotoNossaCasa from './nossacasa.png'
-import NavBar from '../../components/navbar'
-import Home from './styled'
-import mural from './mural.png'
+import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper'
 import { cms } from '../../service/client'
-import Footer from '../../components/footer'
+import Home from './styled'
+import NavBar from '../../components/navbar'
+import foto from '../../components/parceires/fot.png'
 import ModalGallery from '../../components/galery-modal'
+import fotoNossaCasa from './nossacasa.png'
+import mural from './mural.png'
+import Footer from '../../components/footer'
+import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper'
-import { Link } from 'react-router-dom'
-import env from 'react-dotenv'
 
 export const HomePage = () => {
   const [attributes, setAttributes] = useState([])
@@ -39,7 +39,6 @@ export const HomePage = () => {
     '--swiper-navigation-prev': {
       'margin- left': '50px'
     },
-    heigh: '100px',
     width: '100%'
   }
   return (
