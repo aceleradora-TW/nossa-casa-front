@@ -4,12 +4,22 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper'
 import { cms } from '../../service/client'
 import Home from './styled'
+
 import NavBar from '../../components/navbar'
 import foto from '../../components/parceires/fot.png'
 import ModalGallery from '../../components/galery-modal'
 import fotoNossaCasa from './nossacasa.png'
 import mural from './mural.png'
 import Footer from '../../components/footer'
+
+import ModalGallery from '../../components/galery-modal'
+import posterNossaCasa from './image-0.png'
+import espaçoTerapias from './image-1.png'
+import quadroNossaCasa from './image-2.png'
+import espacoNossaCasa from './image-3.png'
+import pinturaNossaCasa from './image-4.png'
+import pinturaNossaCasa2 from './image-5.png'
+
 import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -102,14 +112,15 @@ export const HomePage = () => {
         </section >
         <section className="galeria">
           <h2>Galeria de fotos</h2>
-          <div className="painel">
-            <img src={foto} />
-            <img src={foto} />
-            <img src={foto} />
-            <img src={foto} />
-            <img src={foto} />
-            <img src={foto} />
+          <div className='painel'>
+            <img src={posterNossaCasa} />
+            <img src={espaçoTerapias} />
+            <img src={quadroNossaCasa} />
+            <img src={espacoNossaCasa} />
+            <img src={pinturaNossaCasa} />
+            <img src={pinturaNossaCasa2} />
           </div>
+          
           <ModalGallery type={'gallery'} />
         </section>
         <section className="parceires">

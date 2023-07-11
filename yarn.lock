@@ -3734,13 +3734,21 @@
 
 "@types/node-fetch@^2.5.7", "@types/node-fetch@^2.6.4":
   version "2.6.4"
+<<<<<<< HEAD
+  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.6.4.tgz#1bc3a26de814f6bf466b25aeb1473fa1afe6a660"
+=======
   resolved "https://registry.npmjs.org/@types/node-fetch/-/node-fetch-2.6.4.tgz"
+>>>>>>> 0603395f4d1b2f3a6edd5cdf55bdccaf7bba3723
   integrity sha512-1ZX9fcN4Rvkvgv4E6PAY5WXUFWFcRWxZa3EW83UjycOB9ljJCedb2CupIP4RZMEwF/M3eTcCihbBRgwtGbg5Rg==
   dependencies:
     "@types/node" "*"
     form-data "^3.0.0"
 
+<<<<<<< HEAD
+"@types/node@*", "@types/node@>=12":
+=======
 "@types/node@*":
+>>>>>>> 0603395f4d1b2f3a6edd5cdf55bdccaf7bba3723
   version "17.0.40"
   resolved "https://registry.npmjs.org/@types/node/-/node-17.0.40.tgz"
   integrity sha512-UXdBxNGqTMtm7hCwh9HtncFVLrXoqA3oJW30j6XWp5BH/wu3mVeaxo7cq5benFdBw34HB3XDT2TRPI7rXZ+mDg==
