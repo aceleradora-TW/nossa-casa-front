@@ -35,6 +35,8 @@ p {
   margin-top: 1rem;
   cursor: pointer;
 }
+   
+
 
 
 .swiper-button-next {
