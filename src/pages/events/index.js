@@ -17,26 +17,6 @@ const EventsPage = () => {
         </section>
 
         <Events />
-        <section className='carrossel-eventos'>
-          <div className='evento'>
-            <img src={evimg} />
-            <p>22 Oct 2018</p>
-            <h3>Impact Of Extrinsic Motivation On Intrinsic Motivation</h3>
-            <button>VER MAIS</button>
-          </div>
-          <div className='evento'>
-            <img src={evimg} />
-            <p>22 Oct 2018</p>
-            <h3>Impact Of Extrinsic Motivation On Intrinsic Motivation</h3>
-            <button>VER MAIS</button>
-          </div>
-          <div className='evento'>
-            <img src={evimg} />
-            <p>22 Oct 2018</p>
-            <h3>Impact Of Extrinsic Motivation On Intrinsic Motivation</h3>
-            <button>VER MAIS</button>
-          </div>
-        </section>
         <Parceires />
         <Footer />
       </main>

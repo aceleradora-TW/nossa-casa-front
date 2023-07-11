@@ -16,13 +16,13 @@ const Events = () => {
       }}
     >
       <Swiper
-        slidesPerView={1}
+        slidesPerView={3}
         spaceBetween={10}
         navigation={true}
         breakpoints={{
           "@0.00": {
             slidesPerView: 1,
-            spaceBetween: 30,
+            spaceBetween: 10,
           },
           "@0.75": {
             slidesPerView: 2,
@@ -30,7 +30,7 @@ const Events = () => {
           },
           "@1.00": {
             slidesPerView: 3,
-            spaceBetween: 40,
+            spaceBetween: 30,
           },
         }}
         modules={[Navigation, ]}
