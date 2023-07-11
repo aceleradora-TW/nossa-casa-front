@@ -26,21 +26,22 @@ const ParceireComponents = styled.section`
   }
 
 
-  .img-perfil{
-    width: 45%;
-    height: 40%;
-    border-radius: 80%;
+
+  div .img-perfil {
+    width: 40%;
+    height: 150px;
     margin-bottom: 20px;
-    margin-left: 28%;
+    border-radius: 50%;
+    margin-left: 30%;
   }
+
 
   h3 {
     text-align: center;
-    margin-bottom: 20px;
-    }
+    margin-bottom: 3px;
+  }
 
     p {
-      padding: 20px;
       text-align: center;
     }
 
@@ -57,7 +58,11 @@ const ParceireComponents = styled.section`
         width: 20px;
         margin-left: 10px;     
       }
-    }     
+    }   
+    
+    .perfil > .perfil-descricao {
+      padding: 20px;
+    }
       
 
     .styled-button{
