@@ -41,7 +41,7 @@ const Events = () => {
           <div className="swiper-slide">
             <SwiperSlide>
               <div className="evento">
-                <img src={foto} />
+                <img  src={foto} />
                 <p className="date">22 Oct 2018</p>
                 <h3 className="title">
                   Impact Of Extrinsic Motivation On Intrinsic Motivation

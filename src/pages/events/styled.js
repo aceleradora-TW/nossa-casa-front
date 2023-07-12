@@ -108,6 +108,8 @@ const EventsContainer = styled.div`
           }
         }
       }
+
+
     }
 
     footer {
@@ -119,6 +121,9 @@ const EventsContainer = styled.div`
       }
     }
   }
+
+  
+
 `
 
 export default EventsContainer
