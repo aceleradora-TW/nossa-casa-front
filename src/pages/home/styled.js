@@ -7,9 +7,7 @@ const Home = styled.div`
 
 
   main {
-
     height: 100vh;
-
     .carrossel {
       background-color: #010101;
       color: #ffffff;
@@ -28,7 +26,7 @@ const Home = styled.div`
     .mySwiper {
       width: 70%;
       margin: auto;
-     
+    }
     }
     .swiper-slide {
 
@@ -93,7 +91,6 @@ const Home = styled.div`
         margin-top: 3%;
         font-weight: bold;
       }
-     
     }
 
     .about {

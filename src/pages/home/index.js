@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper'
+import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper/modules'
 import { cms } from '../../service/client'
 import Home from './styled'
 
@@ -11,8 +11,6 @@ import ModalGallery from '../../components/galery-modal'
 import fotoNossaCasa from './nossacasa.png'
 import mural from './mural.png'
 import Footer from '../../components/footer'
-
-import ModalGallery from '../../components/galery-modal'
 import posterNossaCasa from './image-0.png'
 import espaçoTerapias from './image-1.png'
 import quadroNossaCasa from './image-2.png'
