@@ -1,15 +1,10 @@
 import styled from 'styled-components'
 
 const TherapyCarouselComponent = styled.div`
-  width: 100%;
-  /* height: 100vh; */
+  /* width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
-  /* padding: 12rem; */
-
-  /* .date, .title{
-    color: #516B84;
-  } */
 
 div {
   color: #516B84;
@@ -34,6 +29,6 @@ p {
     cursor: pointer;
     font-weight: bold;
     
-  }
+  } */
 `
 export default TherapyCarouselComponent

@@ -6,54 +6,31 @@ const Therapies = styled.div`
   height: 100vh;
 
   main {
-    background-color: blue;
-    height: 100vh;
-    .carrossel{
-        height: 652px;
-        background-color: #E9EEF1;
+ 
+    .terapias-carrossel {
+        background-color: #ffffff;
 
         h1 {
-          padding-left: 140px;
-          padding-top: 60px;
+          padding: 70px 200px 50px 140px;
           font-size: 2em;
         }
+        .resumo-terapias{
+          line-height:1.2rem;
+          padding: 0px 140px 0px 140px;
+          font-size: 0.99em;
+          text-align: center;
+          text-align: justify;
+          color: black;
+        }
     }
-    .search-box {
-      background-color: #C2D1D9;
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
 
-      .search-input {
-        display: flex;
-        justify-content: center;
-        border: none;
-        border-radius: 26px;
-        width: 780px;
-        height: 52px;
-        font-size: 16px;
-      }
-    }
-    .terapias {
+    .post{
       height: 500px;
       background-color: #DADADA;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-
-      h2 {
-        text-align: center;
-        font-size: 2.5rem;
-      }
-      .painel {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 1fr;
-      grid-column-gap: 5px;
-      grid-row-gap: 0px;
-      }
     }
 
     .parceires {
