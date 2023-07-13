@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper/modules'
+import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper'
 import { cms } from '../../service/client'
 import Home from './styled'
 import NavBar from '../../components/navbar'
