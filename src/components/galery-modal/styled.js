@@ -8,7 +8,7 @@ export const ModalContainer = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 10;
  
   background-color: ${props => props.theme === 'about' ? '#FFFFFF' : '#516B84'};
                                                           
