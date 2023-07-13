@@ -2,37 +2,37 @@ import styled from 'styled-components'
 
 const EventsComponent = styled.div`
 
-div.swiper-slide.swiper-slide-next{
+width: auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  
 
+div.swiper-slide .swiper-slide-next{
+margin: none;
 }
 
 
 
 
-.swiper-slide {
-  display: flex;
-  padding-right: 15%;
-  max-width: 120%;
-  justify-content:space-around;
-  
 
+.swiper-slide{
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+  
 }
 
 .evento {
-  
-  /* border:solid black 1px ; */
-  width: 11rem;
-  justify-content: space-evenly;
+  border:solid black 1px; 
+
+ 
  
 }
 
 
 
-  width: auto;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  
+
 
 div {
   color: #516B84;
