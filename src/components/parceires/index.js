@@ -6,10 +6,7 @@ import ParceireComponents from './styled.js'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation } from 'swiper'
-import { cms } from '../../service/client'
-import { useEffect, React, useState } from 'react'
-import env from 'react-dotenv'
+import { Navigation } from 'swiper/modules'
 const linkParceire = process.env.REACT_APP_LINK_PARCEIRO
 
 const Parceires = () => {
