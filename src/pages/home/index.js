@@ -23,8 +23,9 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-export const HomePage = () => {
+export function HomePage() {
   const [attributes, setAttributes] = useState([])
+  const [galeri, setGaleri] = useState([])
   const [toggle, setToggle] = useState(false)
   const urlCms = env.URL_CMS
 
@@ -40,7 +41,27 @@ export const HomePage = () => {
       })
       setAttributes(event)
     })
+    cms.get('api/gallery/?populate=fotos').then((response) => {
+      // const image = response.data.data.map((data) => {
+      //   if (data.attributes.fotos) {
+      //     setGaleri(response.data)
+      //     console.log(galeri)
+      //   }
+      console.log( response.data.data.attributes.fotos.data)
+      const images = response.data.data.attributes.fotos.data.map((image, id )=> {
+        return {
+          id,
+          url: env.URL_CMS + image.attributes.url
+        }
+      })
+
+      setGaleri(images)
+    }).catch(error => {
+      throw new Error(error)
+    })
   }, [])
+
+
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
     '--swiper-navigation-color': '#FFFFFF',
@@ -109,16 +130,19 @@ export const HomePage = () => {
           </div >
         </section >
         <section className="galeria">
-          <h2>Galeria de fotos</h2>
-          <div className='painel'>
-            <img src={posterNossaCasa} />
-            <img src={espaçoTerapias} />
-            <img src={quadroNossaCasa} />
-            <img src={espacoNossaCasa} />
-            <img src={pinturaNossaCasa} />
-            <img src={pinturaNossaCasa2} />
+        <h2 className='titulo-galeria'>Galeria de fotos</h2>
+          <div className='container-painel'>
+
+            <ul className='painel'>
+
+              {galeri.map((fotos) => (
+                  <li key={fotos.id}>
+                    <p>{fotos.name}</p>
+                    <img src={fotos.url} />
+                  </li>
+              ))}
+            </ul>
           </div>
-          
           <ModalGallery type={'gallery'} />
         </section>
         <section className="parceires">
