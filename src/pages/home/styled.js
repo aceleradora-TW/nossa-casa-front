@@ -144,9 +144,9 @@ const Home = styled.div`
       align-items: center;
       gap: 30px;
 
-      h2 {
+      .titulo-galeria {
         align-self: flex-start;
-        margin-left: 7.5%;
+        margin-left: 12.5%;
         font-size: 2.25rem;
         font-weight: 700;
         color: #516B84;
@@ -173,10 +173,13 @@ const Home = styled.div`
           max-width: auto;
           margin-left: 3%;
           border-radius: 3px;
-          margin-bottom: 2.5rem;
+          margin-bottom: 3.5rem;
         }
       }
-
+      .container-painel {
+        display: flex;
+        justify-content: center;
+      }
       button {
         background: #516B84;
         border-radius: 3px;
