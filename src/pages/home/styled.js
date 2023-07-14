@@ -61,11 +61,6 @@ const Home = styled.div`
         text-align: justify;
         z-index: 1;
 
-        @media (max-width: 375px) {
-          font-size: 20px;
-          color: red;
-        }
-
       }
       img {
         width: 100%;

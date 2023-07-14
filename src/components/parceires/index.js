@@ -24,7 +24,7 @@ const Parceires = () => {
       })
       setAttributes(partners)
     })
-  })
+  }, [])
   return (
     <ParceireComponents style={{
       background: '#F5BC4A'
@@ -57,31 +57,31 @@ const Parceires = () => {
         <section className='parceires'>
           <div className="swiper-slide">
             <ul>
-      {attributes.map((partners) =>
-          <li key={partners.nome}>
-      <SwiperSlide>
-      <div className='perfil'>
-        <div>
-        { partners.foto.data.map(foto => (
-            <img className='img-perfil' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
-        ))
- }        </div>
-        <h3>{partners.nome}</h3>
-        <p>{partners.especializacao}</p>
-        <p className='perfil-descricao'>
-         {partners.descricao}
-        </p>
-        <div className='icones-rede-sociais'>
-          <a href={partners.whatsapp}><img src={Whatsapp} /></a>
-          <a href={partners.twitter}><img src={Twitter} /></a>
-          <a href={partners.facebook}><img src={Facebook} /></a>
-          <a href={partners.instagram}><img src={Instagram} /></a>
-        </div>
-      </div>
-    </SwiperSlide>
-    </li>
-      )}
-          </ul>
+              {attributes.map((partners) =>
+                <li key={partners.nome}>
+                  <SwiperSlide>
+                    <div className='perfil'>
+                      <div>
+                        {partners.foto.data.map(foto => (
+                          <img className='img-perfil' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
+                        ))
+                        }        </div>
+                      <h3>{partners.nome}</h3>
+                      <p>{partners.especializacao}</p>
+                      <p className='perfil-descricao'>
+                        {partners.descricao}
+                      </p>
+                      <div className='icones-rede-sociais'>
+                        <a href={partners.whatsapp}><img src={Whatsapp} /></a>
+                        <a href={partners.twitter}><img src={Twitter} /></a>
+                        <a href={partners.facebook}><img src={Facebook} /></a>
+                        <a href={partners.instagram}><img src={Instagram} /></a>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                </li>
+              )}
+            </ul>
           </div>
         </section>
       </Swiper>
