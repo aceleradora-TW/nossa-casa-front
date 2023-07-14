@@ -1,26 +1,22 @@
 import { ModalContainer } from './styled'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import closeIcon from './close-icon.svg'
 import { buttonTextByTypes } from '../../constants/constants'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
-import casaDentro from './casadentro.png'
-import casaFora from './casafora.png'
-import arteCasa from './artecasa.png'
-import pinturaCasa from './pinturacasa.png'
-import quadroCasa from './qadrocasa.png'
-import quadrosCasa from './quadroscasa.png'
 
+import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
-
-const IMAGES = [casaDentro, casaFora, arteCasa, pinturaCasa, quadroCasa, quadrosCasa]
+import { cms } from '../../service/client'
 
 const ModalGallery = ({ type }) => {
   const [toggleGallery, setToggleGallery] = useState(false)
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [galeria, setGaleria] = useState([])
+
 
   const toggleGalleryHandler = () => {
     setToggleGallery(!toggleGallery)
@@ -29,6 +25,22 @@ const ModalGallery = ({ type }) => {
     toggleGalleryHandler()
     window.location.reload()
   }
+
+  useEffect(() => {
+    cms.get('api/gallery/?populate=fotos').then((response) => {
+      console.log(response.data.data.attributes.fotos.data)
+      const images = response.data.data.attributes.fotos.data.map((image, id) => {
+        return {
+          id,
+          url: env.URL_CMS + image.attributes.url
+        }
+      })
+
+      setGaleria(images)
+    }).catch(error => {
+      throw new Error(error)
+    })
+  }, [])
 
   return <>
         <button onClick={toggleGalleryHandler}>{buttonTextByTypes[type]}</button>
@@ -100,11 +112,11 @@ const ModalGallery = ({ type }) => {
             modules={[FreeMode, Navigation, Thumbs]}
             className='swiper-slide-view'
           >
-              {IMAGES.map((image, index) => (
+              {galeria.map((fotos) => (
                 <div className='teste'>
-                <SwiperSlide key={index}>
-                  
-                    <img src={image} />
+                <SwiperSlide key={fotos.id}> 
+
+                    <img src={fotos.url} />
                   
                 </SwiperSlide>
                 </div>
@@ -118,9 +130,9 @@ const ModalGallery = ({ type }) => {
               modules={[FreeMode, Navigation, Thumbs]}
               className='swiper-thumbnails'
             >
-              {IMAGES.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <img src={image} />
+              {galeria.map((image) => (
+                <SwiperSlide key={image.id}>
+                  <img src={image.url} />
                 </SwiperSlide>
               ))}
             </Swiper></>

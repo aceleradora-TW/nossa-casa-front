@@ -11,12 +11,6 @@ import ModalGallery from '../../components/galery-modal'
 import fotoNossaCasa from './nossacasa.png'
 import mural from './mural.png'
 import Footer from '../../components/footer'
-import posterNossaCasa from './image-0.png'
-import espaçoTerapias from './image-1.png'
-import quadroNossaCasa from './image-2.png'
-import espacoNossaCasa from './image-3.png'
-import pinturaNossaCasa from './image-4.png'
-import pinturaNossaCasa2 from './image-5.png'
 
 import env from 'react-dotenv'
 import 'swiper/css'
@@ -42,13 +36,8 @@ export function HomePage() {
       setAttributes(event)
     })
     cms.get('api/gallery/?populate=fotos').then((response) => {
-      // const image = response.data.data.map((data) => {
-      //   if (data.attributes.fotos) {
-      //     setGaleri(response.data)
-      //     console.log(galeri)
-      //   }
-      console.log( response.data.data.attributes.fotos.data)
-      const images = response.data.data.attributes.fotos.data.map((image, id )=> {
+      console.log(response.data.data.attributes.fotos.data)
+      const images = response.data.data.attributes.fotos.data.map((image, id) => {
         return {
           id,
           url: env.URL_CMS + image.attributes.url
@@ -130,16 +119,16 @@ export function HomePage() {
           </div >
         </section >
         <section className="galeria">
-        <h2 className='titulo-galeria'>Galeria de fotos</h2>
+          <h2 className='titulo-galeria'>Galeria de fotos</h2>
           <div className='container-painel'>
 
             <ul className='painel'>
 
               {galeri.map((fotos) => (
-                  <li key={fotos.id}>
-                    <p>{fotos.name}</p>
-                    <img src={fotos.url} />
-                  </li>
+                <li key={fotos.id}>
+                  <p>{fotos.name}</p>
+                  <img src={fotos.url} />
+                </li>
               ))}
             </ul>
           </div>
