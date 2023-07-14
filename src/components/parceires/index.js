@@ -62,8 +62,10 @@ const Parceires = () => {
       <SwiperSlide>
       <div className='perfil'>
         <div>
-          <img className='img-perfil' src={urlCms + partners.foto.data.map(foto => foto.attributes.url)} />
-        </div>
+        { partners.foto.data.map(foto => (
+            <img className='img-perfil' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
+        ))
+ }        </div>
         <h3>{partners.nome}</h3>
         <p>{partners.especializacao}</p>
         <p className='perfil-descricao'>
