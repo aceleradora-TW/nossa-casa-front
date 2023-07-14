@@ -27,7 +27,7 @@ const Home = styled.div`
       width: 70%;
       margin: auto;
     }
-    }
+    
     .swiper-slide {
 
       div {
@@ -193,10 +193,10 @@ const Home = styled.div`
     }
 
 
-@media (max-width: 1280px) {
-  .galeria{
-    height: 950px;
-  }
+  @media (max-width: 1280px) {
+    .galeria{
+      height: 950px;
+    }
     }
 
     .parceires {
@@ -243,72 +243,73 @@ const Home = styled.div`
       }
     }
     .about {
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  box-sizing: border-box;
-  align-items: center;
-  height: 627px;
-}
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    align-items: center;
+    height: 627px;
+  }
 
-main .about {
-  height: auto;
-  padding: 10px;
-}
+  main .about {
+    height: auto;
+    padding: 10px;
+  }
 
-main .about .content {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  flex-direction: row;
-  margin-top: 5rem;
-  margin-bottom: 4rem;
-}
+  main .about .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+  }
 
-.content .text {
-  box-sizing: border-box;
-  text-align: justify;
-  width: 40%;
-  margin-bottom: auto;
-}
+  .content .text {
+    box-sizing: border-box;
+    text-align: justify;
+    width: 40%;
+    margin-bottom: auto;
+  }
 
-.foto img {
-  width: 110%;
-  max-width: auto;
-  margin-left: 3%;
-  border-radius: 3px;
-  margin-bottom: 4.6rem;
-}
-
-@media screen and (min-width: 720px) and (max-width:2920px) {
-  .content > div {
-    width: auto;
+  .foto img {
+    width: 110%;
     max-width: auto;
+    margin-left: 3%;
+    border-radius: 3px;
+    margin-bottom: 4.6rem;
   }
 
-  .content h2 {
-    font-size: 2.25rem;
-    margin-bottom: 30px;
-  }
+  @media screen and (min-width: 720px) and (max-width:2920px) {
+    .content > div {
+      width: auto;
+      max-width: auto;
+    }
 
-  .content .Textparagraph {
-    font-size: 1.4rem;
-    font-weight: 500;
-    line-height: 35px;
-  }
+    .content h2 {
+      font-size: 2.25rem;
+      margin-bottom: 30px;
+    }
 
-  .content .text h2 {
-    font-size: 2rem;
-    color: #516B84;
-    cursor: default;
-  }
+    .content .Textparagraph {
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 35px;
+    }
 
-  .content .text .Textparagraph {
-    font-size: 25px;
-    color: #54636F;
-    cursor: default;
+    .content .text h2 {
+      font-size: 2rem;
+      color: #516B84;
+      cursor: default;
+    }
+
+    .content .text .Textparagraph {
+      font-size: 25px;
+      color: #54636F;
+      cursor: default;
+    }
   }
 }
 `

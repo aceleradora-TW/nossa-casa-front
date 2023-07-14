@@ -88,8 +88,11 @@ const ModalGallery = ({ type }) => {
         </div>
           <Swiper
             style={{
-              '--swiper-navigation-color': '#FFF',
-              '--swiper-pagination-color': '#FFF'
+              '--swiper-navigation-color': '#516B84',
+              '--swiper-pagination-color': '#FFF',
+              marginLeft: '80px',
+              marginRight: '80px',
+              position: 'unset'
             }}
             spaceBetween={10}
             navigation={true}
@@ -98,9 +101,13 @@ const ModalGallery = ({ type }) => {
             className='swiper-slide-view'
           >
               {IMAGES.map((image, index) => (
+                <div className='teste'>
                 <SwiperSlide key={index}>
-                  <img src={image} />
+                  
+                    <img src={image} />
+                  
                 </SwiperSlide>
+                </div>
               ))}
             </Swiper><Swiper
               onSwiper={setThumbsSwiper}
