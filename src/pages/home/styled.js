@@ -4,7 +4,7 @@ const Home = styled.div`
   background-color: white;
   width: 100%;
   height: 100vh;
-  
+
   main {
     height: 100vh;
     .carrossel {
@@ -24,7 +24,6 @@ const Home = styled.div`
       margin: auto;
     }
     .swiperSliide {
-
       div {
         display: flex;
         flex-direction: column;
@@ -64,7 +63,6 @@ const Home = styled.div`
         position: fixed;
         opacity: 50%;
       }
-      
 
       .ver-mais {
         z-index:1;
@@ -122,7 +120,6 @@ const Home = styled.div`
         margin-top: 1.6rem;
         margin-bottom: 1.6rem;
       }
-      
     }
 
     .galeria {
@@ -159,7 +156,6 @@ const Home = styled.div`
         img {
           width: 100%;
           height: 100%;
-
           max-width: auto;
           margin-left: 3%;
           border-radius: 3px;
@@ -201,7 +197,6 @@ const Home = styled.div`
         margin-top: 30px;
         margin-bottom: 10px;
         cursor: default;
-
       }
 
       p {
@@ -242,7 +237,6 @@ const Home = styled.div`
     align-items: center;
     height: 627px;
   }
-
 
 main .about {
   height: auto;

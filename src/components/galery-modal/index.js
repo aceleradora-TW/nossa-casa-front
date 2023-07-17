@@ -4,7 +4,6 @@ import closeIcon from './close-icon.svg'
 import { buttonTextByTypes } from '../../constants/constants'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
-
 import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -16,7 +15,6 @@ const ModalGallery = ({ type }) => {
   const [toggleGallery, setToggleGallery] = useState(false)
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [galeria, setGaleria] = useState([])
-
 
   const toggleGalleryHandler = () => {
     setToggleGallery(!toggleGallery)

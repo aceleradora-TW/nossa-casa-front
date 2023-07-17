@@ -99,9 +99,6 @@ export const ModalContainer = styled.div`
     }
   }
 
-
-
-
 @media screen and (min-width: 780px) and (max-width: 2920px)  {
 
 .content-container   {
@@ -115,7 +112,6 @@ margin: 0 150px;
 padding: 10px;
 overflow: hidden;
 }
-
 
 .about-title   {
 
@@ -143,13 +139,10 @@ h3 {
 }
 
 p {
-
   font-size: 1rem;
   line-height:1.5rem;
-  
 }
 }
-
 
 }
 //modal galerias
@@ -229,6 +222,7 @@ p {
     margin-right: -15rem;
     color: var(--swiper-navigation-color,var(--swiper-theme-color));
   }
+
   .swiper-button-prev{
     position: absolute;
       top: 50%;
@@ -244,7 +238,6 @@ p {
       color: var(--swiper-navigation-color,var(--swiper-theme-color));
   }
 
-  //nao e nosso
   @media (max-width: 1280px) {
 
     .topo {

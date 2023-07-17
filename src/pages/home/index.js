@@ -10,7 +10,6 @@ import ModalGallery from '../../components/galery-modal'
 import fotoNossaCasa from './nossacasa.png'
 import Parceires from '../../components/parceires'
 import Footer from '../../components/footer'
-
 import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -35,7 +34,7 @@ export function HomePage() {
       setAttributes(event)
     })
     cms.get('api/gallery/?populate=fotos').then((response) => {
-      const images = response.data.data.attributes.fotos.data.map((image, id )=> {
+      const images = response.data.data.attributes.fotos.data.map((image, id) => {
         return {
           id,
           url: env.URL_CMS + image.attributes.url
@@ -47,7 +46,6 @@ export function HomePage() {
       throw new Error(error)
     })
   }, [])
-
 
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
@@ -116,15 +114,14 @@ export function HomePage() {
           </div >
         </section >
         <section className="galeria">
-        <h2 className='titulo-galeria'>Galeria de fotos</h2>
+          <h2 className='titulo-galeria'>Galeria de fotos</h2>
           <div className='container-painel'>
-
             <ul className='painel'>
               {galeria.map((fotos) => (
-                  <li key={fotos.id}>
-                    <p>{fotos.name}</p>
-                    <img src={fotos.url} />
-                  </li>
+                <li key={fotos.id}>
+                  <p>{fotos.name}</p>
+                  <img src={fotos.url} />
+                </li>
               ))}
             </ul>
           </div>
@@ -134,6 +131,5 @@ export function HomePage() {
         <Footer />
       </main >
     </Home >
-
   )
 }
