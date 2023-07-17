@@ -1,29 +1,53 @@
-import { useEffect, useState } from 'react'
-import { client } from '../../service/client'
-import NavBar from '../../components/navbar'
+import Workshops from './styled'
+import foto from './fot.png'
+import NavBar from '../../components/navbar/index'
+import Parceires from '../../components/parceires'
+import Footer from '../../components/footer'
 
-export const WorkshopList = () => {
-  const [workshop, setWorkshop] = useState([])
-  useEffect(() => {
-    client.get('/workshops').then(
-      (response) => {
-        return setWorkshop(response.data.data.map((workshop) => workshop.attributes))
-      })
-  }, [])
+export const WorkshopsPage = () => {
   return (
-    <>
-    <NavBar/>
-      <h1>Lista de Oficinas</h1>
-        <ul>
-        {workshop.map((user, index) => (
-            <li key={index}>
-              <br/>
-              <p> Nome: {user.name}</p>
-              <br/>
-              <p> Descrições: {user.description}</p>
-            </li>
-        ))}
-    </ul>
-    </>
+    <Workshops>
+      <NavBar />
+      <main>
+        <section className='carrossel'>
+          <h1>OFICINAS</h1>
+        </section>
+
+        <section className='search'>
+          <div className='search-box'>
+            <div>
+              <input type='text' placeholder='Busca' className='search-input'></input>
+            </div>
+          </div>
+        </section>
+
+      <section className='oficinas'>
+        <h1>Oficinas</h1>
+        <div >
+          <ul className='painel'>
+             <li >
+                <img src={foto} />
+                <p>Impact Of Extrinsic Motivation On Intrinsic Motivation</p>
+                <button>ver mais</button>
+             </li>
+
+             <li>
+                <img src={foto} />
+                <p>Impact Of Extrinsic Motivation On Intrinsic Motivation</p>
+                <button>ver mais</button>
+             </li>
+
+             <li>
+                <img src={foto} />
+                <p>Impact Of Extrinsic Motivation On Intrinsic Motivation</p>
+                <button>ver mais</button>
+             </li>
+         </ul>
+        </div>
+      </section>
+        <Parceires />
+        <Footer />
+        </main>
+    </Workshops>
   )
 }
