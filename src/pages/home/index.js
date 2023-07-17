@@ -4,12 +4,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper/modules'
 import { cms } from '../../service/client'
 import Home from './styled'
-
+import mural from './mural.png'
 import NavBar from '../../components/navbar'
-import foto from '../../components/parceires/fot.png'
 import ModalGallery from '../../components/galery-modal'
 import fotoNossaCasa from './nossacasa.png'
-import mural from './mural.png'
 import Footer from '../../components/footer'
 
 import env from 'react-dotenv'
@@ -19,7 +17,7 @@ import 'swiper/css/navigation'
 
 export function HomePage() {
   const [attributes, setAttributes] = useState([])
-  const [galeri, setGaleri] = useState([])
+  const [galeria, setGaleria] = useState([])
   const [toggle, setToggle] = useState(false)
   const urlCms = env.URL_CMS
 
@@ -36,15 +34,14 @@ export function HomePage() {
       setAttributes(event)
     })
     cms.get('api/gallery/?populate=fotos').then((response) => {
-      console.log(response.data.data.attributes.fotos.data)
-      const images = response.data.data.attributes.fotos.data.map((image, id) => {
+      const images = response.data.data.attributes.fotos.data.map((image, id )=> {
         return {
           id,
           url: env.URL_CMS + image.attributes.url
         }
       })
 
-      setGaleri(images)
+      setGaleria(images)
     }).catch(error => {
       throw new Error(error)
     })
@@ -99,7 +96,6 @@ export function HomePage() {
                     </li>
                   )
                 }
-
               </ul>
             </Swiper>
           </section>
@@ -119,16 +115,15 @@ export function HomePage() {
           </div >
         </section >
         <section className="galeria">
-          <h2 className='titulo-galeria'>Galeria de fotos</h2>
+        <h2 className='titulo-galeria'>Galeria de fotos</h2>
           <div className='container-painel'>
 
             <ul className='painel'>
-
-              {galeri.map((fotos) => (
-                <li key={fotos.id}>
-                  <p>{fotos.name}</p>
-                  <img src={fotos.url} />
-                </li>
+              {galeria.map((fotos) => (
+                  <li key={fotos.id}>
+                    <p>{fotos.name}</p>
+                    <img src={fotos.url} />
+                  </li>
               ))}
             </ul>
           </div>
