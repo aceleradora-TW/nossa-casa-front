@@ -59,7 +59,7 @@ const Parceires = () => {
             <ul>
               {attributes.map((partners) =>
                 <li key={partners.nome}>
-                  <SwiperSlide>
+                  <SwiperSlide key={partners.nome}>
                     <div className='perfil'>
                       <div>
                         {partners.foto.data.map(foto => (
