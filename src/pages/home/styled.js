@@ -20,17 +20,14 @@ const Home = styled.div`
         margin-left: 25px;
       }
     }
-    .swiper {
+
+    .hero-banner {
       height: 560px;
-      width: 70%;
-      
-    }
-    .mySwiper {
       width: 70%;
       margin: auto;
      
     }
-    .swiper-slide {
+    .swiperSliide {
 
       div {
         display: flex;
@@ -63,11 +60,6 @@ const Home = styled.div`
         cursor: default;
         text-align: justify;
         z-index: 1;
-
-        @media (max-width: 375px) {
-          font-size: 20px;
-          color: red;
-        }
 
       }
       img {
@@ -216,6 +208,7 @@ const Home = styled.div`
         }
       }
     }
+    
     .about {
   background-color: #ffffff;
   display: flex;
@@ -225,6 +218,7 @@ const Home = styled.div`
   align-items: center;
   height: 627px;
 }
+
 
 main .about {
   height: auto;

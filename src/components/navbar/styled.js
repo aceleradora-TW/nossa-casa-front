@@ -6,6 +6,7 @@ const NavBarComponent = styled.nav.attrs(props => ({ className: props.className 
   overflow: hidden;
   background-color: black;
   width: 100%;
+  z-index: 5;
 
 
 
