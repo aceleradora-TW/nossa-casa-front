@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper'
+import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper/modules'
 import { cms } from '../../service/client'
 import Home from './styled'
 import NavBar from '../../components/navbar'
@@ -69,7 +69,7 @@ export const HomePage = () => {
                   attributes.map((attribute) =>
                     attribute &&
                     <li key={attribute.nome}>
-                      <SwiperSlide className="swiperSliide "key={attribute.nome} >
+                      <SwiperSlide className="swiperSliide " key={attribute.nome} >
                         <div className='slide-container'>
                           <h2 className="slidetitulo"> {attribute.nome} </h2>
                           <div className='event-container'>

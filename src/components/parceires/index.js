@@ -6,7 +6,7 @@ import ParceireComponents from './styled.js'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation } from 'swiper'
+import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
 import { cms } from '../../service/client'
@@ -51,7 +51,7 @@ const Parceires = () => {
             spaceBetween: 40
           }
         }}
-        modules={[Navigation]}
+        modules={Navigation}
         className="mySwiper"
       >
         <section className='parceires'>
@@ -65,7 +65,8 @@ const Parceires = () => {
                         {partners.foto.data.map(foto => (
                           <img className='img-perfil' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
                         ))
-                        }        </div>
+                        }
+                      </div>
                       <h3>{partners.nome}</h3>
                       <p>{partners.especializacao}</p>
                       <p className='perfil-descricao'>
