@@ -8,7 +8,7 @@ export const ModalContainer = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 10;
   background-color: ${props => props.theme === 'about' ? '#FFFFFF' : '#fff'};
 
     .exit {
@@ -181,10 +181,8 @@ p {
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #A49D9D;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-size: cover;
     background-position: center;
   }
@@ -202,8 +200,7 @@ p {
   }
 
   .swiper-thumbnails {
-    height: 13%;
-    width: 50%;
+    height: 13%; 
     box-sizing: border-box;
     padding: 10px 0;
   }
@@ -211,7 +208,6 @@ p {
   .swiper-thumbnails .swiper-slide {
     width: 25%;
     height: 100%;
-    opacity: 0.4;
   }
 
   .swiper-thumbnails .swiper-slide-thumb-active {

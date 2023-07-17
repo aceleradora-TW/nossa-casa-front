@@ -8,6 +8,7 @@ import mural from './mural.png'
 import NavBar from '../../components/navbar'
 import ModalGallery from '../../components/galery-modal'
 import fotoNossaCasa from './nossacasa.png'
+import Parceires from '../../components/parceires'
 import Footer from '../../components/footer'
 
 import env from 'react-dotenv'
@@ -69,7 +70,7 @@ export function HomePage() {
                 clickable: 'true'
               }}
               navigation={true}
-              className="mySwiper"
+              className="hero-banner"
               style={swiperStyle}
               keyboard={true}
               autoplay={{
@@ -83,7 +84,7 @@ export function HomePage() {
                   attributes.map((attribute) =>
                     attribute &&
                     <li key={attribute.nome}>
-                      <SwiperSlide key={attribute.nome} >
+                      <SwiperSlide className="swiperSliide " key={attribute.nome} >
                         <div className='slide-container'>
                           <h2 className="slidetitulo"> {attribute.nome} </h2>
                           <div className='event-container'>
@@ -129,42 +130,7 @@ export function HomePage() {
           </div>
           <ModalGallery type={'gallery'} />
         </section>
-        <section className="parceires">
-          <h2>Parceires</h2>
-          <p>
-            A Nossa Casa é uma Associação sem fins lucrativos, composta por
-            profissionais, artistas e ativistas do Município de Guarulhos.
-          </p>
-          <div className="carrossel-perfis">
-            <div className="perfil">
-              <img />
-              <h3>Fulano</h3>
-              <p>CEO</p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna.
-              </p>
-            </div>
-            <div className="perfil">
-              <img />
-              <h3>Fulano</h3>
-              <p>CEO</p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna.
-              </p>
-            </div>
-            <div className="perfil">
-              <img />
-              <h3>Fulano</h3>
-              <p>CEO</p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna.
-              </p>
-            </div>
-          </div>
-        </section>
+        <Parceires />
         <Footer />
       </main >
     </Home >
