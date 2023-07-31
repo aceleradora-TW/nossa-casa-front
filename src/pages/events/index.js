@@ -4,6 +4,7 @@ import evimg from '../home/Background.png'
 import NavBar from '../../components/navbar'
 import Parceires from '../../components/parceires'
 import Footer from '../../components/footer'
+import Events from '../../components/events-carrosel'
 
 const EventsPage = () => {
   return (
@@ -38,8 +39,9 @@ const EventsPage = () => {
             <button>VER MAIS</button>
           </div>
         </section>
+        <Events />
         <Parceires />
-       <Footer />
+        <Footer />
       </main>
     </EventsContainer>
   )

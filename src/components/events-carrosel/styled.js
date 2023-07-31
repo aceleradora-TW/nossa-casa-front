@@ -12,42 +12,25 @@ div.swiper-slide .swiper-slide-next{
 margin: none;
 }
 
-
-
-
-
 .swiper-slide{
   display: flex;
   justify-content: space-around;
   /* align-items: center; */
-  
 }
 
 .evento {
   border:solid black 1px; 
-
- 
- 
 }
-
-
-
-
 
 div {
   color: #516B84;
 }
-  
 
 div > img {
-
- 
   /* border: 1px solid black; */
   width: 30rem;
   font-size: 12rem;
-
   margin-bottom: 0.87rem;
-   
 }
 
 p {
@@ -63,25 +46,22 @@ p {
   margin-top: 1rem;
   cursor: pointer;
 }
-   
-
 
 .swiper-button-next {
     position: absolute;
     top: 50%;
-
     width: calc(var(--swiper-navigation-size)/4*47);
     height: var(--swiper-navigation-size);
     margin-top: calc(0px - var(--swiper-navigation-size)/3);
     z-index: 10;
     cursor: pointer;
-    
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: -15rem;
     color: var(--swiper-navigation-color,var(--swiper-theme-color));
 }
+
 .swiper-button-prev{
   position: absolute;
     top: 50%;
