@@ -2,16 +2,29 @@ import Facebook from '../parceires/face-icon.png'
 import Twitter from '../parceires/twitter-icon.png'
 import Instagram from '../parceires/instagram-icon.png'
 import Whatsapp from '../parceires/whatsapp-icon.png'
-import foto from '../parceires/fot.png'
 import ParceireComponents from './styled.js'
-import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation } from 'swiper'
+import { Navigation } from 'swiper/modules'
+import { useState, useEffect } from 'react'
+import env from 'react-dotenv'
+import { cms } from '../../service/client'
 const linkParceire = process.env.REACT_APP_LINK_PARCEIRO
 
 const Parceires = () => {
+  const [attributes, setAttributes] = useState([])
+  const urlCms = env.URL_CMS
+
+  useEffect(() => {
+    cms.get('api/partners/?populate=foto').then((response) => {
+      const { data } = response.data
+      const partners = data.map((data) => {
+        return data.attributes
+      })
+      setAttributes(partners)
+    })
+  }, [])
   return (
     <ParceireComponents style={{
       background: '#F5BC4A'
@@ -38,137 +51,38 @@ const Parceires = () => {
             spaceBetween: 40
           }
         }}
-        modules={[Navigation]}
+        modules={Navigation}
         className="mySwiper"
       >
         <section className='parceires'>
           <div className="swiper-slide">
-            <SwiperSlide>
-              <div className='perfil'>
-                <div>
-                  <img className='img-perfil' src={foto} />
-                </div>
-                <h3>Nicole</h3>
-                <p>Terapeuta</p>
-                <p className='perfil-descricao'>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                </p>
-                <div className='icones-rede-sociais'>
-                  <a href={'https://chat.whatsapp.com/BndMXO2VZY7CS04IiJ9An2'}><img src={Whatsapp} /></a>
-                  <a href={'#'}><img src={Twitter} /></a>
-                  <a href={'#'}><img src={Facebook} /></a>
-                  <a href={'https://www.instagram.com/nossacasa_at/'}><img src={Instagram} /></a>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='perfil'>
-                <div>
-                  <img className='img-perfil' src={foto} />
-                </div>
-                <h3>Julio</h3>
-                <p>Massoterapeuta</p>
-                <p className='perfil-descricao'>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. aaaaaa
-                </p>
-                <div className='icones-rede-sociais'>
-                  <a href={'https://chat.whatsapp.com/BndMXO2VZY7CS04IiJ9An2'}><img src={Whatsapp} /></a>
-                  <a href={'#'}><img src={Twitter} /></a>
-                  <a href={'#'}><img src={Facebook} /></a>
-                  <a href={'https://www.instagram.com/nossacasa_at/'}><img src={Instagram} /></a>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='perfil'>
-                <div>
-                  <img className='img-perfil' src={foto} />
-                </div>
-                <h3>Gabriela Gomes</h3>
-                <p>Psicologia</p>
-                <p className='perfil-descricao'>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                </p>
-                <div className='icones-rede-sociais'>
-                  <a href={'https://chat.whatsapp.com/BndMXO2VZY7CS04IiJ9An2'}><img src={Whatsapp} /></a>
-                  <a href={'#'}><img src={Twitter} /></a>
-                  <a href={'#'}><img src={Facebook} /></a>
-                  <a href={'https://www.instagram.com/nossacasa_at/'}><img src={Instagram} /></a>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='perfil'>
-                <div>
-                  <img className='img-perfil' src={foto} />
-                </div>
-                <h3>Aleatorio</h3>
-                <p>Nada</p>
-                <p className='perfil-descricao'>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                </p>
-                <div className='icones-rede-sociais'>
-                  <a href={'https://chat.whatsapp.com/BndMXO2VZY7CS04IiJ9An2'}><img src={Whatsapp} /></a>
-                  <a href={'#'}><img src={Twitter} /></a>
-                  <a href={'#'}><img src={Facebook} /></a>
-                  <a href={'https://www.instagram.com/nossacasa_at/'}><img src={Instagram} /></a>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='perfil'>
-                <div>
-                  <img className='img-perfil' src={foto} />
-                </div>
-                <h3>Aleatoria</h3>
-                <p>Nadinha</p>
-                <p className='perfil-descricao'>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                </p>
-                <div className='icones-rede-sociais'>
-                  <a href={'https://chat.whatsapp.com/BndMXO2VZY7CS04IiJ9An2'}><img src={Whatsapp} /></a>
-                  <a href={'#'}><img src={Twitter} /></a>
-                  <a href={'#'}><img src={Facebook} /></a>
-                  <a href={'https://www.instagram.com/nossacasa_at/'}><img src={Instagram} /></a>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='perfil'>
-                <div>
-                  <img className='img-perfil' src={foto} />
-                </div>
-                <h3>Angelo</h3>
-                <p>Animador</p>
-                <p className='perfil-descricao'>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                </p>
-                <div className='icones-rede-sociais'>
-                  <a href={'https://chat.whatsapp.com/BndMXO2VZY7CS04IiJ9An2'}><img src={Whatsapp} /></a>
-                  <a href={'#'}><img src={Twitter} /></a>
-                  <a href={'#'}><img src={Facebook} /></a>
-                  <a href={'https://www.instagram.com/nossacasa_at/'}><img src={Instagram} /></a>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='perfil'>
-                <div>
-                  <img className='img-perfil' src={foto} />
-                </div>
-                <h3>Barbara</h3>
-                <p>Backend</p>
-                <p className='perfil-descricao'>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                </p>
-                <div className='icones-rede-sociais'>
-                  <a href={'https://chat.whatsapp.com/BndMXO2VZY7CS04IiJ9An2'}><img src={Whatsapp} /></a>
-                  <a href={'#'}><img src={Twitter} /></a>
-                  <a href={'#'}><img src={Facebook} /></a>
-                  <a href={'https://www.instagram.com/nossacasa_at/'}><img src={Instagram} /></a>
-                </div>
-              </div>
-            </SwiperSlide>
+            <ul>
+              {attributes.map((partners) =>
+                <li key={partners.nome}>
+                  <SwiperSlide key={partners.nome}>
+                    <div className='perfil'>
+                      <div>
+                        {partners.foto.data.map(foto => (
+                          <img className='img-perfil' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
+                        ))
+                        }
+                      </div>
+                      <h3>{partners.nome}</h3>
+                      <p>{partners.especializacao}</p>
+                      <p className='perfil-descricao'>
+                        {partners.descricao}
+                      </p>
+                      <div className='icones-rede-sociais'>
+                        <a href={partners.whatsapp}><img src={Whatsapp} /></a>
+                        <a href={partners.twitter}><img src={Twitter} /></a>
+                        <a href={partners.facebook}><img src={Facebook} /></a>
+                        <a href={partners.instagram}><img src={Instagram} /></a>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                </li>
+              )}
+            </ul>
           </div>
         </section>
       </Swiper>

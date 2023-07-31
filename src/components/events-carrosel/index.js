@@ -12,8 +12,6 @@ const Events = () => {
     <EventsComponent
       style={{
         background: "#FFFFFF",
-  
-
       }}
     >
       <Swiper

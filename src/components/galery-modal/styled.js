@@ -8,11 +8,10 @@ export const ModalContainer = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 1;
- 
-  background-color: ${props => props.theme === 'about' ? '#FFFFFF' : '#516B84'};
-                                                          
-   .exit {
+  z-index: 10;
+  background-color: ${props => props.theme === 'about' ? '#FFFFFF' : '#fff'};
+
+    .exit {
     display: block;
     width: 73px;
     margin-left: 90%;
@@ -60,7 +59,6 @@ export const ModalContainer = styled.div`
     }
   } 
 
- 
 //IOS
   @media (max-width: 720px) {
     .content-container {
@@ -73,8 +71,6 @@ export const ModalContainer = styled.div`
     
 
     .about-title {
-      
-     
       align-items: center;
 
       width: 38%;
@@ -87,12 +83,11 @@ export const ModalContainer = styled.div`
     }
 
     .topic {
-       width: 48%;
-     
-      margin: 0 -30px;
+    width: 48%;
+    margin: 0 -30px;
 
       h3 {
-         width: 70%; 
+        width: 70%; 
         font-size: 1.3rem;
         margin-bottom: 8px;
       }
@@ -104,14 +99,11 @@ export const ModalContainer = styled.div`
     }
   }
 
-
-
-
 @media screen and (min-width: 780px) and (max-width: 2920px)  {
 
 .content-container   {
 text-align:justify;
- width: 100%; 
+width: 100%; 
 grid-template-columns: 1fr 1fr ;
 grid-template-rows: auto;
 grid-row-gap: 55px;
@@ -120,7 +112,6 @@ margin: 0 150px;
 padding: 10px;
 overflow: hidden;
 }
-
 
 .about-title   {
 
@@ -134,30 +125,160 @@ margin-bottom:3%;
 }
 
 .exit {
-  
 margin-left: 95%;
 }
 
 .topic {
-
-  width: 70%; 
-
+width: 70%; 
 margin: 0 20px;
 
 h3 { 
-  
+
   font-size: 1.3rem;
   margin-bottom: 15px;
 }
 
 p {
-
   font-size: 1rem;
   line-height:1.5rem;
-  
 }
 }
 
-
 }
-  `
+//modal galerias
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -35px;
+    padding-right: 20px;
+  }
+
+  .topo > .h2-modal-galery {
+    margin: 0;
+    margin-left: 25%;
+    font-size: 2.25rem;
+    color: #54636E;
+  }
+
+  .exit {
+    display: inline;
+  }
+.swiper {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .swiper-slide-view .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    align-items: center;    
+  }
+
+  .swiper-slide-view {
+    height: 65%;
+    width: 50%;
+  }
+
+  .swiper-thumbnails {
+    height: 13%; 
+    box-sizing: border-box;
+    padding: 10px 0;
+  }
+
+  .swiper-thumbnails .swiper-slide {
+    width: 25%;
+    height: 100%;
+  }
+
+  .swiper-thumbnails .swiper-slide-thumb-active {
+    opacity: 1;
+    border: 4px solid #F5BC4A;
+  }
+
+  .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    width: calc(var(--swiper-navigation-size)/447);
+    margin-top: calc(0px - var(--swiper-navigation-size)/3);
+    z-index: 10;
+    cursor: pointer;
+    width: calc(var(--swiper-navigation-size)/4*44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -15rem;
+    color: var(--swiper-navigation-color,var(--swiper-theme-color));
+  }
+
+  .swiper-button-prev{
+    position: absolute;
+      top: 50%;
+      width: calc(var(--swiper-navigation-size)/8947);
+      height: var(--swiper-navigation-size);
+      margin-top: calc(0px - var(--swiper-navigation-size)/3);
+      z-index: 10;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: -15rem;
+      color: var(--swiper-navigation-color,var(--swiper-theme-color));
+  }
+
+  @media (max-width: 1280px) {
+
+    .topo {
+      margin-bottom: 30px;
+    }
+
+    .topo > .h2-modal-galery {
+      margin-left: 20%;
+    }
+    .swiper-slide-view {
+      height: 65%;
+      width: 60%;
+    }
+
+    .swiper-thumbnails {
+      height: 12%;
+      width: 60%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+  }
+
+  @media (min-width: 1281px) {
+
+    .topo > .h2-modal-galery {
+      margin-left: 20%;
+    }
+    .swiper {
+      margin-top: 25px;
+    }
+    .swiper-slide-view {
+      height: 65%;
+      width: 60%;
+    }
+
+    .swiper-thumbnails {
+      height: 12%;
+      width: 60%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+  }
+
+`
