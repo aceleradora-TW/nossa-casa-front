@@ -59,6 +59,7 @@ export function HomePage() {
     <Home background={mural}>
       <NavBar />
       <main>
+        <div></div>
         {toggle &&
           <section className="carrossel">
             <Swiper
