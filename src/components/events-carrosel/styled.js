@@ -2,41 +2,6 @@ import styled from 'styled-components'
 
 const EventsComponent = styled.div`
 
-width: auto;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  
-
-div.swiper-slide .swiper-slide-next{
-margin: none;
-}
-
-.swiper-slide{
-  display: flex;
-  justify-content: space-around;
-  /* align-items: center; */
-}
-
-.evento {
-  border:solid black 1px; 
-}
-
-div {
-  color: #516B84;
-}
-
-div > img {
-  /* border: 1px solid black; */
-  width: 30rem;
-  font-size: 12rem;
-  margin-bottom: 0.87rem;
-}
-
-p {
-  color: #54636E;
-  margin-bottom:0.975rem;
-}
 
 .button{
   background-color: #F5BC4A;
@@ -63,9 +28,8 @@ p {
 }
 
 .swiper-button-prev{
-  position: absolute;
+    position: absolute;
     top: 50%;
-
     width: calc(var(--swiper-navigation-size)/89*47);
     height: var(--swiper-navigation-size);
     margin-top: calc(0px - var(--swiper-navigation-size)/3);
