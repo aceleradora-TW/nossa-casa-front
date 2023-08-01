@@ -4,7 +4,7 @@ const ParceireComponents = styled.section`
 
 
 .parceires {
-  background-color: yellow;
+  background-color: ehitre;
   height: 697px;
   display: flex;
   flex-direction: column;

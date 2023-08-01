@@ -56,12 +56,10 @@ const Events = () => {
                   <SwiperSlide key={events.nome}>
                     <div className="evento">
                       <div>
-                        <img className='img-perfil' src={urlCms + events.foto_divulgacao.data.attributes.url} />
+                        <img src={urlCms + events.foto_divulgacao.data.attributes.url} />
                       </div>
                       <p className="date">{events.nome}</p>
-                      <h3 className="title">
-                        {events.descricao}
-                      </h3>
+                      <h3 className="title">{events.descricao}</h3>
                       <button className="button">Ver Mais</button>
                     </div>
                   </SwiperSlide>
