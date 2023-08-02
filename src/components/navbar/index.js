@@ -12,23 +12,6 @@ const NavBar = () => {
     setToggle(toggle === 'aparece' ? '' : 'aparece')
   }
 
-  // const [setIsFixed] = useState(false)
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 0) {
-  //       setIsFixed(true)
-  //     } else {
-  //       setIsFixed(false)
-  //     }
-  //   }
-
-  //   window.addEventListener('scroll', handleScroll)
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll)
-  //   }
-  // }, [])
-
   const newLocal = 'ser-parceire'
 
   return (

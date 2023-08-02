@@ -5,7 +5,7 @@ import NavBar from '../../components/navbar'
 import Parceires from '../../components/parceires'
 import Footer from '../../components/footer'
 
-const EventsPage = () => {
+export const EventsPage = () => {
   return (
     <EventsContainer>
       <NavBar />
@@ -45,4 +45,3 @@ const EventsPage = () => {
   )
 }
 
-export default EventsPage

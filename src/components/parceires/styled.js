@@ -4,7 +4,6 @@ const ParceireComponents = styled.section`
 
 
 .parceires {
-  background-color: yellow;
   height: 697px;
   display: flex;
   flex-direction: column;
@@ -12,6 +11,7 @@ const ParceireComponents = styled.section`
 }
 
   h2 {
+    font-color: black;
     display:flex;
     justify-content: center;
     font-size: 2.5rem;
@@ -20,6 +20,7 @@ const ParceireComponents = styled.section`
   }
   
   p {
+    font-color: black;
     margin-bottom: 40px;
     display:flex;
     justify-content: center;
@@ -37,11 +38,13 @@ const ParceireComponents = styled.section`
 
 
   h3 {
+    font-color: black;
     text-align: center;
     margin-bottom: 3px;
   }
 
     p {
+      font-color: black;
       text-align: center;
     }
 
@@ -52,6 +55,7 @@ const ParceireComponents = styled.section`
       border-radius: none;
       
       a{
+        font-color: black;
         display: flex;
         justify-content: center;
         height: 20px;
@@ -83,6 +87,7 @@ const ParceireComponents = styled.section`
         align-items: center;
   
         a{
+          font-color: black;
           text-decoration: none;
           color: white;
           display: flex;

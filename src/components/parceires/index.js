@@ -25,6 +25,7 @@ const Parceires = () => {
       setAttributes(partners)
     })
   }, [])
+  
   return (
     <ParceireComponents style={{
       background: '#F5BC4A'
