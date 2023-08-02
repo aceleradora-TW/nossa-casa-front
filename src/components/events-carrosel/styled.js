@@ -1,13 +1,22 @@
 import styled from 'styled-components'
 
 const EventsComponent = styled.div`
-
 .swiper-slide{
   display: flex;
   align-items: center;
-  height: 60vh;
-  border: 1px solid black ;
+  height: 70vh;
+  padding-left: 3em;
+  margin-right: 20px;
+  .img-foto{
+    width: 45vh;
+    height: 35vh;
+  }
+  h3{
+    padding-top: 5px;
+  }
+
 }
+
 .button{
   background-color: #F5BC4A;
   width: 146px;

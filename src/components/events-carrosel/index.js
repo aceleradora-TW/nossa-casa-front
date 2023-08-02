@@ -17,6 +17,7 @@ const Events = () => {
       const events = data.map((data) => {
         return data.attributes
       })
+      console.log(events)
       setAttributes(events)
     })
   }, [])
@@ -47,18 +48,18 @@ const Events = () => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        <section className="events">
+        <section>
           <div className="swiper-slide">
             <ul>
-              {attributes.map((events) =>
-                <li key={events.nome}>
-                  <SwiperSlide key={events.nome}>
-                    <div className="evento">
+              {attributes.map((events, key) =>
+                <li key={key}>
+                  <SwiperSlide>
+                    <div>
                       <div>
-                        <img key={urlCms + events.foto_divulgacao.data.attributes.url} src={urlCms + events.foto_divulgacao.data.attributes.url} />
+                        <img className="img-foto" src={urlCms + events.foto_divulgacao.data.attributes.url} />
                       </div>
-                      <p className="date">{events.nome}</p>
-                      <h3 className="title">{events.descricao}</h3>
+                      <p className="date">{events.data}</p>
+                      <h3 className="title">{events.nome}</h3>
                       <button className="button">Ver Mais</button>
                     </div>
                   </SwiperSlide>
