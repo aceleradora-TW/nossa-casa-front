@@ -34,6 +34,15 @@ const WorkshopsCarrossel = () => {
         <div>
           <h1>Oficinas</h1>
         </div>
+        <div className="div-descricao">
+          <p className="descricao-oficina">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+            accumsan accumsan elit vel ullamcorper. Vestibulum ante ipsum primis
+            in faucibus orci luctus et ultrices posuere cubilia curae; Nullam
+            eget ligula et libero volutpat tristique. Duis tincidunt dolor
+            dolor, vel pulvinar tellus mattis id.
+          </p>
+        </div>
         <section className="carrossel">
           <Swiper
             slidesPerView={1}
@@ -62,11 +71,6 @@ const WorkshopsCarrossel = () => {
                   {attributes.map((workshops) => (
                     <li key={workshops.nome}>
                       <SwiperSlide key={workshops.nome}>
-                        <div className="div-descricao">
-                        <p className="descricao-oficina">
-                          {workshops.descricao}
-                        </p>
-                        </div>
                         <div className="imagem-oficina">
                           <div>
                             {workshops.foto_divulgacao?.data?.map((foto) => (
@@ -74,7 +78,7 @@ const WorkshopsCarrossel = () => {
                                 className="img-oficina"
                                 src={
                                   urlCms +
-                                 foto?.foto_divulgacao?.data?.attributes?.url
+                                  foto?.foto_divulgacao?.data?.attributes?.url
                                 }
                               />
                             ))}

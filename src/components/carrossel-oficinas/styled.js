@@ -5,19 +5,17 @@ const Workshops = styled.div`
     height: 300vh;
 
     h1 {
-      font-family: 'Inter', sans-serif;
-      font-size: 20px;
-      padding-left: 140px;
-      padding-top: 70px;
+        padding-left: 140px;
+        padding-top: 3em;
+        font-size: 2em;
     }
 
     .div-descricao {
-      font-size: 18px;
-      font-family: 'Inter', sans-serif;
-      width: 250%;
+      padding-top:   3em;
       padding-left: 140px;
-      padding-top: 40px;
-      padding-bottom:30px;
+      line-height: 1.5em;
+      width: 90%;
+      text-align: justify;
     }
 
     .nome-oficina{
