@@ -2,21 +2,21 @@ import styled from 'styled-components'
 
 const EventsContainer = styled.div`
 
-  main {
+
     height: 100vh;
+    
     .carrossel{
-      height: 652px;
-      background-color: #E9EEF1;
+      height: 300px;
     
       h1 {
-        padding-left: 140px;
+        padding-left: 1.5em;
         padding-top: 4em;
         font-size: 2em;
       }
       p {
         padding-top:   3em;
-        padding-left: 9em;
-        line-height: 2em;
+        padding-left: 3em;
+        line-height: 1.5em;
         width: 90%;
         text-align: justify;
       }
@@ -92,7 +92,7 @@ const EventsContainer = styled.div`
       }
 
 
-    }
+    
 
     footer {
 
