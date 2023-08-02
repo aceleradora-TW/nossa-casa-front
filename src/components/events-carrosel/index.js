@@ -17,7 +17,6 @@ const Events = () => {
       const events = data.map((data) => {
         return data.attributes
       })
-      console.log(events)
       setAttributes(events)
     })
   }, [])
@@ -56,7 +55,7 @@ const Events = () => {
                   <SwiperSlide key={events.nome}>
                     <div className="evento">
                       <div>
-                        <img src={urlCms + events.foto_divulgacao.data.attributes.url} />
+                        <img key={urlCms + events.foto_divulgacao.data.attributes.url} src={urlCms + events.foto_divulgacao.data.attributes.url} />
                       </div>
                       <p className="date">{events.nome}</p>
                       <h3 className="title">{events.descricao}</h3>

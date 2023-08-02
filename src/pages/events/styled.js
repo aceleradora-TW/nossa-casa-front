@@ -10,26 +10,17 @@ const EventsContainer = styled.div`
     
       h1 {
         padding-left: 140px;
-        padding-top: 60px;
+        padding-top: 4em;
         font-size: 2em;
       }
-    }
-
-    .search {
-      background-color: #C2D1D9;
-      height: 122px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      form > input {
-        height: 52px;
-        width: 780px;
-        border-radius: 26px;
-        border: none;
-        padding-left: 20px;
+      p {
+        padding-top:   3em;
+        padding-left: 9em;
+        line-height: 2em;
+        width: 90%;
+        text-align: justify;
       }
     }
-
     .carrossel-eventos {
       background-color: #DADADA;
       height: 748px;
@@ -65,7 +56,6 @@ const EventsContainer = styled.div`
     }
 
     .parceires {
-      background-color: aliceblue;
       height: 697px;
       display: flex;
       flex-direction: column;
