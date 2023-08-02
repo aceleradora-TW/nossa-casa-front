@@ -6,7 +6,7 @@ import { Navigation } from "swiper/modules";
 import { useState, useEffect } from "react";
 import env from "react-dotenv";
 import { cms } from "../../service/client";
-import NavBar from "../../components/navbar";
+import ModalGallery from "../galery-modal";
 
 const WorkshopsCarrossel = () => {
   const [attributes, setAttributes] = useState([]);
@@ -29,7 +29,6 @@ const WorkshopsCarrossel = () => {
         background: "#F5BC4A",
       }}
     >
-      <NavBar />
       <main>
         <div>
           <h1>Oficinas</h1>
@@ -84,10 +83,10 @@ const WorkshopsCarrossel = () => {
                             ))}
                           </div>
                         </div>
-                        <p className="nome-oficina">{workshops.nome}</p>
                         <div className="botao-ver-mais">
-                          <button className="verMais-input">Ver Mais</button>
+                        <ModalGallery type={'oficinas'}/>
                         </div>
+                        <p className="nome-oficina">{workshops.nome}</p>
                       </SwiperSlide>
                     </li>
                   ))}

@@ -30,7 +30,7 @@ const Workshops = styled.div`
       padding-left: 140px;
     }
 
-    .verMais-input{
+    button{
       text-align: center;
       color: black;
       display: flex;
@@ -48,10 +48,11 @@ const Workshops = styled.div`
     .img-oficina {
       display: flex;
       justify-content: center;
-      width: 80%;
-      height: 300px;
+      width: 45vh;
+      height: 35vh;
       padding-left: 140px;
       padding-top: 60px;
+      padding-bottom:30px;
     }
   }
 `
