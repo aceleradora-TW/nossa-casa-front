@@ -2,7 +2,7 @@ import Workshops from "./styled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { useState, useEffect } from "react";
 import env from "react-dotenv";
 import { cms } from "../../service/client";
@@ -61,7 +61,7 @@ const WorkshopsCarrossel = () => {
                 spaceBetween: 40,
               },
             }}
-            modules={Navigation}
+            modules={[Navigation, Pagination]}
             className="mySwiper"
           >
             <section className="oficinas">
