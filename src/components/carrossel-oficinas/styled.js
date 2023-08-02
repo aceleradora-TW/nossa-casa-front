@@ -11,9 +11,10 @@ const Workshops = styled.div`
       padding-top: 70px;
     }
 
-    p {
+    .div-descricao {
+      font-size: 18px;
       font-family: 'Inter', sans-serif;
-      width:90%;
+      width: 250%;
       padding-left: 140px;
       padding-top: 40px;
       padding-bottom:30px;
@@ -22,6 +23,9 @@ const Workshops = styled.div`
     .nome-oficina{
       font-family: 'Inter', sans-serif;
       font-size: 20px;
+      padding-top: 20px;
+      padding-left: 140px;
+      padding-bottom:20px;
     }
 
     .botao-ver-mais{
@@ -40,39 +44,18 @@ const Workshops = styled.div`
       border-radius: 3px;
       border-color: #f5bc4a;
       border: none;
+      padding-top:15px;
     }
 
     .img-oficina {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 1fr;
-      grid-column-gap: 5px;
-      grid-row-gap: 0px;
+      display: flex;
       justify-content: center;
       width: 80%;
       height: 300px;
       padding-left: 140px;
       padding-top: 60px;
     }
-
-    .search-box {
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .search-input {
-        display: flex;
-        justify-content: center;
-        border-color: black;
-        width: 780px;
-        height: 40px;
-        font-size: 16px;
-        border-radius: 26px;
-        padding-left: 20px;
-      }
-    }
   }
-`;
+`
 
 export default Workshops;

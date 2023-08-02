@@ -13,7 +13,7 @@ const WorkshopsCarrossel = () => {
   const urlCms = env.URL_CMS;
 
   useEffect(() => {
-    cms.get("api/workshops/?populate=fotos").then((response) => {
+    cms.get("api/workshops/?populate=foto_divulgacao").then((response) => {
       const { data } = response.data;
       const workshops = data.map((data) => {
         return data.attributes;
@@ -33,13 +33,6 @@ const WorkshopsCarrossel = () => {
       <main>
         <div>
           <h1>Oficinas</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-            accumsan accumsan elit vel ullamcorper. Vestibulum ante ipsum primis
-            in faucibus orci luctus et ultrices posuere cubilia curae; Nullam
-            eget ligula et libero volutpat tristique. Duis tincidunt dolor
-            dolor, vel pulvinar tellus mattis id.
-          </p>
         </div>
         <section className="carrossel">
           <Swiper
@@ -69,14 +62,19 @@ const WorkshopsCarrossel = () => {
                   {attributes.map((workshops) => (
                     <li key={workshops.nome}>
                       <SwiperSlide key={workshops.nome}>
+                        <div className="div-descricao">
+                        <p className="descricao-oficina">
+                          {workshops.descricao}
+                        </p>
+                        </div>
                         <div className="imagem-oficina">
                           <div>
-                            {workshops?.foto_divulgacao?.data?.map((foto) => (
+                            {workshops.foto_divulgacao?.data?.map((foto) => (
                               <img
                                 className="img-oficina"
                                 src={
                                   urlCms +
-                                  foto.foto_divulgacao.data.attributes.url
+                                 foto?.foto_divulgacao?.data?.attributes?.url
                                 }
                               />
                             ))}
@@ -84,11 +82,7 @@ const WorkshopsCarrossel = () => {
                         </div>
                         <p className="nome-oficina">{workshops.nome}</p>
                         <div className="botao-ver-mais">
-                          <input
-                           type="text"
-                            placeholder="Ver mais"
-                            className="verMais-input"
-                          ></input>
+                          <button className="verMais-input">Ver Mais</button>
                         </div>
                       </SwiperSlide>
                     </li>
