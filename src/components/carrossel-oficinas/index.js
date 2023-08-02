@@ -78,7 +78,7 @@ const WorkshopsCarrossel = () => {
                                 className="img-oficina"
                                 src={
                                   urlCms +
-                                  foto?.foto_divulgacao?.data?.attributes?.url
+                                  foto.attributes?.url
                                 }
                               />
                             ))}

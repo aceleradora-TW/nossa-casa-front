@@ -32,7 +32,7 @@ const Workshops = styled.div`
 
     .verMais-input{
       text-align: center;
-      text-color: black;
+      color: black;
       display: flex;
       justify-content: center;
       background-color: #f5bc4a;
