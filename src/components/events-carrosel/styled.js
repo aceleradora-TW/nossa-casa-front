@@ -7,6 +7,7 @@ const EventsComponent = styled.div`
   height: 70vh;
   padding-left: 3em;
   margin-right: 20px;
+  z-index: 5;
   .img-foto{
     width: 45vh;
     height: 35vh;
@@ -32,7 +33,7 @@ const EventsComponent = styled.div`
     width: calc(var(--swiper-navigation-size)/4*47);
     height: var(--swiper-navigation-size);
     margin-top: calc(0px - var(--swiper-navigation-size)/3);
-    z-index: 10;
+    
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -47,7 +48,7 @@ const EventsComponent = styled.div`
     width: calc(var(--swiper-navigation-size)/89*47);
     height: var(--swiper-navigation-size);
     margin-top: calc(0px - var(--swiper-navigation-size)/3);
-    z-index: 10;
+    
     cursor: pointer;
     display: flex;
     align-items: center;

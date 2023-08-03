@@ -112,7 +112,8 @@ const ModalGallery = ({ type }) => {
                   <img src={fotos.url} />
                 </SwiperSlide>
               ))}
-            </Swiper><Swiper
+            </Swiper>
+            <Swiper
               onSwiper={setThumbsSwiper}
               spaceBetween={10}
               slidesPerView={6}
@@ -126,7 +127,8 @@ const ModalGallery = ({ type }) => {
                   <img src={image.url} />
                 </SwiperSlide>
               ))}
-            </Swiper></>
+            </Swiper>
+          </>
         }
       </ModalContainer>}
   </>

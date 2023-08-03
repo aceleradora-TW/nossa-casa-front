@@ -6,6 +6,7 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { cms } from '../../service/client'
 import env from 'react-dotenv'
+import ModalEvents from '../events-modal/index.js'
 
 const Events = () => {
   const [attributes, setAttributes] = useState([])
@@ -60,7 +61,7 @@ const Events = () => {
                       </div>
                       <p className="date">{events.data}</p>
                       <h3 className="title">{events.nome}</h3>
-                      <button className="button">Ver Mais</button>
+                      <ModalEvents />
                     </div>
                   </SwiperSlide>
                 </li>
