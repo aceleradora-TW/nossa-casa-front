@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
 const EventsComponent = styled.div`
+.mySwiper{
+  position: relative;
+  z-index: 0;
+}
 .swiper-slide{
   display: flex;
   align-items: center;

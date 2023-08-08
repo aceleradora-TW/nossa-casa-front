@@ -3,32 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation, Pagination } from 'swiper/modules'
+import { Navigation } from 'swiper/modules'
 import { cms } from '../../service/client'
 import env from 'react-dotenv'
-// import ModalButton from '../teste/index.js'
+
 import ModalEvents from '../events-modal/index.js'
 
-// const Modal = ({ children, opened = false, setOpened = () => { } }) => {
-//   if (!opened) {
-//     return null
-//   }
-//   return (
-//     <div className='container'>
-//       <div className='modal'>
-//         <div>
-//           <button onClick={() => setOpened(opened => !opened)} className='exit'>
-//             X
-//           </button>
-//         </div>
-//         <div>{children}</div>
-//       </div>
-//     </div>
-//   )
-// }
-
 const Events = () => {
-  // const [opened, setOpened] = useState(false)
   const [attributes, setAttributes] = useState([])
   const urlCms = env.URL_CMS
 

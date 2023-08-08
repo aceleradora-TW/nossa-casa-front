@@ -5,7 +5,7 @@ const BACKGROUND_STYLE = {
   top: '0',
   bottom: '0',
   left: '0',
-  right: '0', 
+  right: '0',
   backgroundColor: 'rgb(0,0,0, 0.7)',
   zIndex: '1000'
 }
@@ -33,18 +33,18 @@ const BUTTON_STYLE = {
   color: 'red'
 }
 
-export default function Modal({isOpen, children, setModalOpen}) {
-  if(isOpen){
-  return (
-    <div style={BACKGROUND_STYLE}>
-      <div style={MODAL_STYLE}>
-        <div>
-          {children}
+export default function Modal({ isOpen, children, setModalOpen }) {
+  if (isOpen) {
+    return (
+      <div style={BACKGROUND_STYLE}>
+        <div style={MODAL_STYLE}>
+          <div>
+            {children}
+          </div>
+          <button style={BUTTON_STYLE} onClick={setModalOpen}>X</button>
         </div>
-        <button style={BUTTON_STYLE} onClick={setModalOpen}>X</button>
       </div>
-    </div>
-  )
+    )
   }
 
   return null

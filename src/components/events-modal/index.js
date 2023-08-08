@@ -9,8 +9,8 @@ const ModalEvents = () => {
   }
   return (
     <>
+      <button className='button' onClick={handleClick}>Ver Mais</button>
       <EventsModal>
-        <button className='button' onClick={handleClick}>Ver Mais</button>
         <Modal
           isOpen={modal}
           onRequestClose={handleClick}
