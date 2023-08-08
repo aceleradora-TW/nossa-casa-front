@@ -76,7 +76,7 @@ const Events = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img className="img-foto" src={urlCms + events.foto_divulgacao.data.attributes.url} />
+                        <img className="img-foto" src={urlCms + events.foto_divulgacao?.data?.attributes?.url} />
                       </div>
                       <div>
                         <p className="date">{events.data}</p>
