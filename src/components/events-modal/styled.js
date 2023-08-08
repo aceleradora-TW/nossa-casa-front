@@ -7,6 +7,7 @@ const EventsModal = styled.div`
   max-height:auto;
   left: 0;
   top: 0;
+
   .button{
   background-color: #F5BC4A;
   width: 146px;

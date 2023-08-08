@@ -2,7 +2,10 @@ import styled from 'styled-components'
 
 const ParceireComponents = styled.section`
 
-
+.mySwiper{
+  position: relative;
+  z-index: 0;
+}
 .parceires {
   background-color: ehitre;
   height: 697px;
