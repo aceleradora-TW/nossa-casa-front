@@ -4,6 +4,11 @@ const Workshops = styled.div`
   main {
     height: 300vh;
 
+    .mySwiper{
+  position: relative;
+  z-index: 0;
+}
+
     h1 {
         padding-left: 140px;
         padding-top: 3em;

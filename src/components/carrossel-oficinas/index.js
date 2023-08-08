@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import env from "react-dotenv";
 import { cms } from "../../service/client";
 import ModalGallery from "../galery-modal";
+import ModalWorkshops from "../modal-oficinas";
 
 const WorkshopsCarrossel = () => {
   const [attributes, setAttributes] = useState([]);
@@ -84,7 +85,7 @@ const WorkshopsCarrossel = () => {
                           </div>
                         </div>
                         <div className="botao-ver-mais">
-                        <ModalGallery type={'oficinas'}/>
+                       <ModalWorkshops />
                         </div>
                         <p className="nome-oficina">{workshops.nome}</p>
                       </SwiperSlide>
