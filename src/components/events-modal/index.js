@@ -15,6 +15,7 @@ const ModalEvents = () => {
           isOpen={modal}
           onRequestClose={handleClick}
         >
+
           <h1>Texto teste</h1>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             Lorem Ipsum has been thes standard dummy text ever since the 1500s,
