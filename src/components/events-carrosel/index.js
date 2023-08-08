@@ -6,9 +6,29 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { cms } from '../../service/client'
 import env from 'react-dotenv'
+// import ModalButton from '../teste/index.js'
 import ModalEvents from '../events-modal/index.js'
 
+// const Modal = ({ children, opened = false, setOpened = () => { } }) => {
+//   if (!opened) {
+//     return null
+//   }
+//   return (
+//     <div className='container'>
+//       <div className='modal'>
+//         <div>
+//           <button onClick={() => setOpened(opened => !opened)} className='exit'>
+//             X
+//           </button>
+//         </div>
+//         <div>{children}</div>
+//       </div>
+//     </div>
+//   )
+// }
+
 const Events = () => {
+  // const [opened, setOpened] = useState(false)
   const [attributes, setAttributes] = useState([])
   const urlCms = env.URL_CMS
 
@@ -18,7 +38,6 @@ const Events = () => {
       const events = data.map((data) => {
         return data.attributes
       })
-      console.log(events)
       setAttributes(events)
     })
   }, [])
@@ -59,8 +78,10 @@ const Events = () => {
                       <div>
                         <img className="img-foto" src={urlCms + events.foto_divulgacao.data.attributes.url} />
                       </div>
-                      <p className="date">{events.data}</p>
-                      <h3 className="title">{events.nome}</h3>
+                      <div>
+                        <p className="date">{events.data}</p>
+                        <h3 className="title">{events.nome}</h3>
+                      </div>
                       <ModalEvents />
                     </div>
                   </SwiperSlide>

@@ -2,23 +2,18 @@ import Modal from 'react-modal'
 import { useState } from 'react'
 import EventsModal from './styled'
 
-Modal.setAppElement('#root')
-
 const ModalEvents = () => {
   const [modal, setModal] = useState(false)
-  const openModal = () => {
-    setModal(true)
-  }
-  const closeModal = () => {
-    setModal(false)
+  const handleClick = () => {
+    setModal(modal => !modal)
   }
   return (
     <>
       <EventsModal>
-        <button className='button' onClick={openModal}>Ver Mais</button>
+        <button className='button' onClick={handleClick}>Ver Mais</button>
         <Modal
           isOpen={modal}
-          onRequestClose={closeModal}
+          onRequestClose={handleClick}
         >
           <h1>Texto teste</h1>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -29,8 +24,9 @@ const ModalEvents = () => {
             It was popularised in the 1960s with the release of Letraset sheets containing
             Lorem Ipsum passages, and more recently with desktop
             publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <button onClick={handleClick}>close</button>
         </Modal>
-      </EventsModal>
+      </EventsModal >
     </>)
 }
 
