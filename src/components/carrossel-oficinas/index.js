@@ -2,7 +2,7 @@ import Workshops from './styled'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation, Pagination } from 'swiper/modules'
+import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
 import { cms } from '../../service/client'
@@ -24,76 +24,68 @@ const WorkshopsCarrossel = () => {
   }, [])
 
   return (
-    <Workshops
-      tyle={{
-        background: '#F5BC4A'
-      }}
-    >
-      <main>
-        <div>
-          <h1>Oficinas</h1>
-        </div>
-        <div className="div-descricao">
-          <p className="descricao-oficina">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-            accumsan accumsan elit vel ullamcorper. Vestibulum ante ipsum primis
-            in faucibus orci luctus et ultrices posuere cubilia curae; Nullam
-            eget ligula et libero volutpat tristique. Duis tincidunt dolor
-            dolor, vel pulvinar tellus mattis id.
-          </p>
-        </div>
-        <section className="carrossel">
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={10}
-            navigation={true}
-            breakpoints={{
-              '@0.00': {
-                slidesPerView: 1,
-                spaceBetween: 10
-              },
-              '@0.75': {
-                slidesPerView: 2,
-                spaceBetween: 20
-              },
-              '@1.00': {
-                slidesPerView: 3,
-                spaceBetween: 40
-              }
-            }}
-            modules={[Navigation, Pagination]}
-            className="mySwiper"
-          >
-            <section className="oficinas">
-              <div className="swiper-slide">
-                <ul>
-                  {attributes.map((workshops, key) => (
-                    <li key={key}>
-                      <SwiperSlide>
-                        <div className="imagem-oficina">
-                          <div>
-                            {workshops.foto_divulgacao?.data?.map((foto, key) => (
-                              <img
-                                key={key}
-                                className="img-oficina"
-                                src={urlCms + foto.attributes?.url}
-                              />
-                            ))}
-                          </div>
-                        </div>
-                        <p className="nome-oficina">{workshops.nome}</p>
-                        <div className="botao-ver-mais">
-                          <ModalWorkshops />
-                        </div>
-                      </SwiperSlide>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-          </Swiper>
+    <Workshops style={{ background: '#F5BC4A' }}>
+      <div className='carrossel'>
+        <h1>OFICINAS</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+          accumsan accumsan elit vel ullamcorper. Vestibulum ante ipsum primis
+          in faucibus orci luctus et ultrices posuere cubilia curae; Nullam
+          eget ligula et libero volutpat tristique. Duis tincidunt dolor
+          dolor, vel pulvinar tellus mattis id.
+        </p>
+      </div>
+
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={-110}
+        navigation={true}
+        breakpoints={{
+          '@0.00': {
+            slidesPerView: 1,
+            spaceBetween: 1
+          },
+          '@0.75': {
+            slidesPerView: 2,
+            spaceBetween: 2
+          },
+          '@1.00': {
+            slidesPerView: 3,
+            spaceBetween: 3
+          }
+        }}
+        modules={[Navigation]}
+        className="mySwiper"
+      >
+        <section>
+          <div className="swiper-slide">
+            <ul>
+              {attributes.map((workshops, key) => (
+                <li key={key}>
+                  <SwiperSlide>
+                    <div>
+                      <div>
+                        {workshops.foto_divulgacao?.data?.map((foto, key) => (
+                          <img
+                            key={key}
+                            className="img-oficina"
+                            src={urlCms + foto.attributes?.url}
+                          />
+                        ))}
+                      </div>
+                      <div>
+                        <p className="date">{workshops.data}</p>
+                        <h3 className="title">{workshops.nome}</h3>
+                      </div>
+                      <ModalWorkshops />
+                    </div>
+                  </SwiperSlide>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
-      </main>
+      </Swiper>
     </Workshops>
   )
 }
