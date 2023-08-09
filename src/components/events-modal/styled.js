@@ -16,9 +16,6 @@ const EventsModal = styled.div`
   margin-top: 1rem;
   cursor: pointer;
 }
-header{
-
-}
 `
 
 export default EventsModal

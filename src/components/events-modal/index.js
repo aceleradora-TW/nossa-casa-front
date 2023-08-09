@@ -1,6 +1,7 @@
 import Modal from 'react-modal'
 import { useState } from 'react'
 import EventsModal from './styled'
+import closeIcon from '../galery-modal/close-icon.svg'
 
 const ModalEvents = () => {
   const [modal, setModal] = useState(false)
@@ -18,7 +19,7 @@ const ModalEvents = () => {
           overlayClassName="modal-overlay"
         >
           <header>
-            <button onClick={handleClick}>close</button>
+          <img className='exitModalEvents' src={closeIcon} onClick={handleClick} />
             <h1>Texto teste</h1>
           </header>
           <div>
