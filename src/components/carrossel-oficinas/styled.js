@@ -53,8 +53,8 @@ const Workshops = styled.div`
     .img-oficina {
       display: flex;
       justify-content: center;
-      width: 45vh;
-      height: 35vh;
+      width: 50vh;
+      height: 45vh;
       padding-left: 140px;
       padding-top: 60px;
       padding-bottom:30px;
