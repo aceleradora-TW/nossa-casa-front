@@ -1,6 +1,7 @@
 import Modal from 'react-modal'
 import { useState } from 'react'
 import WorkshopsModal from './styled'
+import closeIcon from '../galery-modal/close-icon.svg'
 
 const ModalWorkshops = () => {
   const [modal, setModal] = useState(false)
@@ -14,6 +15,8 @@ const ModalWorkshops = () => {
         <Modal
           isOpen={modal}
           onRequestClose={handleClick}
+          className="modal"
+          overlayClassName="modal-overlay"
         >
           <h1>Texto teste</h1>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -24,7 +27,7 @@ const ModalWorkshops = () => {
             It was popularised in the 1960s with the release of Letraset sheets containing
             Lorem Ipsum passages, and more recently with desktop
             publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-          <button onClick={handleClick}>close</button>
+            <img className='buttonModalOficinas' src={closeIcon} onClick={handleClick} />
         </Modal>
       </WorkshopsModal >
     </>)

@@ -14,6 +14,7 @@ const WorkshopsModal = styled.div`
   border: none;
   margin-top: 1rem;
   cursor: pointer;
+  padding-left: 140px;
 }
 `
 

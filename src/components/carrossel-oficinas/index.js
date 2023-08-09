@@ -84,10 +84,10 @@ const WorkshopsCarrossel = () => {
                             ))}
                           </div>
                         </div>
-                        <div className="botao-ver-mais">
-                       <ModalWorkshops />
-                        </div>
                         <p className="nome-oficina">{workshops.nome}</p>
+                        <div className="botao-ver-mais">
+                        <ModalWorkshops />
+                        </div>
                       </SwiperSlide>
                     </li>
                   ))}
