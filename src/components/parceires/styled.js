@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 const ParceireComponents = styled.section`
 
-
 .parceires {
   height: 697px;
   display: flex;
@@ -71,8 +70,8 @@ const ParceireComponents = styled.section`
 
     .styled-button{
     display: flex;
-     justify-content: center;
-     padding:30px;
+    justify-content: center;
+    padding:30px;
 
       .button-parceire{
         background: #516B84;
@@ -85,7 +84,7 @@ const ParceireComponents = styled.section`
         display: flex;
         justify-content: center;
         align-items: center;
-  
+
         a{
           color: black;
           text-decoration: none;
@@ -101,7 +100,7 @@ const ParceireComponents = styled.section`
         right: 20px;
         transform: rotate(90deg);
       }
-  
+
       .swiper-button-prev {
         left: 20px;
         transform: rotate(90deg);

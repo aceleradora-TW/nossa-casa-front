@@ -1,8 +1,8 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { HomePage } from "./pages/home/index";
-import { TherapiesPage } from "./pages/therapies";
-import { EventsPage } from "./pages/events";
-import { WorkshopsPage } from "./pages/workshop";
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { HomePage } from './pages/home/index'
+import { TherapiesPage } from './pages/therapies'
+import { EventsPage } from './pages/events'
+import { WorkshopsPage } from './pages/workshop'
 
 export const App = () => {
   return (
@@ -17,5 +17,5 @@ export const App = () => {
         <Route path="/projects" element={<TherapiesPage />} />
       </Routes>
     </BrowserRouter>
-  );
-};
+  )
+}

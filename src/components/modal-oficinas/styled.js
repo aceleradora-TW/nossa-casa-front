@@ -7,15 +7,14 @@ const WorkshopsModal = styled.div`
   max-height:auto;
   left: 0;
   top: 0;
-  .button{
+
+  .button-styled{
   background-color: #F5BC4A;
   width: 146px;
   height: 40px;
   border: none;
   margin-top: 1rem;
   cursor: pointer;
-  padding-left: 140px;
 }
 `
-
 export default WorkshopsModal

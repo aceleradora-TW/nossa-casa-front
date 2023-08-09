@@ -1,19 +1,19 @@
-import Modal from "react-modal";
-import { useState } from "react";
-import WorkshopsModal from "./styled";
-import closeIcon from "../galery-modal/close-icon.svg";
+import Modal from 'react-modal'
+import { useState } from 'react'
+import WorkshopsModal from './styled'
+import closeIcon from '../galery-modal/close-icon.svg'
 
 const ModalWorkshops = () => {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(false)
   const handleClick = () => {
-    setModal((modal) => !modal);
-  };
+    setModal((modal) => !modal)
+  }
   return (
     <>
-      <button className="button" onClick={handleClick}>
-        Ver Mais
-      </button>
       <WorkshopsModal>
+        <button className="button-styled" onClick={handleClick}>
+          Ver Mais
+        </button>
         <Modal
           isOpen={modal}
           onRequestClose={handleClick}
@@ -28,7 +28,7 @@ const ModalWorkshops = () => {
         </Modal>
       </WorkshopsModal>
     </>
-  );
-};
+  )
+}
 
-export default ModalWorkshops;
+export default ModalWorkshops

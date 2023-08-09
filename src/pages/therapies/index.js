@@ -25,24 +25,24 @@ export const TherapiesPage = () => {
         <h1>Terapias</h1>
         <div >
           <ul className='painel'>
-             <li >
+              <li >
                 <img src={foto} />
                 <p>Impact Of Extrinsic Motivation On Intrinsic Motivation</p>
                 <button>ver mais</button>
-             </li>
+              </li>
 
-             <li>
+              <li>
                 <img src={foto} />
                 <p>Impact Of Extrinsic Motivation On Intrinsic Motivation</p>
                 <button>ver mais</button>
-             </li>
+              </li>
 
-             <li>
+              <li>
                 <img src={foto} />
                 <p>Impact Of Extrinsic Motivation On Intrinsic Motivation</p>
                 <button>ver mais</button>
-             </li>
-         </ul>
+              </li>
+          </ul>
         </div>
       </section>
         <Parceires />

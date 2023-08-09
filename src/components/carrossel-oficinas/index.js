@@ -1,32 +1,32 @@
-import Workshops from "./styled";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation, Pagination } from "swiper/modules";
-import { useState, useEffect } from "react";
-import env from "react-dotenv";
-import { cms } from "../../service/client";
-import ModalWorkshops from "../modal-oficinas";
+import Workshops from './styled'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { Navigation, Pagination } from 'swiper/modules'
+import { useState, useEffect } from 'react'
+import env from 'react-dotenv'
+import { cms } from '../../service/client'
+import ModalWorkshops from '../modal-oficinas'
 
 const WorkshopsCarrossel = () => {
-  const [attributes, setAttributes] = useState([]);
-  const urlCms = env.URL_CMS;
+  const [attributes, setAttributes] = useState([])
+  const urlCms = env.URL_CMS
 
   useEffect(() => {
-    cms.get("api/workshops/?populate=foto_divulgacao").then((response) => {
-      const { data } = response.data;
+    cms.get('api/workshops/?populate=foto_divulgacao').then((response) => {
+      const { data } = response.data
       const workshops = data.map((data) => {
-        return data.attributes;
-      });
-      console.log(workshops);
-      setAttributes(workshops);
-    });
-  }, []);
+        return data.attributes
+      })
+      console.log(workshops)
+      setAttributes(workshops)
+    })
+  }, [])
 
   return (
     <Workshops
       tyle={{
-        background: "#F5BC4A",
+        background: '#F5BC4A'
       }}
     >
       <main>
@@ -48,18 +48,18 @@ const WorkshopsCarrossel = () => {
             spaceBetween={10}
             navigation={true}
             breakpoints={{
-              "@0.00": {
+              '@0.00': {
                 slidesPerView: 1,
-                spaceBetween: 10,
+                spaceBetween: 10
               },
-              "@0.75": {
+              '@0.75': {
                 slidesPerView: 2,
-                spaceBetween: 20,
+                spaceBetween: 20
               },
-              "@1.00": {
+              '@1.00': {
                 slidesPerView: 3,
-                spaceBetween: 40,
-              },
+                spaceBetween: 40
+              }
             }}
             modules={[Navigation, Pagination]}
             className="mySwiper"
@@ -67,25 +67,23 @@ const WorkshopsCarrossel = () => {
             <section className="oficinas">
               <div className="swiper-slide">
                 <ul>
-                  {attributes.map((workshops) => (
-                    <li key={workshops.nome}>
-                      <SwiperSlide key={workshops.nome}>
+                  {attributes.map((workshops, key) => (
+                    <li key={key}>
+                      <SwiperSlide>
                         <div className="imagem-oficina">
                           <div>
-                            {workshops.foto_divulgacao?.data?.map((foto) => (
+                            {workshops.foto_divulgacao?.data?.map((foto, key) => (
                               <img
+                                key={key}
                                 className="img-oficina"
-                                src={
-                                  urlCms +
-                                  foto.attributes?.url
-                                }
+                                src={urlCms + foto.attributes?.url}
                               />
                             ))}
                           </div>
                         </div>
                         <p className="nome-oficina">{workshops.nome}</p>
                         <div className="botao-ver-mais">
-                        <ModalWorkshops />
+                          <ModalWorkshops />
                         </div>
                       </SwiperSlide>
                     </li>
@@ -97,6 +95,6 @@ const WorkshopsCarrossel = () => {
         </section>
       </main>
     </Workshops>
-  );
-};
-export default WorkshopsCarrossel;
+  )
+}
+export default WorkshopsCarrossel

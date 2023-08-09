@@ -39,9 +39,8 @@ export const EventsPage = () => {
           </div>
         </section>
         <Parceires />
-       <Footer />
+        <Footer />
       </main>
     </EventsContainer>
   )
 }
-

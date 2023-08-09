@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const NavBarComponent = styled.nav.attrs((props) => ({
-  className: props.className || "",
+  className: props.className || ''
 }))`
   top: 0;
   position: fixed;
@@ -65,8 +65,8 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
-      "logo . icon"
-      "menu menu menu";
+      'logo . icon'
+      'menu menu menu';
 
     .container-logo {
       grid-area: logo;
@@ -139,6 +139,6 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       left: 121px;
     }
   }
-`;
+`
 
-export default NavBarComponent;
+export default NavBarComponent

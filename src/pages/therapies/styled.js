@@ -86,7 +86,7 @@ const Therapies = styled.div`
           h3 {
           text-align: center;
           }
-
+          
           p {
             text-align: center;
           }
@@ -95,7 +95,6 @@ const Therapies = styled.div`
     }
 
     footer {
-
       div {
         width: 15%;
         display: flex;
