@@ -6,7 +6,6 @@ import { Navigation, Pagination } from "swiper/modules";
 import { useState, useEffect } from "react";
 import env from "react-dotenv";
 import { cms } from "../../service/client";
-import ModalGallery from "../galery-modal";
 import ModalWorkshops from "../modal-oficinas";
 
 const WorkshopsCarrossel = () => {
