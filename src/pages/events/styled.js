@@ -5,22 +5,7 @@ const EventsContainer = styled.div`
 
     height: 100vh;
     
-    .carrossel{
-      height: 300px;
     
-      h1 {
-        padding-left: 1.5em;
-        padding-top: 4em;
-        font-size: 2em;
-      }
-      p {
-        padding-top:   3em;
-        padding-left: 3em;
-        line-height: 1.5em;
-        width: 90%;
-        text-align: justify;
-      }
-    }
     .carrossel-eventos {
       background-color: #DADADA;
       height: 748px;
