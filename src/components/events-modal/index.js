@@ -19,12 +19,9 @@ const ModalEvents = () => {
           overlayClassName="modal-overlay"
         >
           <header>
-          <img className='exitModalEvents' src={closeIcon} onClick={handleClick} />
+            <img className='exitModalEvents' src={closeIcon} onClick={handleClick} />
             <h1>Texto teste</h1>
           </header>
-          <div>
-
-          </div>
         </Modal>
       </EventsModal >
     </>)

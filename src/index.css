@@ -36,17 +36,18 @@ html, body {
 
 .modal {
   position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
   background-color: #fafafa;
+  border-radius: 3px;
   padding: 20px;
   z-index: 9999;
-  height: 123vw;
-  width: 100%;
 }
-
-
-
 .modal-overlay {
-  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
