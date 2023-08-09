@@ -8,13 +8,16 @@ const EventsModal = styled.div`
   left: 0;
   top: 0;
 
-  .button{
+.button{
   background-color: #F5BC4A;
   width: 146px;
   height: 40px;
   border: none;
   margin-top: 1rem;
   cursor: pointer;
+}
+header{
+
 }
 `
 

@@ -72,4 +72,6 @@ export const GlobalStyle = createGlobalStyle`
   .swiper-slide {
     position: static !important;
   }
+
+  
 `
