@@ -18,8 +18,8 @@ const WorkshopsCarrossel = () => {
       const workshops = data.map((data) => {
         return data.attributes
       })
-      console.log(workshops)
-      setAttributes(workshops)
+      const workshopsSortedByName = workshops.sort((a, b) => (a.nome < b.nome ? -1 : 1))
+      setAttributes(workshopsSortedByName)
     })
   }, [])
 
