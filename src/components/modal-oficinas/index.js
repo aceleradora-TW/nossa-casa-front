@@ -2,6 +2,7 @@ import Modal from 'react-modal'
 import { useState } from 'react'
 import WorkshopsModal from './styled'
 import closeIcon from '../galery-modal/close-icon.svg'
+import { buttonModal } from '../../constants/constants'
 
 const ModalWorkshops = () => {
   const [modal, setModal] = useState(false)
@@ -12,7 +13,7 @@ const ModalWorkshops = () => {
     <>
       <WorkshopsModal>
         <button className="button-styled" onClick={handleClick}>
-          Ver Mais
+          {buttonModal}
         </button>
         <Modal
           isOpen={modal}

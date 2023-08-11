@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
 import { cms } from '../../service/client'
 import ModalWorkshops from '../modal-oficinas'
+import { descricaoOficina, titleOficina } from '../../constants/constants'
 
 const WorkshopsCarrossel = () => {
   const [attributes, setAttributes] = useState([])
@@ -26,14 +27,8 @@ const WorkshopsCarrossel = () => {
   return (
     <Workshops style={{ background: '#F5BC4A' }}>
       <div className='carrossel'>
-        <h1>OFICINAS</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          accumsan accumsan elit vel ullamcorper. Vestibulum ante ipsum primis
-          in faucibus orci luctus et ultrices posuere cubilia curae; Nullam
-          eget ligula et libero volutpat tristique. Duis tincidunt dolor
-          dolor, vel pulvinar tellus mattis id.
-        </p>
+        <h1>{titleOficina}</h1>
+        <p>{descricaoOficina}</p>
       </div>
 
       <Swiper
