@@ -21,7 +21,7 @@ const ModalWorkshops = () => {
           overlayClassName="modal-overlay"
         >
           <img
-            className="buttonModalOficinas"
+            className="button-modal-oficinas"
             src={closeIcon}
             onClick={handleClick}
           />

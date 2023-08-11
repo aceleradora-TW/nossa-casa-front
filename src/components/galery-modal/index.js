@@ -128,14 +128,6 @@ const ModalGallery = ({ type }) => {
               ))}
             </Swiper></>
         }
-        {
-          type === 'oficinas' &&
-          <>
-          <section className='oficinas'>
-            <h1>Aqui e o brasil</h1>
-          </section>
-          </>
-        }
       </ModalContainer>}
   </>
 }
