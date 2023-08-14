@@ -6,19 +6,24 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { cms } from '../../service/client'
 import env from 'react-dotenv'
-
 import ModalEvents from '../events-modal/index.js'
 
 const Events = () => {
   const [attributes, setAttributes] = useState([])
   const urlCms = env.URL_CMS
-
   useEffect(() => {
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
       const events = data.map((data) => {
-        return data.attributes
+        const today = new Date(data.attributes.data)
+        return {
+          nome: data.attributes.nome,
+          date: today.toLocaleDateString('pt-BR'),
+          foto: data.attributes.foto_divulgacao.data.attributes.url
+        }
       })
+      const formatDate = events.date.sort((a, b) => b.getTime() - a.getTime())
+      console.log(formatDate)
       setAttributes(events)
     })
   }, [])
@@ -65,10 +70,10 @@ const Events = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img className="img-foto" src={urlCms + events.foto_divulgacao?.data?.attributes?.url} />
+                        <img className="img-foto" src={urlCms + events.foto} />
                       </div>
                       <div>
-                        <p className="date">{events.data}</p>
+                        <p className="date">{events.date}</p>
                         <h3 className="title">{events.nome}</h3>
                       </div>
                       <ModalEvents />
