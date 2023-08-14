@@ -1,18 +1,14 @@
 import styled from 'styled-components'
 
-const NavBarComponent = styled.nav.attrs(props => ({ className: props.className || '' }))`
-  top:0;
+const NavBarComponent = styled.nav.attrs((props) => ({
+  className: props.className || ''
+}))`
+  top: 0;
   position: fixed;
   overflow: hidden;
   background-color: black;
   width: 100%;
   z-index: 5;
-
-
-
-.oiw{
-  background-color:red;
-}
 
   align-items: center;
   color: white;
@@ -69,8 +65,8 @@ const NavBarComponent = styled.nav.attrs(props => ({ className: props.className 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
-      "logo . icon"
-      "menu menu menu";
+      'logo . icon'
+      'menu menu menu';
 
     .container-logo {
       grid-area: logo;
@@ -104,9 +100,9 @@ const NavBarComponent = styled.nav.attrs(props => ({ className: props.className 
 
   /* Desktop , PCs*/
   @media (min-width: 600px) {
-      .oiw{
-    background:red;
-  }
+    .oiw {
+      background: red;
+    }
     display: flex;
     align-items: center;
     flex-wrap: wrap;

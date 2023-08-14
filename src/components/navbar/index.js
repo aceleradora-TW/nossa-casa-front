@@ -4,6 +4,7 @@ import NavBarComponent from './styled'
 import logo from './logoMarca.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { sobreNavbar, eventosNavbar, terapiasNavbar, oficinaNavbar, buttonParceire } from '../../constants/constants'
 const linkParceiro = process.env.REACT_APP_LINK_PARCEIRO
 
 const NavBar = () => {
@@ -12,49 +13,32 @@ const NavBar = () => {
     setToggle(toggle === 'aparece' ? '' : 'aparece')
   }
 
-  // const [setIsFixed] = useState(false)
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 0) {
-  //       setIsFixed(true)
-  //     } else {
-  //       setIsFixed(false)
-  //     }
-  //   }
-
-  //   window.addEventListener('scroll', handleScroll)
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll)
-  //   }
-  // }, [])
-
   const newLocal = 'ser-parceire'
 
   return (
-    <NavBarComponent className="oiw" >
-        <div className="container-logo">
-          <NavLink to={'../'}>
-            <img src={logo} />
-          </NavLink>
-        </div>
-        <div className={`redirecionamento ${toggle}`}>
-          <NavLink to={'../'}>Sobre</NavLink>
-          <NavLink to={'/events'}>Eventos</NavLink>
-          <NavLink to={'/therapies'}>Terapias</NavLink>
-          <NavLink to={'/workshops'}>Oficinas</NavLink>
-          <a
-            target="_blank"
-            className={newLocal}
-            href={linkParceiro}
-            rel="noreferrer"
-          >
-            Ser parceire
-          </a>
-        </div>
-        <span className="icon-menu" onClick={onClickMenu}>
-          <FontAwesomeIcon icon={faBars} />
-        </span>
+    <NavBarComponent>
+      <div className="container-logo">
+        <NavLink to={'../'}>
+          <img src={logo} />
+        </NavLink>
+      </div>
+      <div className={`redirecionamento ${toggle}`}>
+        <NavLink to={'../'}>{sobreNavbar}</NavLink>
+        <NavLink to={'/events'}>{eventosNavbar}</NavLink>
+        <NavLink to={'/therapies'}>{terapiasNavbar}</NavLink>
+        <NavLink to={'/workshops'}>{oficinaNavbar}</NavLink>
+        <a
+          target="_blank"
+          className={newLocal}
+          href={linkParceiro}
+          rel="noreferrer"
+        >
+          {buttonParceire}
+        </a>
+      </div>
+      <span className="icon-menu" onClick={onClickMenu}>
+        <FontAwesomeIcon icon={faBars} />
+      </span>
     </NavBarComponent>
   )
 }

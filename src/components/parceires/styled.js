@@ -2,9 +2,7 @@ import styled from 'styled-components'
 
 const ParceireComponents = styled.section`
 
-
 .parceires {
-  background-color: yellow;
   height: 697px;
   display: flex;
   flex-direction: column;
@@ -12,6 +10,7 @@ const ParceireComponents = styled.section`
 }
 
   h2 {
+    color: black;
     display:flex;
     justify-content: center;
     font-size: 2.5rem;
@@ -20,6 +19,7 @@ const ParceireComponents = styled.section`
   }
   
   p {
+    color: black;
     margin-bottom: 40px;
     display:flex;
     justify-content: center;
@@ -37,11 +37,13 @@ const ParceireComponents = styled.section`
 
 
   h3 {
+    color: black;
     text-align: center;
     margin-bottom: 3px;
   }
 
     p {
+      color: black;
       text-align: center;
     }
 
@@ -52,6 +54,7 @@ const ParceireComponents = styled.section`
       border-radius: none;
       
       a{
+        color: black;
         display: flex;
         justify-content: center;
         height: 20px;
@@ -67,8 +70,8 @@ const ParceireComponents = styled.section`
 
     .styled-button{
     display: flex;
-     justify-content: center;
-     padding:30px;
+    justify-content: center;
+    padding:30px;
 
       .button-parceire{
         background: #516B84;
@@ -81,8 +84,9 @@ const ParceireComponents = styled.section`
         display: flex;
         justify-content: center;
         align-items: center;
-  
+
         a{
+          color: black;
           text-decoration: none;
           color: white;
           display: flex;
@@ -96,7 +100,7 @@ const ParceireComponents = styled.section`
         right: 20px;
         transform: rotate(90deg);
       }
-  
+
       .swiper-button-prev {
         left: 20px;
         transform: rotate(90deg);

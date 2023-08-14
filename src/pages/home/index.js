@@ -15,7 +15,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-export function HomePage() {
+export function HomePage () {
   const [attributes, setAttributes] = useState([])
   const [galeria, setGaleria] = useState([])
   const [toggle, setToggle] = useState(false)
@@ -55,6 +55,7 @@ export function HomePage() {
     },
     width: '100%'
   }
+
   return (
     <Home background={mural}>
       <NavBar />
@@ -89,7 +90,7 @@ export function HomePage() {
                             <p className="descricao"> {attribute.descricao}</p>
                           </div>
                           <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
-                          <img src={urlCms + attribute.foto_divulgacao.data.attributes.url} className="slideimage" />
+                          <img src={urlCms + attribute?.foto_divulgacao?.data?.attributes?.url} className="slideimage" />
                         </div>
                       </SwiperSlide>
                     </li>

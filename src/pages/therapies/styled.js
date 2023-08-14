@@ -8,18 +8,18 @@ const Therapies = styled.div`
   main {
     background-color: blue;
     height: 100vh;
-    .carrossel{
-        height: 652px;
-        background-color: #E9EEF1;
+    .carrossel {
+      height: 652px;
+      background-color: #e9eef1;
 
-        h1 {
-          padding-left: 140px;
-          padding-top: 60px;
-          font-size: 2em;
-        }
+      h1 {
+        padding-left: 140px;
+        padding-top: 60px;
+        font-size: 2em;
+      }
     }
     .search-box {
-      background-color: #C2D1D9;
+      background-color: #c2d1d9;
       height: 100px;
       display: flex;
       justify-content: center;
@@ -37,7 +37,7 @@ const Therapies = styled.div`
     }
     .terapias {
       height: 500px;
-      background-color: #DADADA;
+      background-color: #dadada;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
@@ -48,11 +48,11 @@ const Therapies = styled.div`
         font-size: 2.5rem;
       }
       .painel {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 1fr;
-      grid-column-gap: 5px;
-      grid-row-gap: 0px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 5px;
+        grid-row-gap: 0px;
       }
     }
 
@@ -83,11 +83,7 @@ const Therapies = styled.div`
           background-color: cadetblue;
           width: 30%;
 
-          h3 {
-          text-align: center;
-          }
-
-          p {
+          h3, p {
             text-align: center;
           }
         }
@@ -95,7 +91,6 @@ const Therapies = styled.div`
     }
 
     footer {
-
       div {
         width: 15%;
         display: flex;
@@ -103,6 +98,6 @@ const Therapies = styled.div`
       }
     }
   }
-  `
+`
 
 export default Therapies
