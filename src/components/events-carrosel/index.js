@@ -15,16 +15,14 @@ const Events = () => {
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
       const events = data.map((data) => {
-        const today = new Date(data.attributes.data)
         return {
           nome: data.attributes.nome,
-          date: today.toLocaleDateString('pt-BR'),
-          foto: data.attributes.foto_divulgacao.data.attributes.url
+          date: new Date(data.attributes.data),
+          imagem_url: data.attributes.foto_divulgacao.data.attributes.url
         }
       })
-      const formatDate = events.date.sort((a, b) => b.getTime() - a.getTime())
-      console.log(formatDate)
-      setAttributes(events)
+      const eventsOrdered = events.sort((a, b) => a.date - b.date)
+      setAttributes(eventsOrdered)
     })
   }, [])
   return (
@@ -70,10 +68,10 @@ const Events = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img className="img-foto" src={urlCms + events.foto} />
+                        <img className="img-foto" src={urlCms + events.imagem_url} />
                       </div>
                       <div>
-                        <p className="date">{events.date}</p>
+                        <p className="date">{events.date.toLocaleDateString('pt-BR')}</p>
                         <h3 className="title">{events.nome}</h3>
                       </div>
                       <ModalEvents />
