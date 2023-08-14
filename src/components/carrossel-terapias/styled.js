@@ -35,6 +35,7 @@ const Therapies = styled.div`
     }
     h3 {
       padding-top: 5px;
+      cursor: default;
     }
   }
 `
