@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Workshops = styled.div`
+const  CssCarrosselGlobal = styled.div`
   .carrossel {
     background-color: #fafafa;
     height: 300px;
@@ -27,16 +27,21 @@ const Workshops = styled.div`
     display: flex;
     align-items: center;
     height: 70vh;
-    padding-left: 3em;
+    padding-left: 5.7em;
     margin-right: 20px;
-    .img-oficina {
+    .img {
       width: 45vh;
       height: 35vh;
     }
     h3 {
       padding-top: 5px;
+      cursor: default;
     }
-  }
+@media screen and (min-width: 1440px) and (min-height: 900px) {
+  .swiper-slide {
+        padding-left: 4.7em; 
+    }
+}
+}
 `
-
-export default Workshops
+export default CssCarrosselGlobal

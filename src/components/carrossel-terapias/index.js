@@ -6,29 +6,29 @@ import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
 import { cms } from '../../service/client'
-import ModalWorkshops from '../modal-oficinas'
-import { descricaoOficina, titleOficina } from '../../constants/constants'
+import ModalTherapies from '../modal-terapias'
+import { descricaoTerapia, titleTerapia } from '../../constants/constants'
 
-const WorkshopsCarrossel = () => {
+const TherapiesCarrossel = () => {
   const [attributes, setAttributes] = useState([])
   const urlCms = env.URL_CMS
 
   useEffect(() => {
-    cms.get('api/workshops/?populate=foto_divulgacao').then((response) => {
+    cms.get('api/therapies/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
-      const workshops = data.map((data) => {
+      const therapies = data.map((data) => {
         return data.attributes
       })
-      const workshopsSortedByName = workshops.sort((a, b) => (a.nome < b.nome ? -1 : 1))
-      setAttributes(workshopsSortedByName)
+      const therapiesSortedByName = therapies.sort((a, b) => (a.nome < b.nome ? -1 : 1))
+      setAttributes(therapiesSortedByName)
     })
   }, [])
 
   return (
     <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
       <div className='carrossel'>
-        <h1>{titleOficina}</h1>
-        <p>{descricaoOficina}</p>
+        <h1>{titleTerapia}</h1>
+        <p>{descricaoTerapia}</p>
       </div>
 
       <Swiper
@@ -55,12 +55,12 @@ const WorkshopsCarrossel = () => {
         <section>
           <div className="swiper-slide">
             <ul>
-              {attributes.map((workshops, key) => (
+              {attributes.map((therapies, key) => (
                 <li key={key}>
                   <SwiperSlide>
                     <div>
                       <div>
-                        {workshops.foto_divulgacao?.data?.map((foto, key) => (
+                        {therapies.foto_divulgacao?.data?.map((foto, key) => (
                           <img
                             key={key}
                             className="img"
@@ -69,10 +69,10 @@ const WorkshopsCarrossel = () => {
                         ))}
                       </div>
                       <div>
-                        <p className="date">{workshops.data}</p>
-                        <h3 className="title">{workshops.nome}</h3>
+                        <p className="date">{therapies.data}</p>
+                        <h3 className="title">{therapies.nome}</h3>
                       </div>
-                      <ModalWorkshops />
+                      <ModalTherapies />
                     </div>
                   </SwiperSlide>
                 </li>
@@ -84,4 +84,4 @@ const WorkshopsCarrossel = () => {
     </CssCarrosselGlobal>
   )
 }
-export default WorkshopsCarrossel
+export default TherapiesCarrossel
