@@ -4,16 +4,16 @@ import EventsModal from './styled'
 import closeIcon from '../galery-modal/close-icon.svg'
 
 const ModalEvents = () => {
-  const [modal, setModal] = useState(false)
+  const [showModal, setShowModal] = useState(false)
   const handleClick = () => {
-    setModal(modal => !modal)
+    setShowModal(modal => !modal)
   }
   return (
     <>
       <button className='button' onClick={handleClick}>Ver Mais</button>
       <EventsModal>
         <Modal
-          isOpen={modal}
+          isOpen={showModal}
           onRequestClose={handleClick}
           className="modal"
           overlayClassName="modal-overlay"

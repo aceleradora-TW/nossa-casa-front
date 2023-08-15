@@ -12,6 +12,7 @@ const Events = () => {
   const [attributes, setAttributes] = useState([])
   const urlCms = env.URL_CMS
   useEffect(() => {
+    if (attributes) return
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
       const events = data.map((data) => {
