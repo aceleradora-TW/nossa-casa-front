@@ -6,7 +6,7 @@ import ParceireComponents from './styled.js'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
 import { cms } from '../../service/client'
@@ -25,6 +25,7 @@ const Parceires = () => {
       setAttributes(partners)
     })
   }, [])
+
   return (
     <ParceireComponents style={{
       background: '#F5BC4A'
@@ -62,7 +63,7 @@ const Parceires = () => {
                   <SwiperSlide key={partners.nome}>
                     <div className='perfil'>
                       <div>
-                        {partners.foto.data.map(foto => (
+                        {partners.foto?.data?.map(foto => (
                           <img className='img-perfil' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
                         ))
                         }

@@ -5,7 +5,7 @@ import Parceires from '../../components/parceires'
 import Footer from '../../components/footer'
 import Events from '../../components/events-carrosel'
 
-const EventsPage = () => {
+export const EventsPage = () => {
   return (
     <EventsContainer>
       <NavBar />
@@ -15,5 +15,3 @@ const EventsPage = () => {
     </EventsContainer>
   )
 }
-
-export default EventsPage
