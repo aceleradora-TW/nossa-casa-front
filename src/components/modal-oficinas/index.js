@@ -1,6 +1,6 @@
 import Modal from 'react-modal'
 import { useState } from 'react'
-import WorkshopsModal from './styled'
+import CssModalGlobal from '../css-modal/styled'
 import closeIcon from '../galery-modal/close-icon.svg'
 import { buttonModal } from '../../constants/constants'
 
@@ -11,7 +11,7 @@ const ModalWorkshops = () => {
   }
   return (
     <>
-      <WorkshopsModal>
+      <CssModalGlobal>
         <button className="button-styled" onClick={handleClick}>
           {buttonModal}
         </button>
@@ -22,12 +22,12 @@ const ModalWorkshops = () => {
           overlayClassName="modal-overlay"
         >
           <img
-            className="button-modal-oficinas"
+            className="button-modal"
             src={closeIcon}
             onClick={handleClick}
           />
         </Modal>
-      </WorkshopsModal>
+      </CssModalGlobal>
     </>
   )
 }

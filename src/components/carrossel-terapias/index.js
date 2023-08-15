@@ -1,4 +1,4 @@
-import Therapies from './styled'
+import CssCarrosselGlobal from '../css-carrossel/styled'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -25,7 +25,7 @@ const TherapiesCarrossel = () => {
   }, [])
 
   return (
-    <Therapies style={{ background: '#F5BC4A' }}>
+    <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
       <div className='carrossel'>
         <h1>{titleTerapia}</h1>
         <p>{descricaoTerapia}</p>
@@ -63,7 +63,7 @@ const TherapiesCarrossel = () => {
                         {therapies.foto_divulgacao?.data?.map((foto, key) => (
                           <img
                             key={key}
-                            className="img-terapia"
+                            className="img"
                             src={urlCms + foto.attributes?.url}
                           />
                         ))}
@@ -81,7 +81,7 @@ const TherapiesCarrossel = () => {
           </div>
         </section>
       </Swiper>
-    </Therapies>
+    </CssCarrosselGlobal>
   )
 }
 export default TherapiesCarrossel

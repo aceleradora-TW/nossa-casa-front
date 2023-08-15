@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const WorkshopsModal = styled.div`
+const CssModalGlobal = styled.div`
   width: 100%;
   height: 100%;
   max-width: auto;
@@ -16,5 +16,9 @@ const WorkshopsModal = styled.div`
     margin-top: 1rem;
     cursor: pointer;
   }
+
+  .button-modal{
+    right: 100%;
+  }
 `
-export default WorkshopsModal
+export default CssModalGlobal

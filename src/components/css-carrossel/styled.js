@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Therapies = styled.div`
+const  CssCarrosselGlobal = styled.div`
   .carrossel {
     background-color: #fafafa;
     height: 300px;
@@ -27,9 +27,9 @@ const Therapies = styled.div`
     display: flex;
     align-items: center;
     height: 70vh;
-    padding-left: 3em;
+    padding-left: 5.7em;
     margin-right: 20px;
-    .img-terapia {
+    .img {
       width: 45vh;
       height: 35vh;
     }
@@ -37,7 +37,11 @@ const Therapies = styled.div`
       padding-top: 5px;
       cursor: default;
     }
-  }
+@media screen and (min-width: 1440px) and (min-height: 900px) {
+  .swiper-slide {
+        padding-left: 4.7em; 
+    }
+}
+}
 `
-
-export default Therapies
+export default CssCarrosselGlobal

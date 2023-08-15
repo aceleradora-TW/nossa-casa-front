@@ -1,4 +1,4 @@
-import Workshops from './styled'
+import CssCarrosselGlobal from '../css-carrossel/styled'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -25,7 +25,7 @@ const WorkshopsCarrossel = () => {
   }, [])
 
   return (
-    <Workshops style={{ background: '#F5BC4A' }}>
+    <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
       <div className='carrossel'>
         <h1>{titleOficina}</h1>
         <p>{descricaoOficina}</p>
@@ -63,7 +63,7 @@ const WorkshopsCarrossel = () => {
                         {workshops.foto_divulgacao?.data?.map((foto, key) => (
                           <img
                             key={key}
-                            className="img-oficina"
+                            className="img"
                             src={urlCms + foto.attributes?.url}
                           />
                         ))}
@@ -81,7 +81,7 @@ const WorkshopsCarrossel = () => {
           </div>
         </section>
       </Swiper>
-    </Workshops>
+    </CssCarrosselGlobal>
   )
 }
 export default WorkshopsCarrossel
