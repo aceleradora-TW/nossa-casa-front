@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
 const  CssCarrosselGlobal = styled.div`
+*{
+  margin: 0;
+  padding: 0;
+}
   .carrossel {
     background-color: #fafafa;
     height: 300px;
@@ -25,10 +29,9 @@ const  CssCarrosselGlobal = styled.div`
   }
   .swiper-slide {
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 70vh;
-    padding-left: 5.7em;
-    margin-right: 20px;
     .img {
       width: 45vh;
       height: 35vh;
@@ -37,9 +40,10 @@ const  CssCarrosselGlobal = styled.div`
       padding-top: 5px;
       cursor: default;
     }
-@media screen and (min-width: 1440px) and (min-height: 900px) {
-  .swiper-slide {
-        padding-left: 4.7em; 
+@media (min-width: 600px) {
+  .img {
+      width: 37vh;
+      height: 35vh;
     }
 }
 }

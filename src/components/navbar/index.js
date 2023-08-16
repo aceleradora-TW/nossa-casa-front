@@ -4,7 +4,6 @@ import NavBarComponent from './styled'
 import logo from './logoMarca.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { sobreNavbar, eventosNavbar, terapiasNavbar, oficinaNavbar, buttonParceire } from '../../constants/constants'
 const linkParceiro = process.env.REACT_APP_LINK_PARCEIRO
 
 const NavBar = () => {
@@ -23,17 +22,17 @@ const NavBar = () => {
         </NavLink>
       </div>
       <div className={`redirecionamento ${toggle}`}>
-        <NavLink to={'../'}>{sobreNavbar}</NavLink>
-        <NavLink to={'/events'}>{eventosNavbar}</NavLink>
-        <NavLink to={'/therapies'}>{terapiasNavbar}</NavLink>
-        <NavLink to={'/workshops'}>{oficinaNavbar}</NavLink>
+        <NavLink to={'../'}>Sobre</NavLink>
+        <NavLink to={'/events'}>Eventos</NavLink>
+        <NavLink to={'/therapies'}>Terapias</NavLink>
+        <NavLink to={'/workshops'}>Oficinas</NavLink>
         <a
           target="_blank"
           className={newLocal}
           href={linkParceiro}
           rel="noreferrer"
         >
-          {buttonParceire}
+          Ser parceire
         </a>
       </div>
       <span className="icon-menu" onClick={onClickMenu}>
