@@ -9,8 +9,8 @@ const linkParceiro = process.env.REACT_APP_LINK_PARCEIRO
 
 const NavBar = () => {
   const [toggle, setToggle] = useState(false)
-  const onClickMenu = () => setToggle(!toggle)
 
+  const onClickMenu = () => setToggle(!toggle)
   const newLocal = 'ser-parceire'
 
   return (
@@ -20,7 +20,7 @@ const NavBar = () => {
           <img src={logo} />
         </NavLink>
       </div>
-      <div className={`redirecionamento ${toggle}`}>
+        <div className={`redirecionamento ${toggle ? 'aparece' : ''}`}>
         <NavLink to={'../'}>{sobreNavbar}</NavLink>
         <NavLink to={'/events'}>{eventosNavbar}</NavLink>
         <NavLink to={'/therapies'}>{terapiasNavbar}</NavLink>
@@ -40,5 +40,4 @@ const NavBar = () => {
     </NavBarComponent>
   )
 }
-
 export default NavBar
