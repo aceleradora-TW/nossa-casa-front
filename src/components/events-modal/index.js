@@ -6,7 +6,7 @@ import closeIcon from '../galery-modal/close-icon.svg'
 const ModalEvents = () => {
   const [showModal, setShowModal] = useState(false)
   const handleClick = () => {
-    setShowModal(modal => !modal)
+    setShowModal(!showModal)
   }
   return (
     <>

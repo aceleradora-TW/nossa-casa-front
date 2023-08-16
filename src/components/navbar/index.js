@@ -8,10 +8,8 @@ import { sobreNavbar, eventosNavbar, terapiasNavbar, oficinaNavbar, buttonParcei
 const linkParceiro = process.env.REACT_APP_LINK_PARCEIRO
 
 const NavBar = () => {
-  const [toggle, setToggle] = useState('')
-  const onClickMenu = () => {
-    setToggle(toggle === 'aparece' ? '' : 'aparece')
-  }
+  const [toggle, setToggle] = useState(false)
+  const onClickMenu = () => setToggle(!toggle)
 
   const newLocal = 'ser-parceire'
 
