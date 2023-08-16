@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
 import { cms } from '../../service/client'
 import ModalTherapies from '../modal-terapias'
-import { descricaoTerapia, titleTerapia } from '../../constants/constants'
 
 const TherapiesCarrossel = () => {
   const [attributes, setAttributes] = useState([])
@@ -19,16 +18,24 @@ const TherapiesCarrossel = () => {
       const therapies = data.map((data) => {
         return data.attributes
       })
-      const therapiesSortedByName = therapies.sort((a, b) => (a.nome < b.nome ? -1 : 1))
+      const therapiesSortedByName = therapies.sort((a, b) =>
+        a.nome < b.nome ? -1 : 1
+      )
       setAttributes(therapiesSortedByName)
     })
   }, [])
 
   return (
     <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
-      <div className='carrossel'>
-        <h1>{titleTerapia}</h1>
-        <p>{descricaoTerapia}</p>
+      <div className="carrossel">
+        <h1>Terapias</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+          accumsan accumsan elit vel ullamcorper. Vestibulum ante ipsum primis
+          in faucibus orci luctus et ultrices posuere cubilia curae; Nullam eget
+          ligula et libero volutpat tristique. Duis tincidunt dolor dolor, vel
+          pulvinar tellus mattis id.
+        </p>
       </div>
 
       <Swiper
