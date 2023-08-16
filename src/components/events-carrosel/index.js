@@ -9,21 +9,22 @@ import env from 'react-dotenv'
 import ModalEvents from '../events-modal/index.js'
 
 const Events = () => {
-  const [attributes, setAttributes] = useState([])
+  const [attributesEvents, setAttributesEvents] = useState([])
   const urlCms = env.URL_CMS
   useEffect(() => {
-    if (attributes) return
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
       const events = data.map((data) => {
-        return {
-          nome: data.attributes.nome,
-          date: new Date(data.attributes.data),
-          imagem_url: data.attributes.foto_divulgacao.data.attributes.url
+        if (data) {
+          return {
+            nome: data.attributes.nome,
+            date: new Date(data.attributes.data),
+            imagem_url: data.attributes.foto_divulgacao.data.attributes.url
+          }
         }
       })
       const eventsOrdered = events.sort((a, b) => a.date - b.date)
-      setAttributes(eventsOrdered)
+      setAttributesEvents(eventsOrdered)
     })
   }, [])
   return (
@@ -64,7 +65,7 @@ const Events = () => {
         <section>
           <div className="swiper-slide">
             <ul>
-              {attributes.map((events, key) =>
+              {attributesEvents.map((events, key) =>
                 <li key={key}>
                   <SwiperSlide>
                     <div>
