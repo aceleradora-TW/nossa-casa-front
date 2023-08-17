@@ -3,7 +3,7 @@ import { useState } from 'react'
 import EventsModal from './styled'
 import closeIcon from '../galery-modal/close-icon.svg'
 
-const ModalEvents = () => {
+const ModalEvents = ({ events = {} }) => {
   const [showModal, setShowModal] = useState(false)
   const handleClick = () => {
     setShowModal(!showModal)
@@ -21,7 +21,7 @@ const ModalEvents = () => {
           <header>
             <img className='exitModalEvents' src={closeIcon} onClick={handleClick} />
             <div className='container-description'>
-              <li></li>
+              <p>{events.nome}</p>
             </div>
           </header>
         </Modal>

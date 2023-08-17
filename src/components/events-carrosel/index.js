@@ -76,7 +76,7 @@ const Events = () => {
                         <p className="date">{events.date.toLocaleDateString('pt-BR')}</p>
                         <h3 className="title">{events.nome}</h3>
                       </div>
-                      <ModalEvents />
+                      <ModalEvents events={events} />
                     </div>
                   </SwiperSlide>
                 </li>
