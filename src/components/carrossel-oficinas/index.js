@@ -79,7 +79,7 @@ const WorkshopsCarrossel = () => {
                         <p className="date">{workshops.data}</p>
                         <h3 className="title">{workshops.nome}</h3>
                       </div>
-                      <ModalWorkshops />
+                      <ModalWorkshops workshops={workshops}/>
                     </div>
                   </SwiperSlide>
                 </li>

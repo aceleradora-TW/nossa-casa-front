@@ -20,4 +20,9 @@ export const CssModalGlobal = styled.div`
   .button-modal{
     right: 100%;
   }
+
+  .title{
+    background-color: pink;
+    font-size: 10%;
+}
 `
