@@ -20,7 +20,9 @@ const ModalEvents = () => {
         >
           <header>
             <img className='exitModalEvents' src={closeIcon} onClick={handleClick} />
-            <h1>Texto teste</h1>
+            <div className='container-description'>
+              <li></li>
+            </div>
           </header>
         </Modal>
       </EventsModal >
