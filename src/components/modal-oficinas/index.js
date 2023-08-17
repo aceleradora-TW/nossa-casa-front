@@ -3,23 +3,37 @@ import { useState } from 'react'
 import CssModalGlobal from '../css-modal/styled'
 import closeIcon from '../galery-modal/close-icon.svg'
 import { styled } from 'styled-components'
-
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Detalhes = styled.div`
   * {
     margin: 0;
     padding: 0;
   }
   .title {
-    color: purple;
     font-size: 30px;
     padding-left: 30px;
     padding-bottom: 50px;
   }
 
-  .data-inicio, .data-fim{
+  .data-inicio,
+  .data-fim,
+  .local {
     padding-left: 30px;
-    font-size: 20px;
+    font-size: 17px;
     padding-bottom: 20px;
+  }
+
+  .description{
+    font-size: 30px;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
+  .descricaoCMS{
+    padding-left: 30px;
+    font-size: 17px;font-size: 17px;
   }
 `
 const ModalWorkshops = ({ workshops = {} }) => {
@@ -52,15 +66,19 @@ const ModalWorkshops = ({ workshops = {} }) => {
                 <li>
                   <h1 className="title">{workshops.nome}</h1>
                   <h1 className="horario">{workshops.carga_horaria}</h1>
-                  <h1 className="data-inicio">
-                    {handleDate(new Date(workshops.data_inicio))}
+                  <p className="data-inicio">
+                    {handleDate(new Date(workshops.data_inicio))} 
+                    {workshops.horario_inicio}
+                    {handleDate(new Date(workshops.data_fim))}
+                    {workshops.horario_fim}
+                  </p>
+
+                  <h1 className="local"><FontAwesomeIcon icon={faLocationDot} />
+                    Oficina presencial em {workshops.local}
                   </h1>
-                  <h1 className="data-fim">{handleDate(new Date(workshops.data_fim))}</h1>
-                  <h1 className="horario-inicio">{workshops.horario_inicio}</h1>
-                  <h1 className="horario-fim">{workshops.horario_fim}</h1>
-                  <h1 className="preco">{workshops.preco}</h1>
-                  <p className="descricao">{workshops.descricao}</p>
-                  <h1 className="local">{workshops.local}</h1>
+
+                  <p className='description'>Descrição da oficina</p>
+                  <p className="descricaoCMS">{workshops.descricao}</p>
                 </li>
               </ul>
             </Detalhes>
