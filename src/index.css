@@ -34,6 +34,26 @@ html, body {
   font-family: 'Inter', sans-serif;
 }
 
+.modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: #fafafa;
+  border-radius: 3px;
+  padding: 20px;
+  z-index: 9999;
+}
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -63,29 +83,7 @@ table {
   border-spacing: 0;
 }
 
-.modal {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
-  background-color: #fafafa;
-  border-radius: 3px;
-  padding: 20px;
-  z-index: 9999;
-}
-
-.modal-overlay {
-  background-color: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-}
-
-.button-modal {
+.exitModalEvents{
   display: block;
   width: 6rem;
   margin-left: 90%;

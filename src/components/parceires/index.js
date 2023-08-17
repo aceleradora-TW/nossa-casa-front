@@ -52,7 +52,7 @@ const Parceires = () => {
             spaceBetween: 40
           }
         }}
-        modules={[Navigation, Pagination]}
+        modules={[Navigation]}
         className="mySwiper"
       >
         <section className='parceires'>
