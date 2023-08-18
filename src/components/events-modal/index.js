@@ -4,6 +4,8 @@ import EventsModal from './styled'
 import closeIcon from '../galery-modal/close-icon.svg'
 
 const ModalEvents = ({ events = {} }) => {
+  const indexWeek = events.date.getDay()
+  const daysWeek = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sabado' ]
   const [showModal, setShowModal] = useState(false)
   const handleClick = () => {
     setShowModal(!showModal)
@@ -21,11 +23,13 @@ const ModalEvents = ({ events = {} }) => {
           <header>
             <img className='exitModalEvents' src={closeIcon} onClick={handleClick} />
             <div className='container-description'>
-              <p>{events.nome}</p>
+              <h1>{events.nome}</h1>
+              <p>{daysWeek[indexWeek]}</p>
+              <p>{events.date.toLocaleDateString()}</p>
             </div>
           </header>
         </Modal>
-      </EventsModal >
+      </EventsModal>
     </>)
 }
 
