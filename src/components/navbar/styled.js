@@ -5,11 +5,10 @@ const NavBarComponent = styled.nav.attrs((props) => ({
 }))`
   top: 0;
   position: fixed;
+  z-index: 5;
   overflow: hidden;
   background-color: black;
   width: 100%;
-  z-index: 5;
-
   align-items: center;
   color: white;
 
@@ -100,14 +99,12 @@ const NavBarComponent = styled.nav.attrs((props) => ({
 
   /* Desktop , PCs*/
   @media (min-width: 600px) {
-    .oiw {
-      background: red;
-    }
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     padding: 15px 60px;
     justify-content: space-between;
+    z-index: 1000;
 
     .icon-menu {
       display: none;
