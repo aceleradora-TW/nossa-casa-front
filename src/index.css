@@ -83,3 +83,9 @@ table {
   border-spacing: 0;
 }
 
+.button-close{
+  display: block;
+  width: 5rem;
+  margin-left: 90%;
+  cursor: pointer;
+}
