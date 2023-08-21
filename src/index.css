@@ -83,11 +83,9 @@ table {
   border-spacing: 0;
 }
 
-.exitModalEvents{
+.button-close{
   display: block;
-  width: 6rem;
+  width: 5rem;
   margin-left: 90%;
-  margin-top: 5px;
-  margin-bottom: 5px;
   cursor: pointer;
 }
