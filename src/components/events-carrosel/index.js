@@ -19,12 +19,12 @@ const Events = () => {
           return {
             nome: data.attributes.nome,
             date: new Date(data.attributes.data),
-            imagem_url: data.attributes.foto_divulgacao.data.attributes.url,
+            imagem_url: data.attributes.foto_divulgacao.data.attributes.url
           }
         }
+        return null
       })
-      console.log(attributesEvents)
-      const eventsOrdered = events.sort((a, b) => a.date - b.date)
+      const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date - b.date)
       setAttributesEvents(eventsOrdered)
     })
   }, [])
