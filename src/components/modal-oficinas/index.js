@@ -34,7 +34,8 @@ const Detalhes = styled.div`
     font-weight: 500;
     padding-left: 30px;
     font-size: 17px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
+    padding-top: 14px;
   }
 
   .description {
@@ -56,12 +57,14 @@ const Detalhes = styled.div`
     padding-left: 90px;
   }
 
-  .div-preco, .oficinaType {
+  .div-preco,
+  .oficinaType {
     margin-top: -3%;
     padding-left: 70%;
   }
 
-  .spacingMoney, .spacingType {
+  .spacingMoney,
+  .spacingType {
     margin-left: 40px;
     margin-top: -19px;
   }
@@ -74,7 +77,6 @@ const Detalhes = styled.div`
   .spacingLocal {
     margin-left: 21px;
     margin-top: -16px;
-    margin-bottom: 15px;
   }
 `
 const ModalWorkshops = ({ workshops = {} }) => {
@@ -117,37 +119,35 @@ const ModalWorkshops = ({ workshops = {} }) => {
                         {workshops.horario_fim}
                       </div>
                     </p>
-                    </div>
-
-                    <div className="div-preco">
-                      <p className="preco">
-                        <FontAwesomeIcon
-                          icon={faHandHoldingDollar}
-                          size="xl"
-                          style={{
-                            '--fa-secondary-color': '#ffffff',
-                            '--fa-primary-opacity': '1',
-                          }}
-                        />
-                        <div className="spacingMoney">{workshops.preco}</div>
-                      </p>
-                    </div>
-
-                <div className='div-local'>
-                  <p className="local">
-                    <FontAwesomeIcon icon={faLocationDot} />
-                    <div className="spacingLocal">
-                      Oficina presencial em {workshops.local}
-                    </div>
-                  </p>
                   </div>
 
-                  <div className='oficinaType'>
-                    <p className='type'>
-                    <FontAwesomeIcon icon={faLock} />
-                    <div className='spacingType'>
-                    {workshops.tipo}
-                    </div>
+                  <div className="div-preco">
+                    <p className="preco">
+                      <FontAwesomeIcon
+                        icon={faHandHoldingDollar}
+                        size="xl"
+                        style={{
+                          '--fa-secondary-color': '#ffffff',
+                          '--fa-primary-opacity': '1',
+                        }}
+                      />
+                      <div className="spacingMoney">{workshops.preco}</div>
+                    </p>
+                  </div>
+
+                  <div className="div-local">
+                    <p className="local">
+                      <FontAwesomeIcon icon={faLocationDot} />
+                      <div className="spacingLocal">
+                        Oficina presencial em {workshops.local}
+                      </div>
+                    </p>
+                  </div>
+
+                  <div className="oficinaType">
+                    <p className="type">
+                      <FontAwesomeIcon icon={faLock} />
+                      <div className="spacingType">{workshops.tipo}</div>
                     </p>
                   </div>
 
