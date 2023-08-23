@@ -26,7 +26,7 @@ const Detalhes = styled.div`
     padding-left: 15px;
     font-size: 17px;
     padding-bottom: 20px;
-    padding-right:90px;
+    padding-right: 90px;
   }
 
   .local {
@@ -60,7 +60,20 @@ const Detalhes = styled.div`
     padding-left: 70%;
   }
 
+  .spacingMoney {
+    margin-left: 40px;
+    margin-top: -19px;
+  }
 
+  .spacingDate {
+    margin-left: 25px;
+    margin-top: -19px;
+  }
+
+  .spacingLocal {
+    margin-left: 21px;
+    margin-top: -16px;
+  }
 `
 const ModalWorkshops = ({ workshops = {} }) => {
   const [showModal, setShowModal] = useState(false)
@@ -93,29 +106,36 @@ const ModalWorkshops = ({ workshops = {} }) => {
                 <li>
                   <h1 className="title">{workshops.nome}</h1>
                   <div className="data-inicio">
-                   <p className="data-inicio">
-                     <FontAwesomeIcon icon={faCalendarDays} 
-                     /> 
-                    . {handleDate(new Date(workshops.data_inicio))} - {workshops.horario_inicio} • {handleDate(new Date(workshops.data_fim))} - {workshops.horario_fim}
-                     </p>
-                    <div className="div-preco">
-                    <p className="preco">
-                      <FontAwesomeIcon
-                        icon={faHandHoldingDollar}
-                        size="xl"
-                        style={{
-                          '--fa-secondary-color': '#ffffff',
-                          '--fa-primary-opacity': '1',
-                        }}
-                      />
-                      . {workshops.preco}
+                    <p className="data-inicio">
+                      <FontAwesomeIcon icon={faCalendarDays} />{' '}
+                      <div className="spacingDate">
+                        {handleDate(new Date(workshops.data_inicio))} -{' '}
+                        {workshops.horario_inicio} •{' '}
+                        {handleDate(new Date(workshops.data_fim))} -{' '}
+                        {workshops.horario_fim}
+                      </div>
                     </p>
-                  </div>
+                    <div className="div-preco">
+                      <p className="preco">
+                        <FontAwesomeIcon
+                          icon={faHandHoldingDollar}
+                          size="xl"
+                          style={{
+                            '--fa-secondary-color': '#ffffff',
+                            '--fa-primary-opacity': '1',
+                          }}
+                        />
+                        <div className="spacingMoney">{workshops.preco}</div>
+                      </p>
+                    </div>
                   </div>
 
                   <h1 className="local">
-                    <FontAwesomeIcon icon={faLocationDot} />. 
-                    Oficina presencial em {workshops.local}
+                    <FontAwesomeIcon icon={faLocationDot} />
+                    <div className="spacingLocal">
+                      Oficina presencial em
+                      {workshops.local}
+                    </div>
                   </h1>
 
                   <p className="description">Descrição da oficina</p>
