@@ -7,6 +7,7 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 import { faHandHoldingDollar } from '@fortawesome/free-solid-svg-icons'
+import { faLock } from '@fortawesome/free-solid-svg-icons'
 
 const Detalhes = styled.div`
   * {
@@ -55,12 +56,12 @@ const Detalhes = styled.div`
     padding-left: 90px;
   }
 
-  .div-preco {
+  .div-preco, .oficinaType {
     margin-top: -3%;
     padding-left: 70%;
   }
 
-  .spacingMoney {
+  .spacingMoney, .spacingType {
     margin-left: 40px;
     margin-top: -19px;
   }
@@ -73,6 +74,7 @@ const Detalhes = styled.div`
   .spacingLocal {
     margin-left: 21px;
     margin-top: -16px;
+    margin-bottom: 15px;
   }
 `
 const ModalWorkshops = ({ workshops = {} }) => {
@@ -115,6 +117,8 @@ const ModalWorkshops = ({ workshops = {} }) => {
                         {workshops.horario_fim}
                       </div>
                     </p>
+                    </div>
+
                     <div className="div-preco">
                       <p className="preco">
                         <FontAwesomeIcon
@@ -128,15 +132,24 @@ const ModalWorkshops = ({ workshops = {} }) => {
                         <div className="spacingMoney">{workshops.preco}</div>
                       </p>
                     </div>
-                  </div>
 
-                  <h1 className="local">
+                <div className='div-local'>
+                  <p className="local">
                     <FontAwesomeIcon icon={faLocationDot} />
                     <div className="spacingLocal">
-                      Oficina presencial em
-                      {workshops.local}
+                      Oficina presencial em {workshops.local}
                     </div>
-                  </h1>
+                  </p>
+                  </div>
+
+                  <div className='oficinaType'>
+                    <p className='type'>
+                    <FontAwesomeIcon icon={faLock} />
+                    <div className='spacingType'>
+                    {workshops.tipo}
+                    </div>
+                    </p>
+                  </div>
 
                   <p className="description">Descrição da oficina</p>
                   <p className="descricaoCMS">{workshops.descricao}</p>
