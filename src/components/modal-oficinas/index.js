@@ -78,6 +78,10 @@ const Detalhes = styled.div`
     margin-left: 21px;
     margin-top: -16px;
   }
+
+  .colorDiv{
+    background-color: pink;
+  }
 `
 const ModalWorkshops = ({ workshops = {} }) => {
   const [showModal, setShowModal] = useState(false)
@@ -156,6 +160,10 @@ const ModalWorkshops = ({ workshops = {} }) => {
 
                   <p className="description">Descrição da oficina</p>
                   <p className="descricaoCMS">{workshops.descricao}</p>
+                  <div className='colorDiv'>
+                    <h1>parceires</h1>
+                  {/* <p>{workshops.parceires.map(a => a.data.attributes)}</p> */}
+                  </div>
                 </li>
               </ul>
             </Detalhes>

@@ -13,11 +13,12 @@ const WorkshopsCarrossel = () => {
   const urlCms = env.URL_CMS
 
   useEffect(() => {
-    cms.get('api/workshops/?populate=foto_divulgacao').then((response) => {
+    cms.get('api/workshops/?populate=foto_divulgacao, parceires').then((response) => {
       const { data } = response.data
       const workshops = data.map((data) => {
         return data.attributes
       })
+      console.log(workshops.map(a => a.parceires).map(b => b.data))
       const workshopsSortedByName = workshops.sort((a, b) =>
         a.nome < b.nome ? -1 : 1
       )
