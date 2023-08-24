@@ -90,7 +90,9 @@ const ModalWorkshops = ({ workshops = {} }) => {
     const year = date.toLocaleDateString(undefined, { year: 'numeric' })
     return [day, month, year].join(' ')
   }
-
+  const dataEmObjDate = new Date(workshops.data_inicio)
+  const indexWeek = dataEmObjDate.getDay()
+  const daysWeek = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sabado']
   return (
     <>
       <CssModalGlobal>
@@ -109,6 +111,7 @@ const ModalWorkshops = ({ workshops = {} }) => {
               <ul>
                 <li>
                   <h1 className="title">{workshops.nome}</h1>
+                  <p>{daysWeek[indexWeek]}</p>
                   <div className="data-inicio">
                     <p className="data-inicio">
                       <FontAwesomeIcon icon={faCalendarDays} />{' '}
@@ -128,7 +131,7 @@ const ModalWorkshops = ({ workshops = {} }) => {
                         size="xl"
                         style={{
                           '--fa-secondary-color': '#ffffff',
-                          '--fa-primary-opacity': '1',
+                          '--fa-primary-opacity': '1'
                         }}
                       />
                       <div className="spacingMoney">{workshops.preco}</div>
