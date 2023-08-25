@@ -1,3 +1,4 @@
+
 import CssCarrosselGlobal from '../css-carrossel/styled'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -18,11 +19,11 @@ const WorkshopsCarrossel = () => {
       const workshops = data.map((data) => {
         return data.attributes
       })
-      console.log(workshops.map(a => a.parceires).map(b => b.data))
+      const parceires = workshops.map(a => a.parceires.data.map(b => b.attributes.nome))
       const workshopsSortedByName = workshops.sort((a, b) =>
         a.nome < b.nome ? -1 : 1
       )
-      setAttributes(workshopsSortedByName)
+      setAttributes(workshopsSortedByName, parceires)
     })
   }, [])
 
@@ -63,7 +64,7 @@ const WorkshopsCarrossel = () => {
         <section>
           <div className="swiper-slide">
             <ul>
-              {attributes.map((workshops, key) => (
+              {attributes.map((workshops, key, parceires) => (
                 <li key={key}>
                   <SwiperSlide>
                     <div>
@@ -80,7 +81,7 @@ const WorkshopsCarrossel = () => {
                         <p className="date">{workshops.data}</p>
                         <h3 className="title">{workshops.nome}</h3>
                       </div>
-                      <ModalWorkshops workshops={workshops}/>
+                      <ModalWorkshops workshops={workshops}  parceires={parceires}/>
                     </div>
                   </SwiperSlide>
                 </li>
@@ -92,4 +93,5 @@ const WorkshopsCarrossel = () => {
     </CssCarrosselGlobal>
   )
 }
+
 export default WorkshopsCarrossel

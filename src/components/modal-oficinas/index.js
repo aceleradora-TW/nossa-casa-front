@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 import { faHandHoldingDollar } from '@fortawesome/free-solid-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const Detalhes = styled.div`
   * {
@@ -30,7 +31,7 @@ const Detalhes = styled.div`
     padding-right: 90px;
   }
 
-  .local {
+  .local, .parceires {
     font-weight: 500;
     padding-left: 30px;
     font-size: 17px;
@@ -74,13 +75,17 @@ const Detalhes = styled.div`
     margin-top: -19px;
   }
 
-  .spacingLocal {
+  .spacingLocal{
     margin-left: 21px;
     margin-top: -16px;
   }
 
-  .colorDiv{
+  .colorDiv {
     background-color: pink;
+  }
+  .spacing-parceires {
+    margin-left: 21px;
+    margin-top: -10px;
   }
 `
 const ModalWorkshops = ({ workshops = {} }) => {
@@ -96,7 +101,15 @@ const ModalWorkshops = ({ workshops = {} }) => {
   }
   const dataEmObjDate = new Date(workshops.data_inicio)
   const indexWeek = dataEmObjDate.getDay()
-  const daysWeek = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sabado']
+  const daysWeek = [
+    'Domingo',
+    'Segunda-Feira',
+    'Terça-Feira',
+    'Quarta-Feira',
+    'Quinta-Feira',
+    'Sexta-Feira',
+    'Sabado',
+  ]
   return (
     <>
       <CssModalGlobal>
@@ -127,7 +140,6 @@ const ModalWorkshops = ({ workshops = {} }) => {
                       </div>
                     </p>
                   </div>
-
                   <div className="div-preco">
                     <p className="preco">
                       <FontAwesomeIcon
@@ -135,13 +147,12 @@ const ModalWorkshops = ({ workshops = {} }) => {
                         size="xl"
                         style={{
                           '--fa-secondary-color': '#ffffff',
-                          '--fa-primary-opacity': '1'
+                          '--fa-primary-opacity': '1',
                         }}
                       />
                       <div className="spacingMoney">{workshops.preco}</div>
                     </p>
                   </div>
-
                   <div className="div-local">
                     <p className="local">
                       <FontAwesomeIcon icon={faLocationDot} />
@@ -150,20 +161,24 @@ const ModalWorkshops = ({ workshops = {} }) => {
                       </div>
                     </p>
                   </div>
-
                   <div className="oficinaType">
                     <p className="type">
                       <FontAwesomeIcon icon={faLock} />
                       <div className="spacingType">{workshops.tipo}</div>
                     </p>
                   </div>
-
+                  <div className='parceires'>
+                    <p className='parceire'>
+                    <FontAwesomeIcon icon={faUser} />
+                    <div>
+                    {workshops.parceires.data.map((parceire, index) => {
+                      return <p key={index} className='spacing-parceires'> {parceire.attributes.nome} </p>
+                    })}
+                    </div>
+                    </p>
+                  </div>
                   <p className="description">Descrição da oficina</p>
                   <p className="descricaoCMS">{workshops.descricao}</p>
-                  <div className='colorDiv'>
-                    <h1>parceires</h1>
-                  {/* <p>{workshops.parceires.map(a => a.data.attributes)}</p> */}
-                  </div>
                 </li>
               </ul>
             </Detalhes>
