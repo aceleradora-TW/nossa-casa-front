@@ -3,14 +3,9 @@ import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { cms } from '../../client'
-import Facebook from '../parceires/face-icon.png'
-import Instagram from '../parceires/instagram-icon.png'
-import Twitter from '../parceires/twitter-icon.png'
-import Whatsapp from '../parceires/whatsapp-icon.png'
-import ParceireComponents from './styled.js'
-
+import { useState, useEffect } from 'react'
+import env from 'react-dotenv'
+import { cms } from '../../service/client'
 const linkParceire = process.env.REACT_APP_LINK_PARCEIRO
 
 const Parceires = () => {
@@ -59,31 +54,32 @@ const Parceires = () => {
         <section className='parceires'>
           <div className="swiper-slide">
             <ul>
-              {attributes.map((partners) =>
-                <li key={partners.nome}>
+              {attributes.map((partners) => {
+                return <li key={partners.nome}>
                   <SwiperSlide key={partners.nome}>
                     <div className='perfil'>
                       <div>
                         {partners.foto?.data?.map(foto => (
                           <img className='img-perfil' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
-                        ))
-                        }
+                        ))}
                       </div>
                       <h3>{partners.nome}</h3>
                       <p>{partners.especializacao}</p>
-                      </div>
-                      <p className='perfil-descricao'>
+                    </div>
+                    <div className='cointainer-description'>
+                      <p className='text-box'>
                         {partners.descricao}
                       </p>
-                      <div className='icones-rede-sociais'>
-                        <a href={partners.whatsapp}><img src={Whatsapp} /></a>
-                        <a href={partners.twitter}><img src={Twitter} /></a>
-                        <a href={partners.facebook}><img src={Facebook} /></a>
-                        <a href={partners.instagram}><img src={Instagram} /></a>
-                      </div>
-                   
+                    </div>
+                    <div className='icones-rede-sociais'>
+                      <a href={partners.whatsapp}><img src={Whatsapp} /></a>
+                      <a href={partners.twitter}><img src={Twitter} /></a>
+                      <a href={partners.facebook}><img src={Facebook} /></a>
+                      <a href={partners.instagram}><img src={Instagram} /></a>
+                    </div>
                   </SwiperSlide>
                 </li>
+              }
               )}
             </ul>
           </div>
