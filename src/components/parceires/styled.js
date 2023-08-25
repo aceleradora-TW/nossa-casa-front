@@ -57,12 +57,18 @@ const ParceireComponents = styled.section`
       margin-left: 10px;
     }
   }
+  .cointainer-description {
+    width: 19rem;
+    height: 17rem;
+    padding: 20px;
 
-  .perfil-descricao {
-    margin-left: 14%;
-    width: 70%;
-    padding-top:20px;
-    padding-bottom: 30px;
+    p{
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    }
   }
 
   .styled-button {
@@ -92,7 +98,6 @@ const ParceireComponents = styled.section`
     }
   }
 
-
   @media (max-width: 760px) {
     .swiper-button-next {
       right: 20px;
@@ -105,5 +110,4 @@ const ParceireComponents = styled.section`
     }
   }
 `
-
 export default ParceireComponents
