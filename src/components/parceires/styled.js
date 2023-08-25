@@ -61,6 +61,8 @@ const ParceireComponents = styled.section`
     width: 19rem;
     height: 17rem;
     padding: 20px;
+    align-items: center;
+    margin: auto;
 
     p{
     width: 100%;
