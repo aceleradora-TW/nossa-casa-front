@@ -17,7 +17,7 @@ const ParceireComponents = styled.section`
     margin-bottom: 10px;
   }
 
-  p {
+  .titulo {
     color: black;
     margin-bottom: 40px;
     display: flex;
@@ -61,11 +61,9 @@ const ParceireComponents = styled.section`
   .perfil-descricao {
     margin-left: 14%;
     width: 70%;
+    padding-top:20px;
+    padding-bottom: 30px;
   }
-
-  /* .perfil{
-    margin-right: 20px;
-  } */
 
   .styled-button {
     display: flex;

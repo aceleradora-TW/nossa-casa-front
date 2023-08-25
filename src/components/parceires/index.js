@@ -32,7 +32,7 @@ const Parceires = () => {
       background: '#F5BC4A'
     }}>
       <h2>Parceires</h2>
-      <p>
+      <p className='titulo'>
         A Nossa Casa é uma Associação sem fins lucrativos, composta por profissionais, artistas e ativistas do Município de Guarulhos.
       </p>
       <Swiper
@@ -71,6 +71,7 @@ const Parceires = () => {
                       </div>
                       <h3>{partners.nome}</h3>
                       <p>{partners.especializacao}</p>
+                      </div>
                       <p className='perfil-descricao'>
                         {partners.descricao}
                       </p>
@@ -80,7 +81,7 @@ const Parceires = () => {
                         <a href={partners.facebook}><img src={Facebook} /></a>
                         <a href={partners.instagram}><img src={Instagram} /></a>
                       </div>
-                    </div>
+                   
                   </SwiperSlide>
                 </li>
               )}
