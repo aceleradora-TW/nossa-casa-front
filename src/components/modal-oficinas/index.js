@@ -22,7 +22,7 @@ const Detalhes = styled.div`
     font-weight: 900;
     font-size: 30px;
     padding-left: 30px;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
   }
 
   .data-inicio,
@@ -31,7 +31,6 @@ const Detalhes = styled.div`
     padding-left: 15px;
     font-size: 17px;
     padding-bottom: 20px;
-    padding-right: 90px;
   }
 
   .local,
@@ -47,14 +46,15 @@ const Detalhes = styled.div`
     font-weight: 900;
     font-size: 30px;
     padding-left: 30px;
-    padding-top: 30px;
+    padding-top: 20px;
     padding-bottom: 20px;
   }
 
   .descricaoCMS {
     padding-left: 30px;
     font-size: 17px;
-    font-size: 17px;
+    text-align: justify;
+    width: 85%;
   }
 
   .button-close,
@@ -64,48 +64,36 @@ const Detalhes = styled.div`
 
   .div-preco,
   .oficinaType {
-    margin-top: -3%;
+    margin-top: -6%;
     padding-left: 70%;
   }
 
   .spacingMoney,
   .spacingType {
-    margin-left: 40px;
-    margin-top: -19px;
+    margin-left: 30px;
+    margin-top: -14px;
   }
 
-  .spacingDate {
-    margin-left: 25px;
-    margin-top: -19px;
-  }
-
-  .spacingLocal {
+  .spacingDate, .spacingLocal {
     margin-left: 21px;
     margin-top: -16px;
   }
 
-  .colorDiv {
-    background-color: pink;
-  }
-  .spacing-parceires {
-    display: inline-block;
-    padding-left: 10px;
+  .parce {
+    margin-left: 16px;
+    margin-top: -16px;
   }
 
-  a {
-    background: rgb(245, 188, 74);
-    color: black;
-    border-radius: 3px;
-    border: none;
-    font-size: 16px;
-    width: 182px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-weight: bold;
+  .spacing-parceires {
+    display: inline-block;
+    padding-left: 5px;
+  }
+
+  .day{
+    padding-bottom:20px;
+    padding-left: 30px;
+    font-weight: 400;
+    font-size: 23px;
   }
 `
 const ModalWorkshops = ({ workshops = {} }) => {
@@ -120,6 +108,18 @@ const ModalWorkshops = ({ workshops = {} }) => {
     const year = date.toLocaleDateString(undefined, { year: 'numeric' })
     return [day, month, year].join(' ')
   }
+
+  const handleMonth = (date) => {
+    const month = date.toLocaleDateString('pt-BR', { month: 'numeric' })
+    return [ month ].join(' ')
+  }
+
+  const handleDay = (date) => {
+    const day = date.toLocaleDateString('pt-BR', { day: 'numeric' })
+    return [ day ].join(' ')
+  }
+
+
   const dataEmObjDate = new Date(workshops.data_inicio)
   const indexWeek = dataEmObjDate.getDay()
   const daysWeek = [
@@ -150,14 +150,14 @@ const ModalWorkshops = ({ workshops = {} }) => {
               <ul>
                 <li>
                   <h1 className="title">{workshops.nome}</h1>
-                  <p>{daysWeek[indexWeek]}</p>
+                  <p className='day'>{daysWeek[indexWeek]} - {handleDay(new Date(workshops.data_inicio))}/{handleMonth(new Date(workshops.data_inicio))}</p>
                   <div className="data-inicio">
                     <p className="data-inicio">
                       <FontAwesomeIcon icon={faCalendarDays} />{' '}
                       <div className="spacingDate">
-                        {handleDate(new Date(workshops.data_inicio))} -{' '}
-                        {workshops.horario_inicio} •{' '}
-                        {handleDate(new Date(workshops.data_fim))} -{' '}
+                        {handleDate(new Date(workshops.data_inicio))} •{' '}
+                        {workshops.horario_inicio} {'> '}
+                        {handleDate(new Date(workshops.data_fim))} •{' '}
                         {workshops.horario_fim}
                       </div>
                     </p>
@@ -189,19 +189,14 @@ const ModalWorkshops = ({ workshops = {} }) => {
                       <div className="spacingType">{workshops.tipo}</div>
                     </p>
                   </div>
-                  <div className="parceires">
-                    <p className="parceire">
-                      <FontAwesomeIcon icon={faUser} />
-                      <div>
-                        {workshops.parceires.data.map((parceire, index) => {
-                          return (
-                            <p key={index} className="spacing-parceires">
-                              {' '}
-                              {parceire.attributes.nome}{' '}
-                            </p>
-                          )
-                        })}
-                      </div>
+                  <div className='parceires'>
+                    <p className='parceire'>
+                    <FontAwesomeIcon icon={faUser} />
+                    <div className='parce'>
+                    {workshops.parceires?.data.map((parceire, index) => {
+                      return <p key={index} className='spacing-parceires'>{ parceire.attributes.nome}  </p>
+                    })}
+                    </div>
                     </p>
                   </div>
                   <p className="description">Descrição da oficina</p>
