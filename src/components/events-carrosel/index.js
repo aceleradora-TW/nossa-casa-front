@@ -24,8 +24,8 @@ const Events = () => {
         }
         return null
       })
-      const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date - b.date)
-      setAttributesEvents(eventsOrdered)
+      const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date + b.date)
+      setAttributesEvents(eventsOrdered.reverse())
     })
   }, [])
   return (

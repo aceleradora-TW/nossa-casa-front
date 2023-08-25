@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const  CssCarrosselGlobal = styled.div`
+const CssCarrosselGlobal = styled.div`
   .carrossel {
     background-color: #fafafa;
     height: 300px;
