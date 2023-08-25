@@ -27,10 +27,11 @@ const WorkshopsCarrossel = () => {
             }
           }
         })
+        const parceires = workshops.map(a => a.parceires?.data.map(b => b.attributes.nome))
         const workshopsSortedByName = workshops.sort((a, b) =>
-          a.name < b.name ? -1 : 1
+          a.nome < b.nome ? -1 : 1
         )
-        setAttributes(workshopsSortedByName)
+        setAttributes(workshopsSortedByName, parceires)
       })
   }, [])
 
