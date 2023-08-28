@@ -56,7 +56,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     font-size: 30px;
     cursor: pointer;
   }
-
+ 
   .aparece {
     display: flex !important;
     flex-direction: column;
