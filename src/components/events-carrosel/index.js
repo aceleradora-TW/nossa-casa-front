@@ -24,7 +24,7 @@ const Events = () => {
         }
         return null
       })
-      const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date + b.date)
+      const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date - b.date)
       setAttributesEvents(eventsOrdered.reverse())
     })
   }, [])
@@ -81,7 +81,7 @@ const Events = () => {
                       </div>
                       <div>
                         <p className="date">
-                          {events.date.toLocaleDateString('pt-BR')}
+                          {events.date.toLocaleDateString('pt-BR', { timeZone: 'UTC' })}
                         </p>
                         <h3 className="title">{events.nome}</h3>
                       </div>
