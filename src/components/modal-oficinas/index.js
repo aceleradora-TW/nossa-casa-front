@@ -61,13 +61,18 @@ const Detalhes = styled.div`
   }
 
   .div-preco,
-  .oficinaType {
+  .oficinaType{
     margin-top: -6%;
     padding-left: 70%;
   }
 
+  .inscricao {
+    margin-top: -17.8%;
+    padding-left: 70%;
+  }
+
   .spacingMoney,
-  .spacingType {
+  .spacingType{
     margin-left: 30px;
     margin-top: -14px;
   }
@@ -161,7 +166,11 @@ const ModalWorkshops = ({ workshops = {} }) => {
               <ul>
                 <li>
                   <h1 className="title">{workshops.nome}</h1>
-                  <p className='day'>{daysWeek[indexWeek]} - {handleDay(new Date(workshops.data_inicio))}/{handleMonth(new Date(workshops.data_inicio))}</p>
+                  <p className="day">
+                    {daysWeek[indexWeek]} -{' '}
+                    {handleDay(new Date(workshops.data_inicio))}/
+                    {handleMonth(new Date(workshops.data_inicio))}
+                  </p>
                   <div className="data-inicio">
                     <p className="data-inicio">
                       <FontAwesomeIcon icon={faCalendarDays} />{' '}
