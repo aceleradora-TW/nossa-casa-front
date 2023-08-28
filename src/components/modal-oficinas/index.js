@@ -68,9 +68,14 @@ const Detalhes = styled.div`
     padding-left: 70%;
   }
 
-  .inscricao {
+  .inscricaoIcon {
     margin-top: -17.8%;
     padding-left: 70%;
+  }
+
+  .inscricao {
+    margin-top: -4%;
+    padding-left: 30px;
   }
 
   .spacingMoney,
@@ -225,10 +230,9 @@ const ModalWorkshops = ({ workshops = {} }) => {
                   )}
                   {workshops.url_inscricao == null && (
                     <>
-                      <p className='inscricao'>
-                        <FontAwesomeIcon icon={faPenToSquare} />
-                        Inscrição não é necessária
-                      </p>
+                      <div className='inscricaoIcon'>
+                        <FontAwesomeIcon icon={faPenToSquare}/><p className='inscricao'> Inscrição não é necessária</p>
+                      </div>
                     </>
                   )}
                 </li>
