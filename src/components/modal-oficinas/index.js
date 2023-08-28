@@ -3,14 +3,14 @@ import { useState } from 'react'
 import CssModalGlobal from '../css-modal/styled'
 import closeIcon from '../galery-modal/close-icon.svg'
 import { styled } from 'styled-components'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarDays } from '@fortawesome/free-solid-svg-icons'
-import { faHandHoldingDollar } from '@fortawesome/free-solid-svg-icons'
 import {
-  faLock,
   faUser,
   faPenToSquare,
+  faLock,
+  faHandHoldingDollar,
+  faCalendarDays,
+  faLocationDot,
 } from '@fortawesome/free-solid-svg-icons'
 
 const Detalhes = styled.div`
@@ -63,18 +63,24 @@ const Detalhes = styled.div`
   }
 
   .div-preco,
-  .oficinaType {
+  .oficinaType{
     margin-top: -6%;
     padding-left: 70%;
   }
 
+  .inscricao {
+    margin-top: -17.8%;
+    padding-left: 70%;
+  }
+
   .spacingMoney,
-  .spacingType {
+  .spacingType{
     margin-left: 30px;
     margin-top: -14px;
   }
 
-  .spacingDate, .spacingLocal {
+  .spacingDate,
+  .spacingLocal {
     margin-left: 21px;
     margin-top: -16px;
   }
@@ -89,8 +95,8 @@ const Detalhes = styled.div`
     padding-left: 5px;
   }
 
-  .day{
-    padding-bottom:20px;
+  .day {
+    padding-bottom: 20px;
     padding-left: 30px;
     font-weight: 400;
     font-size: 23px;
@@ -111,14 +117,13 @@ const ModalWorkshops = ({ workshops = {} }) => {
 
   const handleMonth = (date) => {
     const month = date.toLocaleDateString('pt-BR', { month: 'numeric' })
-    return [ month ].join(' ')
+    return [month].join(' ')
   }
 
   const handleDay = (date) => {
     const day = date.toLocaleDateString('pt-BR', { day: 'numeric' })
-    return [ day ].join(' ')
+    return [day].join(' ')
   }
-
 
   const dataEmObjDate = new Date(workshops.data_inicio)
   const indexWeek = dataEmObjDate.getDay()
@@ -150,7 +155,11 @@ const ModalWorkshops = ({ workshops = {} }) => {
               <ul>
                 <li>
                   <h1 className="title">{workshops.nome}</h1>
-                  <p className='day'>{daysWeek[indexWeek]} - {handleDay(new Date(workshops.data_inicio))}/{handleMonth(new Date(workshops.data_inicio))}</p>
+                  <p className="day">
+                    {daysWeek[indexWeek]} -{' '}
+                    {handleDay(new Date(workshops.data_inicio))}/
+                    {handleMonth(new Date(workshops.data_inicio))}
+                  </p>
                   <div className="data-inicio">
                     <p className="data-inicio">
                       <FontAwesomeIcon icon={faCalendarDays} />{' '}
@@ -189,14 +198,18 @@ const ModalWorkshops = ({ workshops = {} }) => {
                       <div className="spacingType">{workshops.tipo}</div>
                     </p>
                   </div>
-                  <div className='parceires'>
-                    <p className='parceire'>
-                    <FontAwesomeIcon icon={faUser} />
-                    <div className='parce'>
-                    {workshops.parceires?.data.map((parceire, index) => {
-                      return <p key={index} className='spacing-parceires'>{ parceire.attributes.nome}  </p>
-                    })}
-                    </div>
+                  <div className="parceires">
+                    <p className="parceire">
+                      <FontAwesomeIcon icon={faUser} />
+                      <div className="parce">
+                        {workshops.parceires?.data.map((parceire, index) => {
+                          return (
+                            <p key={index} className="spacing-parceires">
+                              {parceire.attributes.nome}{' '}
+                            </p>
+                          )
+                        })}
+                      </div>
                     </p>
                   </div>
                   <p className="description">Descrição da oficina</p>
@@ -212,7 +225,12 @@ const ModalWorkshops = ({ workshops = {} }) => {
                     </a>
                   )}
                   {workshops.url_inscricao == null && (
-                    <FontAwesomeIcon icon={faPenToSquare} />
+                    <>
+                      <p className='inscricao'>
+                        <FontAwesomeIcon icon={faPenToSquare} />
+                        Inscrição não é necessária
+                      </p>
+                    </>
                   )}
                 </li>
               </ul>
