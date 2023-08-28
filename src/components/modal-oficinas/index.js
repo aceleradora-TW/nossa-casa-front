@@ -66,9 +66,14 @@ const Detalhes = styled.div`
     padding-left: 70%;
   }
 
-  .inscricao {
+  .inscricaoIcon {
     margin-top: -17.8%;
     padding-left: 70%;
+  }
+
+  .inscricao {
+    margin-top: -4%;
+    padding-left: 30px;
   }
 
   .spacingMoney,
