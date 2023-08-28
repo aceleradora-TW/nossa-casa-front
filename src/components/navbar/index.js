@@ -9,9 +9,7 @@ const linkParceiro = process.env.REACT_APP_LINK_PARCEIRO
 const NavBar = () => {
   const [toggle, setToggle] = useState(false)
   const onClickMenu = () => setToggle(!toggle)
-
   const newLocal = 'ser-parceire'
-
   return (
     <NavBarComponent>
       <div className="container-logo">

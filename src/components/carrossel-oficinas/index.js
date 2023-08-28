@@ -23,6 +23,7 @@ const WorkshopsCarrossel = () => {
       const workshopsSortedByName = workshops.sort((a, b) =>
         a.nome < b.nome ? -1 : 1
       )
+      console.log(workshops)
       setAttributes(workshopsSortedByName, parceires)
     })
   }, [])

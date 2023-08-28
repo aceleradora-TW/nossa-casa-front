@@ -7,8 +7,11 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 import { faHandHoldingDollar } from '@fortawesome/free-solid-svg-icons'
-import { faLock } from '@fortawesome/free-solid-svg-icons'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import {
+  faLock,
+  faUser,
+  faPenToSquare,
+} from '@fortawesome/free-solid-svg-icons'
 
 const Detalhes = styled.div`
   * {
@@ -31,7 +34,8 @@ const Detalhes = styled.div`
     padding-right: 90px;
   }
 
-  .local, .parceires {
+  .local,
+  .parceires {
     font-weight: 500;
     padding-left: 30px;
     font-size: 17px;
@@ -75,7 +79,7 @@ const Detalhes = styled.div`
     margin-top: -19px;
   }
 
-  .spacingLocal{
+  .spacingLocal {
     margin-left: 21px;
     margin-top: -16px;
   }
@@ -84,8 +88,24 @@ const Detalhes = styled.div`
     background-color: pink;
   }
   .spacing-parceires {
-    margin-left: 21px;
-    margin-top: -10px;
+    display: inline-block;
+    padding-left: 10px;
+  }
+
+  a {
+    background: rgb(245, 188, 74);
+    color: black;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    width: 182px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
   }
 `
 const ModalWorkshops = ({ workshops = {} }) => {
@@ -93,6 +113,7 @@ const ModalWorkshops = ({ workshops = {} }) => {
   const handleClick = () => {
     setShowModal(!showModal)
   }
+
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, { day: 'numeric' })
     const month = date.toLocaleDateString('pt-BR', { month: 'long' })
@@ -110,6 +131,7 @@ const ModalWorkshops = ({ workshops = {} }) => {
     'Sexta-Feira',
     'Sabado',
   ]
+
   return (
     <>
       <CssModalGlobal>
@@ -167,18 +189,36 @@ const ModalWorkshops = ({ workshops = {} }) => {
                       <div className="spacingType">{workshops.tipo}</div>
                     </p>
                   </div>
-                  <div className='parceires'>
-                    <p className='parceire'>
-                    <FontAwesomeIcon icon={faUser} />
-                    <div>
-                    {workshops.parceires.data.map((parceire, index) => {
-                      return <p key={index} className='spacing-parceires'> {parceire.attributes.nome} </p>
-                    })}
-                    </div>
+                  <div className="parceires">
+                    <p className="parceire">
+                      <FontAwesomeIcon icon={faUser} />
+                      <div>
+                        {workshops.parceires.data.map((parceire, index) => {
+                          return (
+                            <p key={index} className="spacing-parceires">
+                              {' '}
+                              {parceire.attributes.nome}{' '}
+                            </p>
+                          )
+                        })}
+                      </div>
                     </p>
                   </div>
                   <p className="description">Descrição da oficina</p>
                   <p className="descricaoCMS">{workshops.descricao}</p>
+                  {workshops.url_inscricao !== null && (
+                    <a
+                      href={workshops.url_inscricao}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {' '}
+                      Inscreva-se{' '}
+                    </a>
+                  )}
+                  {workshops.url_inscricao == null && (
+                    <FontAwesomeIcon icon={faPenToSquare} />
+                  )}
                 </li>
               </ul>
             </Detalhes>
