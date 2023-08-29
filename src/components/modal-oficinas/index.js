@@ -3,15 +3,11 @@ import { useState } from 'react'
 import CssModalGlobal from '../css-modal/styled'
 import closeIcon from '../galery-modal/close-icon.svg'
 import { styled } from 'styled-components'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 import { faHandHoldingDollar } from '@fortawesome/free-solid-svg-icons'
-import {
-  faLock,
-  faUser,
-  faPenToSquare,
-} from '@fortawesome/free-solid-svg-icons'
+import { faLock } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const Detalhes = styled.div`
   * {
@@ -22,7 +18,7 @@ const Detalhes = styled.div`
     font-weight: 900;
     font-size: 30px;
     padding-left: 30px;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
   }
 
   .data-inicio,
@@ -31,7 +27,6 @@ const Detalhes = styled.div`
     padding-left: 15px;
     font-size: 17px;
     padding-bottom: 20px;
-    padding-right: 90px;
   }
 
   .local,
@@ -47,14 +42,15 @@ const Detalhes = styled.div`
     font-weight: 900;
     font-size: 30px;
     padding-left: 30px;
-    padding-top: 30px;
+    padding-top: 20px;
     padding-bottom: 20px;
   }
 
   .descricaoCMS {
     padding-left: 30px;
     font-size: 17px;
-    font-size: 17px;
+    text-align: justify;
+    width: 85%;
   }
 
   .button-close,
@@ -63,15 +59,25 @@ const Detalhes = styled.div`
   }
 
   .div-preco,
-  .oficinaType {
-    margin-top: -3%;
+  .oficinaType{
+    margin-top: -6%;
     padding-left: 70%;
   }
 
+  .inscricaoIcon {
+    margin-top: -17.8%;
+    padding-left: 70%;
+  }
+
+  .inscricao {
+    margin-top: -4%;
+    padding-left: 30px;
+  }
+
   .spacingMoney,
-  .spacingType {
-    margin-left: 40px;
-    margin-top: -19px;
+  .spacingType{
+    margin-left: 30px;
+    margin-top: -14px;
   }
 
   .spacingDate {
@@ -79,33 +85,19 @@ const Detalhes = styled.div`
     margin-top: -19px;
   }
 
-  .spacingLocal {
+  .spacingLocal{
     margin-left: 21px;
     margin-top: -16px;
   }
 
-  .colorDiv {
-    background-color: pink;
-  }
-  .spacing-parceires {
-    display: inline-block;
-    padding-left: 10px;
+  .parce {
+    margin-left: 16px;
+    margin-top: -16px;
   }
 
-  a {
-    background: rgb(245, 188, 74);
-    color: black;
-    border-radius: 3px;
-    border: none;
-    font-size: 16px;
-    width: 182px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-weight: bold;
+  .spacing-parceires {
+    margin-left: 21px;
+    margin-top: -10px;
   }
 `
 const ModalWorkshops = ({ workshops = {} }) => {
@@ -120,6 +112,17 @@ const ModalWorkshops = ({ workshops = {} }) => {
     const year = date.toLocaleDateString(undefined, { year: 'numeric' })
     return [day, month, year].join(' ')
   }
+
+  const handleMonth = (date) => {
+    const month = date.toLocaleDateString('pt-BR', { month: 'numeric' })
+    return [month].join(' ')
+  }
+
+  const handleDay = (date) => {
+    const day = date.toLocaleDateString('pt-BR', { day: 'numeric' })
+    return [day].join(' ')
+  }
+
   const dataEmObjDate = new Date(workshops.data_inicio)
   const indexWeek = dataEmObjDate.getDay()
   const daysWeek = [
@@ -150,14 +153,18 @@ const ModalWorkshops = ({ workshops = {} }) => {
               <ul>
                 <li>
                   <h1 className="title">{workshops.nome}</h1>
-                  <p>{daysWeek[indexWeek]}</p>
+                  <p className="day">
+                    {daysWeek[indexWeek]} -{' '}
+                    {handleDay(new Date(workshops.data_inicio))}/
+                    {handleMonth(new Date(workshops.data_inicio))}
+                  </p>
                   <div className="data-inicio">
                     <p className="data-inicio">
                       <FontAwesomeIcon icon={faCalendarDays} />{' '}
                       <div className="spacingDate">
-                        {handleDate(new Date(workshops.data_inicio))} -{' '}
-                        {workshops.horario_inicio} •{' '}
-                        {handleDate(new Date(workshops.data_fim))} -{' '}
+                        {handleDate(new Date(workshops.data_inicio))} •{' '}
+                        {workshops.horario_inicio} {'> '}
+                        {handleDate(new Date(workshops.data_fim))} •{' '}
                         {workshops.horario_fim}
                       </div>
                     </p>
@@ -189,36 +196,18 @@ const ModalWorkshops = ({ workshops = {} }) => {
                       <div className="spacingType">{workshops.tipo}</div>
                     </p>
                   </div>
-                  <div className="parceires">
-                    <p className="parceire">
-                      <FontAwesomeIcon icon={faUser} />
-                      <div>
-                        {workshops.parceires.data.map((parceire, index) => {
-                          return (
-                            <p key={index} className="spacing-parceires">
-                              {' '}
-                              {parceire.attributes.nome}{' '}
-                            </p>
-                          )
-                        })}
-                      </div>
+                  <div className='parceires'>
+                    <p className='parceire'>
+                    <FontAwesomeIcon icon={faUser} />
+                    <div>
+                    {workshops.parceires.data.map((parceire, index) => {
+                      return <p key={index} className='spacing-parceires'> {parceire.attributes.nome} </p>
+                    })}
+                    </div>
                     </p>
                   </div>
                   <p className="description">Descrição da oficina</p>
                   <p className="descricaoCMS">{workshops.descricao}</p>
-                  {workshops.url_inscricao !== null && (
-                    <a
-                      href={workshops.url_inscricao}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {' '}
-                      Inscreva-se{' '}
-                    </a>
-                  )}
-                  {workshops.url_inscricao == null && (
-                    <FontAwesomeIcon icon={faPenToSquare} />
-                  )}
                 </li>
               </ul>
             </Detalhes>

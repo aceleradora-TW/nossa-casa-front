@@ -59,7 +59,7 @@ const ParceireComponents = styled.section`
   }
   .cointainer-description {
     width: 19rem;
-    height: 17rem;
+    height: 12rem;
     padding: 20px;
     align-items: center;
     margin: auto;
