@@ -42,7 +42,7 @@ const ModalEvents = ({ events = {} }) => {
             <div className='dia-hora-eventos'>
               <div>
               <p>
-                <FontAwesomeIcon icon={faCalendarDays} />{` ${handleDate(events.date)} ${events.time_start} ${events.time_end}`}</p>
+                <FontAwesomeIcon icon={faCalendarDays} />{` ${handleDate(events.date)} - ${events.date.getFullYear()}  ● ${events.time_start} - ${events.time_end}`}</p>
               </div>
             </div>
             <p className='local-events'>{events.location}</p>
