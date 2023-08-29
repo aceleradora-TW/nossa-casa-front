@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import env from 'react-dotenv'
+import { NavLink } from 'react-router-dom'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import { cms } from '../../client'
-import EventCarousel from './styled.js'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import EventsComponent from './styled.js'
 
 const Events = () => {
   const [attributesEvents, setAttributesEvents] = useState([])
@@ -16,9 +17,16 @@ const Events = () => {
       if (data) {
         const events = data.map((data) => {
           return {
-            nome: data.attributes.nome,
-            date: new Date(data.attributes.data),
-            imageUrl: data.attributes.foto_divulgacao.data.attributes.url
+            id: data.id,
+            name: data.attributes.nome,
+            date: new Date(data.attributes.data_inicio),
+            image_url: data.attributes.foto_divulgacao.data.attributes.url,
+            time_start: data.attributes.horario_inicio,
+            time_end: data.attributes.horario_fim,
+            type: data.attributes.tipo,
+            location: data.attributes.local,
+            price: data.attributes.preco,
+            description: data.attributes.descricao
           }
         })
         const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date - b.date)
@@ -27,14 +35,12 @@ const Events = () => {
     })
   }, [])
   return (
-    <EventCarousel style={{ background: '#FFFFFF' }}>
-      <div className="carousel">
+
+    <EventsComponent style={{ background: '#FFFFFF' }}>
+      <div className='carrossel'>
         <h1>EVENTOS</h1>
-        <p>
-          A Nossa Casa realiza diversos eventos culturais que vão de festivais,
-          rodas de conversa, apresentações musicais, exposições de arte visual,
-          entre outros. Confira aqui nossa programação e participe!
-        </p>
+        <p>A  Nossa Casa realiza diversos eventos culturais que vão de festivais, rodas de conversa, apresentações musicais, exposições de arte visual, entre outros.
+          Confira aqui nossa programação e participe!.</p>
       </div>
       <Swiper
         slidesPerView={3}
@@ -60,31 +66,29 @@ const Events = () => {
         <section>
           <div className="swiper-slide">
             <ul>
-              {attributesEvents.map((event, key) => (
-                <li key={key}>
+              {attributesEvents.map((events, index) =>
+                <li key={index}>
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img
-                          className="event-image"
-                          src={urlCms + event.imageUrl}
-                        />
+                        <img className="img-foto" src={urlCms + events.image_url} />
                       </div>
                       <div>
-                        <p className="date">
-                          {event.date.toLocaleDateString('pt-BR')}
-                        </p>
-                        <h3 className="title">{event.nome}</h3>
+                        <p className="date">{events.date.toLocaleDateString('pt-BR', { Timezone: 'UTF' })}</p>
+                        <h3 className="title">{events.name}</h3>
+                      </div>
+                      <div className='styled-button'>
+                        <NavLink to={`${events.id}`} >Saiba Mais</NavLink>
                       </div>
                     </div>
                   </SwiperSlide>
                 </li>
-              ))}
+              )}
             </ul>
           </div>
         </section>
       </Swiper>
-    </EventCarousel>
+    </EventsComponent >
   )
 }
 export default Events

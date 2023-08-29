@@ -58,16 +58,16 @@ const TherapiesCarousel = () => {
         breakpoints={{
           '@0.00': {
             slidesPerView: 1,
-            spaceBetween: 1
+            spaceBetween: 1,
           },
           '@0.75': {
             slidesPerView: 2,
-            spaceBetween: 2
+            spaceBetween: 2,
           },
           '@1.00': {
             slidesPerView: 3,
-            spaceBetween: 3
-          }
+            spaceBetween: 3,
+          },
         }}
         modules={[Navigation]}
         className="mySwiper"
