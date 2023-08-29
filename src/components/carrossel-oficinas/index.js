@@ -14,7 +14,7 @@ const WorkshopsCarrossel = () => {
 
   useEffect(() => {
     cms
-      .get('api/workshops/?populate=foto_divulgacao, parceires')
+      .get('api/workshops/?populate=foto_divulgacao, parceires, foto_oficina')
       .then((response) => {
         const { data } = response.data
         const workshops = data.map((data) => {
@@ -26,7 +26,6 @@ const WorkshopsCarrossel = () => {
         const workshopsSortedByName = workshops.sort((a, b) =>
           a.nome < b.nome ? -1 : 1
         )
-        console.log(workshops)
         setAttributes(workshopsSortedByName, parceires)
       })
   }, [])

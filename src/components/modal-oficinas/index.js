@@ -1,5 +1,5 @@
 import Modal from 'react-modal'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import CssModalGlobal from '../css-modal/styled'
 import closeIcon from '../galery-modal/close-icon.svg'
 import { styled } from 'styled-components'
@@ -12,6 +12,14 @@ import {
   faCalendarDays,
   faLocationDot,
 } from '@fortawesome/free-solid-svg-icons'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
+import env from 'react-dotenv'
+import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/navigation'
+import 'swiper/css/thumbs'
+const urlCms = env.URL_CMS
 
 const Detalhes = styled.div`
   * {
@@ -123,8 +131,8 @@ const Detalhes = styled.div`
     margin-left: 43%;
     margin-top: 200px;
   }
-  
-@media screen and (max-width: 2560px) and (max-height: 1600px) {
+
+  @media screen and (max-width: 720px) {
     .title {
       padding-top: -20%;
       font-size: 30px;
@@ -153,7 +161,6 @@ const Detalhes = styled.div`
       font-weight: 900;
       padding-left: 30px;
       padding-top: 20px;
-      
     }
 
     .descricaoCMS {
@@ -199,13 +206,24 @@ const Detalhes = styled.div`
     }
 
     .button-inscricao {
-    margin-top: 50px;
+      margin-top: 50px;
+    }
   }
-  }
-
 `
 const ModalWorkshops = ({ workshops = {} }) => {
   const [showModal, setShowModal] = useState(false)
+
+  const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [oficina, setOficina] = useState([])
+  useEffect(() => {
+    const images = workshops.foto_oficina.data.map((fotos, index) => {
+      return {
+        index,
+        url: urlCms + fotos.attributes.url,
+      }
+    })
+    setOficina(images)
+  })
   const handleClick = () => {
     setShowModal(!showModal)
   }
@@ -335,6 +353,48 @@ const ModalWorkshops = ({ workshops = {} }) => {
                   )}
                 </li>
               </ul>
+              {/* <div>
+                {workshops.foto_oficina.data.map((fotos, index) => {
+                  return (
+                    <img
+                      key={index}
+                      className="test"
+                      src={urlCms + fotos.attributes.url}
+                    />
+                  )
+                })}
+              </div> */}
+                  <Swiper
+                style={{
+                  position: 'unset',
+                }}
+                spaceBetween={10}
+                navigation={true}
+                thumbs={{ swiper: thumbsSwiper }}
+                modules={[FreeMode, Navigation, Thumbs]}
+                className="swiper-slide-view"
+              >
+                {oficina.map((fotos) => (
+                  <SwiperSlide key={fotos.index}>
+                    <img src={fotos.url} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+              <Swiper
+                onSwiper={setThumbsSwiper}
+                spaceBetween={10}
+                slidesPerView={6}
+                freeMode={true}
+                watchSlidesProgress={true}
+                modules={[FreeMode, Navigation, Thumbs]}
+                className="swiper-thumbnails"
+              >
+                {oficina.map((image) => (
+                  <SwiperSlide key={image.index}>
+                    <img src={image.url} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </Detalhes>
           </section>
         </Modal>
