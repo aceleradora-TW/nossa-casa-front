@@ -91,3 +91,15 @@ table {
   margin-bottom: 5px;
   cursor: pointer;
 }
+.container-description{
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-bottom: 3em;
+
+}
+.title-events{
+  padding-bottom:3em;
+  color: black;
+  font-weight:bolder;
+  font-size:1.5rem;
+}

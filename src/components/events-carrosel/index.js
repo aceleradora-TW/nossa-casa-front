@@ -17,13 +17,21 @@ const Events = () => {
       const events = data.map((data) => {
         if (data) {
           return {
-            nome: data.attributes.nome,
+            name: data.attributes.nome,
             date: new Date(data.attributes.data),
-            imagem_url: data.attributes.foto_divulgacao.data.attributes.url
+            image_url: data.attributes.foto_divulgacao.data.attributes.url,
+            time_start: data.attributes.horario_inicio,
+            time_end: data.attributes.horario_fim,
+            type: data.attributes.tipo,
+            location: data.attributes.local,
+            price: data.attributes.preco,
+            description: data.attributes.descricao
           }
         }
         return null
       })
+      console.log(data)
+      console.log(events)
       const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date - b.date)
       setAttributesEvents(eventsOrdered)
     })
@@ -33,14 +41,8 @@ const Events = () => {
     <EventsComponent style={{ background: '#FFFFFF' }}>
       <div className='carrossel'>
         <h1>EVENTOS</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been thes standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make a type
-          specimen book. It has survived not only five centuries, but also the leap into
-          electronic typesetting, remaining essentially unchanged.
-          It was popularised in the 1960s with the release of Letraset sheets containing
-          Lorem Ipsum passages, and more recently with desktop
-          publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <p>A  Nossa Casa realiza diversos eventos culturais que vão de festivais, rodas de conversa, apresentações musicais, exposições de arte visual, entre outros.
+          Confira aqui nossa programação e participe!.</p>
       </div>
       <Swiper
         slidesPerView={3}
@@ -71,11 +73,11 @@ const Events = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img className="img-foto" src={urlCms + events.imagem_url} />
+                        <img className="img-foto" src={urlCms + events.image_url} />
                       </div>
                       <div>
                         <p className="date">{events.date.toLocaleDateString('pt-BR')}</p>
-                        <h3 className="title">{events.nome}</h3>
+                        <h3 className="title">{events.name}</h3>
                       </div>
                       <ModalEvents events={events} />
                     </div>
