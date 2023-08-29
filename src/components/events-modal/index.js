@@ -23,9 +23,13 @@ const ModalEvents = ({ events = {} }) => {
           <header>
             <img className='exitModalEvents' src={closeIcon} onClick={handleClick} />
             <div className='container-description'>
-              <h1>{events.nome}</h1>
-              <p>{daysWeek[indexWeek]}</p>
-              <p>{events.date.toLocaleDateString()}</p>
+              <div className='title-events'>
+                <h1>{events.nome}</h1>
+              </div>
+              <div>
+                <p>{daysWeek[indexWeek]}</p>
+                <p>{events.date.toLocaleDateString('pt-br', { timeZone: 'UTC' })}</p>
+              </div>
             </div>
           </header>
         </Modal>

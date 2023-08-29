@@ -16,6 +16,10 @@ const EventsModal = styled.div`
   margin-top: 1rem;
   cursor: pointer;
 }
+.title-events{
+  color: black;
+  font-weight:bold;
+}
 `
 
 export default EventsModal
