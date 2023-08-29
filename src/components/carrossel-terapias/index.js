@@ -30,11 +30,16 @@ const TherapiesCarrossel = () => {
       <div className="carrossel">
         <h1>Terapias</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          accumsan accumsan elit vel ullamcorper. Vestibulum ante ipsum primis
-          in faucibus orci luctus et ultrices posuere cubilia curae; Nullam eget
-          ligula et libero volutpat tristique. Duis tincidunt dolor dolor, vel
-          pulvinar tellus mattis id.
+          Ao longo da história, espaços de autocuidado e bem-estar foram
+          associados às classes mais abastadas. Ainda hoje, a população negra,
+          LGBTs, mulheres e moradores de periferias têm acesso limitado a esses
+          locais, enfrentando rotinas maçantes e exclusão social. A Clínica
+          Social da Nossa Casa visa democratizar o acesso a serviços como
+          psicoterapia, massoterapia, yoga, reiki, entre outros. Com
+          profissionais oferecendo preços acessíveis, busca proporcionar saúde e
+          bem-estar para todes, promovendo qualidade de vida, autonomia e
+          dignidade. Conheça mais sobre os serviços oferecidos e entre em
+          contato.
         </p>
       </div>
 
@@ -45,16 +50,16 @@ const TherapiesCarrossel = () => {
         breakpoints={{
           '@0.00': {
             slidesPerView: 1,
-            spaceBetween: 1
+            spaceBetween: 1,
           },
           '@0.75': {
             slidesPerView: 2,
-            spaceBetween: 2
+            spaceBetween: 2,
           },
           '@1.00': {
             slidesPerView: 3,
-            spaceBetween: 3
-          }
+            spaceBetween: 3,
+          },
         }}
         modules={[Navigation]}
         className="mySwiper"
