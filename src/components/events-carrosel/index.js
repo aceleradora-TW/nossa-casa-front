@@ -17,16 +17,9 @@ const Events = () => {
       if (data) {
         const events = data.map((data) => {
           return {
-            id: data.id,
-            name: data.attributes.nome,
-            date: new Date(data.attributes.data_inicio),
-            image_url: data.attributes.foto_divulgacao.data.attributes.url,
-            time_start: data.attributes.horario_inicio,
-            time_end: data.attributes.horario_fim,
-            type: data.attributes.tipo,
-            location: data.attributes.local,
-            price: data.attributes.preco,
-            description: data.attributes.descricao
+            nome: data.attributes.nome,
+            date: new Date(data.attributes.data),
+            imagem_url: data.attributes.foto_divulgacao.data.attributes.url,
           }
         })
         const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date - b.date)
@@ -35,12 +28,14 @@ const Events = () => {
     })
   }, [])
   return (
-
     <EventsComponent style={{ background: '#FFFFFF' }}>
-      <div className='carrossel'>
+      <div className="carrossel">
         <h1>EVENTOS</h1>
-        <p>A  Nossa Casa realiza diversos eventos culturais que vão de festivais, rodas de conversa, apresentações musicais, exposições de arte visual, entre outros.
-          Confira aqui nossa programação e participe!.</p>
+        <p>
+          A Nossa Casa realiza diversos eventos culturais que vão de festivais,
+          rodas de conversa, apresentações musicais, exposições de arte visual,
+          entre outros. Confira aqui nossa programação e participe!
+        </p>
       </div>
       <Swiper
         slidesPerView={3}
@@ -49,16 +44,16 @@ const Events = () => {
         breakpoints={{
           '@0.00': {
             slidesPerView: 1,
-            spaceBetween: 1
+            spaceBetween: 1,
           },
           '@0.75': {
             slidesPerView: 2,
-            spaceBetween: 2
+            spaceBetween: 2,
           },
           '@1.00': {
             slidesPerView: 3,
-            spaceBetween: 3
-          }
+            spaceBetween: 3,
+          },
         }}
         modules={[Navigation]}
         className="mySwiper"
@@ -66,29 +61,31 @@ const Events = () => {
         <section>
           <div className="swiper-slide">
             <ul>
-              {attributesEvents.map((events, index) =>
-                <li key={index}>
+              {attributesEvents.map((events, key) => (
+                <li key={key}>
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img className="img-foto" src={urlCms + events.image_url} />
+                        <img
+                          className="img-foto"
+                          src={urlCms + events.imagem_url}
+                        />
                       </div>
                       <div>
-                        <p className="date">{events.date.toLocaleDateString('pt-BR', { Timezone: 'UTF' })}</p>
-                        <h3 className="title">{events.name}</h3>
-                      </div>
-                      <div className='styled-button'>
-                        <NavLink to={`${events.id}`} >Saiba Mais</NavLink>
+                        <p className="date">
+                          {events.date.toLocaleDateString('pt-BR')}
+                        </p>
+                        <h3 className="title">{events.nome}</h3>
                       </div>
                     </div>
                   </SwiperSlide>
                 </li>
-              )}
+              ))}
             </ul>
           </div>
         </section>
       </Swiper>
-    </EventsComponent >
+    </EventsComponent>
   )
 }
 export default Events
