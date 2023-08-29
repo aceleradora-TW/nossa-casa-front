@@ -117,6 +117,22 @@ const Detalhes = styled.div`
     text-decoration: none;
     font-weight: bold;
   }
+
+  .button-inscricao {
+    background: #f5bc4a;
+      border-radius: 3px;
+      border: none;
+      font-size: 14px;
+      width: 10%;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 43%;
+      margin-top: 50px;
+
+  }
 `
 const ModalWorkshops = ({ workshops = {} }) => {
   const [showModal, setShowModal] = useState(false)
@@ -232,13 +248,13 @@ const ModalWorkshops = ({ workshops = {} }) => {
                   <p className="description">Descrição da oficina</p>
                   <p className="descricaoCMS">{workshops.descricao}</p>
                   {workshops.url_inscricao !== null && (
-                    <a
+                   <a
+                    className='button-inscricao'
                       href={workshops.url_inscricao}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      {' '}
-                      Inscreva-se{' '}
+                      Inscreva-se
                     </a>
                   )}
                   {workshops.url_inscricao == null && (
