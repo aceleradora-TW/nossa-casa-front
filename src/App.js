@@ -3,6 +3,7 @@ import { HomePage } from './pages/home/index'
 import { TherapiesPage } from './pages/therapies'
 import { EventsPage } from './pages/events'
 import { WorkshopsPage } from './pages/workshop'
+import { EventsPageDescription } from './pages/events-descrition'
 
 export const App = () => {
   return (
@@ -15,6 +16,7 @@ export const App = () => {
         <Route path="/education" element={<TherapiesPage />} />
         <Route path="/workshops" element={<WorkshopsPage />} />
         <Route path="/projects" element={<TherapiesPage />} />
+        <Route path="/description-events" element={<EventsPageDescription />} />
       </Routes>
     </BrowserRouter>
   )

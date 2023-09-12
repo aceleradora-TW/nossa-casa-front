@@ -103,3 +103,11 @@ table {
   font-weight:bolder;
   font-size:1.5rem;
 }
+.button-styled {
+  background-color: #f5bc4a;
+  width: 146px;
+  height: 40px;
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
+}
