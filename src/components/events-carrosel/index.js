@@ -6,7 +6,7 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { cms } from '../../service/client'
 import env from 'react-dotenv'
-import ModalEvents from '../events-modal/index.js'
+import { NavLink } from 'react-router-dom'
 
 const Events = () => {
   const [attributesEvents, setAttributesEvents] = useState([])
@@ -79,7 +79,9 @@ const Events = () => {
                         <p className="date">{events.date.toLocaleDateString('pt-BR')}</p>
                         <h3 className="title">{events.name}</h3>
                       </div>
-                      <ModalEvents events={events} />
+                      <div className='styled-button'>
+                      <NavLink to={'/events-details'} activeClassName="active" events={events} >Saiba Mais</NavLink>
+                      </div>
                     </div>
                   </SwiperSlide>
                 </li>
