@@ -1,8 +1,8 @@
-// import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState, useParams } from 'react'
 // import EventsComponent from './styled'
 // import { cms } from '../../service/client'
 
-export const EventsPageDescription = ({ events }) => {
+export const EventsPageDescription = () => {
   // const indexWeek = events.date.getDay()
   // const daysWeek = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sabado']
 
@@ -48,7 +48,7 @@ export const EventsPageDescription = ({ events }) => {
   // }, [])
   return (
     <>
-      <p>hello</p>
+      <p> <h1>hello world </h1></p>
     </>
     // <EventsComponent>
     //   <<ul>

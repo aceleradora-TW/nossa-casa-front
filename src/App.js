@@ -11,12 +11,13 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} exact />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/events/:id" element={<EventsPageDescription />} />
         <Route path="/therapies" element={<TherapiesPage />} />
         <Route path="/artandculture" element={<TherapiesPage />} />
         <Route path="/education" element={<TherapiesPage />} />
         <Route path="/workshops" element={<WorkshopsPage />} />
         <Route path="/projects" element={<TherapiesPage />} />
-        <Route path="/details" element={<EventsPageDescription />} />
+
       </Routes>
     </BrowserRouter >
   )

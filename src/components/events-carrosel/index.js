@@ -6,13 +6,14 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { cms } from '../../service/client'
 import env from 'react-dotenv'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 
 const Events = () => {
   const [attributesEvents, setAttributesEvents] = useState([])
   const urlCms = env.URL_CMS
+  const { id } = useParams()
   useEffect(() => {
-    cms.get('api/events/?populate=foto_divulgacao').then((response) => {
+    cms.get('api/events/?populate=foto_divulgacao', `/events/${id}`).then((response) => {
       const { data } = response.data
       const events = data.map((data) => {
         if (data) {
@@ -78,7 +79,7 @@ const Events = () => {
                         <h3 className="title">{events.name}</h3>
                       </div>
                       <div className='styled-button'>
-                        <NavLink to={'/details'} >Saiba Mais</NavLink>
+                        <NavLink to={`/events/${events.name}`} >Saiba Mais</NavLink>
                       </div>
                     </div>
                   </SwiperSlide>
