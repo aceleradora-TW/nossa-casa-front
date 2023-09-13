@@ -30,8 +30,6 @@ const Events = () => {
         }
         return null
       })
-      console.log(data)
-      console.log(events)
       const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date - b.date)
       setAttributesEvents(eventsOrdered)
     })
@@ -80,7 +78,7 @@ const Events = () => {
                         <h3 className="title">{events.name}</h3>
                       </div>
                       <div className='styled-button'>
-                      <NavLink to={'/events-details'} activeClassName="active" events={events} >Saiba Mais</NavLink>
+                        <NavLink to={'/details'} >Saiba Mais</NavLink>
                       </div>
                     </div>
                   </SwiperSlide>
