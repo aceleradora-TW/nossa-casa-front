@@ -18,6 +18,7 @@ export const App = () => {
         <Route path="/artandculture" element={<TherapiesPage />} />
         <Route path="/education" element={<TherapiesPage />} />
         <Route path="/workshops" element={<WorkshopsPage />} />
+        <Route path="/workshops/:id" element={<DetailsWorkshops />} />
         <Route path="/projects" element={<TherapiesPage />} />
         <Route path="/therapies/:id" element={<DetailsTherapies />} />
         <Route path="/sobre" element={<PageAbout />} />

@@ -5,16 +5,17 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
-import { cms } from '../../client'
-import ModalWorkshops from '../modal-oficinas'
+import { cms } from '../../service/client'
+import { NavLink, useParams } from 'react-router-dom'
 
 const WorkshopsCarrossel = () => {
   const [attributes, setAttributes] = useState([])
   const urlCms = env.URL_CMS
+  const { id } = useParams()
 
   useEffect(() => {
     cms
-      .get('api/workshops/?populate=foto_divulgacao, parceires, foto_oficina')
+      .get('api/workshops/?populate=foto_divulgacao, parceires, foto_oficina', `/workshops/${id}`)
       .then((response) => {
         const { data } = response.data
         const workshops = data.map((data) => {
@@ -49,16 +50,16 @@ const WorkshopsCarrossel = () => {
         breakpoints={{
           '@0.00': {
             slidesPerView: 1,
-            spaceBetween: 1,
+            spaceBetween: 1
           },
           '@0.75': {
             slidesPerView: 2,
-            spaceBetween: 2,
+            spaceBetween: 2
           },
           '@1.00': {
             slidesPerView: 3,
-            spaceBetween: 3,
-          },
+            spaceBetween: 3
+          }
         }}
         modules={[Navigation]}
         className="mySwiper"
@@ -66,7 +67,7 @@ const WorkshopsCarrossel = () => {
         <section>
           <div className="swiper-slide">
             <ul>
-              {attributes.map((workshops, key, parceires) => (
+              {attributes.map((workshops, key) => (
                 <li key={key}>
                   <SwiperSlide>
                     <div>
@@ -83,10 +84,9 @@ const WorkshopsCarrossel = () => {
                         <p className="date">{workshops.data}</p>
                         <h3 className="title">{workshops.nome}</h3>
                       </div>
-                      <ModalWorkshops
-                        workshops={workshops}
-                        parceires={parceires}
-                      />
+                      <div className='styled-button'>
+                        <NavLink to={`/workshops/${workshops.nome}` } >Saiba Mais</NavLink>
+                      </div>
                     </div>
                   </SwiperSlide>
                 </li>
