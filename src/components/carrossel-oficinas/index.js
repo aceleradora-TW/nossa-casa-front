@@ -91,15 +91,15 @@ const WorkshopsCarrossel = () => {
                           </Link>
                         </div>
                       </VerMais>
-                    </div>
-                  </SwiperSlide>
-                </li>
+                    </div >
+                  </SwiperSlide >
+                </li >
               ))}
-            </ul>
-          </div>
-        </section>
-      </Swiper>
-    </CssCarrosselGlobal>
+            </ul >
+          </div >
+        </section >
+      </Swiper >
+    </CssCarrosselGlobal >
   )
 }
 
