@@ -1,63 +1,134 @@
-// import React, { useEffect, useState, useParams } from 'react'
-// import EventsComponent from './styled'
-// import { cms } from '../../service/client'
+import React from 'react'
+import EventsComponent from './styled'
 
-export const EventsPageDescription = () => {
-  // const indexWeek = events.date.getDay()
-  // const daysWeek = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sabado']
+import {
+  faUser,
+  faPenToSquare,
+  faLock,
+  faHandHoldingDollar,
+  faCalendarDays,
+  faLocationDot
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-  // const dateFormat = (date) => {
-  //   return date.slice(0, 5)
-  // }
+export const EventsPageDescription = ({ events = {} }) => {
+  const handleDate = (date) => {
+    const day = date.toLocaleDateString(undefined, { day: 'numeric' })
+    const month = date.toLocaleDateString('pt-BR', { month: 'long' })
+    const year = date.toLocaleDateString(undefined, { year: 'numeric' })
+    return [day, month, year].join(' ')
+  }
 
-  // const handleDate = (date) => {
-  //   const day = date.toLocaleDateString(undefined, { day: 'numeric', timeZone: 'UTC' })
-  //   const month = date.toLocaleDateString('pt-BR', { month: 'long' })
-  //   const year = date.toLocaleDateString(undefined, { year: 'numeric' })
-  //   return [day, month, year].join(' ')
-  // }
+  const handleMonth = (date) => {
+    const month = date.toLocaleDateString('pt-BR', { month: 'numeric' })
+    return [month].join(' ')
+  }
 
-  // function handleShow(breakpoint) {
-  //   setFullscreen(breakpoint)
-  //   setShow(true)
-  // }
-  // const [attributesEvents, setAttributesEvents] = useState([])
-  // const urlCms = env.URL_CMS
-  // useEffect(() => {
-  //   cms.get('api/events/?populate=foto_divulgacao').then((response) => {
-  //     const { data } = response.data
-  //     const events = data.map((data) => {
-  //       if (data) {
-  //         return {
-  //           name: data.attributes.nome,
-  //           date: new Date(data.attributes.data),
-  //           image_url: data.attributes.foto_divulgacao.data.attributes.url,
-  //           time_start: data.attributes.horario_inicio,
-  //           time_end: data.attributes.horario_fim,
-  //           type: data.attributes.tipo,
-  //           location: data.attributes.local,
-  //           price: data.attributes.preco,
-  //           description: data.attributes.descricao
-  //         }
-  //       }
-  //       return null
-  //     })
-  //     const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date - b.date)
-  //     setAttributesEvents(eventsOrdered)
-  //   })
-  // }, [])
+  const handleDay = (date) => {
+    const day = date.toLocaleDateString('pt-BR', { day: 'numeric' })
+    return [day].join(' ')
+  }
+
+  const dataEmObjDate = new Date(events.data_inicio)
+  const indexWeek = dataEmObjDate.getDay()
+  const daysWeek = [
+    'Domingo',
+    'Segunda-Feira',
+    'Terça-Feira',
+    'Quarta-Feira',
+    'Quinta-Feira',
+    'Sexta-Feira',
+    'Sabado'
+  ]
+
   return (
     <>
-      <p> <h1>hello world </h1></p>
+      <section>
+        <EventsComponent>
+          <ul>
+            <li>
+              <h1 className="title">{events.nome}</h1>
+              <p className="day">
+                {daysWeek[indexWeek]} -{' '}
+                {handleDay(new Date(events.data_inicio))}/
+                {handleMonth(new Date(events.data_inicio))}
+              </p>
+              <div className="data-inicio">
+                <p className="data-inicio">
+                  <FontAwesomeIcon icon={faCalendarDays} />{' '}
+                  <div className="spacingDate">
+                    {handleDate(new Date(events.data_inicio))} •{' '}
+                    {events.horario_inicio} {'> '}
+                    {handleDate(new Date(events.data_fim))} •{' '}
+                    {events.horario_fim}
+                  </div>
+                </p>
+              </div>
+              <div className="div-preco">
+                <p className="preco">
+                  <FontAwesomeIcon
+                    icon={faHandHoldingDollar}
+                    size="xl"
+                    style={{
+                      '--fa-secondary-color': '#ffffff',
+                      '--fa-primary-opacity': '1'
+                    }}
+                  />
+                  <div className="spacingMoney">{events.preco}</div>
+                </p>
+              </div>
+              <div className="div-local">
+                <p className="local">
+                  <FontAwesomeIcon icon={faLocationDot} />
+                  <div className="spacingLocal">
+                    Oficina presencial em {events.local}
+                  </div>
+                </p>
+              </div>
+              <div className="oficinaType">
+                <p className="type">
+                  <FontAwesomeIcon icon={faLock} />
+                  <div className="spacingType">{events.tipo}</div>
+                </p>
+              </div>
+              <div className="parceires">
+                <p className="parceire">
+                  <FontAwesomeIcon icon={faUser} />
+                  <div className="parce">
+                    {events.parceires?.data.map((parceire, index) => {
+                      return (
+                        <p key={index} className="spacing-parceires">
+                          {parceire.attributes.nome}{' '}
+                        </p>
+                      )
+                    })}
+                  </div>
+                </p>
+              </div>
+              <p className="description">Descrição da oficina</p>
+              <p className="descricaoCMS">{events.descricao}</p>
+              {events.url_inscricao !== null && (
+                <a
+                  className="button-inscricao"
+                  href={events.url_inscricao}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Inscreva-se
+                </a>
+              )}
+              {events.url_inscricao == null && (
+                <>
+                  <div className="inscricaoIcon">
+                    <FontAwesomeIcon icon={faPenToSquare} />
+                    <p className="inscricao"> Inscrição não é necessária</p>
+                  </div>
+                </>
+              )}
+            </li>
+          </ul>
+        </EventsComponent>
+      </section>
     </>
-    // <EventsComponent>
-    //   <<ul>
-    //     {attributesEvents.map((events, key) =>
-    //       <li key={key}>
-    //         <h1>{events}</h1>
-    //       </li>
-    //     )}
-    //   </ul>>
-    // </EventsComponent>
   )
 }

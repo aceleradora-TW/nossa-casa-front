@@ -1,60 +1,192 @@
 import styled from 'styled-components'
+const Detalhes = styled.div`
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-const EventsComponent = styled.div`
-.carrossel{
-      height: 300px;
-    
-      h1 {
-        padding-left: 1.5em;
-        padding-top: 4em;
-        font-size: 2em;
-      }
-      p {
-        padding-top:   3em;
-        padding-left: 3em;
-        line-height: 1.5em;
-        width: 90%;
-        text-align: justify;
-      }
+  .title {
+    font-weight: 900;
+    font-size: 40px;
+    padding-left: 60px;
+    padding-bottom: 40px;
+    padding-top: 50px;
+  }
+
+  .data-inicio,
+  .data-fim {
+    font-weight: 500;
+    padding-left: 30px;
+    font-size: 20px;
+  }
+
+  .local,
+  .parceires {
+    font-weight: 500;
+    padding-left: 60px;
+    font-size: 20px;
+    padding-top: 40px;
+    padding-bottom: 12px;
+  }
+
+  .description {
+    font-weight: 900;
+    font-size: 30px;
+    padding-left: 60px;
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
+
+  .descricaoCMS {
+    padding-left: 60px;
+    font-size: 17px;
+    text-align: justify;
+    width: 85%;
+  }
+
+  .button-close,
+  .button-container {
+    padding-left: 90px;
+  }
+
+  .div-preco,
+  .oficinaType {
+    margin-top: -2%;
+    padding-left: 70%;
+  }
+
+  .inscricaoIcon {
+    margin-top: -7%;
+    padding-left: 70%;
+  }
+
+  .inscricao {
+    margin-top: -2.5%;
+    padding-left: 30px;
+  }
+
+  .spacingMoney,
+  .spacingType {
+    margin-left: 30px;
+    margin-top: -14px;
+  }
+
+  .spacingDate,
+  .spacingLocal {
+    margin-left: 25px;
+    margin-top: -20px;
+  }
+
+  .parce {
+    margin-left: 16px;
+    margin-top: -20px;
+  }
+
+  .spacing-parceires {
+    display: inline-block;
+    padding-left: 8px;
+  }
+
+  .day {
+    padding-bottom: 30px;
+    padding-left: 60px;
+    padding-top: 20px;
+    font-weight: 400;
+    font-size: 23px;
+  }
+
+  .button-inscricao {
+    background: #f5bc4a;
+    border-radius: 3px;
+    border: none;
+    font-size: 14px;
+    width: 10%;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 43%;
+    margin-top: 200px;
+  }
+
+  @media screen and (max-width: 720px) {
+    .title {
+      padding-top: -20%;
+      font-size: 30px;
+      padding-left: 30px;
+      padding-bottom: 20px;
     }
 
-.mySwiper{
-  position: relative;
-  z-index: 0;
-}
-.swiper-slide{
-  display: flex;
-  align-items: center;
-  height: 70vh;
-  padding-left: 3em;
-  margin-right: 20px;
-  .img-foto{
-    width: 45vh;
-    height: 35vh;
+    .data-inicio,
+    .data-fim {
+      font-weight: 500;
+      padding-left: 15px;
+      font-size: 17px;
+      padding-bottom: 20px;
+    }
+
+    .local,
+    .parceires {
+      font-weight: 500;
+      padding-left: 30px;
+      font-size: 17px;
+      padding-bottom: 50px;
+      padding-top: 14px;
+    }
+
+    .description {
+      font-weight: 900;
+      padding-left: 30px;
+      padding-top: 20px;
+    }
+
+    .descricaoCMS {
+      padding-left: 30px;
+    }
+
+    .div-preco,
+    .oficinaType {
+      margin-top: -6%;
+    }
+
+    .inscricaoIcon {
+      margin-top: -16.5%;
+    }
+
+    .inscricao {
+      margin-top: -4%;
+    }
+
+    .spacingMoney,
+    .spacingType {
+      margin-left: 30px;
+      margin-top: -14px;
+    }
+
+    .spacingDate,
+    .spacingLocal {
+      margin-left: 21px;
+      margin-top: -16px;
+    }
+
+    .parce {
+      margin-top: -16px;
+    }
+
+    .spacing-parceires {
+      padding-left: 5px;
+    }
+
+    .day {
+      padding-bottom: 20px;
+      padding-left: 30px;
+    }
+
+    .button-inscricao {
+      margin-top: 50px;
+    }
   }
-  h3{
-    padding-top: 5px;
-  }
-
-}
-
-.styled-button{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #F5BC4A;
-  width: 146px;
-  height: 40px;
-  border: none;
-  margin-top: 1rem;
-  cursor: pointer;
-
-  a{
-    text-decoration: none;
-    color: black; 
-
-  }
-}
 `
 
-export default EventsComponent
+export default Detalhes
