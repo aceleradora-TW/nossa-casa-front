@@ -5,8 +5,9 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
+import VerMais from './styled'
 import { cms } from '../../service/client'
-import { NavLink, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const WorkshopsCarrossel = () => {
   const [attributes, setAttributes] = useState([])
@@ -84,9 +85,11 @@ const WorkshopsCarrossel = () => {
                         <p className="date">{workshops.data}</p>
                         <h3 className="title">{workshops.nome}</h3>
                       </div>
+                      <VerMais>
                       <div className='styled-button'>
-                        <NavLink to={`/workshops/${workshops.nome}` } >Saiba Mais</NavLink>
+                        <Link className='escritaBotao' to={`/workshops/${workshops.nome}`} >Saiba Mais</Link>
                       </div>
+                      </VerMais>
                     </div>
                   </SwiperSlide>
                 </li>
