@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-const Detalhes = styled.div`
+const EventsStyleDescription = styled.div`
   * {
     margin: 0;
     padding: 0;
@@ -189,4 +189,4 @@ const Detalhes = styled.div`
   }
 `
 
-export default Detalhes
+export default EventsStyleDescription

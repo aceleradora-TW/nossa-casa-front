@@ -3,7 +3,7 @@ import { HomePage } from './pages/home/index'
 import { TherapiesPage } from './pages/therapies'
 import { EventsPage } from './pages/events'
 import { WorkshopsPage } from './pages/workshop'
-import { EventsPageDescription } from './pages/events-descrition'
+import { EventsPageDescription } from './pages/events-description'
 
 export const App = () => {
   return (
