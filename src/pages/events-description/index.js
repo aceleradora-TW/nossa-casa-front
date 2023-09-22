@@ -1,15 +1,15 @@
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import EventsStyleDescription from './styled'
 import { useState, useEffect } from 'react'
 import { cms } from '../../service/client'
-// import {
-//   faUser,
-//   faPenToSquare,
-//   faLock,
-//   faHandHoldingDollar,
-//   faCalendarDays,
-//   faLocationDot
-// } from '@fortawesome/free-solid-svg-icons'
+import {
+  faUser,
+  faPenToSquare,
+  faLock,
+  faHandHoldingDollar,
+  faCalendarDays,
+  faLocationDot
+} from '@fortawesome/free-solid-svg-icons'
 import { useParams } from 'react-router'
 
 export const EventsPageDescription = () => {
@@ -17,7 +17,7 @@ export const EventsPageDescription = () => {
   const { id } = useParams()
   useEffect(() => {
     cms
-      .get(`api/events/${id}`)
+      .get(`events/${id}`)
       .then((response) => {
         const { data } = response.data
         const events = data.map((data) => {
@@ -30,34 +30,34 @@ export const EventsPageDescription = () => {
       })
   }, [])
 
-  // const handleDate = (date) => {
-  //   const day = date.toLocaleDateString(undefined, { day: 'numeric' })
-  //   const month = date.toLocaleDateString('pt-BR', { month: 'long' })
-  //   const year = date.toLocaleDateString(undefined, { year: 'numeric' })
-  //   return [day, month, year].join(' ')
-  // }
+  const handleDate = (date) => {
+    const day = date.toLocaleDateString(undefined, { day: 'numeric' })
+    const month = date.toLocaleDateString('pt-BR', { month: 'long' })
+    const year = date.toLocaleDateString(undefined, { year: 'numeric' })
+    return [day, month, year].join(' ')
+  }
 
-  // const handleMonth = (date) => {
-  //   const month = date.toLocaleDateString('pt-BR', { month: 'numeric' })
-  //   return [month].join(' ')
-  // }
+  const handleMonth = (date) => {
+    const month = date.toLocaleDateString('pt-BR', { month: 'numeric' })
+    return [month].join(' ')
+  }
 
-  // const handleDay = (date) => {
-  //   const day = date.toLocaleDateString('pt-BR', { day: 'numeric' })
-  //   return [day].join(' ')
-  // }
+  const handleDay = (date) => {
+    const day = date.toLocaleDateString('pt-BR', { day: 'numeric' })
+    return [day].join(' ')
+  }
 
-  // const dataEmObjDate = new Date(attributes.data_inicio)
-  // const indexWeek = dataEmObjDate.getDay()
-  // const daysWeek = [
-  //   'Domingo',
-  //   'Segunda-Feira',
-  //   'Terça-Feira',
-  //   'Quarta-Feira',
-  //   'Quinta-Feira',
-  //   'Sexta-Feira',
-  //   'Sabado'
-  // ]
+  const dataEmObjDate = new Date(attributes.data_inicio)
+  const indexWeek = dataEmObjDate.getDay()
+  const daysWeek = [
+    'Domingo',
+    'Segunda-Feira',
+    'Terça-Feira',
+    'Quarta-Feira',
+    'Quinta-Feira',
+    'Sexta-Feira',
+    'Sabado'
+  ]
 
   return (
     <>
@@ -66,8 +66,7 @@ export const EventsPageDescription = () => {
           <ul>
             {attributes.map((events, key) => (
               <li key={key}>
-                {events.name}
-                {/* <h1 className="title">{events.nome}</h1>
+                <h1 className="title">{events.nome}</h1>
                 <p className="day">
                   {daysWeek[indexWeek]} -{' '}
                   {handleDay(new Date(events.data_inicio))}/
@@ -144,7 +143,7 @@ export const EventsPageDescription = () => {
                       <p className="inscricao"> Inscrição não é necessária</p>
                     </div>
                   </>
-                )} */}
+                )}
               </li>
             ))}
           </ul>

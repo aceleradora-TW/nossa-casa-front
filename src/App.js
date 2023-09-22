@@ -17,7 +17,6 @@ export const App = () => {
         <Route path="/education" element={<TherapiesPage />} />
         <Route path="/workshops" element={<WorkshopsPage />} />
         <Route path="/projects" element={<TherapiesPage />} />
-
       </Routes>
     </BrowserRouter >
   )
