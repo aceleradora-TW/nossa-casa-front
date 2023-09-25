@@ -7,21 +7,28 @@ import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
 import VerMais from './styled'
 import { cms } from '../../service/client'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const WorkshopsCarrossel = () => {
   const [attributes, setAttributes] = useState([])
   const urlCms = env.URL_CMS
-  const { id } = useParams()
 
   useEffect(() => {
     cms
-      .get('api/workshops/?populate=foto_divulgacao, parceires, foto_oficina', `/workshops/${id}`)
+      .get('api/workshops/?populate=foto_divulgacao, parceires')
       .then((response) => {
         const { data } = response.data
         const workshops = data.map((data) => {
-          return data.attributes
+          if (data) {
+            return {
+              id: data.id,
+              name: data.attributes.nome,
+              image_url: data.attributes.foto_divulgacao.data[0].attributes.url,
+            }
+          }
+          return null
         })
+        
         const parceires = workshops.map((a) =>
           a.parceires?.data.map((b) => b.attributes.nome)
         )
@@ -73,21 +80,14 @@ const WorkshopsCarrossel = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        {workshops.foto_divulgacao?.data?.map((foto, key) => (
-                          <img
-                            key={key}
-                            className="img"
-                            src={urlCms + foto.attributes?.url}
-                          />
-                        ))}
+                      <img className="img" src={urlCms + workshops.image_url} />
                       </div>
                       <div>
-                        <p className="date">{workshops.data}</p>
-                        <h3 className="title">{workshops.nome}</h3>
+                        <p className="title">{workshops.name}</p>
                       </div>
                       <VerMais>
                       <div className='styled-button'>
-                        <Link className='escritaBotao' to={`/workshops/${workshops.nome}`} >Saiba Mais</Link>
+                        <Link className='escritaBotao' to={`${workshops.id}`} >Saiba Mais</Link>
                       </div>
                       </VerMais>
                     </div>
@@ -103,3 +103,4 @@ const WorkshopsCarrossel = () => {
 }
 
 export default WorkshopsCarrossel
+
