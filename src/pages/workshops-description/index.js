@@ -28,7 +28,7 @@ export const DetailsWorkshops = ({ workshops = {} }) => {
     return [day].join(' ')
   }
 
-  const dataEmObjDate = new Date(workshops.data_inicio)
+  const dataEmObjDate = new Date(workshops?.attributes?.data_inicio)
   const indexWeek = dataEmObjDate.getDay()
   const daysWeek = [
     'Domingo',
@@ -41,7 +41,9 @@ export const DetailsWorkshops = ({ workshops = {} }) => {
   ]
 
   return (
+
     <>
+
       <section>
         <Detalhes>
           <ul>
@@ -128,6 +130,7 @@ export const DetailsWorkshops = ({ workshops = {} }) => {
           </ul>
         </Detalhes>
       </section>
+
     </>
   )
 }
