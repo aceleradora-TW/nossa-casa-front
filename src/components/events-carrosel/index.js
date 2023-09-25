@@ -75,7 +75,7 @@ const Events = () => {
                         <img className="img-foto" src={urlCms + events.image_url} />
                       </div>
                       <div>
-                        <p className="date">{events.date.toLocaleDateString('pt-BR')}</p>
+                        <p className="date">{events.date.toLocaleDateString('pt-BR', { Timezone: 'UTF' })}</p>
                         <h3 className="title">{events.name}</h3>
                       </div>
                       <div className='styled-button'>

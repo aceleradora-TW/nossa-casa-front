@@ -20,13 +20,14 @@ export const EventsPageDescription = () => {
       setEvent(data)
     })
   }, [])
-
+  console.log(new Date(event.attributes?.data).toLocaleDateString('pt-BR'))
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, { day: 'numeric' })
     const month = date.toLocaleDateString('pt-BR', { month: 'long' })
     const year = date.toLocaleDateString(undefined, { year: 'numeric' })
     return [day, month, year].join(' ')
   }
+
 
   const handleMonth = (date) => {
     const month = date.toLocaleDateString('pt-BR', { month: 'numeric' })
@@ -58,9 +59,8 @@ export const EventsPageDescription = () => {
             <li>
               <h1 className="title">{event?.attributes?.nome}</h1>
               <p className="day">
-                {daysWeek[indexWeek]} -{' '}
-                {handleDay(new Date(event?.attributes?.data_inicio))}/
-                {handleMonth(new Date(event?.attributes?.data_inicio))}
+                {daysWeek[indexWeek]} - {' '}
+                {handleDay(new Date(event.attributes?.data))}
               </p>
               <div className="data-inicio">
                 <p className="data-inicio">
