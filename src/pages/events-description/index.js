@@ -11,6 +11,7 @@ import {
   faCalendarDays,
   faLocationDot
 } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-bootstrap'
 export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
   const { id } = useParams()
@@ -20,22 +21,11 @@ export const EventsPageDescription = () => {
       setEvent(data)
     })
   }, [])
-  console.log(event)
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, { day: 'numeric' })
     const month = date.toLocaleDateString('pt-BR', { month: 'long' })
     const year = date.toLocaleDateString(undefined, { year: 'numeric' })
     return [day, month, year].join(' ')
-  }
-
-  const handleMonth = (date) => {
-    const month = date.toLocaleDateString('pt-BR', { month: 'numeric' })
-    return [month].join(' ')
-  }
-
-  const handleDay = (date) => {
-    const day = date.toLocaleDateString('pt-BR', { day: 'numeric' })
-    return [day].join(' ')
   }
 
   const dataEmObjDate = new Date(event?.attributes?.data)
@@ -52,90 +42,89 @@ export const EventsPageDescription = () => {
 
   return (
     <>
-      <section>
-        <EventsStyleDescription>
-          <ul>
-            <li>
-              <h1 className="title">{event?.attributes?.nome}</h1>
-              <p className="day">
-                {daysWeek[indexWeek]} - {' '}
-                {new Date(event.attributes?.data).toLocaleDateString()}
-              </p>
-              <div className="data-inicio">
-                <p className="data-inicio">
+      <EventsStyleDescription>
+        <div className='title'>
+          <h1>{event?.attributes?.nome}</h1>
+          <p>
+            {daysWeek[indexWeek]} - {' '}
+            {new Date(event.attributes?.data).toLocaleDateString()}
+          </p>
+        </div>
+        <div className='container'>
+          <div className='text'>
+            <ul>
+              <li>
+                <div className='style-icon'>
                   <FontAwesomeIcon icon={faCalendarDays} />{' '}
-                  <div className="spacingDate">
-                    {handleDate(new Date(event?.attributes?.data))}   ●{' '}
-                    {event?.attributes?.horario_inicio} {'> '}
-                    {handleDate(new Date(event?.attributes?.data))}   ●{' '}
-                    {event?.attributes?.horario_fim}
-                  </div>
-                </p>
-              </div>
-              <div className="div-preco">
-                <p className="preco">
-                  <FontAwesomeIcon
-                    icon={faHandHoldingDollar}
-                    size="xl"
-                    style={{
-                      '--fa-secondary-color': '#ffffff',
-                      '--fa-primary-opacity': '1'
-                    }}
-                  />
-                  <div className="spacingMoney">{event?.attributes?.preco}</div>
-                </p>
-              </div>
-              <div className="div-local">
-                <p className="local">
+                </div>
+                {handleDate(new Date(event?.attributes?.data))}   ●{' '}
+                {event?.attributes?.horario_inicio} {'> '}
+                {handleDate(new Date(event?.attributes?.data))}   ●{' '}
+                {event?.attributes?.horario_fim}
+              </li>
+              <li>
+                <div className='style-icon'>
                   <FontAwesomeIcon icon={faLocationDot} />
-                  <div className="spacingLocal">
-                    Oficina presencial em {event?.attributes?.local}
-                  </div>
-                </p>
-              </div>
-              <div className="oficinaType">
-                <p className="type">
-                  <FontAwesomeIcon icon={faLock} />
-                  <div className="spacingType">{event?.attributes?.tipo}</div>
-                </p>
-              </div>
-              <div className="parceires">
-                <p className="parceire">
+                </div>
+                Oficina presencial em {event?.attributes?.local}
+              </li>
+              <li className='parceires'>
+                <div className='style-icon'>
                   <FontAwesomeIcon icon={faUser} />
-                  <div className="parce">
-                    {event?.attributes?.parceires?.data.reduce((parceire) => {
-                      return (
-                        <p className="spacing-parceires">
-                          {parceire.attributes?.nome}{' '}
-                        </p>
-                        
-                      )
-                    })}
-                  </div>
-                </p>
+                </div>
+                {event?.attributes?.parceires?.data.map((parceire, index) => {
+                  return (
+                    <p key={index}>
+                      {parceire.attributes?.nome}
+                    </p>
+                  )
+                })}
+              </li>
+            </ul>
+          </div>
+          <div className='text2'>
+            <ul>
+              <li>
+                <div className='style-icon'>
+                  <FontAwesomeIcon icon={faHandHoldingDollar} />
+                </div>
+                {event?.attributes?.preco}
+              </li>
+              <li>
+                <div className='style-icon'>
+                  <FontAwesomeIcon icon={faLock} />
+                </div>
+
+                {event?.attributes?.tipo}
+              </li>
+              <li>
+                <div className='style-icon'>
+                  < FontAwesomeIcon icon={faPenToSquare} />
+                </div>
+                {event?.attributes?.url_inscricao}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className='description'>
+          <p className='text-title-description'>Descrição da oficina</p>
+          <p>{event?.attributes?.descricao}</p>
+        </div>
+        <div className='button-inscricao'>
+          {event?.attributes?.url_inscricao !== null && (
+            <NavLink to={event?.attributes?.url_inscricao}>Inscreva-se</NavLink>
+          )}
+        </div>
+        {/* <li>
+              <div>
                 {event?.attributes?.url_inscricao == null && (
-                <div className="inscricaoIcon">
                   <FontAwesomeIcon icon={faPenToSquare} />
                   <p className="inscricao"> Inscrição não é necessária</p>
-                </div>
-              )}
+                )}
               </div>
-              <p className="description">Descrição da oficina</p>
-              <p className="descricaoCMS">{event?.attributes?.descricao}</p>
-              {event?.attributes?.url_inscricao !== null && (
-                <a
-                  className="button-inscricao"
-                  href={event?.attributes?.url_inscricao}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Inscreva-se
-                </a>
-              )}
-            </li>
-          </ul>
-        </EventsStyleDescription>
-      </section>
+
+            </li> */}
+      </EventsStyleDescription >
     </>
 
   )
