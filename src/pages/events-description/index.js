@@ -103,15 +103,22 @@ export const EventsPageDescription = () => {
                 <p className="parceire">
                   <FontAwesomeIcon icon={faUser} />
                   <div className="parce">
-                    {event?.attributes?.parceires?.data.map((parceire, index) => {
+                    {event?.attributes?.parceires?.data.reduce((parceire) => {
                       return (
-                        <p key={index} className="spacing-parceires">
+                        <p className="spacing-parceires">
                           {parceire.attributes?.nome}{' '}
                         </p>
+                        
                       )
                     })}
                   </div>
                 </p>
+                {event?.attributes?.url_inscricao == null && (
+                <div className="inscricaoIcon">
+                  <FontAwesomeIcon icon={faPenToSquare} />
+                  <p className="inscricao"> Inscrição não é necessária</p>
+                </div>
+              )}
               </div>
               <p className="description">Descrição da oficina</p>
               <p className="descricaoCMS">{event?.attributes?.descricao}</p>
@@ -124,14 +131,6 @@ export const EventsPageDescription = () => {
                 >
                   Inscreva-se
                 </a>
-              )}
-              {event?.attributes?.url_inscricao == null && (
-                <>
-                  <div className="inscricaoIcon">
-                    <FontAwesomeIcon icon={faPenToSquare} />
-                    <p className="inscricao"> Inscrição não é necessária</p>
-                  </div>
-                </>
               )}
             </li>
           </ul>
