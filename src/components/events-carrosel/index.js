@@ -33,7 +33,6 @@ const Events = () => {
       })
       const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date - b.date)
       setAttributesEvents(eventsOrdered)
-      console.log(data)
     })
   }, [])
   return (

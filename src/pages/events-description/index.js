@@ -13,19 +13,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
-  const [paterns, setPaterns] = useState([])
   const { id } = useParams()
   useEffect(() => {
-    cms.get(`api/events/${id}`).then((response) => {
+    cms.get(`api/events/${id}/?populate=parceires`).then((response) => {
       const { data } = response.data
       setEvent(data)
     })
-    cms.get(`api/events/?populate=parceires`).then((response) => {
-      const { dataPatern } = response.data
-      setPaterns(dataPatern)
-    })
   }, [])
-  console.log(paterns)
+  console.log(event)
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, { day: 'numeric' })
     const month = date.toLocaleDateString('pt-BR', { month: 'long' })
