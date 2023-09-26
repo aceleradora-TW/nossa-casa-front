@@ -13,21 +13,25 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
+  const [paterns, setPaterns] = useState([])
   const { id } = useParams()
   useEffect(() => {
     cms.get(`api/events/${id}`).then((response) => {
       const { data } = response.data
       setEvent(data)
     })
+    cms.get(`api/events/?populate=parceires`).then((response) => {
+      const { dataPatern } = response.data
+      setPaterns(dataPatern)
+    })
   }, [])
-  console.log(new Date(event.attributes?.data).toLocaleDateString('pt-BR'))
+  console.log(paterns)
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, { day: 'numeric' })
     const month = date.toLocaleDateString('pt-BR', { month: 'long' })
     const year = date.toLocaleDateString(undefined, { year: 'numeric' })
     return [day, month, year].join(' ')
   }
-
 
   const handleMonth = (date) => {
     const month = date.toLocaleDateString('pt-BR', { month: 'numeric' })
@@ -39,7 +43,7 @@ export const EventsPageDescription = () => {
     return [day].join(' ')
   }
 
-  const dataEmObjDate = new Date(event?.attributes?.data_inicio)
+  const dataEmObjDate = new Date(event?.attributes?.data)
   const indexWeek = dataEmObjDate.getDay()
   const daysWeek = [
     'Domingo',
@@ -60,15 +64,15 @@ export const EventsPageDescription = () => {
               <h1 className="title">{event?.attributes?.nome}</h1>
               <p className="day">
                 {daysWeek[indexWeek]} - {' '}
-                {handleDay(new Date(event.attributes?.data))}
+                {new Date(event.attributes?.data).toLocaleDateString()}
               </p>
               <div className="data-inicio">
                 <p className="data-inicio">
                   <FontAwesomeIcon icon={faCalendarDays} />{' '}
                   <div className="spacingDate">
-                    {handleDate(new Date(event?.attributes?.data_inicio))} •{' '}
+                    {handleDate(new Date(event?.attributes?.data))}   ●{' '}
                     {event?.attributes?.horario_inicio} {'> '}
-                    {handleDate(new Date(event?.attributes?.data_fim))} •{' '}
+                    {handleDate(new Date(event?.attributes?.data))}   ●{' '}
                     {event?.attributes?.horario_fim}
                   </div>
                 </p>
