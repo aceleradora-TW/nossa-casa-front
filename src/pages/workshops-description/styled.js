@@ -42,6 +42,7 @@ const Detalhes = styled.div`
     font-size: 17px;
     text-align: justify;
     width: 85%;
+    font-weight: bold;
   }
 
   .button-close,
@@ -69,17 +70,20 @@ const Detalhes = styled.div`
   .spacingType {
     margin-left: 30px;
     margin-top: -14px;
+    font-weight: bold;
   }
 
   .spacingDate,
   .spacingLocal {
     margin-left: 25px;
     margin-top: -20px;
+    font-weight: bold;
   }
 
   .parce {
     margin-left: 16px;
     margin-top: -20px;
+    font-weight: bold;
   }
 
   .spacing-parceires {
@@ -93,6 +97,7 @@ const Detalhes = styled.div`
     padding-top: 20px;
     font-weight: 400;
     font-size: 23px;
+    font-weight: bold;
   }
 
   .button-inscricao {
@@ -108,6 +113,9 @@ const Detalhes = styled.div`
     align-items: center;
     margin-left: 43%;
     margin-top: 200px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
   }
 
   @media screen and (max-width: 720px) {

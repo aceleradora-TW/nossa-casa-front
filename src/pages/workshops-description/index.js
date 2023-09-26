@@ -17,7 +17,7 @@ export const DetailsWorkshops = () => {
   const { id } = useParams()
   useEffect(() => {
     cms
-      .get(`api/workshops/${id}`)
+      .get(`api/workshops/${id}/?populate=parceires, foto_oficina`)
       .then((response) => {
         const { data } = response.data
         setWorkshops(data)
