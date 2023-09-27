@@ -15,7 +15,7 @@ const WorkshopsCarrossel = () => {
 
   useEffect(() => {
     cms
-      .get('api/workshops/?populate=foto_divulgacao, parceires')
+      .get('api/workshops/?populate=foto_divulgacao')
       .then((response) => {
         const { data } = response.data
         const workshops = data.map((data) => {
@@ -26,16 +26,11 @@ const WorkshopsCarrossel = () => {
               image_url: data.attributes.foto_divulgacao.data[0].attributes.url,
             }
           }
-          return null
         })
-        
-        const parceires = workshops.map((a) =>
-          a.parceires?.data.map((b) => b.attributes.nome)
-        )
         const workshopsSortedByName = workshops.sort((a, b) =>
           a.name < b.name ? -1 : 1
         )
-        setAttributes(workshopsSortedByName, parceires)
+        setAttributes(workshopsSortedByName)
       })
   }, [])
 
@@ -103,4 +98,3 @@ const WorkshopsCarrossel = () => {
 }
 
 export default WorkshopsCarrossel
-
