@@ -128,8 +128,9 @@ export const EventsPageDescription = () => {
               </div>
             </li> */}
         </section>
+        <section>
+        </section>
       </EventsStyleDescription >
     </>
-
   )
 }
