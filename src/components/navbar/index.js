@@ -18,10 +18,10 @@ const NavBar = () => {
         </NavLink>
       </div>
       <div className={`redirecionamento ${toggle}`}>
-        <NavLink to={'../'}>Sobre</NavLink>
-        <NavLink to={'/events'}>Eventos</NavLink>
-        <NavLink to={'/therapies'}>Terapias</NavLink>
-        <NavLink to={'/workshops'}>Oficinas</NavLink>
+        <NavLink to={'../'} activeClassName="active" >Sobre</NavLink>
+        <NavLink to={'/events'} activeClassName="active" >Eventos</NavLink>
+        <NavLink to={'/therapies'} activeClassName="active" >Terapias</NavLink>
+        <NavLink to={'/workshops'} activeClassName="active" >Oficinas</NavLink>
         <a
           target="_blank"
           className={newLocal}

@@ -41,7 +41,10 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       color: #f5bc4a;
     }
   }
-
+  a.active{
+    color: #f5bc4a;
+    font-weight: bold;
+  }
   .container-logo {
     max-height: 100%;
     width: auto;
@@ -53,7 +56,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     font-size: 30px;
     cursor: pointer;
   }
-
+ 
   .aparece {
     display: flex !important;
     flex-direction: column;
