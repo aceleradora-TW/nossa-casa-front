@@ -6,6 +6,7 @@ const EventsStyleDescription = styled.div`
     }
     
   display: block;
+  font-weight: bolder;
 
   .container{
     display: flex;
@@ -43,12 +44,26 @@ const EventsStyleDescription = styled.div`
     text-align: justify;
     padding-top: 4em;
     font-size: 1.25em;
-    line-height: 1em;
+    line-height: 1.3em;
     padding-left: 5em;
     width: 92%;
     p{
       padding-top: 1em;
     }
+  }
+  .button-enrollment {
+    background: #f5bc4a;
+    border-radius: 0.188em;
+    font-size: 0.880em;
+    width: 10%;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 43%;
+    margin-top: 3.3em;
+    text-decoration: none;
+    color: black;
   }
 `
 

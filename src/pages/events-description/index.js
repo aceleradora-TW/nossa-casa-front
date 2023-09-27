@@ -11,7 +11,6 @@ import {
   faCalendarDays,
   faLocationDot
 } from '@fortawesome/free-solid-svg-icons'
-import { NavLink } from 'react-bootstrap'
 
 export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
@@ -93,7 +92,7 @@ export const EventsPageDescription = () => {
                   <div className='style-icon'>
                     <FontAwesomeIcon icon={faHandHoldingDollar} />
                   </div>
-                  {event?.attributes?.preco}
+                  {event?.attributes?.preco !== null ? (event?.attributes?.preco) : 'Evento Gratuíto'}
                 </li>
                 <li>
                   <div className='style-icon'>
@@ -102,10 +101,14 @@ export const EventsPageDescription = () => {
                   {event?.attributes?.tipo}
                 </li>
                 <li>
-                  <div className='style-icon'>
-                    < FontAwesomeIcon icon={faPenToSquare} />
-                  </div>
-                  {event?.attributes?.url_inscricao}
+                  {event?.attributes?.url_inscricao === null && (
+                    <div>
+                      <div className='style-icon'>
+                        <FontAwesomeIcon icon={faPenToSquare} />
+                      </div>
+                      Inscrição não é necessária
+                    </div>
+                  )}
                 </li>
               </ul>
             </div>
@@ -114,23 +117,23 @@ export const EventsPageDescription = () => {
             <p className='text-title-description'>Descrição da oficina</p>
             <p>{event?.attributes?.descricao}</p>
           </div>
-          <div className='button-inscricao'>
-            {event?.attributes?.url_inscricao !== null && (
-              <NavLink to={event?.attributes?.url_inscricao}>Inscreva-se</NavLink>
+          <div className='Container-button'>
+            {event.attributes?.url_inscricao !== null && (
+              <a
+                className="button-enrollment"
+                href={event.attributes?.url_inscricao}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Inscreva-se
+              </a>
             )}
           </div>
-          {/* <li>
-              <div>
-                {event?.attributes?.url_inscricao == null && (
-                  <FontAwesomeIcon icon={faPenToSquare} />
-                  <p className="inscricao"> Inscrição não é necessária</p>
-                )}
-              </div>
-            </li> */}
         </section>
         <section>
         </section>
       </EventsStyleDescription >
     </>
+
   )
 }
