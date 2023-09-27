@@ -10,7 +10,6 @@ const Detalhes = styled.div`
     font-size: 40px;
     padding-left: 60px;
     padding-bottom: 40px;
-    padding-top: 50px;
   }
 
   .data-inicio,
@@ -56,12 +55,12 @@ const Detalhes = styled.div`
   }
 
   .inscricaoIcon {
-    margin-top: -7%;
+    margin-top: -15%;
     padding-left: 70%;
   }
 
   .inscricao {
-    margin-top: -2.5%;
+    margin-top: -4%;
     padding-left: 30px;
   }
 

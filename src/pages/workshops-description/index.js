@@ -41,9 +41,7 @@ export const DetailsWorkshops = ({ workshops = {} }) => {
   ]
 
   return (
-
     <>
-
       <section>
         <Detalhes>
           <ul>
@@ -130,7 +128,6 @@ export const DetailsWorkshops = ({ workshops = {} }) => {
           </ul>
         </Detalhes>
       </section>
-
     </>
   )
 }
