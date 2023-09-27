@@ -18,7 +18,7 @@ display: block;
  li{
   display: flex;
   font-size: 20px;
-  padding-top: 1em;
+  padding-top: 1.7em;
   .style-icon{
   margin-right: 1em;
  }
@@ -27,9 +27,9 @@ display: block;
  }
  }
  .title{
-  font-size: 40px;
-  margin-left: 2.7em;
-  margin-bottom: 1em;
+  font-size: 35px;
+  margin-left: 3em;
+  margin-bottom: 2.5rem;
   p{
     font-size: 30px;
     padding-top: 5px;
@@ -41,8 +41,9 @@ display: block;
  }
  .description{
   text-align: justify;
-  padding-top: 9em;
+  padding-top: 4em;
   font-size: 20px;
+  line-height: 1.5em;
   padding-left: 5em;
   width: 92%;
   p{
