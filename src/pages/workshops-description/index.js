@@ -22,13 +22,6 @@ export const DetailsWorkshops = () => {
         const { data } = response.data
         setWorkshops(data)
       })
-      const parceires = workshops.map((a) =>
-          a.parceires?.data.map((b) => b.attributes.nome)
-        )
-        const workshopsSortedByName = workshops.sort((a, b) =>
-          a.nome < b.nome ? -1 : 1
-        )
-        setWorkshops(workshopsSortedByName, parceires)
   }, [])
 
   console.log(workshops)
@@ -63,9 +56,7 @@ export const DetailsWorkshops = () => {
   ]
 
   return (
-
     <>
-    
       <section>
         <Detalhes>
           <ul>
@@ -152,7 +143,6 @@ export const DetailsWorkshops = () => {
           </ul>
         </Detalhes>
       </section>
-      
     </> 
   )
 }
