@@ -56,12 +56,12 @@ const Detalhes = styled.div`
   }
 
   .inscricaoIcon {
-    margin-top: -15%;
+    margin-top: -12em;
     padding-left: 70%;
   }
 
   .inscricao {
-    margin-top: -4%;
+    margin-top: -1em;
     padding-left: 30px;
   }
 
@@ -115,84 +115,6 @@ const Detalhes = styled.div`
     font-weight: bold;
     text-decoration: none;
     color: black;
-  }
-
-  @media screen and (max-width: 720px) {
-    .title {
-      padding-top: -20%;
-      font-size: 30px;
-      padding-left: 30px;
-      padding-bottom: 20px;
-    }
-
-    .data-inicio,
-    .data-fim {
-      font-weight: 500;
-      padding-left: 15px;
-      font-size: 17px;
-      padding-bottom: 20px;
-    }
-
-    .local,
-    .parceires {
-      font-weight: 500;
-      padding-left: 30px;
-      font-size: 17px;
-      padding-bottom: 50px;
-      padding-top: 14px;
-    }
-
-    .description {
-      font-weight: 900;
-      padding-left: 30px;
-      padding-top: 20px;
-    }
-
-    .descricaoCMS {
-      padding-left: 30px;
-    }
-
-    .div-preco,
-    .oficinaType {
-      margin-top: -6%;
-    }
-
-    .inscricaoIcon {
-      margin-top: -16.5%;
-    }
-
-    .inscricao {
-      margin-top: -4%;
-    }
-
-    .spacingMoney,
-    .spacingType {
-      margin-left: 30px;
-      margin-top: -14px;
-    }
-
-    .spacingDate,
-    .spacingLocal {
-      margin-left: 21px;
-      margin-top: -16px;
-    }
-
-    .parce {
-      margin-top: -16px;
-    }
-
-    .spacing-parceires {
-      padding-left: 5px;
-    }
-
-    .day {
-      padding-bottom: 20px;
-      padding-left: 30px;
-    }
-
-    .button-inscricao {
-      margin-top: 50px;
-    }
   }
 `
 export default Detalhes

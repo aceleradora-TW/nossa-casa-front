@@ -135,7 +135,7 @@ export const DetailsWorkshops = () => {
                   <>
                     <div className="inscricaoIcon">
                       <FontAwesomeIcon icon={faPenToSquare} />
-                      <p className="inscricao"> Inscrição não é necessária</p>
+                      <h1 className="inscricao"> Inscrição não é necessária</h1>
                     </div>
                   </>
                 )}
