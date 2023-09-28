@@ -4,7 +4,6 @@ const EventsStyleDescription = styled.div`
       margin: 0;
       padding: 0;
     }
-    
   display: block;
   font-weight: bolder;
 
@@ -65,6 +64,19 @@ const EventsStyleDescription = styled.div`
     text-decoration: none;
     color: black;
   }
+  section{
+    background-color: red;
+    width: 700px;
+    height: 400px;
+  }
+  .test-image{
+    width: 100px;
+    height: 100px;
+  } 
+  .mySwiper{
+  position: relative;
+  z-index: 0;
+}
 `
 
 export default EventsStyleDescription

@@ -3,6 +3,13 @@ import { useState, useEffect } from 'react'
 import { cms } from '../../service/client'
 import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
+import env from 'react-dotenv'
+import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/navigation'
+import 'swiper/css/thumbs'
 import {
   faUser,
   faPenToSquare,
@@ -14,20 +21,29 @@ import {
 
 export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
+  const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [galeria, setGaleria] = useState([])
   const { id } = useParams()
   useEffect(() => {
-    cms.get(`api/events/${id}/?populate=parceires&populate=foto_divulgacao`).then((response) => {
+    cms.get(`api/events/${id}/?populate=parceires&populate=fotos_evento`).then((response) => {
       const { data } = response.data
       setEvent(data)
+
+      const fotoDivulgacao = data.attributes.fotos_evento
+      const images = [{
+        imageId: id,
+        image: env.URL_CMS + fotoDivulgacao.data?.attributes?.url
+      }]
+      setGaleria(images)
     })
   }, [])
+  console.log(galeria)
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, { day: 'numeric', Timezone: 'UTF' })
     const month = date.toLocaleDateString('pt-BR', { month: 'long' })
     const year = date.toLocaleDateString(undefined, { year: 'numeric', Timezone: 'UTF' })
     return [day, month, year].join(' ')
   }
-
   const dataEmObjDate = new Date(event?.attributes?.data)
   const indexWeek = dataEmObjDate.getDay()
   const daysWeek = [
@@ -43,7 +59,6 @@ export const EventsPageDescription = () => {
   return (
     <>
       <EventsStyleDescription>
-        <section>
           <div className='title'>
             <h1>{event?.attributes?.nome}</h1>
           </div>
@@ -78,7 +93,6 @@ export const EventsPageDescription = () => {
                   {event?.attributes?.parceires?.data.map((parceire) => {
                     return (
                       <p key={parceire.id}>
-                        {console.log(event)}
                         {parceire.attributes?.nome}
                       </p>
                     )
@@ -129,11 +143,59 @@ export const EventsPageDescription = () => {
               </a>
             )}
           </div>
-        </section>
-        <section>
-        </section>
+        <Swiper
+          style={{
+            '--swiper-navigation-color': '#516B84',
+            '--swiper-pagination-color': '#FFF',
+            position: 'unset'
+          }}
+          slidesPerView={3}
+          spaceBetween={-110}
+          navigation={true}
+          breakpoints={{
+            '@0.00': {
+              slidesPerView: 1,
+              spaceBetween: 1
+            },
+            '@0.75': {
+              slidesPerView: 2,
+              spaceBetween: 2
+            },
+            '@1.00': {
+              slidesPerView: 3,
+              spaceBetween: 3
+            }
+          }}
+          modules={[Navigation]}
+          className="mySwiper"
+        >
+          <section>
+            <div>
+              <ul>
+                {galeria.map((imagem, key) =>
+                  <li key={key}>
+                    <SwiperSlide>
+                      <img src={imagem.image} alt='Imagem evento' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src={imagem.image} alt='Imagem evento' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src={imagem.image} alt='Imagem evento' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src={imagem.image} alt='Imagem evento' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src={imagem.image} alt='Imagem evento' />
+                    </SwiperSlide>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </section>
+        </Swiper>
       </EventsStyleDescription >
     </>
-
   )
 }

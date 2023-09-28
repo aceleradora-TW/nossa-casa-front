@@ -133,11 +133,11 @@ const ModalGallery = ({ type }) => {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="swiper-slide-view"
               >
-                {galeria.map((fotos) => (
-                  <SwiperSlide key={fotos.id}>
-                    <img src={fotos.url} />
-                  </SwiperSlide>
-                ))}
+                  {galeria.map((fotos) => (
+                    <SwiperSlide key={fotos.id}>
+                      <img src={fotos.url} />
+                    </SwiperSlide>
+                  ))}
               </Swiper>
               <Swiper
                 onSwiper={setThumbsSwiper}
