@@ -30,10 +30,15 @@ export const EventsPageDescription = () => {
       setEvent(data)
 
       const fotoDivulgacao = data.attributes.fotos_evento
-      const images = [{
-        imageId: id,
-        image: env.URL_CMS + fotoDivulgacao.data?.attributes?.url
-      }]
+      const images = fotoDivulgacao.data.map(
+        (image) => {
+          return {
+            id: image.id,
+            name: image.attributes?.name,
+            url: env.URL_CMS + image.attributes?.url
+          }
+        }
+      )
       setGaleria(images)
     })
   }, [])
@@ -59,142 +64,126 @@ export const EventsPageDescription = () => {
   return (
     <>
       <EventsStyleDescription>
-          <div className='title'>
-            <h1>{event?.attributes?.nome}</h1>
+        <div className='title'>
+          <h1>{event?.attributes?.nome}</h1>
+        </div>
+        <div className='container'>
+          <div className='text'>
+            <ul>
+              <li>
+                <p>
+                  {daysWeek[indexWeek]} - {' '}
+                  {new Date(event.attributes?.data).toLocaleDateString()}
+                </p>
+              </li>
+              <li>
+                <div className='style-icon'>
+                  <FontAwesomeIcon icon={faCalendarDays} />{' '}
+                </div>
+                {handleDate(new Date(event?.attributes?.data))}   ●{' '}
+                {event?.attributes?.horario_inicio} {'> '}
+                {handleDate(new Date(event?.attributes?.data))}   ●{' '}
+                {event?.attributes?.horario_fim}
+              </li>
+              <li>
+                <div className='style-icon'>
+                  <FontAwesomeIcon icon={faLocationDot} />
+                </div>
+                Oficina presencial em {event?.attributes?.local}
+              </li>
+              <li className='parceires'>
+                <div className='style-icon'>
+                  <FontAwesomeIcon icon={faUser} />
+                </div>
+                {event?.attributes?.parceires?.data.map((parceire) => {
+                  return (
+                    <p key={parceire.id}>
+                      {parceire.attributes?.nome}
+                    </p>
+                  )
+                })}
+              </li>
+            </ul>
           </div>
-          <div className='container'>
-            <div className='text'>
-              <ul>
-                <li>
-                  <p>
-                    {daysWeek[indexWeek]} - {' '}
-                    {new Date(event.attributes?.data).toLocaleDateString()}
-                  </p>
-                </li>
-                <li>
-                  <div className='style-icon'>
-                    <FontAwesomeIcon icon={faCalendarDays} />{' '}
-                  </div>
-                  {handleDate(new Date(event?.attributes?.data))}   ●{' '}
-                  {event?.attributes?.horario_inicio} {'> '}
-                  {handleDate(new Date(event?.attributes?.data))}   ●{' '}
-                  {event?.attributes?.horario_fim}
-                </li>
-                <li>
-                  <div className='style-icon'>
-                    <FontAwesomeIcon icon={faLocationDot} />
-                  </div>
-                  Oficina presencial em {event?.attributes?.local}
-                </li>
-                <li className='parceires'>
-                  <div className='style-icon'>
-                    <FontAwesomeIcon icon={faUser} />
-                  </div>
-                  {event?.attributes?.parceires?.data.map((parceire) => {
-                    return (
-                      <p key={parceire.id}>
-                        {parceire.attributes?.nome}
-                      </p>
-                    )
-                  })}
-                </li>
-              </ul>
-            </div>
-            <div className='text2'>
-              <ul>
-                <li>
-                  <div className='style-icon'>
-                    <FontAwesomeIcon icon={faHandHoldingDollar} />
-                  </div>
-                  {event?.attributes?.preco !== null ? (event?.attributes?.preco) : 'Evento Gratuíto'}
-                </li>
-                <li>
-                  <div className='style-icon'>
-                    <FontAwesomeIcon icon={faLock} />
-                  </div>
-                  {event?.attributes?.tipo}
-                </li>
-                <li>
-                  {event?.attributes?.url_inscricao === null && (
-                    <div>
-                      <div className='style-icon'>
-                        <FontAwesomeIcon icon={faPenToSquare} />
-                      </div>
-                      Inscrição não é necessária
+          <div className='text2'>
+            <ul>
+              <li>
+                <div className='style-icon'>
+                  <FontAwesomeIcon icon={faHandHoldingDollar} />
+                </div>
+                {event?.attributes?.preco !== null ? (event?.attributes?.preco) : 'Evento Gratuíto'}
+              </li>
+              <li>
+                <div className='style-icon'>
+                  <FontAwesomeIcon icon={faLock} />
+                </div>
+                {event?.attributes?.tipo}
+              </li>
+              <li>
+                {event?.attributes?.url_inscricao === null && (
+                  <div>
+                    <div className='style-icon'>
+                      <FontAwesomeIcon icon={faPenToSquare} />
                     </div>
-                  )}
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className='description'>
-            <p className='text-title-description'>Descrição da oficina</p>
-            <p>{event?.attributes?.descricao}</p>
-          </div>
-          <div className='Container-button'>
-            {event.attributes?.url_inscricao !== null && (
-              <a
-                className="button-enrollment"
-                href={event.attributes?.url_inscricao}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Inscreva-se
-              </a>
-            )}
-          </div>
-        <Swiper
-          style={{
-            '--swiper-navigation-color': '#516B84',
-            '--swiper-pagination-color': '#FFF',
-            position: 'unset'
-          }}
-          slidesPerView={3}
-          spaceBetween={-110}
-          navigation={true}
-          breakpoints={{
-            '@0.00': {
-              slidesPerView: 1,
-              spaceBetween: 1
-            },
-            '@0.75': {
-              slidesPerView: 2,
-              spaceBetween: 2
-            },
-            '@1.00': {
-              slidesPerView: 3,
-              spaceBetween: 3
-            }
-          }}
-          modules={[Navigation]}
-          className="mySwiper"
-        >
-          <section>
-            <div>
-              <ul>
-                {galeria.map((imagem, key) =>
-                  <li key={key}>
-                    <SwiperSlide>
-                      <img src={imagem.image} alt='Imagem evento' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img src={imagem.image} alt='Imagem evento' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img src={imagem.image} alt='Imagem evento' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img src={imagem.image} alt='Imagem evento' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img src={imagem.image} alt='Imagem evento' />
-                    </SwiperSlide>
-                  </li>
+                    Inscrição não é necessária
+                  </div>
                 )}
-              </ul>
-            </div>
-          </section>
-        </Swiper>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className='description'>
+          <p className='text-title-description'>Descrição da oficina</p>
+          <p>{event?.attributes?.descricao}</p>
+        </div>
+        <div className='Container-button'>
+          {event.attributes?.url_inscricao !== null && (
+            <a
+              className="button-enrollment"
+              href={event.attributes?.url_inscricao}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Inscreva-se
+            </a>
+          )}
+        </div>
+        <>
+          <Swiper
+            style={{
+              '--swiper-navigation-color': '#516B84',
+              '--swiper-pagination-color': ''
+            }}
+            loop={true}
+            spaceBetween={10}
+            navigation={true}
+            thumbs={{ swiper: thumbsSwiper }}
+            modules={[FreeMode, Navigation, Thumbs]}
+            className="mySwiper2"
+          >
+            {galeria.map((image) => (
+              <SwiperSlide key={image.id}>
+                <img src={image.url} alt={image.name} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <Swiper
+            onSwiper={setThumbsSwiper}
+            loop={true}
+            spaceBetween={10}
+            slidesPerView={7}
+            freeMode={true}
+            watchSlidesProgress={true}
+            modules={[FreeMode, Navigation, Thumbs]}
+            className="mySwiper"
+          >
+            {galeria.map((image) => (
+              <SwiperSlide key={image.id}>
+                <img src={image.url} alt={image.name} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </>
       </EventsStyleDescription >
     </>
   )
