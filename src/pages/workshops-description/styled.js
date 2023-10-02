@@ -116,6 +116,57 @@ const Detalhes = styled.div`
     text-decoration: none;
     color: black;
   }
+  .swiper-slide {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .mySwiper {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+  }
+
+  .mySwiper .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+  }
+
+  .mySwiper .swiper-slide-thumb-active {
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    opacity: 3;
+    border: 5px solid #f5bc4a;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 30em;
+    height: 30em;
+    object-fit: cover;
+  }
+  .style-img-swiper {
+    padding-top: 5rem;
+    img {
+      width: 70rem;
+      height: 40rem;
+    }
+    .style-swiper-fotos {
+      img {
+        width: 10rem;
+        height: 10rem;
+      }
+    }
+  }
 
   @media screen and (min-width: 1920px) and (min-height: 655px) {
     .inscricaoIcon {
