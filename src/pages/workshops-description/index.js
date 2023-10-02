@@ -14,33 +14,22 @@ import { useParams } from 'react-router'
 
 export const DetailsWorkshops = () => {
   const [workshops, setWorkshops] = useState([])
+  const [galeria, setGaleria] = useState([])
   const { id } = useParams()
   useEffect(() => {
     cms
-      .get(`api/workshops/${id}/?populate=parceires, foto_oficina`)
+      .get(`api/workshops/${id}/?populate=parceires&populate=fotos_oficina`)
       .then((response) => {
         const { data } = response.data
-        setWorkshops(data)
+      setWorkshops(data)
       })
   }, [])
-
-  console.log(workshops)
 
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, { day: 'numeric' })
     const month = date.toLocaleDateString('pt-BR', { month: 'long' })
     const year = date.toLocaleDateString(undefined, { year: 'numeric' })
     return [day, month, year].join(' ')
-  }
-
-  const handleMonth = (date) => {
-    const month = date.toLocaleDateString('pt-BR', { month: 'numeric' })
-    return [month].join(' ')
-  }
-
-  const handleDay = (date) => {
-    const day = date.toLocaleDateString('pt-BR', { day: 'numeric' })
-    return [day].join(' ')
   }
 
   const dataEmObjDate = new Date(workshops?.attributes?.data_inicio)
@@ -64,8 +53,7 @@ export const DetailsWorkshops = () => {
                 <h1 className="title">{workshops.attributes?.nome}</h1>
                 <p className="day">
                   {daysWeek[indexWeek]} -{' '}
-                  {handleDay(new Date(workshops.attributes?.data_inicio))}/
-                  {handleMonth(new Date(workshops.attributes?.data_inicio))}
+                  {(new Date(workshops.attributes?.data_inicio).toLocaleDateString('pt-BR'))}
                 </p>
                 <div className="data-inicio">
                   <p className="data-inicio">
@@ -138,6 +126,7 @@ export const DetailsWorkshops = () => {
                       <h1 className="inscricao"> Inscrição não é necessária</h1>
                     </div>
                   </>
+                  
                 )}
               </li>
           </ul>
