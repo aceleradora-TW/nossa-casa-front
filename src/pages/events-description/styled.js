@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 const EventsStyleDescription = styled.div`
-    * {
-      margin: 0;
-      padding: 0;
-    }
+*{
+    margin: 0;
+    padding: 0;
+  }
   display: block;
   font-weight: bolder;
-
   .container{
     display: block;
     display: flex;
@@ -65,48 +64,17 @@ const EventsStyleDescription = styled.div`
     text-decoration: none;
     color: black;
   }
-
-  // Carrossel Eventos
-  .swiper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: left;
-}
-
 .swiper-slide {
-  text-align: center;
   background: #fff;
-
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
+  img {
+  display: flex;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
-
-.swiper {
-  height: 30em;
-  margin-left: 20%;
-  margin-right: 20%;
 }
-
-.swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-
-.mySwiper2 {
-  height: 80%;
-  width: 100%;
-}
-
 .mySwiper {
   height: 20%;
   box-sizing: border-box;
@@ -120,7 +88,12 @@ const EventsStyleDescription = styled.div`
 }
 
 .mySwiper .swiper-slide-thumb-active {
+  *{
+    margin: 0;
+    padding: 0;
+  }
   opacity: 3;
+  border: 5px solid #f5bc4a;
 }
 
 .swiper-slide img {
@@ -128,6 +101,19 @@ const EventsStyleDescription = styled.div`
   width: 30em;
   height: 30em;
   object-fit: cover;
+}
+.style-img-swiper{
+  padding-top: 5rem;
+  img{
+    width: 70rem;
+    height: 40rem;
+  }
+.style-swiper-fotos{
+  img{
+    width: 10rem;
+    height: 10rem ;
+  }
+}
 }
 `
 

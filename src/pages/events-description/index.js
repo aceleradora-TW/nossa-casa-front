@@ -148,7 +148,7 @@ export const EventsPageDescription = () => {
             </a>
           )}
         </div>
-        <>
+        <div className='style-img-swiper'>
           <Swiper
             style={{
               '--swiper-navigation-color': '#516B84',
@@ -167,23 +167,25 @@ export const EventsPageDescription = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          <Swiper
-            onSwiper={setThumbsSwiper}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={7}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper"
-          >
-            {galeria.map((image) => (
-              <SwiperSlide key={image.id}>
-                <img src={image.url} alt={image.name} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </>
+          <div className='style-swiper-fotos'>
+            <Swiper
+              onSwiper={setThumbsSwiper}
+              loop={true}
+              spaceBetween={10}
+              slidesPerView={7}
+              freeMode={true}
+              watchSlidesProgress={true}
+              modules={[FreeMode, Navigation, Thumbs]}
+              className="mySwiper"
+            >
+              {galeria.map((image) => (
+                <SwiperSlide key={image.id}>
+                  <img src={image.url} alt={image.name} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div >
       </EventsStyleDescription >
     </>
   )
