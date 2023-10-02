@@ -18,6 +18,7 @@ const WorkshopsCarrossel = () => {
       .get('api/workshops/?populate=foto_divulgacao')
       .then((response) => {
         const { data } = response.data
+        console.log(data.map(a => a.attributes.nome))
         const workshops = data.map((data) => {
           if (data) {
             return {
