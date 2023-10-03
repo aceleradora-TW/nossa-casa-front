@@ -11,10 +11,10 @@ const VerMais = styled.div`
     border: none;
     margin-top: 1rem;
   }
-  .escritaBotao{
+  .escritaBotao {
     color: black;
     font-weight: bold;
-    text-decoration:none;
+    text-decoration: none;
   }
 `
 

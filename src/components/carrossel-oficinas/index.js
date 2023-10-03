@@ -14,25 +14,22 @@ const WorkshopsCarrossel = () => {
   const urlCms = env.URL_CMS
 
   useEffect(() => {
-    cms
-      .get('api/workshops/?populate=foto_divulgacao')
-      .then((response) => {
-        const { data } = response.data
-        console.log(data.map(a => a.attributes.nome))
-        const workshops = data.map((data) => {
-          if (data) {
-            return {
-              id: data.id,
-              name: data.attributes.nome,
-              image_url: data.attributes.foto_divulgacao.data[0].attributes.url,
-            }
+    cms.get('api/workshops/?populate=foto_divulgacao').then((response) => {
+      const { data } = response.data
+      const workshops = data.map((data) => {
+        if (data) {
+          return {
+            id: data.id,
+            name: data.attributes.nome,
+            image_url: data.attributes.foto_divulgacao.data[0].attributes.url,
           }
-        })
-        const workshopsSortedByName = workshops.sort((a, b) =>
-          a.name < b.name ? -1 : 1
-        )
-        setAttributes(workshopsSortedByName)
+        }
       })
+      const workshopsSortedByName = workshops.sort((a, b) =>
+        a.name < b.name ? -1 : 1
+      )
+      setAttributes(workshopsSortedByName)
+    })
   }, [])
 
   return (
@@ -54,16 +51,16 @@ const WorkshopsCarrossel = () => {
         breakpoints={{
           '@0.00': {
             slidesPerView: 1,
-            spaceBetween: 1
+            spaceBetween: 1,
           },
           '@0.75': {
             slidesPerView: 2,
-            spaceBetween: 2
+            spaceBetween: 2,
           },
           '@1.00': {
             slidesPerView: 3,
-            spaceBetween: 3
-          }
+            spaceBetween: 3,
+          },
         }}
         modules={[Navigation]}
         className="mySwiper"
@@ -76,15 +73,20 @@ const WorkshopsCarrossel = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                      <img className="img" src={urlCms + workshops.image_url} />
+                        <img
+                          className="img"
+                          src={urlCms + workshops.image_url}
+                        />
                       </div>
                       <div>
                         <p className="title">{workshops.name}</p>
                       </div>
                       <VerMais>
-                      <div className='styled-button'>
-                        <Link className='escritaBotao' to={`${workshops.id}`} >Saiba Mais</Link>
-                      </div>
+                        <div className="styled-button">
+                          <Link className="escritaBotao" to={`${workshops.id}`}>
+                            Saiba Mais
+                          </Link>
+                        </div>
                       </VerMais>
                     </div>
                   </SwiperSlide>
