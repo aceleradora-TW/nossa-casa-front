@@ -26,7 +26,8 @@ const WorkshopsCarrossel = () => {
               imageUrl: workshop.attributes.foto_divulgacao.data[0].attributes.url
             }
           }
-        })
+        }
+        )
         const workshopsSortedByName = workshops.sort((a, b) =>
           a.nome < b.nome ? -1 : 1
         )

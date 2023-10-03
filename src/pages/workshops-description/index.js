@@ -1,16 +1,40 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Detalhes from './styled'
+import { useState, useEffect } from 'react'
+import { cms } from '../../service/client'
+import { faUser, faPenToSquare, faLock, faHandHoldingDollar, faCalendarDays, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
+import env from 'react-dotenv'
+import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/navigation'
+import 'swiper/css/thumbs'
+import { useParams } from 'react-router'
 
-import {
-  faUser,
-  faPenToSquare,
-  faLock,
-  faHandHoldingDollar,
-  faCalendarDays,
-  faLocationDot
-} from '@fortawesome/free-solid-svg-icons'
+export const DetailsWorkshops = () => {
+  const [workshops, setWorkshops] = useState([])
+  const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [galeria, setGaleria] = useState([])
+  const { id } = useParams()
+  useEffect(() => {
+    cms
+      .get(`api/workshops/${id}/?populate=parceires&populate=foto_oficina`)
+      .then((response) => {
+        const { data } = response.data
+        const fotoOficina = data.attributes.foto_oficina
+        const images = fotoOficina.data.map((image) => {
+          return {
+            id: image.id,
+            name: image.attributes?.name,
+            url: env.URL_CMS + image.attributes?.url
+          }
+        })
+        setGaleria(images)
+        setWorkshops(data)
+      })
+  }, [])
 
-export const DetailsWorkshops = ({ workshops = {} }) => {
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, { day: 'numeric' })
     const month = date.toLocaleDateString('pt-BR', { month: 'long' })
@@ -126,6 +150,46 @@ export const DetailsWorkshops = ({ workshops = {} }) => {
               )}
             </li>
           </ul>
+          <section className="page">
+            <div className="style-img-swiper">
+              <Swiper
+                style={{
+                  '--swiper-navigation-color': '#516B84',
+                  '--swiper-pagination-color': ''
+                }}
+                loop={true}
+                spaceBetween={10}
+                navigation={true}
+                thumbs={{ swiper: thumbsSwiper }}
+                modules={[FreeMode, Navigation, Thumbs]}
+                className="mySwiper2"
+              >
+                {galeria.map((image) => (
+                  <SwiperSlide key={image.id}>
+                    <img src={image.url} alt={image.name} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+              <div className="style-swiper-fotos">
+                <Swiper
+                  onSwiper={setThumbsSwiper}
+                  loop={true}
+                  spaceBetween={10}
+                  slidesPerView={7}
+                  freeMode={true}
+                  watchSlidesProgress={true}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className="mySwiper"
+                >
+                  {galeria.map((image) => (
+                    <SwiperSlide key={image.id}>
+                      <img src={image.url} alt={image.name} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            </div>
+          </section>
         </Detalhes>
       </section>
     </>
