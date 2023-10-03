@@ -42,7 +42,6 @@ export const EventsPageDescription = () => {
       setGaleria(images)
     })
   }, [])
-  console.log(galeria)
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, { day: 'numeric', Timezone: 'UTF' })
     const month = date.toLocaleDateString('pt-BR', { month: 'long' })
