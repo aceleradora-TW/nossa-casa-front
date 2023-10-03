@@ -4,7 +4,9 @@ const Detalhes = styled.div`
     margin: 0;
     padding: 0;
   }
-
+  .closeButton {
+    padding-left: 110em;
+  }
   .title {
     font-weight: 900;
     font-size: 40px;
@@ -115,16 +117,23 @@ const Detalhes = styled.div`
     font-weight: bold;
     text-decoration: none;
     color: black;
+    margin-bottom: 3em;
+  }
+
+  .page {
+    background-color: #e4e7eb;
   }
   .swiper-slide {
     background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #e4e7eb;
     img {
       display: flex;
       width: 100%;
       height: 100%;
+      padding-bottom: 30px;
     }
   }
   .mySwiper {

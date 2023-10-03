@@ -2,14 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Detalhes from './styled'
 import { useState, useEffect } from 'react'
 import { cms } from '../../service/client'
-import {
-  faUser,
-  faPenToSquare,
-  faLock,
-  faHandHoldingDollar,
-  faCalendarDays,
-  faLocationDot,
-} from '@fortawesome/free-solid-svg-icons'
+import {faUser, faPenToSquare, faLock, faHandHoldingDollar, faCalendarDays,faLocationDot,  faRectangleXmark } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
 import env from 'react-dotenv'
@@ -18,6 +11,7 @@ import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 
 export const DetailsWorkshops = () => {
   const [workshops, setWorkshops] = useState([])
@@ -41,7 +35,7 @@ export const DetailsWorkshops = () => {
         setWorkshops(data)
       })
   }, [])
-  console.log(galeria)
+  
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, {
       day: 'numeric',
@@ -73,6 +67,13 @@ export const DetailsWorkshops = () => {
         <Detalhes>
           <ul>
             <li>
+              <Link className="closeButton" to={'/workshops'}>
+                <FontAwesomeIcon
+                  icon={faRectangleXmark}
+                  size="2xl"
+                  style={{ color: '#ff4013' }}
+                />
+              </Link>
               <h1 className="title">{workshops.attributes?.nome}</h1>
               <p className="day">
                 {daysWeek[indexWeek]} -{' '}
@@ -161,36 +162,19 @@ export const DetailsWorkshops = () => {
               )}
             </li>
           </ul>
-
-          <div className="style-img-swiper">
-            <Swiper
-              style={{
-                '--swiper-navigation-color': '#516B84',
-                '--swiper-pagination-color': '',
-              }}
-              loop={true}
-              spaceBetween={10}
-              navigation={true}
-              thumbs={{ swiper: thumbsSwiper }}
-              modules={[FreeMode, Navigation, Thumbs]}
-              className="mySwiper2"
-            >
-              {galeria.map((image) => (
-                <SwiperSlide key={image.id}>
-                  <img src={image.url} alt={image.name} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <div className="style-swiper-fotos">
+          <section className="page">
+            <div className="style-img-swiper">
               <Swiper
-                onSwiper={setThumbsSwiper}
+                style={{
+                  '--swiper-navigation-color': '#516B84',
+                  '--swiper-pagination-color': '',
+                }}
                 loop={true}
                 spaceBetween={10}
-                slidesPerView={7}
-                freeMode={true}
-                watchSlidesProgress={true}
+                navigation={true}
+                thumbs={{ swiper: thumbsSwiper }}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper"
+                className="mySwiper2"
               >
                 {galeria.map((image) => (
                   <SwiperSlide key={image.id}>
@@ -198,8 +182,26 @@ export const DetailsWorkshops = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
+              <div className="style-swiper-fotos">
+                <Swiper
+                  onSwiper={setThumbsSwiper}
+                  loop={true}
+                  spaceBetween={10}
+                  slidesPerView={7}
+                  freeMode={true}
+                  watchSlidesProgress={true}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className="mySwiper"
+                >
+                  {galeria.map((image) => (
+                    <SwiperSlide key={image.id}>
+                      <img src={image.url} alt={image.name} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
             </div>
-          </div>
+          </section>
         </Detalhes>
       </section>
     </>
