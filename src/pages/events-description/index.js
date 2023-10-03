@@ -5,12 +5,14 @@ import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
+import { Link } from 'react-router-dom'
 import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import {
+  faRectangleXmark,
   faUser,
   faPenToSquare,
   faLock,
@@ -63,6 +65,9 @@ export const EventsPageDescription = () => {
   return (
     <>
       <EventsStyleDescription>
+        <div className='container-button-exit'>
+      <Link className='close-button' to={'/events'} ><FontAwesomeIcon icon={faRectangleXmark} size="2xl" style={{ color: '#ff4013' }} /></Link>
+        </div>
         <div className='title'>
           <h1>{event?.attributes?.nome}</h1>
         </div>
@@ -147,35 +152,19 @@ export const EventsPageDescription = () => {
             </a>
           )}
         </div>
-        <div className='style-img-swiper'>
-          <Swiper
-            style={{
-              '--swiper-navigation-color': '#516B84',
-              '--swiper-pagination-color': ''
-            }}
-            loop={true}
-            spaceBetween={10}
-            navigation={true}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2"
-          >
-            {galeria.map((image) => (
-              <SwiperSlide key={image.id}>
-                <img src={image.url} alt={image.name} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div className='style-swiper-fotos'>
+        <section className='container-carousel'>
+          <div className='style-img-swiper'>
             <Swiper
-              onSwiper={setThumbsSwiper}
+              style={{
+                '--swiper-navigation-color': '#516B84',
+                '--swiper-pagination-color': ''
+              }}
               loop={true}
               spaceBetween={10}
-              slidesPerView={7}
-              freeMode={true}
-              watchSlidesProgress={true}
+              navigation={true}
+              thumbs={{ swiper: thumbsSwiper }}
               modules={[FreeMode, Navigation, Thumbs]}
-              className="mySwiper"
+              className="mySwiper2"
             >
               {galeria.map((image) => (
                 <SwiperSlide key={image.id}>
@@ -183,8 +172,26 @@ export const EventsPageDescription = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-          </div>
-        </div >
+            <div className='style-swiper-fotos'>
+              <Swiper
+                onSwiper={setThumbsSwiper}
+                loop={true}
+                spaceBetween={10}
+                slidesPerView={7}
+                freeMode={true}
+                watchSlidesProgress={true}
+                modules={[FreeMode, Navigation, Thumbs]}
+                className="mySwiper"
+              >
+                {galeria.map((image) => (
+                  <SwiperSlide key={image.id}>
+                    <img src={image.url} alt={image.name} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div >
+        </section>
       </EventsStyleDescription >
     </>
   )

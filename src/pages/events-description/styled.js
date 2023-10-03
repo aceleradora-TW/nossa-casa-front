@@ -64,6 +64,9 @@ const EventsStyleDescription = styled.div`
     text-decoration: none;
     color: black;
   }
+  .container-carousel{
+    background-color:red
+  }
 .swiper-slide {
   background: #fff;
   display: flex;
@@ -79,6 +82,9 @@ const EventsStyleDescription = styled.div`
   height: 20%;
   box-sizing: border-box;
   padding: 10px 0;
+}
+.mySwiper2 {
+  padding-top:5%;
 }
 
 .mySwiper .swiper-slide {
@@ -102,17 +108,43 @@ const EventsStyleDescription = styled.div`
   height: 30em;
   object-fit: cover;
 }
+.container-carousel{
+  background-color: #E4E7EB;
+  }
+  .swiper-slide {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E4E7EB;
+  }
+
 .style-img-swiper{
+  background-color: #E4E7EB;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 3rem;
   padding-top: 5rem;
   img{
     width: 70rem;
     height: 40rem;
   }
+
 .style-swiper-fotos{
   img{
     width: 10rem;
-    height: 10rem ;
+    height: 10rem
   }
+}
+}
+
+.container-button-exit{
+  display: flex;
+  justify-content: right;
+  
+.close-button{
+  font-size: 2.2em;
+  margin-right: 2%;
 }
 }
 `
