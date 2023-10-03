@@ -80,6 +80,8 @@ const EventsStyleDescription = styled.div`
 }
 }
 .second-carousel {
+  margin-left:5rem ;
+  margin-right:5rem ;
   height: 20%;
   box-sizing: border-box;
   padding: 10px 0;
@@ -133,8 +135,8 @@ const EventsStyleDescription = styled.div`
 
 .style-swiper-fotos{
   img{
-    width: 10rem;
-    height: 10rem
+    width: 9rem;
+    height: 9rem
   }
 }
 }
