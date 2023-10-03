@@ -63,7 +63,7 @@ export const EventsPageDescription = () => {
   ]
 
   return (
-    <>
+    <div className='full-container'>
       <EventsStyleDescription>
         <div className='container-button-exit'>
       <Link className='close-button' to={'/events'} ><FontAwesomeIcon icon={faRectangleXmark} size="2xl" style={{ color: '#ff4013' }} /></Link>
@@ -164,7 +164,7 @@ export const EventsPageDescription = () => {
               navigation={true}
               thumbs={{ swiper: thumbsSwiper }}
               modules={[FreeMode, Navigation, Thumbs]}
-              className="mySwiper2"
+              className="first-carousel"
             >
               {galeria.map((image) => (
                 <SwiperSlide key={image.id}>
@@ -181,7 +181,7 @@ export const EventsPageDescription = () => {
                 freeMode={true}
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper"
+                className="second-carousel"
               >
                 {galeria.map((image) => (
                   <SwiperSlide key={image.id}>
@@ -193,6 +193,6 @@ export const EventsPageDescription = () => {
           </div >
         </section>
       </EventsStyleDescription >
-    </>
+    </div>
   )
 }

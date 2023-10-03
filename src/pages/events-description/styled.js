@@ -6,6 +6,7 @@ const EventsStyleDescription = styled.div`
   }
   display: block;
   font-weight: bolder;
+
   .container{
     display: block;
     display: flex;
@@ -78,22 +79,22 @@ const EventsStyleDescription = styled.div`
   height: 100%;
 }
 }
-.mySwiper {
+.second-carousel {
   height: 20%;
   box-sizing: border-box;
   padding: 10px 0;
 }
-.mySwiper2 {
+.first-carousel {
   padding-top:5%;
 }
 
-.mySwiper .swiper-slide {
+.second-carousel .swiper-slide {
   width: 25%;
   height: 100%;
   opacity: 0.4;
 }
 
-.mySwiper .swiper-slide-thumb-active {
+.second-carousel .swiper-slide-thumb-active {
   *{
     margin: 0;
     padding: 0;
@@ -139,14 +140,15 @@ const EventsStyleDescription = styled.div`
 }
 
 .container-button-exit{
+  margin-right: 2%;
   display: flex;
   justify-content: right;
   
 .close-button{
   font-size: 2.2em;
-  margin-right: 2%;
 }
 }
+
 `
 
 export default EventsStyleDescription
