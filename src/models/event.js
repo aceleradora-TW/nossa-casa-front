@@ -14,3 +14,5 @@ export const formattedDate = (cmsEvent) => {
     endTime: cmsEvent?.attributes?.hora_fim,
   }
 }
+
+export default { formattedDate }
