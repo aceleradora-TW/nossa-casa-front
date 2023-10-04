@@ -20,6 +20,7 @@ import {
   faCalendarDays,
   faLocationDot,
 } from '@fortawesome/free-solid-svg-icons'
+import eventModel from '../models/event'
 
 export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
@@ -44,29 +45,8 @@ export const EventsPageDescription = () => {
         setGaleria(images)
       })
   }, [])
-  const handleDate = (date) => {
-    const day = date.toLocaleDateString(undefined, {
-      day: 'numeric',
-      Timezone: 'UTF',
-    })
-    const month = date.toLocaleDateString('pt-BR', { month: 'long' })
-    const year = date.toLocaleDateString(undefined, {
-      year: 'numeric',
-      Timezone: 'UTF',
-    })
-    return [day, month, year].join(' ')
-  }
-  const dataEmObjDate = new Date(event?.attributes?.data)
-  const indexWeek = dataEmObjDate.getDay()
-  const daysWeek = [
-    'Domingo',
-    'Segunda-Feira',
-    'Terça-Feira',
-    'Quarta-Feira',
-    'Quinta-Feira',
-    'Sexta-Feira',
-    'Sabado',
-  ]
+
+  const { fullDate, startTime, endTime } = eventModel.formattedDate(event)
 
   return (
     <div className="full-container">
@@ -87,19 +67,13 @@ export const EventsPageDescription = () => {
           <div className="text">
             <ul>
               <li>
-                <p>
-                  {daysWeek[indexWeek]} -{' '}
-                  {new Date(event.attributes?.data).toLocaleDateString()}
-                </p>
+                <p>{fullDate}</p>
               </li>
               <li>
                 <div className="style-icon">
                   <FontAwesomeIcon icon={faCalendarDays} />{' '}
                 </div>
-                {handleDate(new Date(event?.attributes?.data))} ●{' '}
-                {event?.attributes?.horario_inicio} {'> '}
-                {handleDate(new Date(event?.attributes?.data))} ●{' '}
-                {event?.attributes?.horario_fim}
+                {`${fullDate} ● ${startTime} > ${fullDate} ● ${endTime}`}
               </li>
               <li>
                 <div className="style-icon">
@@ -125,7 +99,7 @@ export const EventsPageDescription = () => {
                 </div>
                 {event?.attributes?.preco !== null
                   ? event?.attributes?.preco
-                  : 'Evento Gratuíto'}
+                  : 'Evento Gratuito'}
               </li>
               <li>
                 <div className="style-icon">
