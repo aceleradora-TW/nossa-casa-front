@@ -44,12 +44,6 @@ export const EventsPageDescription = () => {
       setGaleria(images)
     })
   }, [])
-  const handleDate = (date) => {
-    const day = date.toLocaleDateString(undefined, { day: 'numeric', Timezone: 'UTF' })
-    const month = date.toLocaleDateString('pt-BR', { month: 'long' })
-    const year = date.toLocaleDateString(undefined, { year: 'numeric', Timezone: 'UTF' })
-    return [day, month, year].join(' ')
-  }
   const dataEmObjDate = new Date(event?.attributes?.data)
   const indexWeek = dataEmObjDate.getDay()
   const daysWeek = [
@@ -66,7 +60,7 @@ export const EventsPageDescription = () => {
     <div className='full-container'>
       <EventsStyleDescription>
         <div className='container-button-exit'>
-      <Link className='close-button' to={'/events'} ><FontAwesomeIcon icon={faRectangleXmark} size="2xl" style={{ color: '#ff4013' }} /></Link>
+          <Link className='close-button' to={'/events'} ><FontAwesomeIcon icon={faRectangleXmark} size="2xl" style={{ color: '#f5bc4a' }} /></Link>
         </div>
         <div className='title'>
           <h1>{event?.attributes?.nome}</h1>
@@ -84,27 +78,27 @@ export const EventsPageDescription = () => {
                 <div className='style-icon'>
                   <FontAwesomeIcon icon={faCalendarDays} />{' '}
                 </div>
-                {handleDate(new Date(event?.attributes?.data))}   ●{' '}
                 {event?.attributes?.horario_inicio} {'> '}
-                {handleDate(new Date(event?.attributes?.data))}   ●{' '}
                 {event?.attributes?.horario_fim}
               </li>
               <li>
                 <div className='style-icon'>
                   <FontAwesomeIcon icon={faLocationDot} />
                 </div>
-                Oficina presencial em {event?.attributes?.local}
+                {event?.attributes?.local}
               </li>
               <li className='parceires'>
-                <div className='style-icon'>
-                  <FontAwesomeIcon icon={faUser} />
-                </div>
                 {event?.attributes?.parceires?.data.map((parceire) => {
-                  return (
-                    <p key={parceire.id}>
-                      {parceire.attributes?.nome}
-                    </p>
-                  )
+                  if (parceire !== null || parceire !== undefined) {
+                    return (
+                      <>
+                      <FontAwesomeIcon icon={faUser} className='style-icon' />
+                      <p key={parceire.id}>
+                        {parceire.attributes?.nome}
+                      </p>
+                      </>
+                    )
+                  } return null
                 })}
               </li>
             </ul>
@@ -125,7 +119,7 @@ export const EventsPageDescription = () => {
               </li>
               <li>
                 {event?.attributes?.url_inscricao === null && (
-                  <div>
+                  <div id='no-registration'>
                     <div className='style-icon'>
                       <FontAwesomeIcon icon={faPenToSquare} />
                     </div>
@@ -137,7 +131,7 @@ export const EventsPageDescription = () => {
           </div>
         </div>
         <div className='description'>
-          <p className='text-title-description'>Descrição da oficina</p>
+          <p className='text-title-description'>Descrição</p>
           <p>{event?.attributes?.descricao}</p>
         </div>
         <div className='Container-button'>
