@@ -18,7 +18,7 @@ import {
   faLock,
   faHandHoldingDollar,
   faCalendarDays,
-  faLocationDot
+  faLocationDot,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const EventsPageDescription = () => {
@@ -27,27 +27,33 @@ export const EventsPageDescription = () => {
   const [galeria, setGaleria] = useState([])
   const { id } = useParams()
   useEffect(() => {
-    cms.get(`api/events/${id}/?populate=parceires&populate=fotos_evento`).then((response) => {
-      const { data } = response.data
-      setEvent(data)
+    cms
+      .get(`api/events/${id}/?populate=parceires&populate=fotos_evento`)
+      .then((response) => {
+        const { data } = response.data
+        setEvent(data)
 
-      const fotoDivulgacao = data.attributes.fotos_evento
-      const images = fotoDivulgacao.data.map(
-        (image) => {
+        const fotoDivulgacao = data.attributes.fotos_evento
+        const images = fotoDivulgacao.data.map((image) => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: env.URL_CMS + image.attributes?.url
+            url: env.URL_CMS + image.attributes?.url,
           }
-        }
-      )
-      setGaleria(images)
-    })
+        })
+        setGaleria(images)
+      })
   }, [])
   const handleDate = (date) => {
-    const day = date.toLocaleDateString(undefined, { day: 'numeric', Timezone: 'UTF' })
+    const day = date.toLocaleDateString(undefined, {
+      day: 'numeric',
+      Timezone: 'UTF',
+    })
     const month = date.toLocaleDateString('pt-BR', { month: 'long' })
-    const year = date.toLocaleDateString(undefined, { year: 'numeric', Timezone: 'UTF' })
+    const year = date.toLocaleDateString(undefined, {
+      year: 'numeric',
+      Timezone: 'UTF',
+    })
     return [day, month, year].join(' ')
   }
   const dataEmObjDate = new Date(event?.attributes?.data)
@@ -59,66 +65,70 @@ export const EventsPageDescription = () => {
     'Quarta-Feira',
     'Quinta-Feira',
     'Sexta-Feira',
-    'Sabado'
+    'Sabado',
   ]
 
   return (
-    <div className='full-container'>
+    <div className="full-container">
       <EventsStyleDescription>
-        <div className='container-button-exit'>
-      <Link className='close-button' to={'/events'} ><FontAwesomeIcon icon={faRectangleXmark} size="2xl" style={{ color: '#ff4013' }} /></Link>
+        <div className="container-button-exit">
+          <Link className="close-button" to={'/events'}>
+            <FontAwesomeIcon
+              icon={faRectangleXmark}
+              size="2xl"
+              style={{ color: '#ff4013' }}
+            />
+          </Link>
         </div>
-        <div className='title'>
+        <div className="title">
           <h1>{event?.attributes?.nome}</h1>
         </div>
-        <div className='container'>
-          <div className='text'>
+        <div className="container">
+          <div className="text">
             <ul>
               <li>
                 <p>
-                  {daysWeek[indexWeek]} - {' '}
+                  {daysWeek[indexWeek]} -{' '}
                   {new Date(event.attributes?.data).toLocaleDateString()}
                 </p>
               </li>
               <li>
-                <div className='style-icon'>
+                <div className="style-icon">
                   <FontAwesomeIcon icon={faCalendarDays} />{' '}
                 </div>
-                {handleDate(new Date(event?.attributes?.data))}   ●{' '}
+                {handleDate(new Date(event?.attributes?.data))} ●{' '}
                 {event?.attributes?.horario_inicio} {'> '}
-                {handleDate(new Date(event?.attributes?.data))}   ●{' '}
+                {handleDate(new Date(event?.attributes?.data))} ●{' '}
                 {event?.attributes?.horario_fim}
               </li>
               <li>
-                <div className='style-icon'>
+                <div className="style-icon">
                   <FontAwesomeIcon icon={faLocationDot} />
                 </div>
                 Oficina presencial em {event?.attributes?.local}
               </li>
-              <li className='parceires'>
-                <div className='style-icon'>
+              <li className="parceires">
+                <div className="style-icon">
                   <FontAwesomeIcon icon={faUser} />
                 </div>
                 {event?.attributes?.parceires?.data.map((parceire) => {
-                  return (
-                    <p key={parceire.id}>
-                      {parceire.attributes?.nome}
-                    </p>
-                  )
+                  return <p key={parceire.id}>{parceire.attributes?.nome}</p>
                 })}
               </li>
             </ul>
           </div>
-          <div className='text2'>
+          <div className="text2">
             <ul>
               <li>
-                <div className='style-icon'>
+                <div className="style-icon">
                   <FontAwesomeIcon icon={faHandHoldingDollar} />
                 </div>
-                {event?.attributes?.preco !== null ? (event?.attributes?.preco) : 'Evento Gratuíto'}
+                {event?.attributes?.preco !== null
+                  ? event?.attributes?.preco
+                  : 'Evento Gratuíto'}
               </li>
               <li>
-                <div className='style-icon'>
+                <div className="style-icon">
                   <FontAwesomeIcon icon={faLock} />
                 </div>
                 {event?.attributes?.tipo}
@@ -126,7 +136,7 @@ export const EventsPageDescription = () => {
               <li>
                 {event?.attributes?.url_inscricao === null && (
                   <div>
-                    <div className='style-icon'>
+                    <div className="style-icon">
                       <FontAwesomeIcon icon={faPenToSquare} />
                     </div>
                     Inscrição não é necessária
@@ -136,11 +146,11 @@ export const EventsPageDescription = () => {
             </ul>
           </div>
         </div>
-        <div className='description'>
-          <p className='text-title-description'>Descrição da oficina</p>
+        <div className="description">
+          <p className="text-title-description">Descrição da oficina</p>
           <p>{event?.attributes?.descricao}</p>
         </div>
-        <div className='Container-button'>
+        <div className="Container-button">
           {event.attributes?.url_inscricao !== null && (
             <a
               className="button-enrollment"
@@ -152,12 +162,12 @@ export const EventsPageDescription = () => {
             </a>
           )}
         </div>
-        <section className='container-carousel'>
-          <div className='style-img-swiper'>
+        <section className="container-carousel">
+          <div className="style-img-swiper">
             <Swiper
               style={{
                 '--swiper-navigation-color': '#516B84',
-                '--swiper-pagination-color': ''
+                '--swiper-pagination-color': '',
               }}
               loop={true}
               spaceBetween={10}
@@ -172,7 +182,7 @@ export const EventsPageDescription = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className='style-swiper-fotos'>
+            <div className="style-swiper-fotos">
               <Swiper
                 onSwiper={setThumbsSwiper}
                 loop={true}
@@ -190,9 +200,9 @@ export const EventsPageDescription = () => {
                 ))}
               </Swiper>
             </div>
-          </div >
+          </div>
         </section>
-      </EventsStyleDescription >
+      </EventsStyleDescription>
     </div>
   )
 }
