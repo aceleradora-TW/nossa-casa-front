@@ -60,7 +60,7 @@ export const EventsPageDescription = () => {
     <div className='full-container'>
       <EventsStyleDescription>
         <div className='container-button-exit'>
-          <Link className='close-button' to={'/events'} ><FontAwesomeIcon icon={faRectangleXmark} size="2xl" style={{ color: '#f5bc4a' }} /></Link>
+          <Link className='close-button' to={'/events'} ><FontAwesomeIcon icon={faRectangleXmark} size="2xl" style={{ color: '#DC143C' }} /></Link>
         </div>
         <div className='title'>
           <h1>{event?.attributes?.nome}</h1>

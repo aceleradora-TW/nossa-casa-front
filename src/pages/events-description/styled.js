@@ -153,7 +153,7 @@ p {
 }
   
 .close-button{
-  font-size: 2.2em;
+  font-size: 1em;
 }
 `
 
