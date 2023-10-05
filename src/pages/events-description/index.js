@@ -44,8 +44,8 @@ export const EventsPageDescription = () => {
       setGaleria(images)
     })
   }, [])
-  const dataEmObjDate = new Date(event?.attributes?.data)
-  const indexWeek = dataEmObjDate.getDay()
+  const dateAsDateObject = new Date(event?.attributes?.data)
+  const indexWeek = dateAsDateObject.getDay()
   const daysWeek = [
     'Domingo',
     'Segunda-Feira',
@@ -53,7 +53,7 @@ export const EventsPageDescription = () => {
     'Quarta-Feira',
     'Quinta-Feira',
     'Sexta-Feira',
-    'Sabado'
+    'Sábado'
   ]
 
   return (
@@ -92,10 +92,10 @@ export const EventsPageDescription = () => {
                   if (parceire !== null || parceire !== undefined) {
                     return (
                       <>
-                      <FontAwesomeIcon icon={faUser} className='style-icon' />
-                      <p key={parceire.id}>
-                        {parceire.attributes?.nome}
-                      </p>
+                        <FontAwesomeIcon icon={faUser} className='style-icon' />
+                        <p key={parceire.id}>
+                          {parceire.attributes?.nome}
+                        </p>
                       </>
                     )
                   } return null
@@ -109,7 +109,7 @@ export const EventsPageDescription = () => {
                 <div className='style-icon'>
                   <FontAwesomeIcon icon={faHandHoldingDollar} />
                 </div>
-                {event?.attributes?.preco !== null ? (event?.attributes?.preco) : 'Evento Gratuíto'}
+                {event?.attributes?.preco !== null ? (event?.attributes?.preco) : 'Evento Gratuito'}
               </li>
               <li>
                 <div className='style-icon'>
