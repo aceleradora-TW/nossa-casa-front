@@ -5,6 +5,9 @@ const CssCarrosselGlobal = styled.div`
   margin: 0;
   padding: 0;
 }
+.title{
+  font-weight: bold;
+}
   .carrossel {
     background-color: #fafafa;
     height: 300px;

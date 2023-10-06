@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Detalhes from './styled'
+import Details from './styled'
 import { useState, useEffect } from 'react'
 import { cms } from '../../service/client'
 import {faUser, faPenToSquare, faLock, faHandHoldingDollar, faCalendarDays,faLocationDot,  faRectangleXmark } from '@fortawesome/free-solid-svg-icons'
@@ -16,22 +16,22 @@ import { Link } from 'react-router-dom'
 export const DetailsWorkshops = () => {
   const [workshops, setWorkshops] = useState([])
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
-  const [galeria, setGaleria] = useState([])
+  const [galleryPhoto, setGalleryPhoto] = useState([])
   const { id } = useParams()
   useEffect(() => {
     cms
       .get(`api/workshops/${id}/?populate=parceires&populate=foto_oficina`)
       .then((response) => {
         const { data } = response.data
-        const fotoOficina = data.attributes.foto_oficina
-        const images = fotoOficina.data.map((image) => {
+        const photoWorkshop = data.attributes.foto_oficina
+        const images = photoWorkshop.data.map((image) => {
           return {
             id: image.id,
             name: image.attributes?.name,
             url: env.URL_CMS + image.attributes?.url,
           }
         })
-        setGaleria(images)
+        setGalleryPhoto(images)
         setWorkshops(data)
       })
   }, [])
@@ -49,8 +49,8 @@ export const DetailsWorkshops = () => {
     return [day, month, year].join(' ')
   }
 
-  const dataEmObjDate = new Date(workshops?.attributes?.data_inicio)
-  const indexWeek = dataEmObjDate.getDay()
+  const dateAsDateObject = new Date(workshops?.attributes?.data_inicio)
+  const indexWeek = dateAsDateObject.getDay()
   const daysWeek = [
     'Domingo',
     'Segunda-Feira',
@@ -58,13 +58,13 @@ export const DetailsWorkshops = () => {
     'Quarta-Feira',
     'Quinta-Feira',
     'Sexta-Feira',
-    'Sabado',
+    'Sábado',
   ]
 
   return (
     <>
       <section>
-        <Detalhes>
+        <Details>
           <ul>
             <li>
               <Link className="closeButton" to={'/workshops'}>
@@ -81,9 +81,9 @@ export const DetailsWorkshops = () => {
                   'pt-BR'
                 )}
               </p>
-              <div className="data-inicio">
-                <p className="data-inicio">
-                  <FontAwesomeIcon icon={faCalendarDays} />{' '}
+              <div className="start-date">
+                <p className="start-date">
+                  <FontAwesomeIcon icon={faCalendarDays} size="lg"/>{' '}
                   <div className="spacingDate">
                     {handleDate(new Date(workshops.attributes?.data_inicio))} •{' '}
                     {workshops.attributes?.horario_inicio} {'> '}
@@ -93,11 +93,11 @@ export const DetailsWorkshops = () => {
                   </div>
                 </p>
               </div>
-              <div className="div-preco">
-                <p className="preco">
+              <div className="div-price">
+                <p className="price">
                   <FontAwesomeIcon
                     icon={faHandHoldingDollar}
-                    size="xl"
+                    size="lg"
                     style={{
                       '--fa-secondary-color': '#ffffff',
                       '--fa-primary-opacity': '1',
@@ -110,41 +110,44 @@ export const DetailsWorkshops = () => {
               </div>
               <div className="div-local">
                 <p className="local">
-                  <FontAwesomeIcon icon={faLocationDot} />
+                  <FontAwesomeIcon icon={faLocationDot} size="lg"/>
                   <div className="spacingLocal">
                     Oficina presencial em {workshops.attributes?.local}
                   </div>
                 </p>
               </div>
-              <div className="oficinaType">
+              <div className="workshopType">
                 <p className="type">
-                  <FontAwesomeIcon icon={faLock} />
+                  <FontAwesomeIcon icon={faLock} size="lg" />
                   <div className="spacingType">
                     {workshops.attributes?.tipo}
                   </div>
                 </p>
               </div>
-              <div className="parceires">
-                <p className="parceire">
-                  <FontAwesomeIcon icon={faUser} />
+              <div className="partners">
+                <p className="partner">
                   <div className="parce">
                     {workshops.attributes?.parceires?.data.map(
                       (parceire, index) => {
+                        if(parceire !== null  || parceire !== undefined){
                         return (
-                          <p key={index} className="spacing-parceires">
+                          <>
+                          <FontAwesomeIcon icon={faUser} size="lg" />
+                          <p key={index} className="spacing-partners">
                             {parceire.attributes?.nome}{' '}
                           </p>
+                          </>
                         )
-                      }
-                    )}
+                      } return null
+                    })}
                   </div>
                 </p>
               </div>
               <p className="description">Descrição da oficina</p>
-              <p className="descricaoCMS">{workshops.attributes?.descricao}</p>
+              <p className="descriptionCMS">{workshops.attributes?.descricao}</p>
               {workshops.attributes?.url_inscricao !== null && (
                 <a
-                  className="button-inscricao"
+                  className="button-inscription"
                   href={workshops.attributes?.url_inscricao}
                   target="_blank"
                   rel="noreferrer"
@@ -154,9 +157,9 @@ export const DetailsWorkshops = () => {
               )}
               {workshops.attributes?.url_inscricao == null && (
                 <>
-                  <div className="inscricaoIcon">
-                    <FontAwesomeIcon icon={faPenToSquare} />
-                    <h1 className="inscricao"> Inscrição não é necessária</h1>
+                  <div className="inscriptionIcon">
+                    <FontAwesomeIcon icon={faPenToSquare} size="lg"/>
+                    <h1 className="inscription"> Inscrição não é necessária</h1>
                   </div>
                 </>
               )}
@@ -176,7 +179,7 @@ export const DetailsWorkshops = () => {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper2"
               >
-                {galeria.map((image) => (
+                {galleryPhoto.map((image) => (
                   <SwiperSlide key={image.id}>
                     <img src={image.url} alt={image.name} />
                   </SwiperSlide>
@@ -193,7 +196,7 @@ export const DetailsWorkshops = () => {
                   modules={[FreeMode, Navigation, Thumbs]}
                   className="mySwiper"
                 >
-                  {galeria.map((image) => (
+                  {galleryPhoto.map((image) => (
                     <SwiperSlide key={image.id}>
                       <img src={image.url} alt={image.name} />
                     </SwiperSlide>
@@ -202,7 +205,7 @@ export const DetailsWorkshops = () => {
               </div>
             </div>
           </section>
-        </Detalhes>
+        </Details>
       </section>
     </>
   )

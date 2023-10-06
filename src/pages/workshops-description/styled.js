@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-const Detalhes = styled.div`
+const Details = styled.div`
   * {
     margin: 0;
     padding: 0;
@@ -9,24 +9,31 @@ const Detalhes = styled.div`
   }
   .title {
     font-weight: 900;
-    font-size: 40px;
+    font-size: 50px;
     padding-left: 60px;
     padding-bottom: 40px;
+    font-weight: bold;
   }
 
-  .data-inicio,
+  .start-date,
   .data-fim {
     font-weight: 500;
     padding-left: 30px;
     font-size: 20px;
   }
 
-  .local,
-  .parceires {
+  .local{
     font-weight: 500;
     padding-left: 60px;
     font-size: 20px;
-    padding-top: 40px;
+    padding-top: 50px;
+    padding-bottom: 12px;
+  }
+  .partners{
+    font-weight: 500;
+    padding-left: 39px;
+    font-size: 20px;
+    padding-top: 60px;
     padding-bottom: 12px;
   }
 
@@ -38,7 +45,7 @@ const Detalhes = styled.div`
     padding-bottom: 20px;
   }
 
-  .descricaoCMS {
+  .descriptionCMS {
     padding-left: 60px;
     font-size: 17px;
     text-align: justify;
@@ -51,8 +58,8 @@ const Detalhes = styled.div`
     padding-left: 90px;
   }
 
-  .div-preco,
-  .oficinaType {
+  .div-price,
+  .workshopType {
     margin-top: -2%;
     padding-left: 70%;
   }
@@ -62,9 +69,10 @@ const Detalhes = styled.div`
     padding-left: 70%;
   }
 
-  .inscricao {
-    margin-top: -1em;
-    padding-left: 30px;
+  .inscription {
+    margin-left: 85em;
+    margin-top: 4px;
+    font-weight: bold;
   }
 
   .spacingMoney,
@@ -87,9 +95,10 @@ const Detalhes = styled.div`
     font-weight: bold;
   }
 
-  .spacing-parceires {
+  .spacing-partners {
     display: inline-block;
     padding-left: 8px;
+    margin-right: 1.5em;
   }
 
   .day {
@@ -101,7 +110,7 @@ const Detalhes = styled.div`
     font-weight: bold;
   }
 
-  .button-inscricao {
+  .button-inscription {
     background: #f5bc4a;
     border-radius: 3px;
     border: none;
@@ -113,7 +122,7 @@ const Detalhes = styled.div`
     justify-content: center;
     align-items: center;
     margin-left: 43%;
-    margin-top: 200px;
+    margin-top: 50px;
     font-weight: bold;
     text-decoration: none;
     color: black;
@@ -177,17 +186,7 @@ const Detalhes = styled.div`
     }
   }
 
-  @media screen and (min-width: 1920px) and (min-height: 655px) {
-    .inscricaoIcon {
-      margin-top: -8em;
-    }
-
-    .inscricao {
-      margin-top: -2.5%;
-    }
-  }
-
-  @media screen and (max-width: 720px) {
+  /* @media screen and (max-width: 720px) {
     .title {
       padding-top: -20%;
       font-size: 30px;
@@ -195,7 +194,7 @@ const Detalhes = styled.div`
       padding-bottom: 20px;
     }
 
-    .data-inicio,
+    .start-date,
     .data-fim {
       font-weight: 500;
       padding-left: 15px;
@@ -204,7 +203,7 @@ const Detalhes = styled.div`
     }
 
     .local,
-    .parceires {
+    .partners {
       font-weight: 500;
       padding-left: 30px;
       font-size: 17px;
@@ -218,20 +217,20 @@ const Detalhes = styled.div`
       padding-top: 20px;
     }
 
-    .descricaoCMS {
+    .descriptionCMS {
       padding-left: 30px;
     }
 
-    .div-preco,
-    .oficinaType {
+    .div-price,
+    .workshopType {
       margin-top: -6%;
     }
 
-    .inscricaoIcon {
+    .inscriptionIcon {
       margin-top: -16.5%;
     }
 
-    .inscricao {
+    .inscription {
       margin-top: -4%;
     }
 
@@ -251,7 +250,7 @@ const Detalhes = styled.div`
       margin-top: -16px;
     }
 
-    .spacing-parceires {
+    .spacing-partners {
       padding-left: 5px;
     }
 
@@ -260,9 +259,9 @@ const Detalhes = styled.div`
       padding-left: 30px;
     }
 
-    .button-inscricao {
+    .button-inscription {
       margin-top: 50px;
     }
-  }
+  } */
 `
-export default Detalhes
+export default Details
