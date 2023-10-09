@@ -57,7 +57,7 @@ export function HomePage () {
   }
 
   return (
-    <Home background={mural}>
+    <Home $background={mural}>
       <NavBar />
       <main>
         {toggle &&
