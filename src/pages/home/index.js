@@ -80,20 +80,18 @@ export function HomePage () {
             >
               <ul>
                 {
-                  attributes.map((attribute) =>
+                  attributes.map((attribute, index) =>
                     attribute &&
-                    <li key={attribute.id}>
-                      <SwiperSlide className="swiperSliide " key={attribute.id} >
-                        <div className='slide-container'>
-                          <h2 className="slidetitulo"> {attribute.nome} </h2>
-                          <div className='event-container'>
-                            <p className="descricao"> {attribute.descricao}</p>
-                          </div>
-                          <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
-                          <img src={urlCms + attribute?.foto_divulgacao?.data?.attributes?.url} className="slideimage" />
+                    <SwiperSlide className="swiperSliide " key={ index }>
+                      <div className='slide-container'>
+                        <h2 className="slidetitulo"> {attribute.nome} </h2>
+                        <div className='event-container'>
+                          <p className="descricao"> {attribute.descricao}</p>
                         </div>
-                      </SwiperSlide>
-                    </li>
+                        <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
+                        <img src={urlCms + attribute?.foto_divulgacao?.data?.attributes?.url} className="slideimage" />
+                      </div>
+                    </SwiperSlide>
                   )
                 }
               </ul>
@@ -118,7 +116,7 @@ export function HomePage () {
           <h2 className='titulo-galeria'>Galeria de fotos</h2>
           <div className='container-painel'>
             <ul className='painel'>
-              {galeria.map((fotos) => (
+              {galeria.map((fotos, index) => (
                 <li key={fotos.id}>
                   <p>{fotos.name}</p>
                   <img src={fotos.url} />
