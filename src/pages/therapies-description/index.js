@@ -28,10 +28,10 @@ export const DetailsTherapies = () => {
   const { id } = useParams()
   useEffect(() => {
     cms
-      .get(`api/therapies/${id}/?populate=parceires&populate=foto_terapias`)
+      .get(`api/therapies/${id}/?populate=foto_terapias`)
       .then((response) => {
         const { data } = response.data
-        const photoTherapie = data.attributes.foto_oficina
+        const photoTherapie = data.attributes.foto_terapias 
         const images = photoTherapie.data.map((image) => {
           return {
             id: image.id,
@@ -150,17 +150,17 @@ export const DetailsTherapies = () => {
               <p className="descriptionCMS">
                 {therapies.attributes?.descricao}
               </p>
-              {therapies.attributes?.url_inscricao !== null && (
+              {therapies.attributes?.url_agendamento !== null && (
                 <a
                   className="button-inscription"
-                  href={therapies.attributes?.url_inscricao}
+                  href={therapies.attributes?.url_agendamento}
                   target="_blank"
                   rel="noreferrer"
                 >
                   Inscreva-se
                 </a>
               )}
-              {therapies.attributes?.url_inscricao == null && (
+              {therapies.attributes?.url_agendamento == null && (
                 <>
                   <div className="inscriptionIcon">
                     <FontAwesomeIcon icon={faPenToSquare} size="lg" />
