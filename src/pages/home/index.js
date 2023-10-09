@@ -82,8 +82,8 @@ export function HomePage () {
                 {
                   attributes.map((attribute) =>
                     attribute &&
-                    <li key={attribute.nome}>
-                      <SwiperSlide className="swiperSliide " key={attribute.nome} >
+                    <li key={attribute.id}>
+                      <SwiperSlide className="swiperSliide " key={attribute.id} >
                         <div className='slide-container'>
                           <h2 className="slidetitulo"> {attribute.nome} </h2>
                           <div className='event-container'>

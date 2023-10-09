@@ -140,7 +140,6 @@ const Home = styled.div`
         line-height: 64px;
         text-align: center;
         font-size: 3.125rem;
-        color: #516B84;
         cursor: default;
       }
 
