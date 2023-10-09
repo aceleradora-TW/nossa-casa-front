@@ -5,8 +5,9 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
+import VerMais from './styled'
 import { cms } from '../../service/client'
-import ModalTherapies from '../modal-terapias'
+import { Link } from 'react-router-dom'
 
 const TherapiesCarrossel = () => {
   const [attributes, setAttributes] = useState([])
@@ -15,13 +16,19 @@ const TherapiesCarrossel = () => {
   useEffect(() => {
     cms.get('api/therapies/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
-      const therapies = data.map((data) => {
-        return data.attributes
+      const terapias = data.map((data) => {
+        if (data) {
+          return {
+            id: data.id,
+            name: data.attributes.nome,
+            image_url: data.attributes.foto_divulgacao.data[0].attributes.url
+          }
+        }
       })
-      const therapiesSortedByName = therapies.sort((a, b) =>
-        a.nome < b.nome ? -1 : 1
+      const terapiasSortedByName = terapias.sort((a, b) =>
+        a.name < b.name ? -1 : 1
       )
-      setAttributes(therapiesSortedByName)
+      setAttributes(terapiasSortedByName)
     })
   }, [])
 
@@ -30,11 +37,16 @@ const TherapiesCarrossel = () => {
       <div className="carrossel">
         <h1>Terapias</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          accumsan accumsan elit vel ullamcorper. Vestibulum ante ipsum primis
-          in faucibus orci luctus et ultrices posuere cubilia curae; Nullam eget
-          ligula et libero volutpat tristique. Duis tincidunt dolor dolor, vel
-          pulvinar tellus mattis id.
+          Ao longo da história, espaços de autocuidado e bem-estar foram
+          associados às classes mais abastadas. Ainda hoje, a população negra,
+          LGBTs, mulheres e moradores de periferias têm acesso limitado a esses
+          locais, enfrentando rotinas maçantes e exclusão social. A Clínica
+          Social da Nossa Casa visa democratizar o acesso a serviços como
+          psicoterapia, massoterapia, yoga, reiki, entre outros. Com
+          profissionais oferecendo preços acessíveis, busca proporcionar saúde e
+          bem-estar para todes, promovendo qualidade de vida, autonomia e
+          dignidade. Conheça mais sobre os serviços oferecidos e entre em
+          contato.
         </p>
       </div>
 
@@ -62,24 +74,26 @@ const TherapiesCarrossel = () => {
         <section>
           <div className="swiper-slide">
             <ul>
-              {attributes.map((therapies, key) => (
+              {attributes.map((terapias, key) => (
                 <li key={key}>
                   <SwiperSlide>
                     <div>
                       <div>
-                        {therapies.foto_divulgacao?.data?.map((foto, key) => (
-                          <img
-                            key={key}
-                            className="img"
-                            src={urlCms + foto.attributes?.url}
-                          />
-                        ))}
+                        <img
+                          className="img"
+                          src={urlCms + terapias.image_url}
+                        />
                       </div>
                       <div>
-                        <p className="date">{therapies.data}</p>
-                        <h3 className="title">{therapies.nome}</h3>
+                        <p className="title">{terapias.name}</p>
                       </div>
-                      <ModalTherapies />
+                      <VerMais>
+                        <div className="styled-button">
+                          <Link className="escritaBotao" to={`${terapias.id}`}>
+                            Saiba Mais
+                          </Link>
+                        </div>
+                      </VerMais>
                     </div>
                   </SwiperSlide>
                 </li>
@@ -91,4 +105,5 @@ const TherapiesCarrossel = () => {
     </CssCarrosselGlobal>
   )
 }
+
 export default TherapiesCarrossel
