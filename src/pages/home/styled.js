@@ -7,6 +7,8 @@ const Home = styled.div`
 
   main {
     height: 100vh;
+    box-sizing: border-box;
+    
     .carrossel {
       background-color: #010101;
       color: #ffffff;
@@ -19,7 +21,9 @@ const Home = styled.div`
     }
 
     .hero-banner {
+    
       height: 560px;
+      
       width: 70%;
       margin: auto;
     }
@@ -35,6 +39,7 @@ const Home = styled.div`
       }
       .event-container {
         width: 60%;
+        height: 100%;
         height: 240px;
         margin-left: 50px
       }
