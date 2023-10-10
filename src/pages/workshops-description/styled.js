@@ -4,6 +4,14 @@ const Details = styled.div`
     margin: 0;
     padding: 0;
   }
+
+  .span-detais{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
  #containerDetails{
     background-color: red;
     /* display: flex; */
@@ -12,8 +20,8 @@ const Details = styled.div`
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    height: 40vh;
-    padding: 5% 130px;
+    height: 30vh;
+    width: 80vw;
   }
 
   #containerDetails li{
