@@ -81,15 +81,17 @@ export const DetailsWorkshops = () => {
             />
           </Link>
           <h1 className="title">{workshops.attributes?.nome}</h1>
-          <ul>
-            <li>
-              <p className="day">
+          <ul id='containerDetails'>
+            
+            <p className="day">
                 {daysWeek[indexWeek]} -{' '}
                 {new Date(workshops.attributes?.data_inicio).toLocaleDateString(
                   'pt-BR'
                 )}
               </p>
-              <div className="start-date">
+            
+            <li>
+            <div className="start-date">
                 <p className="start-date">
                   <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
                   <div className="spacingDate">

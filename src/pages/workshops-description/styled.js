@@ -4,7 +4,7 @@ const Details = styled.div`
     margin: 0;
     padding: 0;
   }
-  ul {
+ #containerDetails{
     background-color: red;
     /* display: flex; */
     display: grid;
@@ -12,14 +12,22 @@ const Details = styled.div`
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    height: 40vh;
+    padding: 5% 130px;
   }
+
+  #containerDetails li{
+    background-color: purple;
+    padding: 10px;
+  }
+
   .closeButton {
     padding-left: 110em;
   }
   .title {
     font-size: 50px;
-    padding-left: 60px;
-    padding-bottom: 40px;
+    /* padding-left: 60px;
+    padding-bottom: 40px; */
     font-weight: bold;
   }
 
@@ -78,7 +86,7 @@ const Details = styled.div`
   }
 
   .inscription {
-    margin-top: 4px;
+     margin-top: 4px; 
     font-weight: bold;
     margin-left: 10px;
   }
@@ -86,7 +94,7 @@ const Details = styled.div`
   .spacingMoney,
   .spacingType {
     margin-left: 30px;
-    margin-top: -14px;
+    margin-top: -14px; 
     font-weight: bold;
   }
 
@@ -98,21 +106,21 @@ const Details = styled.div`
   }
 
   .parce {
-    margin-left: 16px;
-    margin-top: -20px;
+    /* margin-left: 16px;
+    margin-top: -20px; */
     font-weight: bold;
   }
 
   .spacing-partners {
     display: inline-block;
     padding-left: 8px;
-    margin-right: 1.5em;
+    margin-right: 1.5em;  
   }
 
   .day {
-    padding-bottom: 30px;
+    /* padding-bottom: 30px;
     padding-left: 60px;
-    padding-top: 20px;
+    padding-top: 20px; */
     font-weight: 400;
     font-size: 23px;
     font-weight: bold;
