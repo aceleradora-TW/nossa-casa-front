@@ -81,15 +81,14 @@ export const DetailsWorkshops = () => {
             />
           </Link>
           <h1 className="title">{workshops.attributes?.nome}</h1>
-          <ul id='containerDetails'>
-            
+          <span className='span-detais'>
             <p className="day">
                 {daysWeek[indexWeek]} -{' '}
                 {new Date(workshops.attributes?.data_inicio).toLocaleDateString(
                   'pt-BR'
                 )}
               </p>
-            
+          <ul id='containerDetails'>
             <li>
             <div className="start-date">
                 <p className="start-date">
@@ -177,6 +176,8 @@ export const DetailsWorkshops = () => {
               )}
             </li>
           </ul>
+          </span>
+
           <p className="description">Descrição da oficina</p>
           <p className="descriptionCMS">{workshops.attributes?.descricao}</p>
           {workshops.attributes?.url_inscricao !== null && (
