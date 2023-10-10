@@ -4,11 +4,19 @@ const Details = styled.div`
     margin: 0;
     padding: 0;
   }
+  ul {
+    background-color: red;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
   .closeButton {
     padding-left: 110em;
   }
   .title {
-    font-weight: 900;
     font-size: 50px;
     padding-left: 60px;
     padding-bottom: 40px;
@@ -17,24 +25,24 @@ const Details = styled.div`
 
   .start-date,
   .data-fim {
-    font-weight: 500;
-    padding-left: 30px;
+    /* font-weight: 500;
+    padding-left: 30px; */
     font-size: 20px;
   }
 
-  .local{
-    font-weight: 500;
-    padding-left: 60px;
+  .local {
+    /* font-weight: 500;
+    padding-left: 60px; */
     font-size: 20px;
-    padding-top: 50px;
-    padding-bottom: 12px;
+    /* padding-top: 50px;
+    padding-bottom: 12px; */
   }
-  .partners{
-    font-weight: 500;
-    padding-left: 39px;
+  .partners {
+    /* font-weight: 500;
+    padding-left: 39px; */
     font-size: 20px;
-    padding-top: 60px;
-    padding-bottom: 12px;
+    /* padding-top: 60px;
+    padding-bottom: 12px; */
   }
 
   .description {
@@ -60,19 +68,19 @@ const Details = styled.div`
 
   .div-price,
   .workshopType {
-    margin-top: -2%;
-    padding-left: 70%;
+    /* margin-top: -2%;
+    padding-left: 70%; */
   }
 
-  .inscricaoIcon {
-    margin-top: -12em;
-    padding-left: 70%;
+  .inscriptionIcon {
+    width: 20vw;
+    display: flex;
   }
 
   .inscription {
-    margin-left: 85em;
     margin-top: 4px;
     font-weight: bold;
+    margin-left: 10px;
   }
 
   .spacingMoney,
