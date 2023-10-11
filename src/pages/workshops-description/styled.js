@@ -34,6 +34,7 @@ const Details = styled.div`
   }
   .title {
     font-size: 50px;
+    
     /* padding-left: 60px;
     padding-bottom: 40px; */
     font-weight: bold;

@@ -77,17 +77,11 @@ export const DetailsWorkshops = () => {
             <FontAwesomeIcon
               icon={faRectangleXmark}
               size="2xl"
-              style={{ color: '#ff4013' }}
+              style={{ color: 'black' }}
             />
           </Link>
           <h1 className="title">{workshops.attributes?.nome}</h1>
           <span className='span-detais'>
-            <p className="day">
-                {daysWeek[indexWeek]} -{' '}
-                {new Date(workshops.attributes?.data_inicio).toLocaleDateString(
-                  'pt-BR'
-                )}
-              </p>
           <ul id='containerDetails'>
             <li>
             <div className="start-date">
