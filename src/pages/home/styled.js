@@ -1,20 +1,22 @@
 import styled from 'styled-components'
 const Home = styled.div`
-
   background-color: white;
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
-  
+
   main {
-    height: 100vh;
     box-sizing: border-box;
-    
+
+    section {
+      margin-bottom: 32px;
+    }
+
     .carrossel {
       background-color: #010101;
       color: #ffffff;
       .swiper-button-next {
-        margin-right: 25px
+        margin-right: 25px;
       }
       .swiper-button-prev {
         margin-left: 25px;
@@ -22,9 +24,8 @@ const Home = styled.div`
     }
 
     .hero-banner {
-    
       height: 560px;
-      
+
       width: 70%;
       margin: auto;
     }
@@ -33,7 +34,6 @@ const Home = styled.div`
         display: flex;
         flex-direction: column;
         width: 100%;
-        
       }
       .slide-container {
         display: flex;
@@ -42,7 +42,7 @@ const Home = styled.div`
         width: 60%;
         height: 100%;
         height: 240px;
-        margin-left: 50px
+        margin-left: 50px;
       }
       .slidetitulo {
         margin: 20px auto 30px 50px;
@@ -50,7 +50,7 @@ const Home = styled.div`
         font-family: 'Inter', sans-serif;
         float: inline-start;
         z-index: 1;
-        align-items:center;
+        align-items: center;
       }
 
       .descricao {
@@ -61,7 +61,6 @@ const Home = styled.div`
         cursor: default;
         text-align: justify;
         z-index: 1;
-
       }
       img {
         width: 100%;
@@ -71,8 +70,8 @@ const Home = styled.div`
       }
 
       .ver-mais {
-        z-index:1;
-        background-color: #F5BC4A;
+        z-index: 1;
+        background-color: #f5bc4a;
         border: 1px solid;
         border-radius: 5px;
         width: 250px;
@@ -97,43 +96,49 @@ const Home = styled.div`
       align-items: center;
 
       .content {
+        padding: 2rem;
+        height: 500px;
+        width: 100%;
         border: 1px solid #000;
-        margin: 2rem;
-        padding: 4rem;
         display: flex;
-        gap: 2rem;
-        /* flex-wrap: wrap-reverse; */
-      }
+        justify-content: space-around;
 
-      .content > div {
-        border: 1px solid #000;
-        padding-top: 4rem;
-        width: 80%;
-        margin: 0 auto;
-        h2 {
-          font-size: 26px;
-          margin-bottom: 30px;
+        @media (max-width: 767px) {
+          flex-wrap: wrap;
+          height: 100%;
         }
-        align-items: center;
-      }
-      /*..content .text {
-    box-sizing: border-box;
-    text-align: justify;
-    width: 40%;
-    margin-bottom: auto;
-  }
-     ----        .content .foto */ 
-
-      .foto img {
-          width: 110%;
-          max-width: auto;
+        .text {
+          border: 1px solid #000;
+          box-sizing: border-box;
+          text-align: justify;
+          padding: 4rem 2rem;
+          height: 100%;
+          width: 100%;
+          max-width: 800px;
+          h2 {
+            font-size: 26px;
+            margin-bottom: 30px;
+          }
+          align-items: center;
+        }
+        .foto {
+          border: 1px solid #000;
+          height: 100%;
+          width: 100%;
+          max-width: 800px;
           margin-left: 3%;
           border-radius: 3px;
           margin-bottom: 4.6rem;
+          img {
+            height: 100%;
+            width: 100%;
+            max-width: 100%;
+          }
+        }
       }
 
       button {
-        background: #F5BC4A;
+        background: #f5bc4a;
         box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
         border-radius: 3px;
         color: #000000;
@@ -150,8 +155,9 @@ const Home = styled.div`
     }
 
     .galeria {
-      height: 1210px;
-      background-color: #FAFAFA;
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fafafa;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -163,7 +169,7 @@ const Home = styled.div`
         margin-left: 12.5%;
         font-size: 2.25rem;
         font-weight: 700;
-        color: #516B84;
+        color: #516b84;
         line-height: 64px;
         text-align: center;
         font-size: 3.125rem;
@@ -174,7 +180,6 @@ const Home = styled.div`
         width: 75%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 25px;
         grid-row-gap: 25px;
         overflow: hidden;
@@ -193,9 +198,9 @@ const Home = styled.div`
         justify-content: center;
       }
       button {
-        background: #516B84;
+        background: #516b84;
         border-radius: 3px;
-        color: #FAFAFA;
+        color: #fafafa;
         border: none;
         font-size: 0.75rem;
         width: 182px;
@@ -204,8 +209,7 @@ const Home = styled.div`
       }
     }
 
-
-  /* @media (max-width: 1280px) {
+    /* @media (max-width: 1280px) {
     .galeria{
       height: 950px;
     }
@@ -322,8 +326,8 @@ main .about {
       color: #54636F;
       cursor: default;
     } */
-  /* } */
-}
+    /* } */
+  }
 `
 
 export default Home
