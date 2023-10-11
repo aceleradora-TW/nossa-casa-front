@@ -71,8 +71,8 @@ export const DetailsWorkshops = () => {
 
   return (
     <>
-      <section>
         <Details>
+      <section className='description-section'>
           <Link className="closeButton" to={'/workshops'}>
             <FontAwesomeIcon
               icon={faRectangleXmark}
@@ -86,8 +86,8 @@ export const DetailsWorkshops = () => {
             <li>
             <div className="start-date">
                 <p className="start-date">
-                  <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
                   <div className="spacingDate">
+                  <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
                     {handleDate(new Date(workshops.attributes?.data_inicio))} •{' '}
                     {workshops.attributes?.horario_inicio} {'> '}
                     {handleDate(
@@ -117,8 +117,8 @@ export const DetailsWorkshops = () => {
             <li>
               <div className="div-local">
                 <p className="local">
-                  <FontAwesomeIcon icon={faLocationDot} size="lg" />
                   <div className="spacingLocal">
+                  <FontAwesomeIcon icon={faLocationDot} size="lg" />
                     Oficina presencial em {workshops.attributes?.local}
                   </div>
                 </p>
@@ -184,6 +184,7 @@ export const DetailsWorkshops = () => {
               Inscreva-se
             </a>
           )}
+      </section>
           <section className="page">
             <div className="style-img-swiper">
               <Swiper
@@ -225,7 +226,7 @@ export const DetailsWorkshops = () => {
             </div>
           </section>
         </Details>
-      </section>
+
     </>
   )
 }

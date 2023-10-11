@@ -1,42 +1,40 @@
 import styled from 'styled-components'
 const Details = styled.div`
+
+
   * {
     margin: 0;
     padding: 0;
   }
 
   .span-detais{
-    width: 100vw;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
   
  #containerDetails{
-    background-color: red;
-    /* display: flex; */
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 70% 30%;
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     height: 30vh;
-    width: 80vw;
   }
 
   #containerDetails li{
-    background-color: purple;
-    padding: 10px;
+    /* padding: 10px; */
   }
 
   .closeButton {
-    padding-left: 110em;
+    position: relative;
+    left: 100%;
   }
+
   .title {
     font-size: 50px;
     
-    /* padding-left: 60px;
-    padding-bottom: 40px; */
+     /* padding-left: 60px; */
+    padding-bottom: 70px; 
     font-weight: bold;
   }
 
@@ -61,17 +59,18 @@ const Details = styled.div`
     /* padding-top: 60px;
     padding-bottom: 12px; */
   }
+  .description-section{
+    margin: 0 10vw;
+  }
 
   .description {
     font-weight: 900;
     font-size: 30px;
-    padding-left: 60px;
     padding-top: 60px;
     padding-bottom: 20px;
   }
 
   .descriptionCMS {
-    padding-left: 60px;
     font-size: 17px;
     text-align: justify;
     width: 85%;
@@ -109,10 +108,16 @@ const Details = styled.div`
 
   .spacingDate,
   .spacingLocal {
-    margin-left: 25px;
-    margin-top: -20px;
     font-weight: bold;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    
+      svg {
+        padding-right: 10px;
+      }
   }
+
 
   .parce {
     /* margin-left: 16px;
@@ -135,6 +140,7 @@ const Details = styled.div`
     font-weight: bold;
   }
 
+
   .button-inscription {
     background: #f5bc4a;
     border-radius: 3px;
@@ -146,7 +152,7 @@ const Details = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 43%;
+    margin: auto;
     margin-top: 50px;
     font-weight: bold;
     text-decoration: none;
@@ -156,6 +162,8 @@ const Details = styled.div`
 
   .page {
     background-color: #e4e7eb;
+    width: 100vw;
+    margin-top: 5%;
   }
   .swiper-slide {
     background: #fff;
