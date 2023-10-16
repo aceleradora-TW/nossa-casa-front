@@ -12,10 +12,10 @@ import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import {
+  faBullhorn,
   faRectangleXmark,
   faUser,
   faPenToSquare,
-  faLock,
   faHandHoldingDollar,
   faCalendarDays,
   faLocationDot
@@ -44,7 +44,7 @@ export const EventsPageDescription = () => {
       setGaleria(images)
     })
   }, [])
-  const dateAsDateObject = new Date(event?.attributes?.data)
+  const dateAsDateObject = new Date(event?.attributes?.data_inicio)
   const indexWeek = dateAsDateObject.getDay()
   const daysWeek = [
     'Domingo',
@@ -60,7 +60,7 @@ export const EventsPageDescription = () => {
     <div className='full-container'>
       <EventsStyleDescription>
         <div className='container-button-exit'>
-          <Link className='close-button' to={'/events'} ><FontAwesomeIcon icon={faRectangleXmark} size="2xl" style={{ color: '#DC143C' }} /></Link>
+          <Link className='close-button' to={'/events'} ><FontAwesomeIcon icon={faRectangleXmark} size="2xl" style={{ color: 'black' }} /></Link>
         </div>
         <div className='title'>
           <h1>{event?.attributes?.nome}</h1>
@@ -69,17 +69,13 @@ export const EventsPageDescription = () => {
           <div className='text'>
             <ul>
               <li>
-                <p>
-                  {daysWeek[indexWeek]} - {' '}
-                  {new Date(event.attributes?.data).toLocaleDateString()}
-                </p>
-              </li>
-              <li>
                 <div className='style-icon'>
                   <FontAwesomeIcon icon={faCalendarDays} />{' '}
                 </div>
                 {event?.attributes?.horario_inicio} {'> '}
                 {event?.attributes?.horario_fim}
+                {daysWeek[indexWeek]} - {' '}
+                {new Date(event.attributes?.data_inicio).toLocaleDateString()}
               </li>
               <li>
                 <div className='style-icon'>
@@ -113,7 +109,7 @@ export const EventsPageDescription = () => {
               </li>
               <li>
                 <div className='style-icon'>
-                  <FontAwesomeIcon icon={faLock} />
+                  <FontAwesomeIcon icon={faBullhorn} />
                 </div>
                 {event?.attributes?.tipo}
               </li>

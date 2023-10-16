@@ -19,7 +19,7 @@ const Events = () => {
           return {
             id: data.id,
             name: data.attributes.nome,
-            date: new Date(data.attributes.data),
+            date: new Date(data.attributes.data_inicio),
             image_url: data.attributes.foto_divulgacao.data.attributes.url,
             time_start: data.attributes.horario_inicio,
             time_end: data.attributes.horario_fim,

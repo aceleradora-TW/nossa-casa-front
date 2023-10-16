@@ -31,19 +31,21 @@ li {
 }
 
 p {
-  margin-right: 1em;
+  margin-right: 0.1em;
 }
 
 .title {
   font-size: 2.188em;
   margin-left: 3em;
   margin-bottom: 2.5rem;
-}
 
-.title p {
+  p {
   font-size: 1.875em;
   padding-top: 1.875em;
 }
+}
+
+
 
 #no-registration {
   display: flex;
@@ -70,9 +72,9 @@ p {
 .button-enrollment {
   background: #f5bc4a;
   border-radius: 0.188em;
-  font-size: 0.880em;
-  width: 10%;
-  height: 2.5em;
+  font-size: 1em;
+  width: 20%;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
