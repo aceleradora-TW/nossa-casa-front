@@ -120,7 +120,7 @@ const Details = styled.div`
     border: none;
     font-size: 14px;
     width: 20%;
-    height: 10vh;
+    height: 60px;
     cursor: pointer;
     display: flex;
     justify-content: center;
