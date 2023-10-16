@@ -58,16 +58,6 @@ export const DetailsWorkshops = () => {
   }
 
   const dateAsDateObject = new Date(workshops?.attributes?.data_inicio)
-  const indexWeek = dateAsDateObject.getDay()
-  const daysWeek = [
-    'Domingo',
-    'Segunda-Feira',
-    'Terça-Feira',
-    'Quarta-Feira',
-    'Quinta-Feira',
-    'Sexta-Feira',
-    'Sábado',
-  ]
 
   return (
     <>
@@ -226,7 +216,6 @@ export const DetailsWorkshops = () => {
             </div>
           </section>
         </Details>
-
     </>
   )
 }

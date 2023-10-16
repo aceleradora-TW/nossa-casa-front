@@ -45,8 +45,9 @@ const CssCarrosselGlobal = styled.div`
     }
 @media (min-width: 600px) {
   .img {
-      width: 37vh;
       height: 35vh;
+      width: 35vh;
+      object-fit: cover;
     }
 }
 }
