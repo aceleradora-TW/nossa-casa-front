@@ -86,7 +86,8 @@ export const DetailsWorkshops = () => {
                     ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))} até 
                     ${days[dateAsDateObjectF.getDay()]} 
                     ${handleDate(
-                      new Date(workshops.attributes?.data_fim))}
+                      new Date(workshops.attributes?.data_fim))} 
+                      \n
                       ${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
                       `}</p>
                   </div>
