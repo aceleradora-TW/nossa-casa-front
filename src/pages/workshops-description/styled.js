@@ -92,6 +92,11 @@ const Details = styled.div`
     svg {
       padding-right: 10px;
     }
+
+    p {
+      background-color: red;
+      /* width: 30%; */
+    }
   }
 
   .parce {
@@ -115,8 +120,8 @@ const Details = styled.div`
     border-radius: 3px;
     border: none;
     font-size: 14px;
-    width: 10%;
-    height: 40px;
+    width: 20%;
+    height: 10vh;
     cursor: pointer;
     display: flex;
     justify-content: center;
