@@ -18,6 +18,13 @@ const TherapiesCarrossel = () => {
     cms.get('api/therapies/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
       const therapies = data.map((data) => {
+        if (data) {
+          return {
+            id: data.id,
+            name: data.attributes.nome,
+            image_url: data.attributes.foto_divulgacao.data[0].attributes.url,
+          }
+        }
         return data.attributes
       })
       const therapiesSortedByName = therapies.sort((a, b) =>
@@ -73,17 +80,14 @@ const TherapiesCarrossel = () => {
                 <li key={key}>
                   <SwiperSlide>
                     <div>
-                      <div>
-                        {therapies.foto_divulgacao?.data?.map((foto, key) => (
-                          <img
-                            key={key}
-                            className="img"
-                            src={urlCms + foto.attributes?.url}
-                          />
-                        ))}
+                    <div>
+                        <img
+                          className="img"
+                          src={urlCms + therapies.image_url}
+                        />
                       </div>
                       <div>
-                        <h1 className="title">{therapies.nome}</h1>
+                        <h1 className="title">{therapies.name}</h1>
                       </div>
                       <VerMais>
                         <div className="styled-button">

@@ -44,30 +44,6 @@ export const DetailsTherapies = () => {
       })
   }, [])
 
-  const handleDate = (date) => {
-    const day = date.toLocaleDateString(undefined, {
-      day: 'numeric',
-      Timezone: 'UTF',
-    })
-    const month = date.toLocaleDateString('pt-BR', { month: 'long' })
-    const year = date.toLocaleDateString(undefined, {
-      year: 'numeric',
-      Timezone: 'UTF',
-    })
-    return [day, month, year].join(' ')
-  }
-
-  const dateAsDateObject = new Date(therapies?.attributes?.data_inicio)
-  const indexWeek = dateAsDateObject.getDay()
-  const daysWeek = [
-    'Domingo',
-    'Segunda-Feira',
-    'Terça-Feira',
-    'Quarta-Feira',
-    'Quinta-Feira',
-    'Sexta-Feira',
-    'Sábado',
-  ]
 
   return (
     <>
