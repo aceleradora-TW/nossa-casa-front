@@ -79,19 +79,25 @@ export const DetailsWorkshops = () => {
           <ul id='containerDetails'>
             <li>
             <div className="start-date">
-                <p className="start-date">
-                  <div className="spacingDate">
-                  <FontAwesomeIcon icon={faCalendarDays} size="lg" />
-                  <p>{`
-                    ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))} até 
-                    ${days[dateAsDateObjectF.getDay()]} 
-                    ${handleDate(
-                      new Date(workshops.attributes?.data_fim))}`}
-                      <br/>
-                      {`${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
-                      `}</p>
-                  </div>
-                </p>
+              <div className="spacingDate">
+              <FontAwesomeIcon icon={faCalendarDays} size="lg" />
+                { workshops.attributes?.data_inicio === workshops.attributes?.data_fim
+                ?<p>
+                {`
+                ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))}
+                `}
+                <br/>
+                  {`${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
+                  `}</p>
+                :<p>{`
+                ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))} até 
+                ${days[dateAsDateObjectF.getDay()]} 
+                ${handleDate(
+                  new Date(workshops.attributes?.data_fim))}`}
+                  <br/>
+                  {`${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
+                  `}</p>}
+              </div>
               </div>
             </li>
             <li>
