@@ -87,16 +87,15 @@ const Details = styled.div`
     font-weight: bold;
     width: 70%;
     display: flex;
-    align-items: center;
+
+    p{
+      line-height: 1.2;
+    }
 
     svg {
       padding-right: 10px;
     }
 
-    p {
-      background-color: red;
-      /* width: 30%; */
-    }
   }
 
   .parce {
