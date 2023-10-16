@@ -6,6 +6,7 @@ const EventsStyleDescription = styled.div`
 }
 
 .container {
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -26,6 +27,9 @@ li {
   padding-top: 1.7em;
 }
 
+.parceires p{
+  margin-right: 1em;
+}
 .style-icon {
   margin-right: 1em;
 }
@@ -42,9 +46,9 @@ p {
   p {
   font-size: 1.875em;
   padding-top: 1.875em;
+  margin-right: 5em;
 }
 }
-
 
 
 #no-registration {
@@ -72,9 +76,9 @@ p {
 .button-enrollment {
   background: #f5bc4a;
   border-radius: 0.188em;
-  font-size: 1em;
+  font-size: 1.2em;
   width: 20%;
-  height: 10vh;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;

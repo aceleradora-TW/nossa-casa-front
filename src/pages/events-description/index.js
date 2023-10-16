@@ -44,17 +44,35 @@ export const EventsPageDescription = () => {
       setGaleria(images)
     })
   }, [])
-  const dateAsDateObject = new Date(event?.attributes?.data_inicio)
-  const indexWeek = dateAsDateObject.getDay()
-  const daysWeek = [
-    'Domingo',
-    'Segunda-Feira',
-    'Terça-Feira',
-    'Quarta-Feira',
-    'Quinta-Feira',
-    'Sexta-Feira',
-    'Sábado'
-  ]
+
+  const handleDate = (date) => {
+    const dateObject = new Date(date)
+    const day = dateObject.toLocaleDateString(undefined, {
+      day: 'numeric',
+      timeZone: 'UTC'
+    })
+    const month = dateObject.toLocaleDateString('pt-BR', { month: 'short' })
+    const year = dateObject.toLocaleDateString(undefined, {
+      year: '2-digit',
+      timeZone: 'UTC'
+    })
+    return [day, month, year].join(' ')
+  }
+
+  const week = (date) => {
+    const dateAsDateObject = new Date(date)
+    const indexWeek = dateAsDateObject.getDay()
+    const daysWeek = [
+      'Domingo',
+      'Segunda',
+      'Terça',
+      'Quarta',
+      'Quinta',
+      'Sexta',
+      'Sábado'
+    ]
+    return daysWeek[indexWeek]
+  }
 
   return (
     <div className='full-container'>
@@ -72,10 +90,17 @@ export const EventsPageDescription = () => {
                 <div className='style-icon'>
                   <FontAwesomeIcon icon={faCalendarDays} />{' '}
                 </div>
-                {event?.attributes?.horario_inicio} {'> '}
-                {event?.attributes?.horario_fim}
-                {daysWeek[indexWeek]} - {' '}
-                {new Date(event.attributes?.data_inicio).toLocaleDateString()}
+                {
+                  event.attributes?.data_inicio === event.attributes?.data_fim
+                    ? `${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`
+                    : (
+                      <p>
+                        {`${week(event.attributes?.data_inicio)}, ${handleDate(event.attributes?.data_inicio)} até ${week(event.attributes?.data_fim)}, ${handleDate(event.attributes?.data_fim)}`}
+                        <br />
+                        {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
+                      </p>
+                      )
+                }
               </li>
               <li>
                 <div className='style-icon'>
@@ -109,7 +134,10 @@ export const EventsPageDescription = () => {
               </li>
               <li>
                 <div className='style-icon'>
-                  <FontAwesomeIcon icon={faBullhorn} />
+                  <FontAwesomeIcon icon={faBullhorn}
+                    style={{ '--fa-primary-color': '#00000', '--fa-secondary-color': '#00000', '--fa-secondary-opacity': '1', transform: 'rotate(-30deg)' }}
+                    size="lg"
+                  />
                 </div>
                 {event?.attributes?.tipo}
               </li>

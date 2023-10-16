@@ -83,31 +83,3 @@ table {
   border-spacing: 0;
 }
 
-.exitModalEvents{
-  display: block;
-  width: 6rem;
-  margin-left: 90%;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  cursor: pointer;
-}
-.container-description{
-  margin-left: 10%;
-  margin-right: 10%;
-  padding-bottom: 3em;
-
-}
-.title-events{
-  padding-bottom:3em;
-  color: black;
-  font-weight:bolder;
-  font-size:1.5rem;
-}
-.button-styled {
-  background-color: #f5bc4a;
-  width: 146px;
-  height: 40px;
-  border: none;
-  margin-top: 1rem;
-  cursor: pointer;
-}
