@@ -10,6 +10,7 @@ import {
   faCalendarDays,
   faLocationDot,
   faRectangleXmark,
+  faBullhorn
 } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
@@ -49,15 +50,18 @@ export const DetailsWorkshops = () => {
       day: 'numeric',
       Timezone: 'UTF',
     })
-    const month = date.toLocaleDateString('pt-BR', { month: 'long' })
+    const month = date.toLocaleDateString('pt-BR', { month: 'short' })
     const year = date.toLocaleDateString(undefined, {
-      year: 'numeric',
+      year: '2-digit',
       Timezone: 'UTF',
     })
     return [day, month, year].join(' ')
   }
 
-  const dateAsDateObject = new Date(workshops?.attributes?.data_inicio)
+  const dateAsDateObjectI = new Date(workshops?.attributes?.data_inicio)
+  const dateAsDateObjectF = new Date(workshops?.attributes?.data_fim)
+  const days = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+
 
   return (
     <>
@@ -77,12 +81,14 @@ export const DetailsWorkshops = () => {
             <div className="start-date">
                 <p className="start-date">
                   <div className="spacingDate">
-                  <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
-                    {handleDate(new Date(workshops.attributes?.data_inicio))} •{' '}
-                    {workshops.attributes?.horario_inicio} {'> '}
-                    {handleDate(
-                      new Date(workshops.attributes?.data_fim)
-                    )} • {workshops.attributes?.horario_fim}
+                  <FontAwesomeIcon icon={faCalendarDays} size="lg" />
+                  <p>{`
+                    ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))} até 
+                    ${days[dateAsDateObjectF.getDay()]} 
+                    ${handleDate(
+                      new Date(workshops.attributes?.data_fim))}
+                      ${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
+                      `}</p>
                   </div>
                 </p>
               </div>
@@ -117,7 +123,10 @@ export const DetailsWorkshops = () => {
             <li>
               <div className="workshopType">
                 <p className="type">
-                  <FontAwesomeIcon icon={faLock} size="lg" />
+                  <FontAwesomeIcon icon={faBullhorn} 
+                  style={{'--fa-primary-color': '#000000', '--fa-secondary-color': '#000000', '--fa-secondary-opacity': '1', 'transform': 'rotate(-15deg)'}} 
+                  size="lg"
+                  />
                   <div className="spacingType">
                     {workshops.attributes?.tipo}
                   </div>
