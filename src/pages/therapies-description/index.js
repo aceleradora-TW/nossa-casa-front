@@ -9,7 +9,7 @@ import {
   faHandHoldingDollar,
   faCalendarDays,
   faLocationDot,
-  faRectangleXmark
+  faRectangleXmark,
 } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
@@ -28,15 +28,15 @@ export const DetailsTherapies = () => {
   const { id } = useParams()
   useEffect(() => {
     cms
-      .get(`api/therapies/${id}/?populate=foto_terapias`)
+      .get(`api/therapies/${id}/?populate=parceires&populate=foto_terapias`)
       .then((response) => {
         const { data } = response.data
-        const photoTherapie = data.attributes.foto_terapias 
+        const photoTherapie = data.attributes.foto_terapias
         const images = photoTherapie.data.map((image) => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: env.URL_CMS + image.attributes?.url
+            url: env.URL_CMS + image.attributes?.url,
           }
         })
         setGalleryPhoto(images)
@@ -44,15 +44,15 @@ export const DetailsTherapies = () => {
       })
   }, [])
 
-  /* const handleDate = (date) => {
+  const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, {
       day: 'numeric',
-      Timezone: 'UTF'
+      Timezone: 'UTF',
     })
     const month = date.toLocaleDateString('pt-BR', { month: 'long' })
     const year = date.toLocaleDateString(undefined, {
       year: 'numeric',
-      Timezone: 'UTF'
+      Timezone: 'UTF',
     })
     return [day, month, year].join(' ')
   }
@@ -66,34 +66,35 @@ export const DetailsTherapies = () => {
     'Quarta-Feira',
     'Quinta-Feira',
     'Sexta-Feira',
-    'Sábado'
-  ] */
+    'Sábado',
+  ]
+
   return (
     <>
-      <section>
         <Details>
-          <ul>
+      <section className='description-section'>
+          <Link className="closeButton" to={'/therapies'}>
+            <FontAwesomeIcon
+              icon={faRectangleXmark}
+              size="2xl"
+              style={{ color: 'black' }}
+            />
+          </Link>
+          <h1 className="title">{therapies.attributes?.nome}</h1>
+          <span className='span-detais'>
+          <ul id='containerDetails'>
             <li>
-              <Link className="closeButton" to={'/therapies'}>
-                <FontAwesomeIcon
-                  icon={faRectangleXmark}
-                  size="2xl"
-                  style={{ color: '#ff4013' }}
-                />
-              </Link>
-              <h1 className="title">{therapies.attributes?.nome}</h1>
-              <div className="start-date">
+            <div className="start-date">
                 <p className="start-date">
-                  <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
                   <div className="spacingDate">
+                  <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
                     {therapies.attributes?.horario_inicio} {'> '}
                     {therapies.attributes?.horario_fim}
                   </div>
-                  <div>
-                  {therapies.attributes?.dias_da_semana}
-                  </div>
                 </p>
               </div>
+            </li>
+            <li>
               <div className="div-price">
                 <p className="price">
                   <FontAwesomeIcon
@@ -101,7 +102,7 @@ export const DetailsTherapies = () => {
                     size="lg"
                     style={{
                       '--fa-secondary-color': '#ffffff',
-                      '--fa-primary-opacity': '1'
+                      '--fa-primary-opacity': '1',
                     }}
                   />
                   <div className="spacingMoney">
@@ -109,14 +110,18 @@ export const DetailsTherapies = () => {
                   </div>
                 </p>
               </div>
+            </li>
+            <li>
               <div className="div-local">
                 <p className="local">
-                  <FontAwesomeIcon icon={faLocationDot} size="lg" />
                   <div className="spacingLocal">
+                  <FontAwesomeIcon icon={faLocationDot} size="lg" />
                     Terapia presencial em {therapies.attributes?.local}
                   </div>
                 </p>
               </div>
+            </li>
+            <li>
               <div className="therapieType">
                 <p className="type">
                   <FontAwesomeIcon icon={faLock} size="lg" />
@@ -125,6 +130,8 @@ export const DetailsTherapies = () => {
                   </div>
                 </p>
               </div>
+            </li>
+            <li>
               <div className="partners">
                 <p className="partner">
                   <div className="parce">
@@ -146,36 +153,41 @@ export const DetailsTherapies = () => {
                   </div>
                 </p>
               </div>
-              <p className="description">Descrição da terapia</p>
-              <p className="descriptionCMS">
-                {therapies.attributes?.descricao}
-              </p>
-              {therapies.attributes?.url_agendamento !== null && (
-                <a
-                  className="button-inscription"
-                  href={therapies.attributes?.url_agendamento}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Inscreva-se
-                </a>
-              )}
-              {therapies.attributes?.url_agendamento == null && (
+            </li>
+            <li>
+              {therapies.attributes?.url_inscricao == null && (
                 <>
                   <div className="inscriptionIcon">
-                    <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                    <div>
+                      <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                    </div>
                     <h1 className="inscription"> Inscrição não é necessária</h1>
                   </div>
                 </>
               )}
             </li>
           </ul>
+          </span>
+
+          <p className="description">Descrição da terapia</p>
+          <p className="descriptionCMS">{therapies.attributes?.descricao}</p>
+          {therapies.attributes?.url_inscricao !== null && (
+            <a
+              className="button-inscription"
+              href={therapies.attributes?.url_inscricao}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Inscreva-se
+            </a>
+          )}
+      </section>
           <section className="page">
             <div className="style-img-swiper">
               <Swiper
                 style={{
                   '--swiper-navigation-color': '#516B84',
-                  '--swiper-pagination-color': ''
+                  '--swiper-pagination-color': '',
                 }}
                 loop={true}
                 spaceBetween={10}
@@ -211,7 +223,8 @@ export const DetailsTherapies = () => {
             </div>
           </section>
         </Details>
-      </section>
+
     </>
   )
 }
+

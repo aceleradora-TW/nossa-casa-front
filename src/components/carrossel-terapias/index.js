@@ -5,9 +5,10 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
-import VerMais from './styled'
 import { cms } from '../../service/client'
+import VerMais from './styled'
 import { Link } from 'react-router-dom'
+
 
 const TherapiesCarrossel = () => {
   const [attributes, setAttributes] = useState([])
@@ -16,19 +17,13 @@ const TherapiesCarrossel = () => {
   useEffect(() => {
     cms.get('api/therapies/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
-      const terapias = data.map((data) => {
-        if (data) {
-          return {
-            id: data.id,
-            name: data.attributes.nome,
-            image_url: data.attributes.foto_divulgacao.data[0].attributes.url
-          }
-        }
+      const therapies = data.map((data) => {
+        return data.attributes
       })
-      const terapiasSortedByName = terapias.sort((a, b) =>
-        a.name < b.name ? -1 : 1
+      const therapiesSortedByName = therapies.sort((a, b) =>
+        a.nome < b.nome ? -1 : 1
       )
-      setAttributes(terapiasSortedByName)
+      setAttributes(therapiesSortedByName)
     })
   }, [])
 
@@ -57,16 +52,16 @@ const TherapiesCarrossel = () => {
         breakpoints={{
           '@0.00': {
             slidesPerView: 1,
-            spaceBetween: 1
+            spaceBetween: 1,
           },
           '@0.75': {
             slidesPerView: 2,
-            spaceBetween: 2
+            spaceBetween: 2,
           },
           '@1.00': {
             slidesPerView: 3,
-            spaceBetween: 3
-          }
+            spaceBetween: 3,
+          },
         }}
         modules={[Navigation]}
         className="mySwiper"
@@ -74,22 +69,25 @@ const TherapiesCarrossel = () => {
         <section>
           <div className="swiper-slide">
             <ul>
-              {attributes.map((terapias, key) => (
+              {attributes.map((therapies, key) => (
                 <li key={key}>
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img
-                          className="img"
-                          src={urlCms + terapias.image_url}
-                        />
+                        {therapies.foto_divulgacao?.data?.map((foto, key) => (
+                          <img
+                            key={key}
+                            className="img"
+                            src={urlCms + foto.attributes?.url}
+                          />
+                        ))}
                       </div>
                       <div>
-                        <p className="title">{terapias.name}</p>
+                        <h1 className="title">{therapies.nome}</h1>
                       </div>
                       <VerMais>
                         <div className="styled-button">
-                          <Link className="escritaBotao" to={`${terapias.id}`}>
+                          <Link className="escritaBotao" to={`${therapies.id}`}>
                             Saiba Mais
                           </Link>
                         </div>
@@ -105,5 +103,4 @@ const TherapiesCarrossel = () => {
     </CssCarrosselGlobal>
   )
 }
-
 export default TherapiesCarrossel
