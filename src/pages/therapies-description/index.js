@@ -44,11 +44,26 @@ export const DetailsTherapies = () => {
       })
   }, [])
 
+  const handleDate = (date) => {
+    const day = date.toLocaleDateString(undefined, {
+      day: 'numeric',
+      Timezone: 'UTF',
+    })
+    const month = date.toLocaleDateString('pt-BR', { month: 'short' })
+    const year = date.toLocaleDateString(undefined, {
+      year: 'numeric',
+      Timezone: 'UTF',
+    })
+    return [day, month, year].join(' ')
+  }
+
+  const dateAsDateObject = new Date(therapies?.attributes?.data_inicio)
+  const indexWeek = dateAsDateObject.getDay()
 
   return (
     <>
-        <Details>
-      <section className='description-section'>
+      <Details>
+        <section className="description-section">
           <Link className="closeButton" to={'/therapies'}>
             <FontAwesomeIcon
               icon={faRectangleXmark}
@@ -57,92 +72,101 @@ export const DetailsTherapies = () => {
             />
           </Link>
           <h1 className="title">{therapies.attributes?.nome}</h1>
-          <span className='span-detais'>
-          <ul id='containerDetails'>
-            <li>
-            <div className="start-date">
-                <p className="start-date">
-                  <div className="spacingDate">
-                  <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
-                    {therapies.attributes?.horario_inicio} {'> '}
-                    {therapies.attributes?.horario_fim}
-                  </div>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="div-price">
-                <p className="price">
-                  <FontAwesomeIcon
-                    icon={faHandHoldingDollar}
-                    size="lg"
-                    style={{
-                      '--fa-secondary-color': '#ffffff',
-                      '--fa-primary-opacity': '1',
-                    }}
-                  />
-                  <div className="spacingMoney">
-                    {therapies.attributes?.preco}
-                  </div>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="div-local">
-                <p className="local">
-                  <div className="spacingLocal">
-                  <FontAwesomeIcon icon={faLocationDot} size="lg" />
-                    Terapia presencial em {therapies.attributes?.local}
-                  </div>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="therapieType">
-                <p className="type">
-                  <FontAwesomeIcon icon={faLock} size="lg" />
-                  <div className="spacingType">
-                    {therapies.attributes?.tipo}
-                  </div>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="partners">
-                <p className="partner">
-                  <div className="parce">
-                    {therapies.attributes?.parceires?.data.map(
-                      (parceire, index) => {
-                        if (parceire !== null || parceire !== undefined) {
-                          return (
-                            <>
-                              <FontAwesomeIcon icon={faUser} size="lg" />
-                              <p key={index} className="spacing-partners">
-                                {parceire.attributes?.nome}{' '}
-                              </p>
-                            </>
-                          )
-                        }
-                        return null
-                      }
-                    )}
-                  </div>
-                </p>
-              </div>
-            </li>
-            <li>
-              {therapies.attributes?.url_inscricao == null && (
-                <>
-                  <div className="inscriptionIcon">
-                    <div>
-                      <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+          <span className="span-detais">
+            <ul id="containerDetails">
+              <li>
+                <div className="start-date">
+                  <p className="start-date">
+                    <div className="spacingDate">
+                      <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
+                      <p>{`
+                     ${handleDate(
+                       new Date(therapies.attributes?.data_inicio)
+                     )} •
+                    ${therapies.attributes?.horario_inicio} >
+                    ${handleDate(new Date(therapies.attributes?.data_fim))} 
+                      • ${therapies.attributes?.horario_fim}
+                      `}</p>
                     </div>
-                    <h1 className="inscription"> Inscrição não é necessária</h1>
-                  </div>
-                </>
-              )}
-            </li>
-          </ul>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="div-price">
+                  <p className="price">
+                    <FontAwesomeIcon
+                      icon={faHandHoldingDollar}
+                      size="lg"
+                      style={{
+                        '--fa-secondary-color': '#ffffff',
+                        '--fa-primary-opacity': '1',
+                      }}
+                    />
+                    <div className="spacingMoney">
+                      {therapies.attributes?.preco}
+                    </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="div-local">
+                  <p className="local">
+                    <div className="spacingLocal">
+                      <FontAwesomeIcon icon={faLocationDot} size="lg" />
+                      Terapia presencial em {therapies.attributes?.local}
+                    </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="therapieType">
+                  <p className="type">
+                    <FontAwesomeIcon icon={faLock} size="lg" />
+                    <div className="spacingType">
+                      {therapies.attributes?.tipo}
+                    </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="partners">
+                  <p className="partner">
+                    <div className="parce">
+                      {therapies.attributes?.parceires?.data.map(
+                        (parceire, index) => {
+                          if (parceire !== null || parceire !== undefined) {
+                            return (
+                              <>
+                                <FontAwesomeIcon icon={faUser} size="lg" />
+                                <p key={index} className="spacing-partners">
+                                  {parceire.attributes?.nome}{' '}
+                                </p>
+                              </>
+                            )
+                          }
+                          return null
+                        }
+                      )}
+                    </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                {therapies.attributes?.url_inscricao == null && (
+                  <>
+                    <div className="inscriptionIcon">
+                      <div>
+                        <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                      </div>
+                      <h1 className="inscription">
+                        {' '}
+                        Inscrição não é necessária
+                      </h1>
+                    </div>
+                  </>
+                )}
+              </li>
+            </ul>
           </span>
 
           <p className="description">Descrição da terapia</p>
@@ -157,20 +181,37 @@ export const DetailsTherapies = () => {
               Inscreva-se
             </a>
           )}
-      </section>
-          <section className="page">
-            <div className="style-img-swiper">
+        </section>
+        <section className="page">
+          <div className="style-img-swiper">
+            <Swiper
+              style={{
+                '--swiper-navigation-color': '#516B84',
+                '--swiper-pagination-color': '',
+              }}
+              loop={true}
+              spaceBetween={10}
+              navigation={true}
+              thumbs={{ swiper: thumbsSwiper }}
+              modules={[FreeMode, Navigation, Thumbs]}
+              className="mySwiper2"
+            >
+              {galleryPhoto.map((image) => (
+                <SwiperSlide key={image.id}>
+                  <img src={image.url} alt={image.name} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="style-swiper-fotos">
               <Swiper
-                style={{
-                  '--swiper-navigation-color': '#516B84',
-                  '--swiper-pagination-color': '',
-                }}
+                onSwiper={setThumbsSwiper}
                 loop={true}
                 spaceBetween={10}
-                navigation={true}
-                thumbs={{ swiper: thumbsSwiper }}
+                slidesPerView={7}
+                freeMode={true}
+                watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2"
+                className="mySwiper"
               >
                 {galleryPhoto.map((image) => (
                   <SwiperSlide key={image.id}>
@@ -178,29 +219,10 @@ export const DetailsTherapies = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              <div className="style-swiper-fotos">
-                <Swiper
-                  onSwiper={setThumbsSwiper}
-                  loop={true}
-                  spaceBetween={10}
-                  slidesPerView={7}
-                  freeMode={true}
-                  watchSlidesProgress={true}
-                  modules={[FreeMode, Navigation, Thumbs]}
-                  className="mySwiper"
-                >
-                  {galleryPhoto.map((image) => (
-                    <SwiperSlide key={image.id}>
-                      <img src={image.url} alt={image.name} />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
             </div>
-          </section>
-        </Details>
-
+          </div>
+        </section>
+      </Details>
     </>
   )
 }
-
