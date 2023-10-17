@@ -159,10 +159,11 @@ export const DetailsWorkshops = () => {
                 }}
                 loop={true}
                 spaceBetween={10}
-                navigation={true}
-                thumbs={{ swiper: thumbsSwiper }}
+                slidesPerView={7}
+                freeMode={true}
+                watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2"
+                className="mySwiper"
               >
                 {galeria.map((image) => (
                   <SwiperSlide key={image.id}>
@@ -189,9 +190,9 @@ export const DetailsWorkshops = () => {
                 </Swiper>
               </div>
             </div>
-          </section>
-        </Detalhes>
-      </section>
+          </section >
+        </Detalhes >
+      </section >
     </>
   )
 }
