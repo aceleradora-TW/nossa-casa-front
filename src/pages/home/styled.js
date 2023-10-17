@@ -57,6 +57,7 @@ const Home = styled.div`
         z-index: 1;
 
       }
+
       img {
         width: 100%;
         height: 100%;
@@ -123,7 +124,7 @@ const Home = styled.div`
     }
 
     .galeria {
-      height: 1210px;
+      padding-top: 90px;
       background-color: #FAFAFA;
       display: flex;
       flex-direction: column;
@@ -133,7 +134,7 @@ const Home = styled.div`
 
       .titulo-galeria {
         align-self: flex-start;
-        margin-left: 12.5%;
+        margin-left: 8.3%;
         font-size: 2.25rem;
         font-weight: 700;
         color: #516B84;
@@ -145,26 +146,26 @@ const Home = styled.div`
       }
 
       .painel {
-        width: 75%;
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 25px;
-        grid-row-gap: 25px;
-        overflow: hidden;
+        grid-column-gap: 30px;
+        grid-row-gap: 23px;
 
         img {
           width: 100%;
           height: 100%;
-          max-width: auto;
-          margin-left: 3%;
+          max-height: 312px;
+          margin-left: 2%;
           border-radius: 3px;
-          margin-bottom: 3.5rem;
+          margin-bottom: 0.5rem;
         }
       }
       .container-painel {
         display: flex;
-        justify-content: center;
+        align-self: normal;
+        margin: 0 8.3%;
       }
       button {
         background: #516B84;
@@ -172,9 +173,11 @@ const Home = styled.div`
         color: #FAFAFA;
         border: none;
         font-size: 0.75rem;
-        width: 182px;
-        height: 40px;
+        width: 148px;
+        height: 56px;
         cursor: pointer;
+        margin-top: 15px;
+        margin-bottom: 104px;
       }
     }
 

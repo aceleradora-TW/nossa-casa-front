@@ -118,7 +118,7 @@ export function HomePage () {
           <h2 className='titulo-galeria'>Galeria de fotos</h2>
           <div className='container-painel'>
             <ul className='painel'>
-              {galeria.map((fotos) => (
+              {galeria.slice(0, 6).map((fotos) => (
                 <li key={fotos.id}>
                   <p>{fotos.name}</p>
                   <img src={fotos.url} />
