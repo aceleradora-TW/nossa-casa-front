@@ -84,11 +84,11 @@ const Home = styled.div`
 
     .about {
       background-color: #ffffff;
-      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
+      padding-top: 47px;
 
       .content {
         display: grid;
@@ -101,9 +101,11 @@ const Home = styled.div`
         margin: 0 auto;
         h2 {
           font-size: 26px;
-          margin-bottom: 30px;
+          margin-bottom: 15px;
+          margin-left: 23px;
         }
         align-items: center;
+        padding-left: 50px;
       }
 
       button {
@@ -120,6 +122,7 @@ const Home = styled.div`
         padding: 10px;
         margin-top: 1.6rem;
         margin-bottom: 1.6rem;
+        margin-left: 23px;
       }
     }
 
@@ -238,7 +241,6 @@ const Home = styled.div`
     justify-content: space-evenly;
     box-sizing: border-box;
     align-items: center;
-    height: 627px;
   }
 
 main .about {
@@ -269,6 +271,7 @@ main .about {
     margin-left: 3%;
     border-radius: 3px;
     margin-bottom: 4.6rem;
+    max-height: 448px;
   }
 
   @media screen and (min-width: 720px) and (max-width:2920px) {
