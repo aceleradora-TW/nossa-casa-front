@@ -136,12 +136,16 @@ const Details = styled.div`
     background-color: #e4e7eb;
     width: 100vw;
     margin-top: 5%;
-  }.swiper-slide {
+  }
+  .swiper-slide {
   background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #E4E7EB;
+  img{
+    
+  }
 }
 
 .swiper-slide img {
@@ -153,26 +157,26 @@ const Details = styled.div`
 
 .style-img-swiper {
   background-color: #E4E7EB;
-  margin-top: 3rem;
   padding-top: 5rem;
 }
 
 .style-img-swiper img {
-  width: 70rem;
+  width: 60rem;
   height: 40rem;
+  object-fit: fill;
 }
 
 .style-swiper-fotos img {
-  width: 9rem;
-  height: 9rem;
+  width: 8rem;
+  height: 7rem;
 }
 
 .second-carousel {
-  margin-right: 12%;
-  margin-left: 12%;
+  margin-right: 16.5%;
+  margin-left: 16.5%;
   height: 20%;
   box-sizing: border-box;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .first-carousel {
