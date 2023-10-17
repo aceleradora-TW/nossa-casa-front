@@ -102,16 +102,17 @@ const Home = styled.div`
         border: 1px solid #000;
         display: flex;
         justify-content: space-around;
-
+      }
         @media (max-width: 767px) {
           flex-wrap: wrap;
           height: 100%;
         }
+
         .text {
           border: 1px solid #000;
           box-sizing: border-box;
           text-align: justify;
-          padding: 4rem 2rem;
+          padding: 10% 10%;
           height: 100%;
           width: 100%;
           max-width: 800px;
@@ -327,7 +328,7 @@ main .about {
       cursor: default;
     } */
     /* } */
-  }
+  /* } */
 `
 
 export default Home
