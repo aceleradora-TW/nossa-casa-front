@@ -150,25 +150,27 @@ const Details = styled.div`
       padding-bottom: 30px;
     }
   }
-  .mySwiper {
-    height: 20%;
-    box-sizing: border-box;
-    padding: 10px 0;
+  .second-carousel {
+    margin-left: 5rem;
+  margin-right: 5rem;
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
   }
 
-  .mySwiper .swiper-slide {
+  .second-carousel .swiper-slide {
     width: 25%;
-    height: 100%;
-    opacity: 0.4;
+  height: 100%;
+  opacity: 0.4;
   }
 
-  .mySwiper .swiper-slide-thumb-active {
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    opacity: 3;
-    border: 5px solid #f5bc4a;
+  .second-carousel .swiper-slide-thumb-active {
+    *{
+    margin: 0;
+    padding: 0;
+  }
+  opacity: 3;
+  border: 5px solid #f5bc4a;
   }
 
   .swiper-slide img {
@@ -185,8 +187,10 @@ const Details = styled.div`
     }
     .style-swiper-fotos {
       img {
-        width: 10rem;
-        height: 10rem;
+        width: 9rem;
+        height: 9rem;
+        object-fit: cover;
+
       }
     }
   }
