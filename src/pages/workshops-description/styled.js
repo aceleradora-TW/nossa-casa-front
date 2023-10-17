@@ -136,63 +136,74 @@ const Details = styled.div`
     background-color: #e4e7eb;
     width: 100vw;
     margin-top: 5%;
-  }
-  .swiper-slide {
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e4e7eb;
-    img {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      padding-bottom: 30px;
-    }
-  }
-  .second-carousel {
-    margin-left: 5rem;
-  margin-right: 5rem;
+  }.swiper-slide {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E4E7EB;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 30em;
+  height: 30em;
+  object-fit: cover;
+}
+
+.style-img-swiper {
+  background-color: #E4E7EB;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 3rem;
+  padding-top: 5rem;
+}
+
+.style-img-swiper img {
+  width: 70rem;
+  height: 40rem;
+}
+
+.style-swiper-fotos img {
+  width: 9rem;
+  height: 9rem;
+}
+
+.second-carousel {
+  margin: 0 3rem;
   height: 20%;
   box-sizing: border-box;
   padding: 10px 0;
-  }
+}
 
-  .second-carousel .swiper-slide {
-    width: 25%;
+.first-carousel {
+  padding-top: 5%;
+}
+
+.second-carousel .swiper-slide {
+  width: 25%;
   height: 100%;
   opacity: 0.4;
-  }
+}
 
-  .second-carousel .swiper-slide-thumb-active {
-    *{
+.second-carousel .swiper-slide-thumb-active {
+  *{
     margin: 0;
     padding: 0;
   }
   opacity: 3;
   border: 5px solid #f5bc4a;
-  }
+}
 
-  .swiper-slide img {
-    display: block;
-    width: 30em;
-    height: 30em;
-    object-fit: cover;
-  }
-  .style-img-swiper {
-    padding-top: 5rem;
-    img {
-      width: 70rem;
-      height: 40rem;
-    }
-    .style-swiper-fotos {
-      img {
-        width: 9rem;
-        height: 9rem;
-        object-fit: cover;
-
-      }
-    }
-  }
+.container-button-exit{
+  margin-right: 2%;
+  display: flex;
+  justify-content: right;
+}
+  
+.close-button{
+  font-size: 1em;
+}
+  
 `
 export default Details
