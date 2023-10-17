@@ -9,8 +9,8 @@ export const TherapiesPage = () => {
     <>
       <NavBar />
       <TherapiesCarrossel />
-        <Parceires />
-        <Footer />
-        </>
+      <Parceires />
+      <Footer />
+    </>
   )
 }
