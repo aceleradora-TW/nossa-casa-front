@@ -220,7 +220,7 @@ export const DetailsWorkshops = () => {
                   freeMode={true}
                   watchSlidesProgress={true}
                   modules={[FreeMode, Navigation, Thumbs]}
-                  className="mySwiper"
+                  className="second-carousel"
                 >
                   {galleryPhoto.map((image) => (
                     <SwiperSlide key={image.id}>
