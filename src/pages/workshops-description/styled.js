@@ -170,10 +170,11 @@ const Details = styled.div`
 }
 
 .second-carousel {
-  margin: 0 3rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
   height: 20%;
   box-sizing: border-box;
-  padding: 10px 0;
+  padding-top: 2rem;
 }
 
 .first-carousel {
