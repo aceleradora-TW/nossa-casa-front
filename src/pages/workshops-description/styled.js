@@ -153,8 +153,6 @@ const Details = styled.div`
 
 .style-img-swiper {
   background-color: #E4E7EB;
-  margin-left: 5%;
-  margin-right: 5%;
   margin-top: 3rem;
   padding-top: 5rem;
 }
@@ -170,8 +168,8 @@ const Details = styled.div`
 }
 
 .second-carousel {
-  margin-right: 5rem;
-  margin-left: 5rem;
+  margin-right: 12%;
+  margin-left: 12%;
   height: 20%;
   box-sizing: border-box;
   padding-top: 2rem;
