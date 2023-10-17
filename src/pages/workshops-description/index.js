@@ -5,7 +5,6 @@ import { cms } from '../../service/client'
 import {
   faUser,
   faPenToSquare,
-  faLock,
   faHandHoldingDollar,
   faCalendarDays,
   faLocationDot,
@@ -37,7 +36,7 @@ export const DetailsWorkshops = () => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: env.URL_CMS + image.attributes?.url,
+            url: env.URL_CMS + image.attributes?.url
           }
         })
         setGalleryPhoto(images)
@@ -48,25 +47,24 @@ export const DetailsWorkshops = () => {
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, {
       day: 'numeric',
-      Timezone: 'UTF',
+      Timezone: 'UTF'
     })
     const month = date.toLocaleDateString('pt-BR', { month: 'short' })
     const year = date.toLocaleDateString(undefined, {
       year: '2-digit',
-      Timezone: 'UTF',
+      Timezone: 'UTF'
     })
     return [day, month, year].join(' ')
   }
 
   const dateAsDateObjectI = new Date(workshops?.attributes?.data_inicio)
   const dateAsDateObjectF = new Date(workshops?.attributes?.data_fim)
-  const days = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
-
+  const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
 
   return (
     <>
-        <Details>
-      <section className='description-section'>
+      <Details>
+        <section className='description-section'>
           <Link className="closeButton" to={'/workshops'}>
             <FontAwesomeIcon
               icon={faRectangleXmark}
@@ -76,106 +74,106 @@ export const DetailsWorkshops = () => {
           </Link>
           <h1 className="title">{workshops.attributes?.nome}</h1>
           <span className='span-detais'>
-          <ul id='containerDetails'>
-            <li>
-            <div className="start-date">
-              <div className="spacingDate">
-              <FontAwesomeIcon icon={faCalendarDays} size="lg" />
-                { workshops.attributes?.data_inicio === workshops.attributes?.data_fim
-                ?<p>
-                {`
+            <ul id='containerDetails'>
+              <li>
+                <div className="start-date">
+                  <div className="spacingDate">
+                    <FontAwesomeIcon icon={faCalendarDays} size="lg" />
+                    {workshops.attributes?.data_inicio === workshops.attributes?.data_fim
+                      ? <p>
+                        {`
                 ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))}
                 `}
-                <br/>
-                  {`${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
+                        <br />
+                        {`${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
                   `}</p>
-                :<p>{`
+                      : <p>{`
                 ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))} até 
                 ${days[dateAsDateObjectF.getDay()]} 
                 ${handleDate(
-                  new Date(workshops.attributes?.data_fim))}`}
-                  <br/>
-                  {`${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
+                        new Date(workshops.attributes?.data_fim))}`}
+                        <br />
+                        {`${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
                   `}</p>}
-              </div>
-              </div>
-            </li>
-            <li>
-              <div className="div-price">
-                <p className="price">
-                  <FontAwesomeIcon
-                    icon={faHandHoldingDollar}
-                    size="lg"
-                    style={{
-                      '--fa-secondary-color': '#ffffff',
-                      '--fa-primary-opacity': '1',
-                    }}
-                  />
-                  <div className="spacingMoney">
-                    {workshops.attributes?.preco}
                   </div>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="div-local">
-                <p className="local">
-                  <div className="spacingLocal">
-                  <FontAwesomeIcon icon={faLocationDot} size="lg" />
-                    Oficina presencial em {workshops.attributes?.local}
-                  </div>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="workshopType">
-                <p className="type">
-                  <FontAwesomeIcon icon={faBullhorn} 
-                  style={{'--fa-primary-color': '#000000', '--fa-secondary-color': '#000000', '--fa-secondary-opacity': '1', 'transform': 'rotate(-15deg)'}} 
-                  size="lg"
-                  />
-                  <div className="spacingType">
-                    {workshops.attributes?.tipo}
-                  </div>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="partners">
-                <p className="partner">
-                  <div className="parce">
-                    {workshops.attributes?.parceires?.data.map(
-                      (parceire, index) => {
-                        if (parceire !== null || parceire !== undefined) {
-                          return (
-                            <>
-                              <FontAwesomeIcon icon={faUser} size="lg" />
-                              <p key={index} className="spacing-partners">
-                                {parceire.attributes?.nome}{' '}
-                              </p>
-                            </>
-                          )
-                        }
-                        return null
-                      }
-                    )}
-                  </div>
-                </p>
-              </div>
-            </li>
-            <li>
-              {workshops.attributes?.url_inscricao == null && (
-                <>
-                  <div className="inscriptionIcon">
-                    <div>
-                      <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                </div>
+              </li>
+              <li>
+                <div className="div-price">
+                  <p className="price">
+                    <FontAwesomeIcon
+                      icon={faHandHoldingDollar}
+                      size="lg"
+                      style={{
+                        '--fa-secondary-color': '#ffffff',
+                        '--fa-primary-opacity': '1'
+                      }}
+                    />
+                    <div className="spacingMoney">
+                      {workshops.attributes?.preco}
                     </div>
-                    <h1 className="inscription"> Inscrição não é necessária</h1>
-                  </div>
-                </>
-              )}
-            </li>
-          </ul>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="div-local">
+                  <p className="local">
+                    <div className="spacingLocal">
+                      <FontAwesomeIcon icon={faLocationDot} size="lg" />
+                      Oficina presencial em {workshops.attributes?.local}
+                    </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="workshopType">
+                  <p className="type">
+                    <FontAwesomeIcon icon={faBullhorn}
+                      style={{ '--fa-primary-color': '#000000', '--fa-secondary-color': '#000000', '--fa-secondary-opacity': '1', transform: 'rotate(-15deg)' }}
+                      size="lg"
+                    />
+                    <div className="spacingType">
+                      {workshops.attributes?.tipo}
+                    </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="partners">
+                  <p className="partner">
+                    <div className="parce">
+                      {workshops.attributes?.parceires?.data.map(
+                        (parceire, index) => {
+                          if (parceire !== null || parceire !== undefined) {
+                            return (
+                              <>
+                                <FontAwesomeIcon icon={faUser} size="lg" />
+                                <p key={index} className="spacing-partners">
+                                  {parceire.attributes?.nome}{' '}
+                                </p>
+                              </>
+                            )
+                          }
+                          return null
+                        }
+                      )}
+                    </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                {workshops.attributes?.url_inscricao == null && (
+                  <>
+                    <div className="inscriptionIcon">
+                      <div>
+                        <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                      </div>
+                      <h1 className="inscription"> Inscrição não é necessária</h1>
+                    </div>
+                  </>
+                )}
+              </li>
+            </ul>
           </span>
 
           <p className="description">Descrição da oficina</p>
@@ -190,20 +188,37 @@ export const DetailsWorkshops = () => {
               Inscreva-se
             </a>
           )}
-      </section>
-          <section className="page">
-            <div className="style-img-swiper">
+        </section>
+        <section className="page">
+          <div className="style-img-swiper">
+            <Swiper
+              style={{
+                '--swiper-navigation-color': '#516B84',
+                '--swiper-pagination-color': ''
+              }}
+              loop={true}
+              spaceBetween={10}
+              navigation={true}
+              thumbs={{ swiper: thumbsSwiper }}
+              modules={[FreeMode, Navigation, Thumbs]}
+              className="mySwiper2"
+            >
+              {galleryPhoto.map((image) => (
+                <SwiperSlide key={image.id}>
+                  <img src={image.url} alt={image.name} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="style-swiper-fotos">
               <Swiper
-                style={{
-                  '--swiper-navigation-color': '#516B84',
-                  '--swiper-pagination-color': '',
-                }}
+                onSwiper={setThumbsSwiper}
                 loop={true}
                 spaceBetween={10}
-                navigation={true}
-                thumbs={{ swiper: thumbsSwiper }}
+                slidesPerView={7}
+                freeMode={true}
+                watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2"
+                className="second-carousel"
               >
                 {galleryPhoto.map((image) => (
                   <SwiperSlide key={image.id}>
@@ -211,27 +226,10 @@ export const DetailsWorkshops = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              <div className="style-swiper-fotos">
-                <Swiper
-                  onSwiper={setThumbsSwiper}
-                  loop={true}
-                  spaceBetween={10}
-                  slidesPerView={7}
-                  freeMode={true}
-                  watchSlidesProgress={true}
-                  modules={[FreeMode, Navigation, Thumbs]}
-                  className="second-carousel"
-                >
-                  {galleryPhoto.map((image) => (
-                    <SwiperSlide key={image.id}>
-                      <img src={image.url} alt={image.name} />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
             </div>
-          </section>
-        </Details>
+          </div>
+        </section>
+      </Details>
     </>
   )
 }
