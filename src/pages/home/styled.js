@@ -95,7 +95,7 @@ const Home = styled.div`
       align-items: center;
 
       .content {
-        padding: 2rem;
+        padding: 5vh;
         height: 500px;
         width: 100%;
         display: flex;
