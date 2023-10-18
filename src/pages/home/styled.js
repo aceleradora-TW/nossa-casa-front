@@ -87,7 +87,6 @@ const Home = styled.div`
     }
 
     .about {
-      border: 1px solid #000;
       background-color: #ffffff;
       height: 100%;
       display: flex;
@@ -99,7 +98,6 @@ const Home = styled.div`
         padding: 2rem;
         height: 500px;
         width: 100%;
-        border: 1px solid #000;
         display: flex;
         justify-content: space-around;
       }
@@ -109,10 +107,9 @@ const Home = styled.div`
         }
 
         .text {
-          border: 1px solid #000;
           box-sizing: border-box;
           text-align: justify;
-          padding: 10% 10%;
+          padding: 2% 2% ;
           height: 100%;
           width: 100%;
           max-width: 800px;
@@ -123,7 +120,6 @@ const Home = styled.div`
           align-items: center;
         }
         .foto {
-          border: 1px solid #000;
           height: 100%;
           width: 100%;
           max-width: 800px;
@@ -209,126 +205,6 @@ const Home = styled.div`
         cursor: pointer;
       }
     }
-
-    /* @media (max-width: 1280px) {
-    .galeria{
-      height: 950px;
-    }
-    }
-
-    .parceires {
-      background-color: aliceblue;
-      height: 697px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      h2 {
-        font-size: 2.5rem;
-        margin-top: 30px;
-        margin-bottom: 10px;
-        cursor: default;
-      }
-
-      p {
-        margin-bottom: 40px;
-        cursor: default;
-      }
-
-      .carrossel-perfis {
-        height: 60%;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        cursor: default;
-
-        .perfil {
-          background-color: cadetblue;
-          width: 30%;
-
-          h3 {
-            text-align: center;
-            cursor: default;
-          }
-
-          p {
-            text-align: center;
-            cursor: default;
-          }
-        }
-      }
-    }
-    
-    .about {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    box-sizing: border-box;
-    align-items: center;
-    height: 627px;
-  }
-
-main .about {
-  height: auto;
-  padding: 10px;
-}
-
-  main .about .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    flex-direction: row;
-    margin-top: 5rem;
-    margin-bottom: 4rem;
-  }
-
-  .content .text {
-    box-sizing: border-box;
-    text-align: justify;
-    width: 40%;
-    margin-bottom: auto;
-  }
-
-  .foto img {
-    width: 110%;
-    max-width: auto;
-    margin-left: 3%;
-    border-radius: 3px;
-    margin-bottom: 4.6rem;
-  }
-
-  @media screen and (min-width: 720px) and (max-width:2920px) {
-    .content > div {
-      width: auto;
-      max-width: auto;
-    }
-
-    .content h2 {
-      font-size: 2.25rem;
-      margin-bottom: 30px;
-    }
-
-    .content .Textparagraph {
-      font-size: 1.4rem;
-      font-weight: 500;
-      line-height: 35px;
-    }
-
-    .content .text h2 {
-      font-size: 2rem;
-      color: #516B84;
-      cursor: default;
-    }
-
-    .content .text .Textparagraph {
-      font-size: 25px;
-      color: #54636F;
-      cursor: default;
-    } */
-    /* } */
-  /* } */
 `
 
 export default Home
