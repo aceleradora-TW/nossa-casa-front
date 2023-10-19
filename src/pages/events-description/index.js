@@ -92,7 +92,13 @@ export const EventsPageDescription = () => {
                 </div>
                 {
                   event.attributes?.data_inicio === event.attributes?.data_fim
-                    ? `${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`
+                    ? (
+                      <p>
+                        {`${week(event.attributes?.data_inicio)}, ${handleDate(event.attributes?.data_inicio)}`}
+                        <br />
+                        {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
+                      </p>
+                      )
                     : (
                       <p>
                         {`${week(event.attributes?.data_inicio)}, ${handleDate(event.attributes?.data_inicio)} até ${week(event.attributes?.data_fim)}, ${handleDate(event.attributes?.data_fim)}`}
