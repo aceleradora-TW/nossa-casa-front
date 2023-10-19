@@ -15,7 +15,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-export function HomePage () {
+export function HomePage() {
   const [attributes, setAttributes] = useState([])
   const [galeria, setGaleria] = useState([])
   const [toggle, setToggle] = useState(false)
@@ -27,7 +27,10 @@ export function HomePage () {
       const event = data.map((data) => {
         if (data.attributes.destaque) {
           setToggle(!toggle)
-          return data.attributes
+          return {
+            id: data?.id,
+            data: data?.attributes
+          }
         }
         return false
       })
@@ -55,7 +58,7 @@ export function HomePage () {
     },
     width: '100%'
   }
-
+  console.log(attributes)
   return (
     <Home $background={mural}>
       <NavBar />
@@ -80,16 +83,16 @@ export function HomePage () {
             >
               <ul>
                 {
-                  attributes.map((attribute, index) =>
+                  attributes.map((attribute) =>
                     attribute &&
-                    <SwiperSlide className="swiperSliide " key={ index }>
+                    <SwiperSlide className="swiperSliide " key={attribute?.id}>
                       <div className='slide-container'>
-                        <h2 className="slidetitulo"> {attribute.nome} </h2>
+                        <h2 className="slidetitulo"> {attribute.data?.nome} </h2>
                         <div className='event-container'>
-                          <p className="descricao"> {attribute.descricao}</p>
+                          <p className="descricao"> {attribute.data?.descricao}</p>
                         </div>
                         <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
-                        <img src={urlCms + attribute?.foto_divulgacao?.data?.attributes?.url} className="slideimage" />
+                        <img src={urlCms + attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slideimage" />
                       </div>
                     </SwiperSlide>
                   )
@@ -116,7 +119,7 @@ export function HomePage () {
           <h2 className='titulo-galeria'>Galeria de fotos</h2>
           <div className='container-painel'>
             <ul className='painel'>
-              {galeria.map((fotos, index) => (
+              {galeria.map((fotos) => (
                 <li key={fotos.id}>
                   <p>{fotos.name}</p>
                   <img src={fotos.url} />
