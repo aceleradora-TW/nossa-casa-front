@@ -298,7 +298,7 @@ main .about {
     }
 
     .content .text .Textparagraph {
-      font-size: 25px;
+      font-size: 21px;
       color: #54636F;
       cursor: default;
     }
