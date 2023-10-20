@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 const CssCarrosselGlobal = styled.div`
-*{
-  margin: 0;
-  padding: 0;
-}
-.title{
-  font-weight: bold;
-}
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .title {
+    font-weight: bold;
+  }
   .carrossel {
     background-color: #fafafa;
     height: 300px;
@@ -43,12 +43,12 @@ const CssCarrosselGlobal = styled.div`
       padding-top: 5px;
       cursor: default;
     }
-@media (min-width: 600px) {
-  .img {
-      height: 35vh;
-      width: 35vh;
-      object-fit: cover;
+    @media (min-width: 600px) {
+      .img {
+        height: 35vh;
+        width: 35vh;
+        object-fit: cover;
+      }
     }
-}
-}
+  }
 `

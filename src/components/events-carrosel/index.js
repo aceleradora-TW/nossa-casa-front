@@ -61,21 +61,21 @@ const Events = () => {
         <section>
           <div className="swiper-slide">
             <ul>
-              {attributesEvents.map((events, key) => (
+              {attributesEvents.map((event, key) => (
                 <li key={key}>
                   <SwiperSlide>
                     <div>
                       <div>
                         <img
-                          className="img-foto"
-                          src={urlCms + events.imagem_url}
+                          className="event-image"
+                          src={urlCms + event.imagem_url}
                         />
                       </div>
                       <div>
                         <p className="date">
-                          {events.date.toLocaleDateString('pt-BR')}
+                          {event.date.toLocaleDateString('pt-BR')}
                         </p>
-                        <h3 className="title">{events.nome}</h3>
+                        <h3 className="title">{event.nome}</h3>
                       </div>
                     </div>
                   </SwiperSlide>

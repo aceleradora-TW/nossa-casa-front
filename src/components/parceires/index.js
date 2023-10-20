@@ -71,7 +71,7 @@ const Parceires = () => {
                         {partners.descricao}
                       </p>
                     </div>
-                    <div className='icones-rede-sociais'>
+                    <div className='social-media-links'>
                       <a href={partners.whatsapp}><img src={Whatsapp} /></a>
                       <a href={partners.twitter}><img src={Twitter} /></a>
                       <a href={partners.facebook}><img src={Facebook} /></a>

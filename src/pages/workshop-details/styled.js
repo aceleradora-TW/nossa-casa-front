@@ -10,7 +10,7 @@ const Details = styled.div`
     flex-direction: column;
   }
 
-  #containerDetails {
+  #container-details {
     display: grid;
     grid-template-columns: 70% 30%;
     grid-template-rows: repeat(3, 1fr);
@@ -19,7 +19,7 @@ const Details = styled.div`
     height: 30vh;
   }
 
-  .closeButton {
+  .close-button {
     position: relative;
     left: 100%;
   }
@@ -138,75 +138,73 @@ const Details = styled.div`
     margin-top: 5%;
   }
   .swiper-slide {
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #E4E7EB;
-  img{
-    
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e4e7eb;
+    img {
+    }
   }
-}
 
-.swiper-slide img {
-  display: block;
-  width: 30em;
-  height: 30em;
-  object-fit: cover;
-}
-
-.style-img-swiper {
-  background-color: #E4E7EB;
-  padding-top: 5rem;
-}
-
-.style-img-swiper img {
-  width: 60rem;
-  height: 40rem;
-  object-fit: fill;
-}
-
-.style-swiper-fotos img {
-  width: 8rem;
-  height: 7rem;
-}
-
-.second-carousel {
-  margin-right: 16.5%;
-  margin-left: 16.5%;
-  height: 20%;
-  box-sizing: border-box;
-  padding-top: 1rem;
-}
-
-.first-carousel {
-  padding-top: 5%;
-}
-
-.second-carousel .swiper-slide {
-  width: 25%;
-  height: 100%;
-  opacity: 0.4;
-}
-
-.second-carousel .swiper-slide-thumb-active {
-  *{
-    margin: 0;
-    padding: 0;
+  .swiper-slide img {
+    display: block;
+    width: 30em;
+    height: 30em;
+    object-fit: cover;
   }
-  opacity: 3;
-  border: 5px solid #f5bc4a;
-}
 
-.container-button-exit{
-  margin-right: 2%;
-  display: flex;
-  justify-content: right;
-}
-  
-.close-button{
-  font-size: 1em;
-}
-  
+  .style-img-swiper {
+    background-color: #e4e7eb;
+    padding-top: 5rem;
+  }
+
+  .style-img-swiper img {
+    width: 60rem;
+    height: 40rem;
+    object-fit: fill;
+  }
+
+  .style-swiper-fotos img {
+    width: 8rem;
+    height: 7rem;
+  }
+
+  .second-carousel {
+    margin-right: 16.5%;
+    margin-left: 16.5%;
+    height: 20%;
+    box-sizing: border-box;
+    padding-top: 1rem;
+  }
+
+  .first-carousel {
+    padding-top: 5%;
+  }
+
+  .second-carousel .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+  }
+
+  .second-carousel .swiper-slide-thumb-active {
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    opacity: 3;
+    border: 5px solid #f5bc4a;
+  }
+
+  .container-button-exit {
+    margin-right: 2%;
+    display: flex;
+    justify-content: right;
+  }
+
+  .close-button {
+    font-size: 1em;
+  }
 `
 export default Details

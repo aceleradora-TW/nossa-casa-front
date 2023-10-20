@@ -43,7 +43,7 @@ const ParceireComponents = styled.section`
     text-align: center;
   }
 
-  .icones-rede-sociais {
+  .social-media-links {
     display: flex;
     justify-content: center;
     border-radius: none;
@@ -64,12 +64,12 @@ const ParceireComponents = styled.section`
     align-items: center;
     margin: auto;
 
-    p{
-    width: 100%;
-    text-align: center;
-    height: 100%;
-    overflow: auto;
-    box-sizing: border-box;
+    p {
+      width: 100%;
+      text-align: center;
+      height: 100%;
+      overflow: auto;
+      box-sizing: border-box;
     }
   }
 
