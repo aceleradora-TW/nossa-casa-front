@@ -21,7 +21,7 @@ const WorkshopsCarrossel = () => {
           return {
             id: data.id,
             name: data.attributes.nome,
-            image_url: data.attributes.foto_divulgacao.data[0].attributes.url,
+            imageUrl: data.attributes.foto_divulgacao.data[0].attributes.url,
           }
         }
       })
@@ -75,7 +75,7 @@ const WorkshopsCarrossel = () => {
                       <div>
                         <img
                           className="img"
-                          src={urlCms + workshops.image_url}
+                          src={urlCms + workshops.imageUrl}
                         />
                       </div>
                       <div>
@@ -83,7 +83,7 @@ const WorkshopsCarrossel = () => {
                       </div>
                       <VerMais>
                         <div className="styled-button">
-                          <Link className="escritaBotao" to={`${workshops.id}`}>
+                          <Link className="escrita-botao" to={`${workshops.id}`}>
                             Saiba Mais
                           </Link>
                         </div>

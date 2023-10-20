@@ -11,7 +11,7 @@ const VerMais = styled.div`
     border: none;
     margin-top: 1rem;
   }
-  .escritaBotao {
+  .escrita-botao {
     color: black;
     font-weight: bold;
     text-decoration: none;

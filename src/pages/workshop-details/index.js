@@ -21,7 +21,7 @@ import 'swiper/css/thumbs'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 
-export const DetailsWorkshops = () => {
+export const WorkshopDetails = () => {
   const [workshops, setWorkshops] = useState([])
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [galleryPhoto, setGalleryPhoto] = useState([])
@@ -65,7 +65,7 @@ export const DetailsWorkshops = () => {
     <>
       <Details>
         <section className='description-section'>
-          <Link className="closeButton" to={'/workshops'}>
+          <Link className="close-button" to={'/workshops'}>
             <FontAwesomeIcon
               icon={faRectangleXmark}
               size="2xl"
@@ -74,7 +74,7 @@ export const DetailsWorkshops = () => {
           </Link>
           <h1 className="title">{workshops.attributes?.nome}</h1>
           <span className='span-detais'>
-            <ul id='containerDetails'>
+            <ul id='container-details'>
               <li>
                 <div className="start-date">
                   <div className="spacingDate">
