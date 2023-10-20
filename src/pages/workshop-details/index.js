@@ -83,7 +83,7 @@ export const WorkshopDetails = () => {
   return (
     <>
       <Details>
-        <section className="description-section">
+        <section className='description-section'>
           <Link className="close-button" to={'/workshops'}>
             <FontAwesomeIcon
               icon={faRectangleXmark}
@@ -180,7 +180,6 @@ export const WorkshopDetails = () => {
               </li>
             </ul>
           </span>
-
           <p className="description">Descrição da oficina</p>
           <p className="descriptionCMS">{workshops.attributes?.descricao}</p>
           {workshops.attributes?.url_inscricao !== null && (
@@ -214,26 +213,101 @@ export const WorkshopDetails = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="style-swiper-fotos">
-              <Swiper
-                onSwiper={setThumbsSwiper}
-                loop={true}
-                spaceBetween={10}
-                slidesPerView={7}
-                freeMode={true}
-                watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper"
-              >
-                {galleryPhoto.map((image) => (
-                  <SwiperSlide key={image.id}>
-                    <img src={image.url} alt={image.name} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
           </div>
+          <div className="style-swiper-fotos">
+            <Swiper
+              onSwiper={setThumbsSwiper}>
+              <div className="spacingDate">
+                {handleDate(new Date(workshops.data_inicio))} •{' '}
+                {workshops.horario_inicio} {'> '}
+                {handleDate(new Date(workshops.data_fim))} •{' '}
+                {workshops.horario_fim}
+              </div>
+            </Swiper>
+          </div>
+          <div className="div-preco">
+            <p className="preco">
+              <FontAwesomeIcon
+                icon={faHandHoldingDollar}
+                size="xl"
+                style={{
+                  '--fa-secondary-color': '#ffffff',
+                  '--fa-primary-opacity': '1'
+                }}
+              />
+              <div className="spacingMoney">{workshops.preco}</div>
+            </p>
+          </div>
+          <div className="div-local">
+            <p className="local">
+              <FontAwesomeIcon icon={faLocationDot} />
+              <div className="spacingLocal">
+                Oficina presencial em {workshops.local}
+              </div>
+            </p>
+          </div>
+          <div className="oficinaType">
+            <p className="type">
+              <FontAwesomeIcon icon={faLock} />
+              <div className="spacingType">{workshops.tipo}</div>
+            </p>
+          </div>
+          <div className="parceires">
+            <p className="parceire">
+              <FontAwesomeIcon icon={faUser} />
+              <div className="parce">
+                {workshops.parceires?.data.map((parceire, index) => {
+                  return (
+                    <p key={index} className="spacing-parceires">
+                      {parceire.attributes.nome}{' '}
+                    </p>
+                  )
+                })}
+              </div>
+            </p>
+          </div>
+          <p className="description">Descrição da oficina</p>
+          <p className="descricaoCMS">{workshops.descricao}</p>
+          {workshops.url_inscricao !== null && (
+            <>
+              <a
+                className="button-inscricao"
+                href={workshops.url_inscricao}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Inscreva-se
+              </a>
+              <div className="inscricaoIcon">
+                <FontAwesomeIcon icon={faPenToSquare} />
+                <p className="inscricao"> Inscrição não é necessária</p>
+              </div>
+            </>
+          )}
         </section>
+        <section className="page">
+          <div className="style-img-swiper">
+            <Swiper
+              style={{
+                '--swiper-navigation-color': '#516B84',
+                '--swiper-pagination-color': ''
+              }}
+              loop={true}
+              spaceBetween={10}
+              slidesPerView={7}
+              freeMode={true}
+              watchSlidesProgress={true}
+              modules={[FreeMode, Navigation, Thumbs]}
+              className="second-carousel"
+            >
+              {galleryPhoto.map((image) => (
+                <SwiperSlide key={image.id}>
+                  <img src={image.url} alt={image.name} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </section >
       </Details >
     </>
   )
