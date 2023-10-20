@@ -38,15 +38,23 @@ const EventsComponent = styled.div`
 
 }
 
-.button{
+.styled-button{
+  display:flex;
+  justify-content: center;
+  align-items: center;
   background-color: #F5BC4A;
   width: 146px;
   height: 40px;
   border: none;
   margin-top: 1rem;
   cursor: pointer;
-}
 
+  a{
+    text-decoration: none;
+    color: black; 
+
+  }
+}
 `
 
 export default EventsComponent
