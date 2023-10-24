@@ -85,14 +85,14 @@ export function HomePage () {
                 {
                   attributes.map((attribute) =>
                     attribute &&
-                    <SwiperSlide className="swiperSliide " key={attribute?.id}>
+                    <SwiperSlide className="style-swiper-slide" key={attribute?.id}>
                       <div className='slide-container'>
-                        <h2 className="slidetitulo"> {attribute.data?.nome} </h2>
+                        <h2 className="slide-title"> {attribute.data?.nome} </h2>
                         <div className='event-container'>
                           <p className="descricao"> {attribute.data?.descricao}</p>
                         </div>
                         <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
-                        <img src={urlCms + attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slideimage" />
+                        <img src={urlCms + attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slide-image" />
                       </div>
                     </SwiperSlide>
                   )

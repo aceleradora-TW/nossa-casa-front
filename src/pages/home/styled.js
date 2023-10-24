@@ -29,7 +29,7 @@ const Home = styled.div`
       width: 70%;
       margin: auto;
     }
-    .swiperSliide {
+    .style-swiper-slide {
       div {
         display: flex;
         flex-direction: column;
@@ -44,7 +44,7 @@ const Home = styled.div`
         height: 240px;
         margin-left: 50px;
       }
-      .slidetitulo {
+      .slide-title {
         margin: 20px auto 30px 50px;
         font-size: 2rem;
         font-family: 'Inter', sans-serif;
