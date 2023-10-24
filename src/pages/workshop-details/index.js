@@ -23,7 +23,6 @@ import { Link } from 'react-router-dom'
 
 export const WorkshopDetails = () => {
   const [workshops, setWorkshops] = useState([])
-  const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [galleryPhoto, setGalleryPhoto] = useState([])
   const { id } = useParams()
   useEffect(() => {
