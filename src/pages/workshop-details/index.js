@@ -89,7 +89,7 @@ export const WorkshopDetails = () => {
                   `}</p>
                       : <p>{`
                 ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))} até 
-                ${days[dateAsDateObjectF.getDay()]} 
+                ${days[dateAsDateObjectF.getDay()]}, 
                 ${handleDate(
                         new Date(workshops.attributes?.data_fim))}`}
                         <br />

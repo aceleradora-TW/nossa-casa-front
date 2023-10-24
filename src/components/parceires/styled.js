@@ -17,14 +17,14 @@ const ParceireComponents = styled.section`
     margin-bottom: 10px;
   }
 
-  .titulo {
+  .title {
     color: black;
     margin-bottom: 40px;
     display: flex;
     justify-content: center;
   }
 
-  div .img-perfil {
+  div .profile-image {
     width: 40%;
     height: 150px;
     margin-bottom: 10px;
@@ -43,7 +43,7 @@ const ParceireComponents = styled.section`
     text-align: center;
   }
 
-  .social-media-links {
+  .social-media-link {
     display: flex;
     justify-content: center;
     border-radius: none;

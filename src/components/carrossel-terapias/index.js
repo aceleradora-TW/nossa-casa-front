@@ -9,7 +9,7 @@ import { cms } from '../../client'
 import VerMais from './styled'
 import { Link } from 'react-router-dom'
 
-const TherapiesCarrossel = () => {
+const TherapiesCarousel = () => {
   const [attributes, setAttributes] = useState([])
   const urlCms = env.URL_CMS
 
@@ -58,16 +58,16 @@ const TherapiesCarrossel = () => {
         breakpoints={{
           '@0.00': {
             slidesPerView: 1,
-            spaceBetween: 1,
+            spaceBetween: 1
           },
           '@0.75': {
             slidesPerView: 2,
-            spaceBetween: 2,
+            spaceBetween: 2
           },
           '@1.00': {
             slidesPerView: 3,
-            spaceBetween: 3,
-          },
+            spaceBetween: 3
+          }
         }}
         modules={[Navigation]}
         className="mySwiper"
@@ -106,4 +106,4 @@ const TherapiesCarrossel = () => {
     </CssCarrosselGlobal>
   )
 }
-export default TherapiesCarrossel
+export default TherapiesCarousel
