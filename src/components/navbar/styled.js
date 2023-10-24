@@ -7,7 +7,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
   position: fixed;
   z-index: 5;
   overflow: hidden;
-  background-color: black;
+  background-color: purple;
   width: 100%;
   align-items: center;
   color: white;
