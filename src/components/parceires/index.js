@@ -12,7 +12,7 @@ import env from 'react-dotenv'
 import { cms } from '../../service/client'
 const linkParceire = process.env.REACT_APP_LINK_PARCEIRO
 
-const Parceires = () => {
+const Partners = () => {
   const [attributes, setAttributes] = useState([])
   const urlCms = env.URL_CMS
 
@@ -31,7 +31,7 @@ const Parceires = () => {
       background: '#F5BC4A'
     }}>
       <h2>Parceires</h2>
-      <p className='titulo'>
+      <p className='title'>
         A Nossa Casa é uma Associação sem fins lucrativos, composta por profissionais, artistas e ativistas do Município de Guarulhos.
       </p>
       <Swiper
@@ -58,28 +58,28 @@ const Parceires = () => {
         <section className='parceires'>
           <div className="swiper-slide">
             <ul>
-              {attributes.map((partners) => {
-                return <li key={partners.nome}>
-                  <SwiperSlide key={partners.nome}>
+              {attributes.map((partner) => {
+                return <li key={partner.nome}>
+                  <SwiperSlide key={partner.nome}>
                     <div className='perfil'>
                       <div>
-                        {partners.foto?.data?.map(foto => (
-                          <img className='img-perfil' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
+                        {partner.foto?.data?.map(foto => (
+                          <img className='profile-image' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
                         ))}
                       </div>
-                      <h3>{partners.nome}</h3>
-                      <p>{partners.especializacao}</p>
+                      <h3>{partner.nome}</h3>
+                      <p>{partner.especializacao}</p>
                     </div>
                     <div className='cointainer-description'>
                       <p className='text-box'>
-                        {partners.descricao}
+                        {partner.descricao}
                       </p>
                     </div>
-                    <div className='social-media-links'>
-                      <a href={partners.whatsapp}><img src={Whatsapp} /></a>
-                      <a href={partners.twitter}><img src={Twitter} /></a>
-                      <a href={partners.facebook}><img src={Facebook} /></a>
-                      <a href={partners.instagram}><img src={Instagram} /></a>
+                    <div className='social-media-link'>
+                      <a href={partner.whatsapp}><img src={Whatsapp} /></a>
+                      <a href={partner.twitter}><img src={Twitter} /></a>
+                      <a href={partner.facebook}><img src={Facebook} /></a>
+                      <a href={partner.instagram}><img src={Instagram} /></a>
                     </div>
                   </SwiperSlide>
                 </li>
@@ -99,4 +99,4 @@ const Parceires = () => {
     </ParceireComponents >
   )
 }
-export default Parceires
+export default Partners

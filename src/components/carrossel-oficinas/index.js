@@ -14,22 +14,24 @@ const WorkshopsCarrossel = () => {
   const urlCms = env.URL_CMS
 
   useEffect(() => {
-    cms.get('api/workshops/?populate=foto_divulgacao').then((response) => {
-      const { data } = response.data
-      const workshops = data.map((data) => {
-        if (data) {
-          return {
-            id: data.id,
-            name: data.attributes.nome,
-            imageUrl: data.attributes.foto_divulgacao.data[0].attributes.url,
+    cms
+      .get('api/workshops/?populate=foto_divulgacao')
+      .then((response) => {
+        const { data } = response.data
+        const workshops = data.map((data) => {
+          if (data) {
+            return {
+              id: data.id,
+              name: data.attributes.nome,
+              imageUrl: data.attributes.foto_divulgacao.data[0].attributes.url
+            }
           }
-        }
+        })
+        const workshopsSortedByName = workshops.sort((a, b) =>
+          a.name < b.name ? -1 : 1
+        )
+        setAttributes(workshopsSortedByName)
       })
-      const workshopsSortedByName = workshops.sort((a, b) =>
-        a.name < b.name ? -1 : 1
-      )
-      setAttributes(workshopsSortedByName)
-    })
   }, [])
 
   return (
@@ -51,16 +53,16 @@ const WorkshopsCarrossel = () => {
         breakpoints={{
           '@0.00': {
             slidesPerView: 1,
-            spaceBetween: 1,
+            spaceBetween: 1
           },
           '@0.75': {
             slidesPerView: 2,
-            spaceBetween: 2,
+            spaceBetween: 2
           },
           '@1.00': {
             slidesPerView: 3,
-            spaceBetween: 3,
-          },
+            spaceBetween: 3
+          }
         }}
         modules={[Navigation]}
         className="mySwiper"
@@ -83,7 +85,7 @@ const WorkshopsCarrossel = () => {
                       </div>
                       <VerMais>
                         <div className="styled-button">
-                          <Link className="escrita-botao" to={`${workshops.id}`}>
+                          <Link className="button-text" to={`${workshops.id}`}>
                             Saiba Mais
                           </Link>
                         </div>

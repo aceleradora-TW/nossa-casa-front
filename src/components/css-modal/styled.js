@@ -21,7 +21,7 @@ const CssModalGlobal = styled.div`
     right: 100%;
   }
 
-  .title{
+  .title {
     background-color: pink;
     font-size: 10%;
 }

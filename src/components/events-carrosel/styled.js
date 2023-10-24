@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const EventsComponent = styled.div`
+const EventCarousel = styled.div`
   .carrossel {
     height: 300px;
 
@@ -47,4 +47,4 @@ const EventsComponent = styled.div`
   }
 `
 
-export default EventsComponent
+export default EventCarousel

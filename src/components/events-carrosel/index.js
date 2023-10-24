@@ -1,4 +1,4 @@
-import EventsComponent from './styled.js'
+import EventCarousel from './styled.js'
 import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -19,7 +19,7 @@ const Events = () => {
           return {
             nome: data.attributes.nome,
             date: new Date(data.attributes.data),
-            imagem_url: data.attributes.foto_divulgacao.data.attributes.url,
+            imageUrl: data.attributes.foto_divulgacao.data.attributes.url
           }
         }
       })
@@ -28,8 +28,8 @@ const Events = () => {
     })
   }, [])
   return (
-    <EventsComponent style={{ background: '#FFFFFF' }}>
-      <div className="carrossel">
+    <EventCarousel style={{ background: '#FFFFFF' }}>
+      <div className="carousel">
         <h1>EVENTOS</h1>
         <p>
           A Nossa Casa realiza diversos eventos culturais que vão de festivais,
@@ -44,16 +44,16 @@ const Events = () => {
         breakpoints={{
           '@0.00': {
             slidesPerView: 1,
-            spaceBetween: 1,
+            spaceBetween: 1
           },
           '@0.75': {
             slidesPerView: 2,
-            spaceBetween: 2,
+            spaceBetween: 2
           },
           '@1.00': {
             slidesPerView: 3,
-            spaceBetween: 3,
-          },
+            spaceBetween: 3
+          }
         }}
         modules={[Navigation]}
         className="mySwiper"
@@ -68,7 +68,7 @@ const Events = () => {
                       <div>
                         <img
                           className="event-image"
-                          src={urlCms + event.imagem_url}
+                          src={urlCms + event.imageUrl}
                         />
                       </div>
                       <div>
@@ -86,7 +86,7 @@ const Events = () => {
           </div>
         </section>
       </Swiper>
-    </EventsComponent>
+    </EventCarousel>
   )
 }
 export default Events
