@@ -66,7 +66,7 @@ export const WorkshopDetails = () => {
       timeZone: 'pt-BR',
     })
 
-    return `${daysOfWeekInPtBr[date.getDay()]}, ${day} de ${month} de ${year}`
+    return `${daysOfWeekInPtBr[date.getDay()]}, ${day} ${month} ${year}`
   }
 
   const endsOnSameDay = (workshop) =>
