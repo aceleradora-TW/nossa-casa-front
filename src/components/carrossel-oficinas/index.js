@@ -18,12 +18,12 @@ const WorkshopsCarrossel = () => {
       .get('api/workshops/?populate=foto_divulgacao')
       .then((response) => {
         const { data } = response.data
-        const workshops = data.map((data) => {
-          if (data) {
+        const workshops = data.map((workshop) => {
+          if (workshop) {
             return {
-              id: data.id,
-              name: data.attributes.nome,
-              imageUrl: data.attributes.foto_divulgacao.data[0].attributes.url
+              id: workshop.id,
+              name: workshop.attributes.nome,
+              imageUrl: workshop.attributes.foto_divulgacao.data[0].attributes.url
             }
           }
         })
