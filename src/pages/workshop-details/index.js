@@ -9,7 +9,7 @@ import {
   faCalendarDays,
   faLocationDot,
   faRectangleXmark,
-  faBullhorn
+  faBullhorn,
 } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
@@ -36,7 +36,7 @@ export const WorkshopDetails = () => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: env.URL_CMS + image.attributes?.url
+            url: env.URL_CMS + image.attributes?.url,
           }
         })
         setGalleryPhoto(images)
@@ -44,27 +44,41 @@ export const WorkshopDetails = () => {
       })
   }, [])
 
-  const handleDate = (date) => {
+  const daysOfWeekInPtBr = [
+    'Domingo',
+    'Segunda',
+    'Terça',
+    'Quarta',
+    'Quinta',
+    'Sexta',
+    'Sábado',
+  ]
+
+  const formatDate = (timestamp) => {
+    const date = new Date(timestamp)
     const day = date.toLocaleDateString(undefined, {
       day: 'numeric',
-      Timezone: 'UTF'
+      timeZone: 'pt-BR',
     })
     const month = date.toLocaleDateString('pt-BR', { month: 'short' })
     const year = date.toLocaleDateString(undefined, {
-      year: '2-digit',
-      Timezone: 'UTF'
+      year: 'numeric',
+      timeZone: 'pt-BR',
     })
-    return [day, month, year].join(' ')
+
+    return `${daysOfWeekInPtBr[date.getDay()]}, ${day} de ${month} de ${year}`
   }
 
-  const dateAsDateObjectI = new Date(workshops?.attributes?.data_inicio)
-  const dateAsDateObjectF = new Date(workshops?.attributes?.data_fim)
-  const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
+  const endsOnSameDay = (workshop) =>
+    workshop.attributes?.data_inicio === workshop.attributes?.data_fim
+
+  const formatWorkshopDuration = (workshop) =>
+    `${workshop.attributes?.horario_inicio} > ${workshop.attributes?.horario_fim}`
 
   return (
     <>
       <Details>
-        <section className='description-section'>
+        <section className="description-section">
           <Link className="close-button" to={'/workshops'}>
             <FontAwesomeIcon
               icon={faRectangleXmark}
@@ -73,28 +87,21 @@ export const WorkshopDetails = () => {
             />
           </Link>
           <h1 className="title">{workshops.attributes?.nome}</h1>
-          <span className='span-detais'>
-            <ul id='container-details'>
+          <span className="span-detais">
+            <ul id="container-details">
               <li>
                 <div className="start-date">
                   <div className="spacingDate">
                     <FontAwesomeIcon icon={faCalendarDays} size="lg" />
-                    {workshops.attributes?.data_inicio === workshops.attributes?.data_fim
-                      ? <p>
-                        {`
-                ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))}
-                `}
-                        <br />
-                        {`${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
-                  `}</p>
-                      : <p>{`
-                ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))} até 
-                ${days[dateAsDateObjectF.getDay()]}, 
-                ${handleDate(
-                        new Date(workshops.attributes?.data_fim))}`}
-                        <br />
-                        {`${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
-                  `}</p>}
+                    {endsOnSameDay(workshops) ? (
+                      <p>{formatDate(workshops.attributes?.data_inicio)}</p>
+                    ) : (
+                      <p>
+                        {formatDate(workshops.attributes?.data_inicio)} até{' '}
+                        {formatDate(workshops.attributes.data_fim)}
+                      </p>
+                    )}
+                    <p>{formatWorkshopDuration(workshops)}</p>
                   </div>
                 </div>
               </li>
@@ -106,7 +113,7 @@ export const WorkshopDetails = () => {
                       size="lg"
                       style={{
                         '--fa-secondary-color': '#ffffff',
-                        '--fa-primary-opacity': '1'
+                        '--fa-primary-opacity': '1',
                       }}
                     />
                     <div className="spacingMoney">
@@ -128,8 +135,14 @@ export const WorkshopDetails = () => {
               <li>
                 <div className="workshopType">
                   <p className="type">
-                    <FontAwesomeIcon icon={faBullhorn}
-                      style={{ '--fa-primary-color': '#000000', '--fa-secondary-color': '#000000', '--fa-secondary-opacity': '1', transform: 'rotate(-15deg)' }}
+                    <FontAwesomeIcon
+                      icon={faBullhorn}
+                      style={{
+                        '--fa-primary-color': '#000000',
+                        '--fa-secondary-color': '#000000',
+                        '--fa-secondary-opacity': '1',
+                        transform: 'rotate(-15deg)',
+                      }}
                       size="lg"
                     />
                     <div className="spacingType">
@@ -168,7 +181,10 @@ export const WorkshopDetails = () => {
                       <div>
                         <FontAwesomeIcon icon={faPenToSquare} size="lg" />
                       </div>
-                      <h1 className="inscription"> Inscrição não é necessária</h1>
+                      <h1 className="inscription">
+                        {' '}
+                        Inscrição não é necessária
+                      </h1>
                     </div>
                   </>
                 )}
@@ -194,7 +210,7 @@ export const WorkshopDetails = () => {
             <Swiper
               style={{
                 '--swiper-navigation-color': '#516B84',
-                '--swiper-pagination-color': ''
+                '--swiper-pagination-color': '',
               }}
               loop={true}
               spaceBetween={10}
