@@ -297,6 +297,22 @@ main .about {
       cursor: default;
     }
   }
+  .button-about{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .styled-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5bc4a;
+    width: 146px;
+    height: 40px;
+    border: none;
+    margin-top: 1rem;
+  }
 }
 `
 
