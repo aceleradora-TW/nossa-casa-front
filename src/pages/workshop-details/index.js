@@ -75,6 +75,13 @@ export const WorkshopDetails = () => {
   const formatWorkshopDuration = (workshop) =>
     `${workshop.attributes?.horario_inicio} > ${workshop.attributes?.horario_fim}`
 
+  const formatWorkshopDates = (workshop) =>
+    endsOnSameDay(workshop)
+      ? formatDate(workshop.attributes.data_inicio)
+      : `${formatDate(workshop.attributes.data_inicio)} até ${formatDate(
+          workshop.attributes.data_fim
+        )}`
+
   return (
     <>
       <Details>
@@ -93,14 +100,7 @@ export const WorkshopDetails = () => {
                 <div className="start-date">
                   <div className="spacingDate">
                     <FontAwesomeIcon icon={faCalendarDays} size="lg" />
-                    {endsOnSameDay(workshops) ? (
-                      <p>{formatDate(workshops.attributes?.data_inicio)}</p>
-                    ) : (
-                      <p>
-                        {formatDate(workshops.attributes?.data_inicio)} até{' '}
-                        {formatDate(workshops.attributes.data_fim)}
-                      </p>
-                    )}
+                    <p>{formatWorkshopDates(workshops)}</p>
                     <p>{formatWorkshopDuration(workshops)}</p>
                   </div>
                 </div>
