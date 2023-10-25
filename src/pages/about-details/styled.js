@@ -87,7 +87,6 @@ export const StyledAbout = styled.div`
 
 .content-container   {
 text-align:justify;
-width: 100%; 
 grid-template-columns: 1fr 1fr ;
 grid-template-rows: auto;
 grid-row-gap: 55px;
