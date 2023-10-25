@@ -1,18 +1,14 @@
 import styled from 'styled-components'
 
 export const StyledAbout = styled.div`
-  width: 100%;
-  height: 100%;
   max-width:auto;
   max-height:auto;
-  position: fixed;
-  left: 0;
-  top: 0;
   z-index: 10;
   background-color: ${props => props.theme === 'about' ? '#FFFFFF' : '#fff'};
 
 
   .about-title {
+    margin-top: 5%;
     color:#54636E;
     font-size: 2.25rem;
     text-align: left;

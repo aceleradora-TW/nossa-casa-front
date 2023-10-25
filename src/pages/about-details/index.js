@@ -1,7 +1,10 @@
 import { StyledAbout } from "./styled"
+import NavBar from '../../components/navbar'
 
 const PageAbout  = () => {
   return(
+    <>
+    <NavBar/>
     <StyledAbout>
     <h2 className="about-title">Sobre Nossa Casa</h2>
        <div className="content-container">
@@ -65,6 +68,7 @@ const PageAbout  = () => {
                 </div>
               </div>
               </StyledAbout>
+              </>
   )
 }
 
