@@ -43,28 +43,44 @@ export const WorkshopDetails = () => {
         setWorkshops(data)
       })
   }, [])
+  const daysOfWeekInPtBr = [
+    'Domingo',
+    'Segunda',
+    'Terça',
+    'Quarta',
+    'Quinta',
+    'Sexta',
+    'Sábado'
+  ]
 
-  const handleDate = (date) => {
-    const day = date.toLocaleDateString(undefined, {
+  const formatDate = (timestamp) => {
+    const day = timestamp.toLocaleDateString(undefined, {
       day: 'numeric',
-      Timezone: 'UTF'
+      Timezone: 'pt-BR'
     })
-    const month = date.toLocaleDateString('pt-BR', { month: 'short' })
-    const year = date.toLocaleDateString(undefined, {
-      year: '2-digit',
-      Timezone: 'UTF'
+    const month = timestamp.toLocaleDateString('pt-BR', { month: 'short' })
+    const year = timestamp.toLocaleDateString(undefined, {
+      year: 'numeric',
+      Timezone: 'pt-BR'
     })
-    return [day, month, year].join(' ')
+    return `${daysOfWeekInPtBr[timestamp.getDay()]}, ${day} ${month} ${year}`
   }
+  const endsOnSameDay = (workshop) =>
+    workshop.attributes?.data_inicio === workshop.attributes?.data_fim
 
-  const dateAsDateObjectI = new Date(workshops?.attributes?.data_inicio)
-  const dateAsDateObjectF = new Date(workshops?.attributes?.data_fim)
-  const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
+  const formatWorkshopDuration = (workshop) =>
+    `${workshop.attributes?.horario_inicio} > ${workshop.attributes?.horario_fim}`
 
+  const formatWorkshopDates = (workshop) =>
+    endsOnSameDay(workshop)
+      ? formatDate(workshop.attributes.data_inicio)
+      : `${formatDate(workshop.attributes.data_inicio)} até ${formatDate(
+        workshop.attributes.data_fim
+      )}`
   return (
     <>
       <Details>
-        <section className='description-section'>
+        <section className="description-section">
           <Link className="close-button" to={'/workshops'}>
             <FontAwesomeIcon
               icon={faRectangleXmark}
@@ -73,28 +89,14 @@ export const WorkshopDetails = () => {
             />
           </Link>
           <h1 className="title">{workshops.attributes?.nome}</h1>
-          <span className='span-detais'>
-            <ul id='container-details'>
+          <span className="span-detais">
+            <ul id="container-details">
               <li>
                 <div className="start-date">
                   <div className="spacingDate">
                     <FontAwesomeIcon icon={faCalendarDays} size="lg" />
-                    {workshops.attributes?.data_inicio === workshops.attributes?.data_fim
-                      ? <p>
-                        {`
-                ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))}
-                `}
-                        <br />
-                        {`${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
-                  `}</p>
-                      : <p>{`
-                ${days[dateAsDateObjectI.getDay()]},  ${handleDate(new Date(workshops.attributes?.data_inicio))} até 
-                ${days[dateAsDateObjectF.getDay()]}, 
-                ${handleDate(
-                        new Date(workshops.attributes?.data_fim))}`}
-                        <br />
-                        {`${workshops.attributes?.horario_inicio} > ${workshops.attributes?.horario_fim}
-                  `}</p>}
+                    <p>{formatWorkshopDates(workshops)}</p>
+                    <p>{formatWorkshopDuration(workshops)}</p>
                   </div>
                 </div>
               </li>
