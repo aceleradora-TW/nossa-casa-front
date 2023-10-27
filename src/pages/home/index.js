@@ -27,7 +27,10 @@ export function HomePage () {
       const event = data.map((data) => {
         if (data.attributes.destaque) {
           setToggle(!toggle)
-          return data.attributes
+          return {
+            id: data?.id,
+            data: data?.attributes
+          }
         }
         return false
       })
@@ -55,9 +58,9 @@ export function HomePage () {
     },
     width: '100%'
   }
-
+  console.log(attributes)
   return (
-    <Home background={mural}>
+    <Home $background={mural}>
       <NavBar />
       <main>
         {toggle &&
@@ -82,18 +85,16 @@ export function HomePage () {
                 {
                   attributes.map((attribute) =>
                     attribute &&
-                    <li key={attribute.nome}>
-                      <SwiperSlide className="swiperSliide " key={attribute.nome} >
-                        <div className='slide-container'>
-                          <h2 className="slidetitulo"> {attribute.nome} </h2>
-                          <div className='event-container'>
-                            <p className="descricao"> {attribute.descricao}</p>
-                          </div>
-                          <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
-                          <img src={urlCms + attribute?.foto_divulgacao?.data?.attributes?.url} className="slideimage" />
+                    <SwiperSlide className="style-swiper-slide" key={attribute?.id}>
+                      <div className='slide-container'>
+                        <h2 className="slide-title"> {attribute.data?.nome} </h2>
+                        <div className='event-container'>
+                          <p className="descricao"> {attribute.data?.descricao}</p>
                         </div>
-                      </SwiperSlide>
-                    </li>
+                        <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
+                        <img src={urlCms + attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slide-image" />
+                      </div>
+                    </SwiperSlide>
                   )
                 }
               </ul>
