@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 const Home = styled.div`
-
   background-color: white;
   width: 100%;
   height: 100vh;
@@ -11,7 +10,7 @@ const Home = styled.div`
       background-color: #010101;
       color: #ffffff;
       .swiper-button-next {
-        margin-right: 25px
+        margin-right: 25px;
       }
       .swiper-button-prev {
         margin-left: 25px;
@@ -28,7 +27,6 @@ const Home = styled.div`
         display: flex;
         flex-direction: column;
         width: 100%;
-        
       }
       .slide-container {
         display: flex;
@@ -36,7 +34,7 @@ const Home = styled.div`
       .event-container {
         width: 60%;
         height: 240px;
-        margin-left: 50px
+        margin-left: 50px;
       }
       .slidetitulo {
         margin: 20px auto 30px 50px;
@@ -44,7 +42,7 @@ const Home = styled.div`
         font-family: 'Inter', sans-serif;
         float: inline-start;
         z-index: 1;
-        align-items:center;
+        align-items: center;
       }
 
       .descricao {
@@ -55,7 +53,6 @@ const Home = styled.div`
         cursor: default;
         text-align: justify;
         z-index: 1;
-
       }
 
       img {
@@ -66,8 +63,8 @@ const Home = styled.div`
       }
 
       .ver-mais {
-        z-index:1;
-        background-color: #F5BC4A;
+        z-index: 1;
+        background-color: #f5bc4a;
         border: 1px solid;
         border-radius: 5px;
         width: 250px;
@@ -109,7 +106,7 @@ const Home = styled.div`
       }
 
       button {
-        background: #F5BC4A;
+        background: #f5bc4a;
         box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
         border-radius: 3px;
         color: #000000;
@@ -128,7 +125,7 @@ const Home = styled.div`
 
     .galeria {
       padding-top: 90px;
-      background-color: #FAFAFA;
+      background-color: #fafafa;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -138,42 +135,47 @@ const Home = styled.div`
       .titulo-galeria {
         align-self: flex-start;
         margin-left: 8.3%;
-        font-size: 2.25rem;
         font-weight: 700;
-        color: #516B84;
         line-height: 64px;
         text-align: center;
         font-size: 3.125rem;
-        color: #516B84;
+        color: #516b84;
         cursor: default;
       }
 
-      .painel {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 30px;
-        grid-row-gap: 23px;
-
-        img {
-          width: 100%;
-          height: 100%;
-          max-height: 312px;
-          margin-left: 2%;
-          border-radius: 3px;
-          margin-bottom: 0.5rem;
-        }
-      }
       .container-painel {
         display: flex;
         align-self: normal;
         margin: 0 8.3%;
+
+        .painel {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: minmax(2, 1fr);
+          grid-column-gap: 20px;
+          grid-row-gap: 20px;
+
+          li{
+            border: 1px solid;
+          }
+
+          li img {
+            width: 100%;
+            height: 100%;
+            /* max-height: 312px;
+            max-width: 800px; */
+            /* margin-left: 2%; */
+            border-radius: 3px;
+            margin-bottom: 0.5rem;
+          }
+        }
       }
+
       button {
-        background: #516B84;
+        background: #516b84;
         border-radius: 3px;
-        color: #FAFAFA;
+        color: #fafafa;
         border: none;
         font-size: 0.75rem;
         width: 148px;
@@ -182,13 +184,6 @@ const Home = styled.div`
         margin-top: 15px;
         margin-bottom: 104px;
       }
-    }
-
-
-  @media (max-width: 1280px) {
-    .galeria{
-      height: 950px;
-    }
     }
 
     .parceires {
@@ -233,77 +228,77 @@ const Home = styled.div`
         }
       }
     }
-    
+
     .about {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    box-sizing: border-box;
-    align-items: center;
-  }
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      box-sizing: border-box;
+      align-items: center;
+    }
 
-main .about {
-  height: auto;
-  padding: 10px;
-}
+    main .about {
+      height: auto;
+      padding: 10px;
+    }
 
-  main .about .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    flex-direction: row;
-    margin-top: 5rem;
-    margin-bottom: 4rem;
-  }
+    main .about .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+      flex-direction: row;
+      margin-top: 5rem;
+      margin-bottom: 4rem;
+    }
 
-  .content .text {
-    box-sizing: border-box;
-    text-align: justify;
-    width: 40%;
-    margin-bottom: auto;
-  }
+    .content .text {
+      box-sizing: border-box;
+      text-align: justify;
+      width: 40%;
+      margin-bottom: auto;
+    }
 
-  .foto img {
-    width: 110%;
-    max-width: auto;
-    margin-left: 3%;
-    border-radius: 3px;
-    margin-bottom: 4.6rem;
-    max-height: 448px;
-  }
-
-  @media screen and (min-width: 720px) and (max-width:2920px) {
-    .content > div {
-      width: auto;
+    .foto img {
+      width: 110%;
       max-width: auto;
+      margin-left: 3%;
+      border-radius: 3px;
+      margin-bottom: 4.6rem;
+      max-height: 448px;
     }
 
-    .content h2 {
-      font-size: 2.25rem;
-      margin-bottom: 30px;
-    }
+    @media screen and (min-width: 720px) and (max-width: 2920px) {
+      .content > div {
+        width: auto;
+        max-width: auto;
+      }
 
-    .content .Textparagraph {
-      font-size: 1.4rem;
-      font-weight: 500;
-      line-height: 35px;
-    }
+      .content h2 {
+        font-size: 2.25rem;
+        margin-bottom: 30px;
+      }
 
-    .content .text h2 {
-      font-size: 2rem;
-      color: #516B84;
-      cursor: default;
-    }
+      .content .Textparagraph {
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 35px;
+      }
 
-    .content .text .Textparagraph {
-      font-size: 21px;
-      color: #54636F;
-      cursor: default;
+      .content .text h2 {
+        font-size: 2rem;
+        color: #516b84;
+        cursor: default;
+      }
+
+      .content .text .Textparagraph {
+        font-size: 21px;
+        color: #54636f;
+        cursor: default;
+      }
     }
   }
-}
 `
 
 export default Home
