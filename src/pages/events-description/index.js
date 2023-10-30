@@ -25,8 +25,9 @@ export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [galeria, setGaleria] = useState([])
-  const [actvities, setActivities] = useState([])
+  const [activities, setActivities] = useState([])
   const { id } = useParams()
+  const activitiesList = []
   useEffect(() => {
     cms
       .get(
@@ -62,7 +63,7 @@ export const EventsPageDescription = () => {
             }
           })
         })
-        setActivities(oficinas)
+        activitiesList.push(oficinas)
         const subeventos = data.attributes.subeventos.data.map((evento) => {
           console.log('evento', evento)
           // return evento.attributes.foto_divulgacao.data.map((foto) => {
@@ -76,7 +77,8 @@ export const EventsPageDescription = () => {
           }
           // })
         })
-        setActivities(subeventos)
+        activitiesList.push(subeventos)
+        setActivities(activitiesList)
       })
   }, [])
 
@@ -275,7 +277,7 @@ export const EventsPageDescription = () => {
                   }} */}
         {/* {oficina.attributes.foto_divulgacao && console.log('test', oficina.attributes.foto_divulgacao.data[0].attributes.url)}
                   {console.log(event?.attributes?.oficinas?.data.length)} */}
-        {/* inicio subeventos
+        {/* inicio subeventos */}
 
       <div className='carrossel'>
         <h1>EVENTOS</h1>
@@ -303,13 +305,14 @@ export const EventsPageDescription = () => {
       >
         <section>
           <div className="swiper-slide-atividades">
+            {console.log(activities)}
             <ul>
-            {activities.map((activit) => {
+            {activities?.map((activit) => {
               if (activit !== null && activit !== undefined) {
                 return (
-                  <div key={activit.id}>
+                  <div key={activit.id}>{console.log(activit)}
                     <div>{activit.name}</div>
-                  <SwiperSlide>
+                    <SwiperSlide>
                       <div>
                         <img className="img-foto" src={activit.url} />
                       </div>
@@ -317,14 +320,17 @@ export const EventsPageDescription = () => {
                         <h3 className="title">{activit.name}</h3>
                       </div>
                       <div className='styled-button'>
-                        <NavLink to={`/${activitie.type}/${activitie.id}`}>Saiba Mais</NavLink>
+                        <NavLink to={`/${activit.type}/${activit.id}`}>Saiba Mais</NavLink>
                       </div>
                     </SwiperSlide>
-                )})})
+                  </div>
+                )
+              }
+            })}
             </ul>
           </div>
         </section>
-      </Swiper> */}
+      </Swiper>
         <section className="container-carousel">
           <div className="style-img-swiper">
             <Swiper
