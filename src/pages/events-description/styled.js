@@ -40,8 +40,7 @@ p {
 
 .title {
   font-size: 2.188em;
-  margin-left: 3em;
-  margin-bottom: 2.5rem;
+  margin: 1em 0;
 
   p {
   font-size: 1.875em;
@@ -97,19 +96,17 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #E4E7EB;
 }
 
 .slide-itens{
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .swiper-slide img {
   display: block;
-  width: 30em;
-  height: 30em;
+  width: 22vw;
+  height: 17vw;
   object-fit: cover;
 }
 
@@ -170,12 +167,12 @@ p {
 
 //carrossel atividades 
 .carrossel{
-      height: 300px;
-      background-color: aqua;
+      height: 25vh;
+      align-self: flex-start;
     
       h1 {
         padding-left: 1.5em;
-        padding-top: 4em;
+        padding-top: 3em;
         font-size: 2em;
       }
       p {
@@ -190,7 +187,6 @@ p {
 .mySwiper{
   position: relative;
   z-index: 0;
-  background-color: red;
   width: 100vw;
 }
 .swiper-slide-atividades{
