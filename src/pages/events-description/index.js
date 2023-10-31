@@ -52,21 +52,20 @@ export const EventsPageDescription = () => {
         })
         setGaleria(images)
         const oficinas = data.attributes.oficinas.data.map((oficina) => {
-          return oficina.attributes.foto_divulgacao.data.map((foto) => {
-            return {
-              id: oficina.id,
-              type: 'oficina',
-              name: oficina.attributes.nome,
-              url: env.URL_CMS + foto.attributes?.url
-            }
-          })
+          return {
+            id: oficina.id,
+            type: 'oficina',
+            name: oficina.attributes.nome,
+            url: env.URL_CMS +
+              oficina.attributes.foto_divulgacao.data[0].attributes.url
+          }
         })
         activitiesList.push(oficinas)
+        console.log('oficinas', data.attributes.oficinas.data)
+        console.log('subeventos', data.attributes.subeventos.data)
         const subeventos = data.attributes.subeventos.data.map((evento) => {
-          // console.log('evento', evento)
-          // return evento.attributes.foto_divulgacao.data.map((foto) => {
           return {
-            type: 'evento',
+            type: 'events',
             id: evento.id,
             name: evento.attributes.nome,
             url:
@@ -280,7 +279,7 @@ export const EventsPageDescription = () => {
         {(activities.length > 0) && (activities[0].length > 0 || activities[1].length > 0) && (
           <section>
             <div className="carrossel">
-              <h1>EVENTOS</h1>
+              <h1>ATIVIDADES</h1>
             </div>
             <Swiper
               slidesPerView={3}

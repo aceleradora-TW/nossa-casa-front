@@ -171,6 +171,7 @@ p {
 //carrossel atividades 
 .carrossel{
       height: 300px;
+      background-color: aqua;
     
       h1 {
         padding-left: 1.5em;
@@ -189,6 +190,8 @@ p {
 .mySwiper{
   position: relative;
   z-index: 0;
+  background-color: red;
+  width: 100vw;
 }
 .swiper-slide-atividades{
   display: flex;
@@ -197,7 +200,7 @@ p {
   padding-left: 3em;
   margin-right: 20px;
   .img-foto-atividades{
-    width: 45vh;
+    width: 45vw;
     height: 35vh;
   }
   h3{

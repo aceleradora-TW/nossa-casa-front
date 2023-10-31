@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import { App } from './App'
+import { Outlet } from 'react-router'
 Modal.setAppElement('#root')
 ReactDOM.render(
   <React.StrictMode>
