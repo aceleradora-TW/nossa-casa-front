@@ -100,6 +100,12 @@ p {
   background-color: #E4E7EB;
 }
 
+.slide-itens{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .swiper-slide img {
   display: block;
   width: 30em;

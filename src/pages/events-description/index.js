@@ -18,7 +18,7 @@ import {
   faPenToSquare,
   faHandHoldingDollar,
   faCalendarDays,
-  faLocationDot
+  faLocationDot,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const EventsPageDescription = () => {
@@ -47,25 +47,27 @@ export const EventsPageDescription = () => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: env.URL_CMS + image.attributes?.url
+            url: env.URL_CMS + image.attributes?.url,
           }
         })
         setGaleria(images)
         const oficinas = data.attributes.oficinas.data.map((oficina) => {
           console.log('oficina', oficina)
           return oficina.attributes.foto_divulgacao.data.map((foto) => {
-            console.log('foto', foto.attributes.url)
+            // console.log('foto', foto.attributes.url)
             return {
               id: oficina.id,
               type: 'oficina',
               name: oficina.attributes.nome,
-              url: env.URL_CMS + foto.attributes?.url
+              url: env.URL_CMS + foto.attributes?.url,
             }
           })
         })
         activitiesList.push(oficinas)
+        console.log('oficinas')
+        console.log(oficinas)
         const subeventos = data.attributes.subeventos.data.map((evento) => {
-          console.log('evento', evento)
+          // console.log('evento', evento)
           // return evento.attributes.foto_divulgacao.data.map((foto) => {
           return {
             type: 'evento',
@@ -73,12 +75,14 @@ export const EventsPageDescription = () => {
             name: evento.attributes.nome,
             url:
               env.URL_CMS +
-              evento.attributes.foto_divulgacao.data.attributes.url
+              evento.attributes.foto_divulgacao.data.attributes.url,
           }
           // })
         })
         activitiesList.push(subeventos)
         setActivities(activitiesList)
+        console.log('eventos')
+        console.log(subeventos)
       })
   }, [])
 
@@ -86,12 +90,12 @@ export const EventsPageDescription = () => {
     const dateObject = new Date(date)
     const day = dateObject.toLocaleDateString(undefined, {
       day: 'numeric',
-      timeZone: 'UTC'
+      timeZone: 'UTC',
     })
     const month = dateObject.toLocaleDateString('pt-BR', { month: 'short' })
     const year = dateObject.toLocaleDateString(undefined, {
       year: '2-digit',
-      timeZone: 'UTC'
+      timeZone: 'UTC',
     })
     return [day, month, year].join(' ')
   }
@@ -106,7 +110,7 @@ export const EventsPageDescription = () => {
       'Quarta',
       'Quinta',
       'Sexta',
-      'Sábado'
+      'Sábado',
     ]
     return daysWeek[indexWeek]
   }
@@ -134,8 +138,7 @@ export const EventsPageDescription = () => {
                   <FontAwesomeIcon icon={faCalendarDays} />{' '}
                 </div>
                 {event.attributes?.data_inicio ===
-                event.attributes?.data_fim
-                  ? (
+                event.attributes?.data_fim ? (
                   <p>
                     {`${week(event.attributes?.data_inicio)}, ${handleDate(
                       event.attributes?.data_inicio
@@ -143,8 +146,7 @@ export const EventsPageDescription = () => {
                     <br />
                     {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
                   </p>
-                    )
-                  : (
+                ) : (
                   <p>
                     {`${week(event.attributes?.data_inicio)}, ${handleDate(
                       event.attributes?.data_inicio
@@ -154,7 +156,7 @@ export const EventsPageDescription = () => {
                     <br />
                     {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
                   </p>
-                    )}
+                )}
               </li>
               <li>
                 <div className="style-icon">
@@ -195,7 +197,7 @@ export const EventsPageDescription = () => {
                       '--fa-primary-color': '#00000',
                       '--fa-secondary-color': '#00000',
                       '--fa-secondary-opacity': '1',
-                      transform: 'rotate(-30deg)'
+                      transform: 'rotate(-30deg)',
                     }}
                     size="lg"
                   />
@@ -278,65 +280,75 @@ export const EventsPageDescription = () => {
         {/* {oficina.attributes.foto_divulgacao && console.log('test', oficina.attributes.foto_divulgacao.data[0].attributes.url)}
                   {console.log(event?.attributes?.oficinas?.data.length)} */}
         {/* inicio subeventos */}
+        {activities.length > 0 && (
+          <section>
+            <div className="carrossel">
+              <h1>EVENTOS</h1>
+            </div>
+            <Swiper
+              slidesPerView={3}
+              spaceBetween={-110}
+              navigation={true}
+              breakpoints={{
+                '@0.00': {
+                  slidesPerView: 1,
+                  spaceBetween: 1,
+                },
+                '@0.75': {
+                  slidesPerView: 2,
+                  spaceBetween: 2,
+                },
+                '@1.00': {
+                  slidesPerView: 3,
+                  spaceBetween: 3,
+                },
+              }}
+              modules={[Navigation]}
+              className="mySwiper"
+            >
+              <section>
+                <div className="swiper-slide-atividades">
+                  {console.log(activities)}
+                  <ul>
+                    {activities?.map((activit) => {
+                      // if (activit !== null && activit !== undefined) {
+                      console.log('Activities')
+                      console.log(activit)
+                      return activit.map((item) => {
+                        return (
+                          <li key={item.id}>
+                            <div>{item.name}</div>
+                            <SwiperSlide>
+                              <span className="slide-itens">
+                                <img className="img-foto" src={item.url} />
+                                <div>
+                                  <h3 className="title">{item.name}</h3>
+                                </div>
+                                <div className="styled-button">
+                                  <NavLink to={`/${item.type}/${item.id}`}>
+                                    Saiba Mais
+                                  </NavLink>
+                                </div>
+                              </span>
+                            </SwiperSlide>
+                          </li>
+                        )
+                      })
 
-      <div className='carrossel'>
-        <h1>EVENTOS</h1>
-      </div>
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={-110}
-        navigation={true}
-        breakpoints={{
-          '@0.00': {
-            slidesPerView: 1,
-            spaceBetween: 1
-          },
-          '@0.75': {
-            slidesPerView: 2,
-            spaceBetween: 2
-          },
-          '@1.00': {
-            slidesPerView: 3,
-            spaceBetween: 3
-          }
-        }}
-        modules={[Navigation]}
-        className="mySwiper"
-      >
-        <section>
-          <div className="swiper-slide-atividades">
-            {console.log(activities)}
-            <ul>
-            {activities?.map((activit) => {
-              if (activit !== null && activit !== undefined) {
-                return (
-                  <div key={activit.id}>{console.log(activit)}
-                    <div>{activit.name}</div>
-                    <SwiperSlide>
-                      <div>
-                        <img className="img-foto" src={activit.url} />
-                      </div>
-                      <div>
-                        <h3 className="title">{activit.name}</h3>
-                      </div>
-                      <div className='styled-button'>
-                        <NavLink to={`/${activit.type}/${activit.id}`}>Saiba Mais</NavLink>
-                      </div>
-                    </SwiperSlide>
-                  </div>
-                )
-              }
-            })}
-            </ul>
-          </div>
-        </section>
-      </Swiper>
+                      // }
+                    })}
+                  </ul>
+                </div>
+              </section>
+            </Swiper>
+          </ section>
+        )}
         <section className="container-carousel">
           <div className="style-img-swiper">
             <Swiper
               style={{
                 '--swiper-navigation-color': '#516B84',
-                '--swiper-pagination-color': ''
+                '--swiper-pagination-color': '',
               }}
               loop={true}
               spaceBetween={10}
