@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-const Home = styled.div`
+const Home = styled.div `
   background-color: white;
   width: 100%;
   height: 100vh;
@@ -184,44 +184,25 @@ const Home = styled.div`
     }
 
     .parceires {
-      background-color: aliceblue;
-      height: 697px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
       h2 {
-        font-size: 2.5rem;
         margin-top: 30px;
-        margin-bottom: 10px;
         cursor: default;
       }
 
       p {
-        margin-bottom: 40px;
         cursor: default;
       }
 
-      .carrossel-perfis {
-        height: 60%;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        cursor: default;
+      .perfil {
+        width: 30%;
 
-        .perfil {
-          background-color: cadetblue;
-          width: 30%;
+        h3 {
+          text-align: center;
+          cursor: default;
+        }
 
-          h3 {
-            text-align: center;
-            cursor: default;
-          }
-
-          p {
-            text-align: center;
-            cursor: default;
-          }
+        p {
+          cursor: default;
         }
       }
     }
