@@ -43,50 +43,42 @@ export const WorkshopDetails = () => {
         setWorkshops(data)
       })
   }, [])
-  console.log(workshops)
-  // const test = (date) => {
-  //   return new Date(date)
-  // }
-  // const handleDate = (date) => {
-  //   const day = date.toLocaleDateString(undefined, {
-  //     day: 'numeric',
-  //     Timezone: 'UTF'
-  //   })
-  //   const month = date.toLocaleDateString('pt-BR', { month: 'short' })
-  //   const year = date.toLocaleDateString(undefined, {
-  //     year: 'numeric',
-  //     Timezone: 'UTF'
-  //   })
-  //   return [day, month, year].join(' ')
-  // }
-  // const dateAsDateObjectI = new Date(workshops?.attributes?.data_inicio)
-  // const dateAsDateObjectF = new Date(workshops?.attributes?.data_fim)
-  // const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
-  const daysOfWeekInPtBr = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
-  const formatDate = (timestamp) => {
-    const day = timestamp.toLocaleDateString(undefined, {
+  const daysOfWeekInPtBr = [
+    'Domingo',
+    'Segunda',
+    'Terça',
+    'Quarta',
+    'Quinta',
+    'Sexta',
+    'Sábado'
+  ]
+  const formatDate = (date) => {
+    const day = date.toLocaleDateString(undefined, {
       day: 'numeric',
       Timezone: 'UTF'
     })
-    const month = timestamp.toLocaleDateString('pt-BR', { month: 'short' })
-    const year = timestamp.toLocaleDateString(undefined, {
+    const month = date.toLocaleDateString('pt-BR', { month: 'short' })
+    const year = date.toLocaleDateString(undefined, {
       year: 'numeric',
       Timezone: 'UTF'
     })
-    return `${daysOfWeekInPtBr[timestamp.getDay()]}, ${day} ${month} ${year}`
+    return `${daysOfWeekInPtBr[date.getDay()]}, ${day} ${month} ${year}`
   }
+  const formatWorkshopDuration = (workshop) =>
+    `, ${workshop.attributes?.horario_inicio} > ${workshop.attributes?.horario_fim}`
+
   const endsOnSameDay = (workshop) =>
     workshop.attributes?.data_inicio === workshop.attributes?.data_fim
 
-  const formatWorkshopDuration = (workshop) =>
-    `${workshop.attributes?.horario_inicio} > ${workshop.attributes?.horario_fim}`
-
-  const formatWorkshopDates = (workshop) =>
-    endsOnSameDay(workshop)
-      ? formatDate(workshop.attributes?.data_inicio)
-      : `${formatDate(workshop.attributes?.data_inicio)} até ${formatDate(
-        workshop.attributes?.data_fim
-      )}`
+  const formatWorkshopDates = (workshop) => {
+    console.log(workshop.attributes)
+    if (workshop && workshop.attributes && workshop.attributes.data_inicio && workshop.attributes.data_fim) {
+      return endsOnSameDay(workshop)
+        ? formatDate(new Date(workshop.attributes?.data_inicio))
+        : `${formatDate(new Date(workshop.attributes?.data_inicio))} 
+        até ${formatDate(new Date(workshop.attributes?.data_fim))}`
+    }
+  }
 
   return (
     <>
@@ -242,7 +234,7 @@ export const WorkshopDetails = () => {
             </div>
           </div>
         </section>
-      </Details>
+      </Details >
     </>
   )
 }
