@@ -179,7 +179,7 @@ const Home = styled.div`
         height: 56px;
         cursor: pointer;
         margin-top: 15px;
-        margin-bottom: 104px;
+        margin-bottom: 60px;
       }
     }
 
@@ -294,6 +294,16 @@ const Home = styled.div`
         color: #54636f;
         cursor: default;
       }
+    }
+    @media screen and (max-width: 767px){
+      .galeria .titulo-galeria{
+        font-size: 2.75rem;
+      }
+      .painel{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+      }
+      
     }
   }
 `
