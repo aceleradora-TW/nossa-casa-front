@@ -1,14 +1,13 @@
-import CssCarrosselGlobal from '../css-carrossel/styled'
+import { CssCarrosselGlobal } from '../global-styles'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
-import { cms } from '../../service/client'
+import { cms } from '../../client'
 import VerMais from './styled'
 import { Link } from 'react-router-dom'
-
 
 const TherapiesCarrossel = () => {
   const [attributes, setAttributes] = useState([])
@@ -22,7 +21,7 @@ const TherapiesCarrossel = () => {
           return {
             id: data.id,
             name: data.attributes.nome,
-            image_url: data.attributes.foto_divulgacao.data[0].attributes.url,
+            image_url: data.attributes.foto_divulgacao.data[0].attributes.url
           }
         }
         return data.attributes
@@ -59,16 +58,16 @@ const TherapiesCarrossel = () => {
         breakpoints={{
           '@0.00': {
             slidesPerView: 1,
-            spaceBetween: 1,
+            spaceBetween: 1
           },
           '@0.75': {
             slidesPerView: 2,
-            spaceBetween: 2,
+            spaceBetween: 2
           },
           '@1.00': {
             slidesPerView: 3,
-            spaceBetween: 3,
-          },
+            spaceBetween: 3
+          }
         }}
         modules={[Navigation]}
         className="mySwiper"
@@ -80,7 +79,7 @@ const TherapiesCarrossel = () => {
                 <li key={key}>
                   <SwiperSlide>
                     <div>
-                    <div>
+                      <div>
                         <img
                           className="img"
                           src={urlCms + therapies.image_url}

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const CssModalGlobal = styled.div`
+export const CssModalGlobal = styled.div`
   width: 100%;
   height: 100%;
   max-width: auto;
@@ -21,4 +21,3 @@ const CssModalGlobal = styled.div`
     right: 100%;
   }
 `
-export default CssModalGlobal

@@ -1,7 +1,7 @@
 import { ModalContainer } from './styled'
 import { useState, useEffect } from 'react'
 import closeIcon from './close-icon.svg'
-import { buttonTextByTypes } from '../../constants/constants'
+import { buttonTextByTypes } from '../../types/constants'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
 import env from 'react-dotenv'
@@ -9,7 +9,7 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
-import { cms } from '../../service/client'
+import { cms } from '../../client'
 
 const ModalGallery = ({ type }) => {
   const [toggleGallery, setToggleGallery] = useState(false)

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Details from './styled'
 import { useState, useEffect } from 'react'
-import { cms } from '../../service/client'
+import { cms } from '../../client'
 import {
   faUser,
   faPenToSquare,
@@ -26,6 +26,7 @@ export const DetailsTherapies = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [galleryPhoto, setGalleryPhoto] = useState([])
   const { id } = useParams()
+
   useEffect(() => {
     cms
       .get(`api/therapies/${id}/?populate=parceires&populate=foto_terapias`)

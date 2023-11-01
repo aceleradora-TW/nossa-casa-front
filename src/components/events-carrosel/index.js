@@ -1,12 +1,12 @@
-import EventsComponent from './styled.js'
 import React, { useEffect, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import env from 'react-dotenv'
+import { NavLink } from 'react-router-dom'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
-import { cms } from '../../service/client'
-import env from 'react-dotenv'
-import { NavLink } from 'react-router-dom'
+import { cms } from '../../client'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import EventsComponent from './styled.js'
 
 const Events = () => {
   const [attributesEvents, setAttributesEvents] = useState([])
@@ -14,8 +14,8 @@ const Events = () => {
   useEffect(() => {
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
-      const events = data.map((data) => {
-        if (data) {
+      if (data) {
+        const events = data.map((data) => {
           return {
             id: data.id,
             name: data.attributes.nome,
@@ -28,11 +28,10 @@ const Events = () => {
             price: data.attributes.preco,
             description: data.attributes.descricao
           }
-        }
-        return null
-      })
-      const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date - b.date)
-      setAttributesEvents(eventsOrdered)
+        })
+        const eventsOrdered = events.filter(event => event !== null).sort((a, b) => a.date - b.date)
+        setAttributesEvents(eventsOrdered)
+      }
     })
   }, [])
   return (
