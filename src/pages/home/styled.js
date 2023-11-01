@@ -161,7 +161,7 @@ const Home = styled.div `
             width: 100%;
             height: 100%;
             max-height: 400px;
-            max-width: 1000px;
+            min-width: 100px;
             border-radius: 4px;
             object-fit: cover;
             object-position: center;
