@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper/modules'
-import { cms } from '../../service/client'
+import { cmsApi } from '../../service/client'
 import Home from './styled'
 import mural from './mural.png'
 import NavBar from '../../components/navbar'
@@ -10,66 +10,47 @@ import ModalGallery from '../../components/galery-modal'
 import fotoNossaCasa from './nossacasa.png'
 import Parceires from '../../components/parceires'
 import Footer from '../../components/footer'
-import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-export function HomePage () {
-  const [attributes, setAttributes] = useState([])
-  const [galeria, setGaleria] = useState([])
-  const [toggle, setToggle] = useState(false)
-  const urlCms = env.URL_CMS
+export function HomePage() {
+  const [highlightedEvents, setHighlightedEvents] = useState([])
+  const [galleryImages, setGalleryImages] = useState([])
+  const [shouldShowHighlightedEvents, setShouldShowHighlightedEvents] =
+    useState(false)
 
-  useEffect(() => {
-    cms.get('api/events/?populate=foto_divulgacao').then((response) => {
-      const { data } = response.data
-      const event = data.map((data) => {
-        if (data.attributes.destaque) {
-          setToggle(!toggle)
-          return {
-            id: data?.id,
-            data: data?.attributes
-          }
-        }
-        return false
-      })
-      setAttributes(event)
-    })
-    cms.get('api/gallery/?populate=fotos').then((response) => {
-      const images = response.data.data.attributes.fotos.data.map((image, id) => {
-        return {
-          id,
-          url: env.URL_CMS + image.attributes.url
-        }
-      })
+  useEffect(async () => {
+    const highlightedEvents = await cmsApi.getHighlightedEvents()
 
-      setGaleria(images)
-    }).catch(error => {
-      throw new Error(error)
-    })
+    if (highlightedEvents.length > 0) {
+      setShouldShowHighlightedEvents(true)
+      setHighlightedEvents(highlightedEvents)
+    }
+
+    const galleryImages = await cmsApi.getHomeGaleryImages()
+    setGalleryImages(galleryImages)
   }, [])
 
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
     '--swiper-navigation-color': '#FFFFFF',
     '--swiper-navigation-prev': {
-      'margin- left': '50px'
+      'margin- left': '50px',
     },
-    width: '100%'
+    width: '100%',
   }
-  console.log(attributes)
   return (
     <Home $background={mural}>
       <NavBar />
       <main>
-        {toggle &&
+        {shouldShowHighlightedEvents && (
           <section className="carrossel">
             <Swiper
               modules={[Pagination, Navigation, Keyboard, Autoplay]}
               pagination={{
                 type: 'bullets',
-                clickable: 'true'
+                clickable: 'true',
               }}
               navigation={true}
               className="hero-banner"
@@ -78,51 +59,56 @@ export function HomePage () {
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false,
-                pauseOnMouseEnter: true
+                pauseOnMouseEnter: true,
               }}
             >
               <ul>
-                {
-                  attributes.map((attribute) =>
-                    attribute &&
-                    <SwiperSlide className="style-swiper-slide" key={attribute?.id}>
-                      <div className='slide-container'>
-                        <h2 className="slide-title"> {attribute.data?.nome} </h2>
-                        <div className='event-container'>
-                          <p className="descricao"> {attribute.data?.descricao}</p>
-                        </div>
-                        <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
-                        <img src={urlCms + attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slide-image" />
+                {highlightedEvents.map((event) => (
+                  <SwiperSlide className="style-swiper-slide" key={event.id}>
+                    <div className="slide-container">
+                      <h2 className="slide-title"> {event.name} </h2>
+                      <div className="event-container">
+                        <p className="descricao"> {event.description}</p>
                       </div>
-                    </SwiperSlide>
-                  )
-                }
+                      <Link to="#" className="ver-mais">
+                        ver mais sobre o evento
+                      </Link>
+                      <img src={event.imageUrl} className="slide-image" />
+                    </div>
+                  </SwiperSlide>
+                ))}
               </ul>
             </Swiper>
           </section>
-        }
-        <section className='about'>
-          <div className='content'>
-            <div className='text'>
+        )}
+        <section className="about">
+          <div className="content">
+            <div className="text">
               <h2>SOBRE O NOSSA CASA</h2>
-              <p className='Textparagraph'>
-                A Nossa Casa existe há 5 anos no Município de Guarulhos, a segunda maior cidade do Estado de São Paulo, com cerca de 1.379.182 habitantes, sendo destes 45% autodeclarados negros (soma de pretos e pardos), 51,3% mulheres e em sua maioria residentes de áreas periféricas da cidade e de alguma forma em situação de vulnerabilidade, seja financeira, social ou emocional. Guarulhos é gigante e tem muitas necessidades.
+              <p className="Textparagraph">
+                A Nossa Casa existe há 5 anos no Município de Guarulhos, a
+                segunda maior cidade do Estado de São Paulo, com cerca de
+                1.379.182 habitantes, sendo destes 45% autodeclarados negros
+                (soma de pretos e pardos), 51,3% mulheres e em sua maioria
+                residentes de áreas periféricas da cidade e de alguma forma em
+                situação de vulnerabilidade, seja financeira, social ou
+                emocional. Guarulhos é gigante e tem muitas necessidades.
               </p>
               <ModalGallery type={'about'} />
             </div>
-            <div className='foto'>
+            <div className="foto">
               <img src={fotoNossaCasa} />
             </div>
-          </div >
-        </section >
+          </div>
+        </section>
         <section className="galeria">
-          <h2 className='titulo-galeria'>Galeria de fotos</h2>
-          <div className='container-painel'>
-            <ul className='painel'>
-              {galeria.map((fotos) => (
-                <li key={fotos.id}>
-                  <p>{fotos.name}</p>
-                  <img src={fotos.url} />
+          <h2 className="titulo-galeria">Galeria de fotos</h2>
+          <div className="container-painel">
+            <ul className="painel">
+              {galleryImages.map((image, index) => (
+                <li key={index}>
+                  <p>{image.name}</p>
+                  <img src={image.url} />
                 </li>
               ))}
             </ul>
@@ -131,7 +117,7 @@ export function HomePage () {
         </section>
         <Parceires />
         <Footer />
-      </main >
-    </Home >
+      </main>
+    </Home>
   )
 }
