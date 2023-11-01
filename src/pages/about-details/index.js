@@ -14,7 +14,7 @@ const PageAbout  = () => {
                   <h3>Nossa história até aqui</h3>
                   <p>
                     Em 2018, a Nossa Casa nasce com o intuito de oferecer à
-                    população acesso a serviços, produtos e atividades nas áreas, produtos e atividades nas áreas
+                    população acesso a serviços, produtos e atividades nas áreas
                     de saúde mental, terapias integrativas, cultura e arte,
                     entendendo tais ações como promoção e garantia de direitos a
                     todes, com foco na acessibilidade à pessoas em situação de
