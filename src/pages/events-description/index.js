@@ -52,12 +52,15 @@ export const EventsPageDescription = () => {
         })
         setGaleria(images)
         const oficinas = data.attributes.oficinas.data.map((oficina) => {
+          console.log(oficina)
           return {
             id: oficina.id,
             type: 'workshops',
             name: oficina.attributes.nome,
             url: env.URL_CMS +
-              oficina.attributes.foto_divulgacao.data[0].attributes.url
+              oficina.attributes.foto_divulgacao.data[0].attributes.url,
+            data_inicio: oficina.attributes.data_inicio,
+            horario_inicio: oficina.attributes.horario_inicio
           }
         })
         activitiesList.push(oficinas)
@@ -70,12 +73,15 @@ export const EventsPageDescription = () => {
             name: evento.attributes.nome,
             url:
               env.URL_CMS +
-              evento.attributes.foto_divulgacao.data.attributes.url
+              evento.attributes.foto_divulgacao.data.attributes.url,
+            data_inicio: evento.attributes.data_inicio,
+            horario_inicio: evento.attributes.horario_inicio
           }
           // })
         })
         activitiesList.push(subeventos)
         setActivities(activitiesList)
+        console.log('OFICINAAASSS NOVA', oficinas)
       })
   }, [])
 
@@ -229,53 +235,6 @@ export const EventsPageDescription = () => {
           )}
         </div>
 
-        {/* <div className="style-swiper-fotos">
-          <Swiper
-            onSwiper={setThumbsSwiper}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={7}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="second-carousel"
-          >
-            {actvities?.map((activitie, index) => {
-              if (activitie !== null && activitie !== undefined) {
-                return (
-                  <div key={index}>
-                    {console.log(activitie)}
-                    <div>{activitie.name}</div>
-                    <SwiperSlide>
-                      <img
-                        src={activitie.url}
-                        alt={activitie.name}
-                      />
-                      <div>
-                        <h3>{activitie.name}</h3>
-                      </div>
-                      <div>
-                        <NavLink to={`/${activitie.type}/${activitie.id}`}>
-                          Saiba Mais
-                        </NavLink>
-                      </div>
-                    </SwiperSlide>
-                  </div>
-                )
-              }
-              return null
-            })}
-          </Swiper>
-        </div>
-        {/* <p>{oficina.attributes?.nome}</p> */}
-        {/* <p>{oficina.attributes?.foto_divulgacao}</p> */}
-        {/* {if (oficina.attributes?.foto_divulgacao){
-                    console.log('teste')
-                  }} */}
-        {/* {oficina.attributes.foto_divulgacao && console.log('test', oficina.attributes.foto_divulgacao.data[0].attributes.url)}
-                  {console.log(event?.attributes?.oficinas?.data.length)} */}
-        {/* inicio subeventos */}
-        {/* {console.log('LEGTH----', activities.length)} */}
         {(activities.length > 0) && (activities[0].length > 0 || activities[1].length > 0) && (
           <section>
             <div className="carrossel">
@@ -304,7 +263,6 @@ export const EventsPageDescription = () => {
             >
               <section>
                 <div className="swiper-slide-atividades">
-                  {console.log('"activitiesssss"', activities)}
                   <ul>
                     {activities?.map((activit) => {
                       // if (activit !== null && activit !== undefined) {
@@ -317,6 +275,11 @@ export const EventsPageDescription = () => {
                                 <img className="img-foto" src={item.url} />
                                 <div>
                                   <h3 className="title">{item.name}</h3>
+                                  {event.attributes?.data_inicio !==
+                                  event.attributes?.data_fim &&
+                                  <h5 className='date'>{item.data_inicio}</h5>
+                                  }
+                                  <h5 className='hour'>{item.horario_inicio}</h5>
                                 </div>
                                 <div className="styled-button">
                                   <NavLink to={`/${item.type}/${item.id}`}>
