@@ -155,10 +155,10 @@ export const DetailsTherapies = () => {
                       <div>
                         <FontAwesomeIcon icon={faPenToSquare} size="lg" />
                       </div>
-                      <h1 className="inscription">
+                      <p className="inscription">
                         {' '}
                         Inscrição não é necessária
-                      </h1>
+                      </p>
                     </div>
                   </>
                 )}

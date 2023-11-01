@@ -47,7 +47,7 @@ const Details = styled.div`
   }
 
   .descriptionCMS {
-    font-size: 20px
+    font-size: 20px;
     text-align: justify;
     width: 85%;
     line-height: 23px;
@@ -64,13 +64,14 @@ const Details = styled.div`
   }
 
   .inscription {
-    font-size: 20px
+    font-size: 20px;
     margin-top: 4px;
     margin-left: 10px;
   }
 
   .spacingMoney,
   .spacingType {
+    font-size: 20px;
     margin-left: 30px;
     margin-top: -14px;
   }
