@@ -54,7 +54,7 @@ export const EventsPageDescription = () => {
         const oficinas = data.attributes.oficinas.data.map((oficina) => {
           return {
             id: oficina.id,
-            type: 'oficina',
+            type: 'workshops',
             name: oficina.attributes.nome,
             url: env.URL_CMS +
               oficina.attributes.foto_divulgacao.data[0].attributes.url
@@ -279,7 +279,7 @@ export const EventsPageDescription = () => {
         {(activities.length > 0) && (activities[0].length > 0 || activities[1].length > 0) && (
           <section>
             <div className="carrossel">
-              <h1>ATIVIDADES</h1>
+              <h1>PROGRAMAÇÃO</h1>
             </div>
             <Swiper
               slidesPerView={3}

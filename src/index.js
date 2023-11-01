@@ -7,6 +7,7 @@ import { Outlet } from 'react-router'
 Modal.setAppElement('#root')
 ReactDOM.render(
   <React.StrictMode>
+    <Outlet />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
