@@ -30,14 +30,18 @@ const ParceireComponents = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: blue;
   }
 
   .perfil {
+    padding: 10px 0;
     width: 100%;
     max-width: 400px;
-    background-color: red;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
   }
 
   .perfil > div {
@@ -46,10 +50,12 @@ const ParceireComponents = styled.section`
   }
 
   .img-perfil {
-    height: 150px;
+    height: 100%;
+    width: 100%;
+    max-width: 150px;
+    max-height: 150px;
     margin-bottom: 20px;
     border-radius: 50%;
-    /* margin-left: 30%; */
   }
 
   h3 {
@@ -59,7 +65,7 @@ const ParceireComponents = styled.section`
   }
 
   .perfil p {
-    margin: 10px;
+    margin: 1px;
     padding: 2%;
     color: black;
     text-align: center;
@@ -67,16 +73,15 @@ const ParceireComponents = styled.section`
   }
 
   .perfil > .perfil-descricao {
-    width: 80%;
-    
+    width: 300px;
     word-wrap: break-word;
-    border: 1px solid black;
   }
 
   .icones-rede-sociais {
     display: flex;
     justify-content: center;
     border-radius: none;
+    margin-top: 5%;
 
     a {
       color: black;
@@ -99,7 +104,7 @@ const ParceireComponents = styled.section`
       border: none;
       font-size: 14px;
       width: 182px;
-      height: 40px;
+      height: 56px;
       cursor: pointer;
       display: flex;
       justify-content: center;
