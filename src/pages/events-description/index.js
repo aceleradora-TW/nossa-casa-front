@@ -1,6 +1,6 @@
 import EventsStyleDescription from './styled'
 import { useState, useEffect } from 'react'
-import { cms } from '../../service/client'
+import { cms } from '../../client'
 import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Swiper, SwiperSlide } from 'swiper/react'

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import env from 'react-dotenv'
+import { NavLink } from 'react-router-dom'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
-import { cms } from '../../service/client'
-import env from 'react-dotenv'
-import { NavLink } from 'react-router-dom'
+import { cms } from '../../client'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import EventsComponent from './styled.js'
 
 const Events = () => {
   const [attributesEvents, setAttributesEvents] = useState([])

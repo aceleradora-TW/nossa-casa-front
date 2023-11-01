@@ -11,9 +11,6 @@ import Twitter from '../parceires/twitter-icon.png'
 import Whatsapp from '../parceires/whatsapp-icon.png'
 import ParceireComponents from './styled.js'
 
-import { useState, useEffect } from 'react'
-import env from 'react-dotenv'
-import { cms } from '../../service/client'
 const linkParceire = process.env.REACT_APP_LINK_PARCEIRO
 
 const Parceires = () => {
