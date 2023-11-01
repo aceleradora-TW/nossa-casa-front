@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Details from './styled'
 import { useState, useEffect } from 'react'
-import { cms } from '../../service/client'
+import { cms } from '../../client'
 import {
   faUser,
   faPenToSquare,
@@ -9,7 +9,7 @@ import {
   faHandHoldingDollar,
   faCalendarDays,
   faLocationDot,
-  faRectangleXmark,
+  faRectangleXmark
 } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
@@ -26,6 +26,7 @@ export const DetailsTherapies = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [galleryPhoto, setGalleryPhoto] = useState([])
   const { id } = useParams()
+
   useEffect(() => {
     cms
       .get(`api/therapies/${id}/?populate=parceires&populate=foto_terapias`)
@@ -36,7 +37,7 @@ export const DetailsTherapies = () => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: env.URL_CMS + image.attributes?.url,
+            url: env.URL_CMS + image.attributes?.url
           }
         })
         setGalleryPhoto(images)
@@ -47,18 +48,15 @@ export const DetailsTherapies = () => {
   const handleDate = (date) => {
     const day = date.toLocaleDateString(undefined, {
       day: 'numeric',
-      Timezone: 'UTF',
+      Timezone: 'UTF'
     })
     const month = date.toLocaleDateString('pt-BR', { month: 'short' })
     const year = date.toLocaleDateString(undefined, {
       year: 'numeric',
-      Timezone: 'UTF',
+      Timezone: 'UTF'
     })
     return [day, month, year].join(' ')
   }
-
-  const dateAsDateObject = new Date(therapies?.attributes?.data_inicio)
-  const indexWeek = dateAsDateObject.getDay()
 
   return (
     <>
@@ -99,7 +97,7 @@ export const DetailsTherapies = () => {
                       size="lg"
                       style={{
                         '--fa-secondary-color': '#ffffff',
-                        '--fa-primary-opacity': '1',
+                        '--fa-primary-opacity': '1'
                       }}
                     />
                     <div className="spacingMoney">
@@ -187,7 +185,7 @@ export const DetailsTherapies = () => {
             <Swiper
               style={{
                 '--swiper-navigation-color': '#516B84',
-                '--swiper-pagination-color': '',
+                '--swiper-pagination-color': ''
               }}
               loop={true}
               spaceBetween={10}

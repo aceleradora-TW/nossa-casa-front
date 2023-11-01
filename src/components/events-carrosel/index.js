@@ -1,12 +1,12 @@
-import EventsComponent from './styled.js'
 import React, { useEffect, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
-import { cms } from '../../service/client'
-import env from 'react-dotenv'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { cms } from '../../client.js'
 import ModalEvents from '../events-modal/index.js'
+import EventsComponent from './styled.js'
 
 const Events = () => {
   const [attributesEvents, setAttributesEvents] = useState([])
@@ -14,17 +14,17 @@ const Events = () => {
   useEffect(() => {
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
-      const events = data.map((data) => {
-        if (data) {
+      if (data) {
+        const events = data.map((data) => {
           return {
             nome: data.attributes.nome,
             date: new Date(data.attributes.data),
             imagem_url: data.attributes.foto_divulgacao.data.attributes.url
           }
-        }
-      })
-      const eventsOrdered = events.sort((a, b) => a.date - b.date)
-      setAttributesEvents(eventsOrdered)
+        })
+        const eventsOrdered = events.sort((a, b) => a.date - b.date)
+        setAttributesEvents(eventsOrdered)
+      }
     })
   }, [])
   return (

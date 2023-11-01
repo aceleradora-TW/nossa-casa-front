@@ -1,11 +1,11 @@
-import CssCarrosselGlobal from '../css-carrossel/styled'
+import { CssCarrosselGlobal } from '../global-styles'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
-import { cms } from '../../service/client'
+import { cms } from '../../client'
 import ModalWorkshops from '../modal-oficinas'
 
 const WorkshopsCarrossel = () => {

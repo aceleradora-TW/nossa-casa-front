@@ -1,6 +1,6 @@
 import Modal from 'react-modal'
 import { useState } from 'react'
-import CssModalGlobal from '../css-modal/styled'
+import { CssModalGlobal } from '../global-styles'
 import closeIcon from '../galery-modal/close-icon.svg'
 
 const ModalWorkshops = () => {
