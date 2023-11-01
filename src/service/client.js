@@ -48,14 +48,6 @@ const getEventsOrderedByDate = async () => {
       name: event.attributes.nome,
       date: new Date(event.attributes.data_inicio),
       imageUrl: `${env.URL_CMS}/${event.attributes.foto_divulgacao.data.attributes.url}`,
-      type: event.attributes.tipo,
-      location: event.attributes.local,
-      price: event.attributes.preco,
-      description: event.attributes.descricao,
-      duration: {
-        start: event.attributes.horario_inicio,
-        end: event.attributes.horario_fim,
-      },
     }))
     .sort((a, b) => a.date - b.date)
 }
