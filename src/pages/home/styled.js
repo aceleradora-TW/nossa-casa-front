@@ -205,6 +205,143 @@ const Home = styled.div`
         cursor: pointer;
       }
     }
+
+
+  @media (max-width: 1280px) {
+    .galeria{
+      height: 950px;
+    }
+    }
+
+    .parceires {
+      background-color: aliceblue;
+      height: 697px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h2 {
+        font-size: 2.5rem;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        cursor: default;
+      }
+
+      p {
+        margin-bottom: 40px;
+        cursor: default;
+      }
+
+      .carrossel-perfis {
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        cursor: default;
+
+        .perfil {
+          background-color: cadetblue;
+          width: 30%;
+
+          h3 {
+            text-align: center;
+            cursor: default;
+          }
+
+          p {
+            text-align: center;
+            cursor: default;
+          }
+        }
+      }
+    }
+    
+    .about {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    align-items: center;
+    height: 627px;
+  }
+
+main .about {
+  height: auto;
+  padding: 10px;
+}
+
+  main .about .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+  }
+
+  .content .text {
+    box-sizing: border-box;
+    text-align: justify;
+    width: 40%;
+    margin-bottom: auto;
+  }
+
+  .foto img {
+    width: 110%;
+    max-width: auto;
+    margin-left: 3%;
+    border-radius: 3px;
+    margin-bottom: 4.6rem;
+  }
+
+  @media screen and (min-width: 720px) and (max-width:2920px) {
+    .content > div {
+      width: auto;
+      max-width: auto;
+    }
+
+    .content h2 {
+      font-size: 2.25rem;
+      margin-bottom: 30px;
+    }
+
+    .content .Textparagraph {
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 35px;
+    }
+
+    .content .text h2 {
+      font-size: 2rem;
+      color: #516B84;
+      cursor: default;
+    }
+
+    .content .text .Textparagraph {
+      font-size: 25px;
+      color: #54636F;
+      cursor: default;
+    }
+  }
+  .button-about{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .styled-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5bc4a;
+    width: 146px;
+    height: 40px;
+    border: none;
+    margin-top: 1rem;
+  }
+
 `
 
 export default Home
