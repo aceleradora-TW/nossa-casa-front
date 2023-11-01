@@ -149,7 +149,7 @@ export const DetailsTherapies = () => {
                 </div>
               </li>
               <li>
-                {therapies.attributes?.url_inscricao == null && (
+                {therapies.attributes?.url_agendamento == null && (
                   <>
                     <div className="inscriptionIcon">
                       <div>
@@ -168,10 +168,10 @@ export const DetailsTherapies = () => {
 
           <p className="description">Descrição da terapia</p>
           <p className="descriptionCMS">{therapies.attributes?.descricao}</p>
-          {therapies.attributes?.url_inscricao !== null && (
+          {therapies.attributes?.url_agendamento !== null && (
             <a
               className="button-inscription"
-              href={therapies.attributes?.url_inscricao}
+              href={therapies.attributes?.url_agendamento}
               target="_blank"
               rel="noreferrer"
             >

@@ -31,7 +31,7 @@ const Details = styled.div`
   }
 
   .start-date,
-  .data-fim, .local, .partners{
+  .data-fim, .local, .partners, .parce, .day{
     font-size: 20px;
   }
 
@@ -40,17 +40,17 @@ const Details = styled.div`
   }
 
   .description {
-    font-weight: 900;
+    font-weight: bold;
     font-size: 30px;
     padding-top: 60px;
     padding-bottom: 20px;
   }
 
   .descriptionCMS {
-    font-size: 17px;
+    font-size: 20px
     text-align: justify;
     width: 85%;
-    font-weight: bold;
+    line-height: 23px;
   }
 
   .button-close,
@@ -64,8 +64,8 @@ const Details = styled.div`
   }
 
   .inscription {
+    font-size: 20px
     margin-top: 4px;
-    font-weight: bold;
     margin-left: 10px;
   }
 
@@ -73,12 +73,10 @@ const Details = styled.div`
   .spacingType {
     margin-left: 30px;
     margin-top: -14px;
-    font-weight: bold;
   }
 
   .spacingDate,
   .spacingLocal {
-    font-weight: bold;
     width: 70%;
     display: flex;
     align-items: center;
@@ -88,20 +86,10 @@ const Details = styled.div`
     }
   }
 
-  .parce {
-    font-weight: bold;
-  }
-
   .spacing-partners {
     display: inline-block;
     padding-left: 8px;
     margin-right: 1.5em;
-  }
-
-  .day {
-    font-weight: 400;
-    font-size: 23px;
-    font-weight: bold;
   }
 
   .button-inscription {
@@ -117,7 +105,6 @@ const Details = styled.div`
     align-items: center;
     margin: auto;
     margin-top: 50px;
-    font-weight: bold;
     text-decoration: none;
     color: black;
     margin-bottom: 3em;
