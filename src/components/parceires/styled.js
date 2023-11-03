@@ -17,14 +17,6 @@ const ParceireComponents = styled.section`
     justify-content: center;
   }
 
-  /* .swiper-wrapper {
-    margin: 0;
-    display: flex;
-    align-items:center ;
-    justify-content: center;
-    background-color: green;
-  } */
-
   .swiper-slide {
     height: 100%;
     display: flex;
@@ -40,8 +32,6 @@ const ParceireComponents = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-
   }
 
   .perfil > div {
@@ -50,6 +40,8 @@ const ParceireComponents = styled.section`
   }
 
   .img-perfil {
+    object-fit: cover;
+    object-position: center;
     height: 150px;
     width: 150px;
     margin-bottom: 20px;
@@ -100,7 +92,6 @@ const ParceireComponents = styled.section`
       background: #516b84;
       border-radius: 3px;
       border: none;
-      font-size: 14px;
       width: 182px;
       height: 56px;
       cursor: pointer;
@@ -109,9 +100,9 @@ const ParceireComponents = styled.section`
       align-items: center;
 
       a {
-        color: black;
+        font-weight: 900;
+        color: #fafafa;
         text-decoration: none;
-        color: white;
         display: flex;
         justify-content: center;
       }

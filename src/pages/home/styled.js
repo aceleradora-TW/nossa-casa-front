@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-const Home = styled.div `
+const Home = styled.div`
   background-color: white;
   width: 100%;
   height: 100vh;
@@ -147,7 +147,6 @@ const Home = styled.div `
         align-self: normal;
         margin: 0 8.3%;
 
-
         .painel {
           width: 100%;
           display: grid;
@@ -174,7 +173,7 @@ const Home = styled.div `
         border-radius: 3px;
         color: #fafafa;
         border: none;
-        font-size: 0.75rem;
+        font-size: 1rem;
         width: 148px;
         height: 56px;
         cursor: pointer;
@@ -207,7 +206,7 @@ const Home = styled.div `
       }
     }
 
-    .about {
+    /* .about {
       background-color: #ffffff;
       display: flex;
       flex-direction: column;
@@ -245,9 +244,9 @@ const Home = styled.div `
       border-radius: 3px;
       margin-bottom: 4.6rem;
       max-height: 448px;
-    }
+    } */
 
-    @media screen and (min-width: 720px) and (max-width: 2920px) {
+    /* @media screen and (min-width: 720px) and (max-width: 2920px) {
       .content > div {
         width: auto;
         max-width: auto;
@@ -275,16 +274,15 @@ const Home = styled.div `
         color: #54636f;
         cursor: default;
       }
-    }
-    @media screen and (max-width: 767px){
-      .galeria .titulo-galeria{
+    } */
+    @media screen and (max-width: 767px) {
+      .galeria .titulo-galeria {
         font-size: 2.75rem;
       }
-      .painel{
+      .painel {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
       }
-      
     }
   }
 `
