@@ -205,6 +205,11 @@ p {
 
 }
 
+.date, .hour{
+  color:  grey;
+  margin: 5px, 0;
+}
+
 .styled-button{
   display:flex;
   justify-content: center;

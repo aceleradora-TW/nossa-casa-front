@@ -265,7 +265,6 @@ export const EventsPageDescription = () => {
                 <div className="swiper-slide-atividades">
                   <ul>
                     {activities?.map((activit) => {
-                      // if (activit !== null && activit !== undefined) {
                       return activit.map((item) => {
                         return (
                           <li key={item.id}>
@@ -277,7 +276,7 @@ export const EventsPageDescription = () => {
                                   <h3 className="title">{item.name}</h3>
                                   {event.attributes?.data_inicio !==
                                   event.attributes?.data_fim &&
-                                  <h5 className='date'>{item.data_inicio}</h5>
+                                  <h5 className='date'>{handleDate(item.data_inicio)}</h5>
                                   }
                                   <h5 className='hour'>{item.horario_inicio}</h5>
                                 </div>
