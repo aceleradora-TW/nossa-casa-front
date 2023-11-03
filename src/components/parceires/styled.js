@@ -35,7 +35,7 @@ const ParceireComponents = styled.section`
   .perfil {
     padding: 10px 0;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,10 +50,8 @@ const ParceireComponents = styled.section`
   }
 
   .img-perfil {
-    height: 100%;
-    width: 100%;
-    max-width: 150px;
-    max-height: 150px;
+    height: 150px;
+    width: 150px;
     margin-bottom: 20px;
     border-radius: 50%;
   }
@@ -73,7 +71,7 @@ const ParceireComponents = styled.section`
   }
 
   .perfil > .perfil-descricao {
-    width: 300px;
+    max-width: 100%;
     word-wrap: break-word;
   }
 
