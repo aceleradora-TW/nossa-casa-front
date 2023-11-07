@@ -83,7 +83,7 @@ export const EventsPageDescription = () => {
         setActivities(activitiesList)
         console.log('OFICINAAASSS NOVA', oficinas)
       })
-  }, [])
+  }, [id])
 
   const handleDate = (date) => {
     const dateObject = new Date(date)
