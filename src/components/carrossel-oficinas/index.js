@@ -6,7 +6,7 @@ import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
 import VerMais from './styled'
-import { cms } from '../../service/client'
+import { cms } from '../../client'
 import { Link } from 'react-router-dom'
 
 const WorkshopsCarrossel = () => {

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Details from './styled'
 import { useState, useEffect } from 'react'
-import { cms } from '../../service/client'
+import { cms } from '../../client'
 import {
   faUser,
   faPenToSquare,

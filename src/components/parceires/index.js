@@ -5,7 +5,7 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
-import { cms } from '../../service/client'
+import { cms } from '../../client'
 const linkParceire = process.env.REACT_APP_LINK_PARCEIRO
 
 const Partners = () => {
