@@ -35,12 +35,11 @@ export function HomePage() {
     })
     cms.get('api/gallery/?populate=fotos').then((response) => {
       const images = response.data.data.attributes.fotos.data.map((image, id) => {
-        if (id.length > 6) {
-          return {
-            id
-          }
-        } return { id, url: env.URL_CMS + image.attributes.url }
+         return { id, url: env.URL_CMS + image.attributes.url }
       })
+      for(let i = images.length; i > 6; i--){
+        images.pop()
+      }
       setGaleria(images)
     }).catch(error => {
       throw new Error(error)
