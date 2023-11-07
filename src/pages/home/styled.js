@@ -149,6 +149,38 @@ const Home = styled.div`
         margin-top: 1.6rem;
         margin-bottom: 1.6rem;
       }
+
+      @media (max-width: 500px) {
+       .about .content {
+          flex-direction: column;
+          height: initial;
+          justify-content: initial;
+          padding: 2vh;
+
+        }
+
+        .about {
+          justify-content: initial;
+          height: initial;
+        }
+
+        .about .foto {
+          order: -1;
+          margin-bottom: 2rem;
+          margin-left: 0;
+        }
+
+        .about .text {
+          display: flex;
+          flex-direction: column;
+          padding: 0;
+        }
+      }
+
+      @media (max-width: 320px) {
+        flex-wrap: wrap;
+        height: 100%;
+      }
     }
 
     .galeria {
