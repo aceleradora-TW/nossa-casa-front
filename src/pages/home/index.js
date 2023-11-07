@@ -15,7 +15,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-export function HomePage () {
+export function HomePage() {
   const [attributes, setAttributes] = useState([])
   const [galeria, setGaleria] = useState([])
   const [toggle, setToggle] = useState(false)
@@ -35,18 +35,17 @@ export function HomePage () {
     })
     cms.get('api/gallery/?populate=fotos').then((response) => {
       const images = response.data.data.attributes.fotos.data.map((image, id) => {
-        return {
-          id,
-          url: env.URL_CMS + image.attributes.url
-        }
+        if (id.length > 6) {
+          return {
+            id
+          }
+        } return { id, url: env.URL_CMS + image.attributes.url }
       })
-
       setGaleria(images)
     }).catch(error => {
       throw new Error(error)
     })
   }, [])
-
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
     '--swiper-navigation-color': '#FFFFFF',
@@ -118,7 +117,7 @@ export function HomePage () {
           <h2 className='titulo-galeria'>Galeria de fotos</h2>
           <div className='container-painel'>
             <ul className='painel'>
-              {galeria.slice(0, 6).map((fotos) => (
+              {galeria.map((fotos) => (
                 <li key={fotos.id}>
                   <p>{fotos.name}</p>
                   <img src={fotos.url} />
