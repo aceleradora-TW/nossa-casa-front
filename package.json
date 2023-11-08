@@ -43,7 +43,11 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "chromatic": "npx chromatic --project-token=35d06d6a9940"
+    "chromatic": "npx chromatic --project-token=35d06d6a9940",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write ./**/src/**/*.{ts,tsx}",
+    "format:check": "prettier --check ./**/src/**/*.{ts,tsx}"
   },
   "resolutions": {
     "styled-components": "^5"
