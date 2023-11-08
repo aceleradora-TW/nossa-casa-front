@@ -100,6 +100,7 @@ const Home = styled.div`
         width: 100%;
         display: flex;
         justify-content: space-around;
+        max-width: 1440px;
       }
       @media (max-width: 767px) {
         flex-wrap: wrap;
@@ -150,10 +151,11 @@ const Home = styled.div`
       margin-bottom: 1.6rem;
     }
 
-    @media (max-width: 900px) {
+    @media ((min-width: 768px) and (max-width: 1440px)) {
       section.about{
         margin-bottom: 0;
       }
+
       .about .content {
         height: auto;
       }
@@ -163,7 +165,7 @@ const Home = styled.div`
       }
     }
 
-    @media (max-width: 500px) {
+    @media ((min-width: 320px) and (max-width: 767px)) {
       .about .content {
         flex-direction: column;
         height: initial;
@@ -187,11 +189,10 @@ const Home = styled.div`
         flex-direction: column;
         padding: 0;
       }
-    }
-
-    @media (max-width: 320px) {
-      flex-wrap: wrap;
-      height: 100%;
+  
+      .text button{
+        margin-bottom: 0;
+      }
     }
   }
 
