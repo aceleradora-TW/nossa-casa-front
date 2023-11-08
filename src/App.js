@@ -5,6 +5,7 @@ import { EventsPage } from './pages/events'
 import { WorkshopsPage } from './pages/workshop'
 import { EventsPageDescription } from './pages/events-description'
 import { DetailsTherapies } from './pages/therapies-description'
+import {WorkshopDetails } from './pages/workshop-details'
 import PageAbout from './pages/about-details'
 
 export const App = () => {

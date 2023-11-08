@@ -1,26 +1,21 @@
-import Modal from 'react-modal'
-import { useState, useEffect } from 'react'
-import CssModalGlobal from '../css-modal/styled'
-import closeIcon from '../galery-modal/close-icon.svg'
-import { styled } from 'styled-components'
 import {
-  faLocationDot, faCalendarDays, faHandHoldingDollar,
+  faCalendarDays, faHandHoldingDollar,
+  faLocationDot,
   faLock,
-  faUser,
-  faPenToSquare
+  faPenToSquare,
+  faUser
 } from '@fortawesome/free-solid-svg-icons'
-<<<<<<< HEAD
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-=======
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
+import { useEffect, useState } from 'react'
 import env from 'react-dotenv'
+import Modal from 'react-modal'
+import { styled } from 'styled-components'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
+import CssModalGlobal from '../css-modal/styled'
+import closeIcon from '../galery-modal/close-icon.svg'
 const urlCms = env.URL_CMS
->>>>>>> 3519295 (feat(components/carrossel-oficinas/styled.js/modal-oficinas/styled.js): Implementamos o carrossel na modal-oficinas -@angeloneves19 -@gabrielapsgomes)
 
 const Detalhes = styled.div`
   * {

@@ -146,21 +146,15 @@ export const WorkshopDetails = () => {
                 <div className="partners">
                   <p className="partner">
                     <div className="parce">
-                      {workshops.attributes?.parceires?.data.map(
-                        (parceire, index) => {
-                          if (parceire !== null || parceire !== undefined) {
-                            return (
-                              <>
+                    {workshops.attributes?.parceires?.data
+                        .filter(partner => partner !== null && partner !== undefined)
+                        .map((partner, index) =>  (<>
                                 <FontAwesomeIcon icon={faUser} size="lg" />
                                 <p key={index} className="spacing-partners">
-                                  {parceire.attributes?.nome}{' '}
+                                  {partner.attributes?.nome}
                                 </p>
-                              </>
-                            )
-                          }
-                          return null
-                        }
-                      )}
+                              </>)
+                        )}
                     </div>
                   </p>
                 </div>
@@ -217,9 +211,9 @@ export const WorkshopDetails = () => {
             <Swiper
               onSwiper={setThumbsSwiper}>
               <div className="spacingDate">
-                {handleDate(new Date(workshops.data_inicio))} •{' '}
+                {formatDate(new Date(workshops.data_inicio))} •{' '}
                 {workshops.horario_inicio} {'> '}
-                {handleDate(new Date(workshops.data_fim))} •{' '}
+                {formatDate(new Date(workshops.data_fim))} •{' '}
                 {workshops.horario_fim}
               </div>
             </Swiper>

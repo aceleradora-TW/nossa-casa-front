@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const ParceireComponents = styled.section`
+export const ParceireComponents = styled.section`
   .parceires {
     height: 697px;
     display: flex;
@@ -112,4 +112,3 @@ const ParceireComponents = styled.section`
     }
   }
 `
-export default ParceireComponents

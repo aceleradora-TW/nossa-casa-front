@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
-import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
 import { cms } from '../../client'
+import { ParceireComponents } from './styled'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
 const linkParceire = process.env.REACT_APP_LINK_PARCEIRO
 
 const Partners = () => {
