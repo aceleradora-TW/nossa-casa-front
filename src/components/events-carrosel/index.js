@@ -38,7 +38,7 @@ const Events = () => {
 
     <EventsComponent style={{ background: '#FFFFFF' }}>
       <div className='carrossel'>
-        <h1>EVENTOS</h1>
+        <h1>Eventos</h1>
         <p>A  Nossa Casa realiza diversos eventos culturais que vão de festivais, rodas de conversa, apresentações musicais, exposições de arte visual, entre outros.
           Confira aqui nossa programação e participe!.</p>
       </div>

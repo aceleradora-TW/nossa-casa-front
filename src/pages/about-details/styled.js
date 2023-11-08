@@ -96,7 +96,7 @@ export const StyledAbout = styled.div`
       display: block;
       text-align: left;
       width: 38%;
-      margin-left: 11.3rem;
+      margin-left: 5.3rem;
       font-size: 1.9rem;
       margin-bottom: 3%;
     }
