@@ -73,10 +73,10 @@ const Partners = () => {
                       </p>
                     </div>
                     <div className='social-media-link'>
-                      <a href={partner.whatsapp}><img src={Whatsapp} /></a>
+                      {/* <a href={partner.whatsapp}><img src={Whatsapp} /></a>
                       <a href={partner.twitter}><img src={Twitter} /></a>
                       <a href={partner.facebook}><img src={Facebook} /></a>
-                      <a href={partner.instagram}><img src={Instagram} /></a>
+                      <a href={partner.instagram}><img src={Instagram} /></a> */}
                     </div>
                   </SwiperSlide>
                 </li>

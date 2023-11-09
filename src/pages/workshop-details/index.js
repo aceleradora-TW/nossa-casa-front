@@ -9,7 +9,8 @@ import {
   faCalendarDays,
   faLocationDot,
   faRectangleXmark,
-  faBullhorn
+  faBullhorn,
+  faLock
 } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
@@ -70,7 +71,6 @@ export const WorkshopDetails = () => {
     workshop.attributes?.data_inicio === workshop.attributes?.data_fim
 
   const formatWorkshopDates = (workshop) => {
-    console.log(workshop.attributes)
     if (workshop && workshop.attributes && workshop.attributes.data_inicio && workshop.attributes.data_fim) {
       return endsOnSameDay(workshop)
         ? formatDate(new Date(workshop.attributes?.data_inicio))
@@ -146,14 +146,14 @@ export const WorkshopDetails = () => {
                 <div className="partners">
                   <p className="partner">
                     <div className="parce">
-                    {workshops.attributes?.parceires?.data
+                      {workshops.attributes?.parceires?.data
                         .filter(partner => partner !== null && partner !== undefined)
-                        .map((partner, index) =>  (<>
-                                <FontAwesomeIcon icon={faUser} size="lg" />
-                                <p key={index} className="spacing-partners">
-                                  {partner.attributes?.nome}
-                                </p>
-                              </>)
+                        .map((partner, index) => (<>
+                          <FontAwesomeIcon icon={faUser} size="lg" />
+                          <p key={index} className="spacing-partners">
+                            {partner.attributes?.nome}
+                          </p>
+                        </>)
                         )}
                     </div>
                   </p>
@@ -196,7 +196,6 @@ export const WorkshopDetails = () => {
               loop={true}
               spaceBetween={10}
               navigation={true}
-              thumbs={{ swiper: thumbsSwiper }}
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper2"
             >
@@ -207,84 +206,8 @@ export const WorkshopDetails = () => {
               ))}
             </Swiper>
           </div>
-          <div className="style-swiper-fotos">
+          <div className='style-swiper-fotos'>
             <Swiper
-              onSwiper={setThumbsSwiper}>
-              <div className="spacingDate">
-                {formatDate(new Date(workshops.data_inicio))} •{' '}
-                {workshops.horario_inicio} {'> '}
-                {formatDate(new Date(workshops.data_fim))} •{' '}
-                {workshops.horario_fim}
-              </div>
-            </Swiper>
-          </div>
-          <div className="div-preco">
-            <p className="preco">
-              <FontAwesomeIcon
-                icon={faHandHoldingDollar}
-                size="xl"
-                style={{
-                  '--fa-secondary-color': '#ffffff',
-                  '--fa-primary-opacity': '1'
-                }}
-              />
-              <div className="spacingMoney">{workshops.preco}</div>
-            </p>
-          </div>
-          <div className="div-local">
-            <p className="local">
-              <FontAwesomeIcon icon={faLocationDot} />
-              <div className="spacingLocal">
-                Oficina presencial em {workshops.local}
-              </div>
-            </p>
-          </div>
-          <div className="oficinaType">
-            <p className="type">
-              <FontAwesomeIcon icon={faLock} />
-              <div className="spacingType">{workshops.tipo}</div>
-            </p>
-          </div>
-          <div className="parceires">
-            <p className="parceire">
-              <FontAwesomeIcon icon={faUser} />
-              <div className="parce">
-                {workshops.parceires?.data.map((parceire, index) => {
-                  return (
-                    <p key={index} className="spacing-parceires">
-                      {parceire.attributes.nome}{' '}
-                    </p>
-                  )
-                })}
-              </div>
-            </p>
-          </div>
-          <p className="description">Descrição da oficina</p>
-          <p className="descricaoCMS">{workshops.descricao}</p>
-          {workshops.url_inscricao !== null && (
-            <>
-              <a
-                className="button-inscricao"
-                href={workshops.url_inscricao}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Inscreva-se
-              </a>
-              <div className="inscricaoIcon">
-                <FontAwesomeIcon icon={faPenToSquare} />
-                <p className="inscricao"> Inscrição não é necessária</p>
-              </div>
-            </>
-          )}
-        </section>
-        <section className="page">
-          <div className="style-img-swiper">
-            <Swiper
-              style={{
-                '--swiper-navigation-color': '#516B84',
-                '--swiper-pagination-color': ''
-              }}
               loop={true}
               spaceBetween={10}
               slidesPerView={7}
@@ -300,7 +223,7 @@ export const WorkshopDetails = () => {
               ))}
             </Swiper>
           </div>
-        </section >
+        </section>
       </Details >
     </>
   )
