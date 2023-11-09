@@ -22,6 +22,7 @@ import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 
 export const WorkshopDetails = () => {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [workshops, setWorkshops] = useState([])
   const [galleryPhoto, setGalleryPhoto] = useState([])
   const { id } = useParams()
@@ -193,6 +194,7 @@ export const WorkshopDetails = () => {
                 '--swiper-pagination-color': ''
               }}
               loop={true}
+              thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
               spaceBetween={10}
               navigation={true}
               modules={[FreeMode, Navigation, Thumbs]}
@@ -207,6 +209,7 @@ export const WorkshopDetails = () => {
           </div>
           <div className='style-swiper-fotos'>
             <Swiper
+              onSwiper={setThumbsSwiper}
               loop={true}
               spaceBetween={10}
               slidesPerView={7}
