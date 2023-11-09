@@ -9,8 +9,7 @@ import {
   faCalendarDays,
   faLocationDot,
   faRectangleXmark,
-  faBullhorn,
-  faLock
+  faBullhorn
 } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
