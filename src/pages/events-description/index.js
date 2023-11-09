@@ -18,7 +18,7 @@ import {
   faPenToSquare,
   faHandHoldingDollar,
   faCalendarDays,
-  faLocationDot
+  faLocationDot,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const EventsPageDescription = () => {
@@ -47,7 +47,7 @@ export const EventsPageDescription = () => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: env.URL_CMS + image.attributes?.url
+            url: env.URL_CMS + image.attributes?.url,
           }
         })
         setGaleria(images)
@@ -57,10 +57,11 @@ export const EventsPageDescription = () => {
             id: oficina.id,
             type: 'workshops',
             name: oficina.attributes.nome,
-            url: env.URL_CMS +
+            url:
+              env.URL_CMS +
               oficina.attributes.foto_divulgacao.data[0].attributes.url,
             data_inicio: oficina.attributes.data_inicio,
-            horario_inicio: oficina.attributes.horario_inicio
+            horario_inicio: oficina.attributes.horario_inicio,
           }
         })
         activitiesList.push(oficinas)
@@ -75,7 +76,7 @@ export const EventsPageDescription = () => {
               env.URL_CMS +
               evento.attributes.foto_divulgacao.data.attributes.url,
             data_inicio: evento.attributes.data_inicio,
-            horario_inicio: evento.attributes.horario_inicio
+            horario_inicio: evento.attributes.horario_inicio,
           }
           // })
         })
@@ -89,12 +90,12 @@ export const EventsPageDescription = () => {
     const dateObject = new Date(date)
     const day = dateObject.toLocaleDateString(undefined, {
       day: 'numeric',
-      timeZone: 'UTC'
+      timeZone: 'UTC',
     })
     const month = dateObject.toLocaleDateString('pt-BR', { month: 'short' })
     const year = dateObject.toLocaleDateString(undefined, {
       year: '2-digit',
-      timeZone: 'UTC'
+      timeZone: 'UTC',
     })
     return [day, month, year].join(' ')
   }
@@ -109,7 +110,7 @@ export const EventsPageDescription = () => {
       'Quarta',
       'Quinta',
       'Sexta',
-      'Sábado'
+      'Sábado',
     ]
     return daysWeek[indexWeek]
   }
@@ -126,102 +127,94 @@ export const EventsPageDescription = () => {
             />
           </Link>
         </div>
-        <div className="title">
-          <h1>{event?.attributes?.nome}</h1>
-        </div>
-        <div className="container">
-          <div className="text">
-            <ul>
-              <li>
-                <div className="style-icon">
-                  <FontAwesomeIcon icon={faCalendarDays} />{' '}
-                </div>
-                {event.attributes?.data_inicio ===
-                event.attributes?.data_fim
-                  ? (
-                  <p>
-                    {`${week(event.attributes?.data_inicio)}, ${handleDate(
-                      event.attributes?.data_inicio
-                    )}`}
-                    <br />
-                    {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
-                  </p>
-                    )
-                  : (
-                  <p>
-                    {`${week(event.attributes?.data_inicio)}, ${handleDate(
-                      event.attributes?.data_inicio
-                    )} até ${week(event.attributes?.data_fim)}, ${handleDate(
-                      event.attributes?.data_fim
-                    )}`}
-                    <br />
-                    {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
-                  </p>
-                    )}
-              </li>
-              <li>
-                <div className="style-icon">
-                  <FontAwesomeIcon icon={faLocationDot} />
-                </div>
-                {event?.attributes?.local}
-              </li>
-              <li className="parceires">
-                {event?.attributes?.parceires?.data.map((parceire) => {
-                  if (parceire !== null || parceire !== undefined) {
-                    return (
-                      <>
-                        <FontAwesomeIcon icon={faUser} className="style-icon" />
-                        <p key={parceire.id}>{parceire.attributes?.nome}</p>
-                      </>
-                    )
-                  }
-                  return null
-                })}
-              </li>
-            </ul>
+        <section className="description-section">
+          <div className="title">
+            <h1>{event?.attributes?.nome}</h1>
           </div>
-          <div className="text2">
-            <ul>
-              <li>
-                <div className="style-icon">
-                  <FontAwesomeIcon icon={faHandHoldingDollar} />
-                </div>
-                {event?.attributes?.preco !== null
-                  ? event?.attributes?.preco
-                  : 'Evento Gratuito'}
-              </li>
-              <li>
-                <div className="style-icon">
-                  <FontAwesomeIcon
-                    icon={faBullhorn}
-                    style={{
-                      '--fa-primary-color': '#00000',
-                      '--fa-secondary-color': '#00000',
-                      '--fa-secondary-opacity': '1',
-                      transform: 'rotate(-30deg)'
-                    }}
-                    size="lg"
-                  />
-                </div>
-                {event?.attributes?.tipo}
-              </li>
-              <li>
-                {event?.attributes?.url_inscricao === null && (
-                  <div id="no-registration">
-                    <div className="style-icon">
-                      <FontAwesomeIcon icon={faPenToSquare} />
-                    </div>
-                    Inscrição não é necessária
+          <ul className="container">
+            <li>
+              <div className="style-icon">
+                <FontAwesomeIcon icon={faCalendarDays} />{' '}
+              </div>
+              {event.attributes?.data_inicio === event.attributes?.data_fim ? (
+                <p>
+                  {`${week(event.attributes?.data_inicio)}, ${handleDate(
+                    event.attributes?.data_inicio
+                  )}`}
+                  <br />
+                  {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
+                </p>
+              ) : (
+                <p>
+                  {`${week(event.attributes?.data_inicio)}, ${handleDate(
+                    event.attributes?.data_inicio
+                  )} até ${week(event.attributes?.data_fim)}, ${handleDate(
+                    event.attributes?.data_fim
+                  )}`}
+                  <br />
+                  {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
+                </p>
+              )}
+            </li>
+            <li>
+              <div className="style-icon">
+                <FontAwesomeIcon icon={faLocationDot} />
+              </div>
+              {event?.attributes?.local}
+            </li>
+            <li className="parceires">
+              {event?.attributes?.parceires?.data.map((parceire) => {
+                if (parceire !== null || parceire !== undefined) {
+                  return (
+                    <>
+                      <FontAwesomeIcon icon={faUser} className="style-icon" />
+                      <p key={parceire.id}>{parceire.attributes?.nome}</p>
+                    </>
+                  )
+                }
+                return null
+              })}
+            </li>
+
+            <li>
+              <div className="style-icon">
+                <FontAwesomeIcon icon={faHandHoldingDollar} />
+              </div>
+              {event?.attributes?.preco !== null
+                ? event?.attributes?.preco
+                : 'Evento Gratuito'}
+            </li>
+            <li>
+              <div className="style-icon">
+                <FontAwesomeIcon
+                  icon={faBullhorn}
+                  style={{
+                    '--fa-primary-color': '#00000',
+                    '--fa-secondary-color': '#00000',
+                    '--fa-secondary-opacity': '1',
+                    transform: 'rotate(-30deg)',
+                  }}
+                  size="lg"
+                />
+              </div>
+              {event?.attributes?.tipo}
+            </li>
+            <li>
+              {event?.attributes?.url_inscricao === null && (
+                <div id="no-registration">
+                  <div className="style-icon">
+                    <FontAwesomeIcon icon={faPenToSquare} />
                   </div>
-                )}
-              </li>
-            </ul>
+                  Inscrição não é necessária
+                </div>
+              )}
+            </li>
+          </ul>
+          <div className="description">
+            <p className="text-title-description">Descrição</p>
+            <p>{event?.attributes?.descricao}</p>
           </div>
-        </div>
-        <div className="description">
-          <p className="text-title-description">Descrição</p>
-          <p>{event?.attributes?.descricao}</p>
-        </div>
+        </section>
         <div className="Container-button">
           {event.attributes?.url_inscricao !== null && (
             <a
@@ -235,76 +228,81 @@ export const EventsPageDescription = () => {
           )}
         </div>
 
-        {(activities.length > 0) && (activities[0].length > 0 || activities[1].length > 0) && (
-          <section>
-            <div className="carrossel">
-              <h1>PROGRAMAÇÃO</h1>
-            </div>
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={-110}
-              navigation={true}
-              breakpoints={{
-                '@0.00': {
-                  slidesPerView: 1,
-                  spaceBetween: 1
-                },
-                '@0.75': {
-                  slidesPerView: 2,
-                  spaceBetween: 2
-                },
-                '@1.00': {
-                  slidesPerView: 3,
-                  spaceBetween: 3
-                }
-              }}
-              modules={[Navigation]}
-              className="mySwiper"
-            >
-              <section>
-                <div className="swiper-slide-atividades">
-                  <ul>
-                    {activities?.map((activit) => {
-                      return activit.map((item) => {
-                        return (
-                          <li key={item.id}>
-                            <div>{item.name}</div>
-                            <SwiperSlide>
-                              <span className="slide-itens">
-                                <img className="img-foto" src={item.url} />
-                                <div>
-                                  <h3 className="title">{item.name}</h3>
-                                  {event.attributes?.data_inicio !==
-                                  event.attributes?.data_fim &&
-                                  <h5 className='date'>{handleDate(item.data_inicio)}</h5>
-                                  }
-                                  <h5 className='hour'>{item.horario_inicio}</h5>
-                                </div>
-                                <div className="styled-button">
-                                  <NavLink to={`/${item.type}/${item.id}`}>
-                                    Saiba Mais
-                                  </NavLink>
-                                </div>
-                              </span>
-                            </SwiperSlide>
-                          </li>
-                        )
-                      })
+        {activities.length > 0 &&
+          (activities[0].length > 0 || activities[1].length > 0) && (
+            <section>
+              <div className="carrossel">
+                <h1>PROGRAMAÇÃO</h1>
+              </div>
+              <Swiper
+                slidesPerView={3}
+                spaceBetween={-110}
+                navigation={true}
+                breakpoints={{
+                  '@0.00': {
+                    slidesPerView: 1,
+                    spaceBetween: 1,
+                  },
+                  '@0.75': {
+                    slidesPerView: 2,
+                    spaceBetween: 2,
+                  },
+                  '@1.00': {
+                    slidesPerView: 3,
+                    spaceBetween: 3,
+                  },
+                }}
+                modules={[Navigation]}
+                className="mySwiper"
+              >
+                <section>
+                  <div className="swiper-slide-atividades">
+                    <ul>
+                      {activities?.map((activit) => {
+                        return activit.map((item) => {
+                          return (
+                            <li key={item.id}>
+                              <div>{item.name}</div>
+                              <SwiperSlide>
+                                <span className="slide-itens">
+                                  <img className="img-foto" src={item.url} />
+                                  <div>
+                                    <h3 className="title">{item.name}</h3>
+                                    {event.attributes?.data_inicio !==
+                                      event.attributes?.data_fim && (
+                                      <h5 className="date">
+                                        {handleDate(item.data_inicio)}
+                                      </h5>
+                                    )}
+                                    <h5 className="hour">
+                                      {item.horario_inicio}
+                                    </h5>
+                                  </div>
+                                  <div className="styled-button">
+                                    <NavLink to={`/${item.type}/${item.id}`}>
+                                      Saiba Mais
+                                    </NavLink>
+                                  </div>
+                                </span>
+                              </SwiperSlide>
+                            </li>
+                          )
+                        })
 
-                      // }
-                    })}
-                  </ul>
-                </div>
-              </section>
-            </Swiper>
-          </ section>
-        )}
+                        // }
+                      })}
+                    </ul>
+                  </div>
+                </section>
+              </Swiper>
+            </section>
+          )}
         <section className="container-carousel">
           <div className="style-img-swiper">
             <Swiper
               style={{
                 '--swiper-navigation-color': '#516B84',
-                '--swiper-pagination-color': ''
+                '--swiper-pagination-color': '',
               }}
               loop={true}
               spaceBetween={10}
