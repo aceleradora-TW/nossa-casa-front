@@ -135,24 +135,29 @@ const Home = styled.div`
       }
     }
 
-    button {
+    button.styled-button {
       background: #f5bc4a;
       box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
       border-radius: 3px;
-      color: #000000;
       border: none;
       font-size: 1rem;
       width: 163px;
       height: 56px;
-      font-weight: 600;
       cursor: pointer;
       padding: 10px;
       margin-top: 1.6rem;
       margin-bottom: 1.6rem;
+
+      .button-about {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #000000;
+      }
     }
 
     @media ((min-width: 768px) and (max-width: 1440px)) {
-      section.about{
+      section.about {
         margin-bottom: 0;
       }
 
@@ -160,7 +165,7 @@ const Home = styled.div`
         height: auto;
       }
 
-      .text button{
+      .text button {
         margin-bottom: 0;
       }
     }
@@ -189,8 +194,8 @@ const Home = styled.div`
         flex-direction: column;
         padding: 0;
       }
-  
-      .text button{
+
+      .text button {
         margin-bottom: 0;
       }
     }
