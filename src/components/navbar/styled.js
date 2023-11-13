@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const NavBarComponent = styled.nav.attrs((props) => ({
-  className: props.className || ''
+  className: props.className || '',
 }))`
   top: 0;
   position: fixed;
@@ -41,7 +41,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       color: #f5bc4a;
     }
   }
-  a.active{
+  a.active {
     color: #f5bc4a;
     font-weight: bold;
   }
@@ -56,7 +56,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     font-size: 30px;
     cursor: pointer;
   }
- 
+
   .aparece {
     display: flex !important;
     flex-direction: column;
@@ -101,7 +101,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
   }
 
   /* Desktop , PCs*/
-  @media (min-width: 600px) {
+  @media (min-width: 801px) {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -119,7 +119,6 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     }
 
     .redirecionamento {
-      gap: 40px;
       flex-wrap: wrap;
       align-items: center;
       a {
@@ -137,6 +136,11 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     img {
       height: 80px;
       left: 121px;
+    }
+    @media (min-width: 801px) {
+      .redirecionamento {
+        gap: 40px;
+      }
     }
   }
 `
