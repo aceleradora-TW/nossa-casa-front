@@ -38,7 +38,7 @@ const Home = styled.div`
       .slide-container{
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-evenly;
         height: 100%;
       }
       .slide-container :not(:last-child) {
@@ -330,17 +330,35 @@ const Home = styled.div`
       height: 100% ;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-evenly;
       align-items: center;
 
 
       .event-container{
         width: 80% !important;
+        height: 55vh !important;
+        font-weight: bold;
 
         .descricao{
           line-height: default;
-          max-height: 140px;
+          max-height: 100%;
           overflow: scroll;
+          overflow-x: hidden;
+          font-size: 1rem;
+
+        }
+        .descrição::-webkit-scrollbar {
+          width: 10px;
+        }
+      
+        .descrição::-webkit-scrollbar-track {
+          background: #ffffff;
+        }
+      
+        .descrição::-webkit-scrollbar-thumb {
+          background-color: grey;
+          border-radius: 10px;
+          border: 3px solid #ffffff;
         }
       }
     }
