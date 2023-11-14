@@ -91,7 +91,7 @@ export function HomePage () {
                         <div className='event-container'>
                           <p className="descricao"> {attribute.data?.descricao}</p>
                         </div>
-                        <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
+                        <Link to='#' className='ver-mais'>Ver mais sobre o evento</Link>
                         <img src={urlCms + attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slide-image" />
                       </div>
                     </SwiperSlide>

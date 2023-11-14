@@ -77,13 +77,14 @@ const Home = styled.div`
         background-color: #f5bc4a;
         border: 1px solid;
         border-radius: 5px;
-        width: 250px;
+        width: 180px;
         height: 40px;
-        text-align: center;
         padding: 10px;
         color: #000000;
         text-decoration: none;
-        font-weight: bold;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: bolder;
       }
     }
 
@@ -333,10 +334,9 @@ const Home = styled.div`
       justify-content: space-evenly;
       align-items: center;
 
-
       .event-container{
         width: 80% !important;
-        height: 55vh !important;
+        height: 50vh !important;
         font-weight: bold;
 
         .descricao{
@@ -345,7 +345,6 @@ const Home = styled.div`
           overflow: scroll;
           overflow-x: hidden;
           font-size: 1rem;
-
         }
         .descrição::-webkit-scrollbar {
           width: 10px;
@@ -367,7 +366,6 @@ const Home = styled.div`
         flex-direction: column;
         height: initial;
         justify-content: initial;
-        background-color: red;
         padding: 2vh;
       }
 
