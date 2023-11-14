@@ -24,14 +24,15 @@ export const StyledAbout = styled.div`
     grid-template-rows: 1fr 1fr;
     height: 70%;
     width: 90%;
-    margin: auto;
+    margin: 0 auto;
     grid-row-gap: 30px;
     grid-column-gap: 50px;
+
   }
   .topic {
     height: 100%;
     width: 100%;
-    margin: 0 0px;
+    font-weight: 800;
 
     h3 {
       color: #54636e;
@@ -102,7 +103,7 @@ export const StyledAbout = styled.div`
     }
 
     .topic {
-      width: 70%;
+      /* width: 70%; */
       margin: 0 20px;
 
       h3 {
