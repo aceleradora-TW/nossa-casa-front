@@ -93,9 +93,9 @@ const Home = styled.div`
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
+      margin: 0 2%;
 
       .content {
-        padding: 5vh;
         height: 500px;
         width: 100%;
         display: flex;
@@ -109,26 +109,24 @@ const Home = styled.div`
         .text {
           box-sizing: border-box;
           text-align: justify;
-          padding: 2% 2% ;
           height: 100%;
           width: 100%;
           max-width: 800px;
           h2 {
-            font-size: 26px;
+            font-size: 2.5rem;
             margin-bottom: 30px;
+            font-weight: 700;
           }
-          align-items: center;
         }
         .foto {
-          height: 100%;
+          height: 101%;
           width: 100%;
           max-width: 800px;
-          margin-left: 3%;
           border-radius: 3px;
-          margin-bottom: 4.6rem;
+         
           img {
-            height: 100%;
-            width: 100%;
+            height: 101%;
+            width: 97%;
             max-width: 100%;
           }
         }
@@ -152,8 +150,7 @@ const Home = styled.div`
     }
 
     .galeria {
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 100%;
       background-color: #fafafa;
       display: flex;
       flex-direction: column;
@@ -163,18 +160,16 @@ const Home = styled.div`
 
       .titulo-galeria {
         align-self: flex-start;
-        margin-left: 12.5%;
-        font-size: 2.25rem;
+        margin-left: 1.2em;
         font-weight: 700;
         color: #516b84;
         line-height: 64px;
-        text-align: center;
-        font-size: 3.125rem;
+        font-size: 2.5rem;
         cursor: default;
       }
 
       .painel {
-        width: 75%;
+        width: 97%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-column-gap: 25px;
@@ -192,7 +187,7 @@ const Home = styled.div`
       }
       .container-painel {
         display: flex;
-        justify-content: center;
+        margin-left: 2em;
       }
       button {
         background: #516b84;

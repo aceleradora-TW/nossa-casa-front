@@ -71,22 +71,25 @@ const ParceireComponents = styled.section`
     .styled-button{
     display: flex;
     justify-content: center;
-    padding:30px;
+    width: 107em;
+    padding-top: 40px;
+    padding-bottom: 60px;
 
       .button-parceire{
         background: #516B84;
         border-radius: 3px;
         border: none;
         font-size: 14px;
-        width: 182px;
+        width: 200px;
         height: 40px;
         cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
+        
+        
 
         a{
-          color: black;
           text-decoration: none;
           color: white;
           display: flex;
