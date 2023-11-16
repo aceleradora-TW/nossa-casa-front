@@ -7,6 +7,8 @@ import { useState, useEffect } from 'react'
 import env from 'react-dotenv'
 import { cms } from '../../client'
 import ModalWorkshops from '../modal-oficinas'
+import VerMais from './styled'
+import { Link } from 'react-router-dom'
 
 const WorkshopsCarrossel = () => {
   const [attributes, setAttributes] = useState([])
@@ -15,9 +17,14 @@ const WorkshopsCarrossel = () => {
   useEffect(() => {
     cms.get('api/workshops/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
-      const workshops = data.map((data) => {
-        return data.attributes
-      })
+      const workshops = data
+        .filter(workshop => workshop !== null && workshop !== undefined)
+        .map(workshop => ({
+          id: workshop.id,
+          name: workshop.attributes.nome,
+          imageUrl: workshop.attributes.foto_divulgacao.data[0].attributes.url
+        }))
+
       const workshopsSortedByName = workshops.sort((a, b) =>
         a.nome < b.nome ? -1 : 1
       )
@@ -67,19 +74,22 @@ const WorkshopsCarrossel = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        {workshops.foto_divulgacao?.data?.map((foto, key) => (
-                          <img
-                            key={key}
-                            className="img"
-                            src={urlCms + foto.attributes?.url}
-                          />
-                        ))}
+                        <img
+                          className="img"
+                          src={urlCms + workshops.imageUrl}
+                        />
                       </div>
                       <div>
                         <p className="date">{workshops.data}</p>
-                        <h3 className="title">{workshops.nome}</h3>
+                        <h3 className="title">{workshops.name}</h3>
                       </div>
-                      <ModalWorkshops />
+                      <VerMais>
+                        <div className="styled-button">
+                          <Link className="button-text" to={`${workshops.id}`}>
+                            Saiba Mais
+                          </Link>
+                        </div>
+                      </VerMais>
                     </div>
                   </SwiperSlide>
                 </li>
