@@ -137,7 +137,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       height: 80px;
       left: 121px;
     }
-    @media (min-width: 801px) {
+    @media (min-width: 1023px) {
       .redirecionamento {
         gap: 40px;
       }
