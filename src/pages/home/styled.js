@@ -3,9 +3,15 @@ const Home = styled.div`
   background-color: white;
   width: 100%;
   height: 100vh;
+  box-sizing: border-box;
 
   main {
-    height: 100vh;
+    box-sizing: border-box;
+
+    section {
+      margin-bottom: 32px;
+    }
+
     .carrossel {
       background-color: #010101;
       color: #ffffff;
@@ -19,10 +25,11 @@ const Home = styled.div`
 
     .hero-banner {
       height: 560px;
+
       width: 70%;
       margin: auto;
     }
-    .swiperSliide {
+    .style-swiper-slide {
       div {
         display: flex;
         flex-direction: column;
@@ -33,10 +40,11 @@ const Home = styled.div`
       }
       .event-container {
         width: 60%;
+        height: 100%;
         height: 240px;
         margin-left: 50px;
       }
-      .slidetitulo {
+      .slide-title {
         margin: 20px auto 30px 50px;
         font-size: 2rem;
         font-family: 'Inter', sans-serif;
@@ -88,14 +96,25 @@ const Home = styled.div`
       padding-top: 47px;
 
       .content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
+        padding: 5vh;
+        height: 500px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        max-width: 1440px;
+      }
+      @media (max-width: 767px) {
+        flex-wrap: wrap;
+        height: 100%;
       }
 
-      .content > div {
-        width: 80%;
-        margin: 0 auto;
+      .text {
+        box-sizing: border-box;
+        text-align: justify;
+        padding: 2% 2%;
+        height: 100%;
+        width: 100%;
+        max-width: 800px;
         h2 {
           font-size: 26px;
           margin-bottom: 15px;
@@ -105,22 +124,6 @@ const Home = styled.div`
         padding-left: 50px;
       }
 
-      button {
-        background: #f5bc4a;
-        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
-        border-radius: 3px;
-        color: #000000;
-        border: none;
-        font-size: 1rem;
-        width: 163px;
-        height: 56px;
-        font-weight: 600;
-        cursor: pointer;
-        padding: 10px;
-        margin-top: 1.6rem;
-        margin-bottom: 1.6rem;
-        margin-left: 23px;
-      }
     }
 
     .galeria {
@@ -214,8 +217,88 @@ const Home = styled.div`
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
       }
+
+      .foto {
+        height: 100%;
+        width: 100%;
+        max-width: 800px;
+        margin-left: 3%;
+        border-radius: 3px;
+        margin-bottom: 4.6rem;
+        img {
+          height: 100%;
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+
+    button.styled-button {
+      background: #f5bc4a;
+      box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
+      border-radius: 3px;
+      border: none;
+      font-size: 1rem;
+      width: 163px;
+      height: 56px;
+      cursor: pointer;
+      padding: 10px;
+      margin-top: 1.6rem;
+      margin-bottom: 1.6rem;
+
+      .button-about {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #000000;
+      }
+    }
+
+    @media ((min-width: 768px) and (max-width: 1440px)) {
+      section.about {
+        margin-bottom: 0;
+      }
+
+      .about .content {
+        height: auto;
+      }
+
+      .text button {
+        margin-bottom: 0;
+      }
+    }
+
+    @media ((min-width: 320px) and (max-width: 767px)) {
+      .about .content {
+        flex-direction: column;
+        height: initial;
+        justify-content: initial;
+        padding: 2vh;
+      }
+
+      .about {
+        justify-content: initial;
+        height: initial;
+      }
+
+      .about .foto {
+        order: -1;
+        margin-bottom: 2rem;
+        margin-left: 0;
+      }
+
+      .about .text {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .text button {
+        margin-bottom: 0;
+      }
     }
   }
+   
 `
 
 export default Home

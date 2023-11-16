@@ -5,8 +5,7 @@ module.exports = {
     node: true
   },
   extends: [
-    'plugin:react/recommended',
-    'standard'
+    'plugin:react/recommended'
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -20,6 +19,13 @@ module.exports = {
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    'comma-dangle': ['warn', {
+      "arrays": "never",
+      "objects": "never",
+      "imports": "never",
+      "exports": "never",
+      "functions": "never"
+    }]
   }
 }

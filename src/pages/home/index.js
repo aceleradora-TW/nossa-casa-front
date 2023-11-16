@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, Keyboard, Autoplay } from 'swiper/modules'
-import { cms } from '../../service/client'
+import { cms } from '../../client'
 import Home from './styled'
 import mural from './mural.png'
 import NavBar from '../../components/navbar'
@@ -10,7 +10,6 @@ import ModalGallery from '../../components/galery-modal'
 import fotoNossaCasa from './nossacasa.png'
 import Parceires from '../../components/parceires'
 import Footer from '../../components/footer'
-import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
@@ -19,7 +18,7 @@ export function HomePage() {
   const [attributes, setAttributes] = useState([])
   const [galeria, setGaleria] = useState([])
   const [toggle, setToggle] = useState(false)
-  const urlCms = env.URL_CMS
+  const urlCms = process.env.REACT_APP_URL_CMS
 
   useEffect(() => {
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
@@ -27,7 +26,10 @@ export function HomePage() {
       const event = data.map((data) => {
         if (data.attributes.destaque) {
           setToggle(!toggle)
-          return data.attributes
+          return {
+            id: data?.id,
+            data: data?.attributes
+          }
         }
         return false
       })
@@ -35,7 +37,10 @@ export function HomePage() {
     })
     cms.get('api/gallery/?populate=fotos').then((response) => {
       const images = response.data.data.attributes.fotos.data.map((image, id) => {
-         return { id, url: env.URL_CMS + image.attributes.url }
+        return {
+          id,
+          url: process.env.REACT_APP_URL_CMS + image.attributes.url
+        }
       })
       for(let i = images.length; i > 6; i--){
         images.pop()
@@ -53,9 +58,9 @@ export function HomePage() {
     },
     width: '100%'
   }
-
+  console.log(attributes)
   return (
-    <Home background={mural}>
+    <Home $background={mural}>
       <NavBar />
       <main>
         {toggle &&
@@ -80,18 +85,16 @@ export function HomePage() {
                 {
                   attributes.map((attribute) =>
                     attribute &&
-                    <li key={attribute.nome}>
-                      <SwiperSlide className="swiperSliide " key={attribute.nome} >
-                        <div className='slide-container'>
-                          <h2 className="slidetitulo"> {attribute.nome} </h2>
-                          <div className='event-container'>
-                            <p className="descricao"> {attribute.descricao}</p>
-                          </div>
-                          <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
-                          <img src={urlCms + attribute?.foto_divulgacao?.data?.attributes?.url} className="slideimage" />
+                    <SwiperSlide className="style-swiper-slide" key={attribute?.id}>
+                      <div className='slide-container'>
+                        <h2 className="slide-title"> {attribute.data?.nome} </h2>
+                        <div className='event-container'>
+                          <p className="descricao"> {attribute.data?.descricao}</p>
                         </div>
-                      </SwiperSlide>
-                    </li>
+                        <Link to='#' className='ver-mais'>ver mais sobre o evento</Link>
+                        <img src={urlCms + attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slide-image" />
+                      </div>
+                    </SwiperSlide>
                   )
                 }
               </ul>
@@ -105,7 +108,9 @@ export function HomePage() {
               <p className='Textparagraph'>
                 A Nossa Casa existe há 5 anos no Município de Guarulhos, a segunda maior cidade do Estado de São Paulo, com cerca de 1.379.182 habitantes, sendo destes 45% autodeclarados negros (soma de pretos e pardos), 51,3% mulheres e em sua maioria residentes de áreas periféricas da cidade e de alguma forma em situação de vulnerabilidade, seja financeira, social ou emocional. Guarulhos é gigante e tem muitas necessidades.
               </p>
-              <ModalGallery type={'about'} />
+              <button className='styled-button'>
+              <Link className="button-about" to={`/sobre`}> Ver mais </Link>
+              </button>
             </div>
             <div className='foto'>
               <img src={fotoNossaCasa} />

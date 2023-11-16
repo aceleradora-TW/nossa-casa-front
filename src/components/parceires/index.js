@@ -1,20 +1,20 @@
-import Facebook from '../parceires/face-icon.png'
-import Twitter from '../parceires/twitter-icon.png'
-import Instagram from '../parceires/instagram-icon.png'
-import Whatsapp from '../parceires/whatsapp-icon.png'
-import ParceireComponents from './styled.js'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { useEffect, useState } from 'react'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation, Pagination } from 'swiper/modules'
-import { useState, useEffect } from 'react'
-import env from 'react-dotenv'
-import { cms } from '../../service/client'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { cms } from '../../client'
+import Facebook from '../parceires/face-icon.png'
+import Instagram from '../parceires/instagram-icon.png'
+import Twitter from '../parceires/twitter-icon.png'
+import Whatsapp from '../parceires/whatsapp-icon.png'
+import ParceireComponents from './styled.js'
+
 const linkParceire = process.env.REACT_APP_LINK_PARCEIRO
 
 const Parceires = () => {
   const [attributes, setAttributes] = useState([])
-  const urlCms = env.URL_CMS
+  const urlCms = process.env.REACT_APP_URL_CMS
 
   useEffect(() => {
     cms.get('api/partners/?populate=foto').then((response) => {

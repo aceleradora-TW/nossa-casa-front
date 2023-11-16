@@ -12,7 +12,7 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "axios": "^1.4.0",
-    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^5.1.3",
     "eslint-config-standard": "^17.1.0",
     "fontawesome": "^5.6.3",
     "i18next": "^23.2.8",
@@ -20,6 +20,7 @@
     "json2csv": "^5.0.6",
     "moment": "^2.29.4",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
     "react-dotenv": "^0.1.3",
     "react-i18next": "^13.0.2",
@@ -36,16 +37,19 @@
     "yarn": "^1.22.19"
   },
   "scripts": {
-    "start": "react-dotenv && react-scripts start",
+    "start": "npm run build && react-dotenv && react-scripts start",
     "build": "react-dotenv && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "chromatic": "npx chromatic --project-token=35d06d6a9940"
+    "chromatic": "npx chromatic --project-token=35d06d6a9940",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write ./**/src/**/*.{ts,tsx}",
+    "format:check": "prettier --check ./**/src/**/*.{ts,tsx}"
   },
   "resolutions": {
-    "babel-loader": "8.1.0",
     "styled-components": "^5"
   },
   "eslintConfig": {
@@ -80,8 +84,8 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.6",
-    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/cli": "^17.8.1",
+    "@commitlint/config-conventional": "^17.8.1",
     "@storybook/addon-actions": "^7.0.26",
     "@storybook/addon-essentials": "^7.0.26",
     "@storybook/addon-links": "^7.0.26",
@@ -101,6 +105,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
     "prettier": "^3.0.0"
   },
   "config": {
@@ -113,5 +118,29 @@
       "URL_BACKEND",
       "URL_CMS"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.md": [
+      "markdownlint",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ],
+    "*": "git add"
   }
 }
