@@ -62,6 +62,7 @@ const Home = styled.div`
         text-align: justify;
         z-index: 1;
       }
+
       img {
         width: 100%;
         height: 100%;
@@ -88,7 +89,6 @@ const Home = styled.div`
 
     .about {
       background-color: #ffffff;
-      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;

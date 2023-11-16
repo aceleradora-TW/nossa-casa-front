@@ -10,16 +10,15 @@ import ModalGallery from '../../components/galery-modal'
 import fotoNossaCasa from './nossacasa.png'
 import Parceires from '../../components/parceires'
 import Footer from '../../components/footer'
-import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-export function HomePage () {
+export function HomePage() {
   const [attributes, setAttributes] = useState([])
   const [galeria, setGaleria] = useState([])
   const [toggle, setToggle] = useState(false)
-  const urlCms = env.URL_CMS
+  const urlCms = process.env.REACT_APP_URL_CMS
 
   useEffect(() => {
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
@@ -40,16 +39,17 @@ export function HomePage () {
       const images = response.data.data.attributes.fotos.data.map((image, id) => {
         return {
           id,
-          url: env.URL_CMS + image.attributes.url
+          url: process.env.REACT_APP_URL_CMS + image.attributes.url
         }
       })
-
+      for(let i = images.length; i > 6; i--){
+        images.pop()
+      }
       setGaleria(images)
     }).catch(error => {
       throw new Error(error)
     })
   }, [])
-
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
     '--swiper-navigation-color': '#FFFFFF',

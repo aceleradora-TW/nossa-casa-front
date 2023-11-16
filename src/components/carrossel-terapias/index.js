@@ -4,14 +4,14 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
-import env from 'react-dotenv'
+
 import { cms } from '../../client'
 import VerMais from './styled'
 import { Link } from 'react-router-dom'
 
 const TherapiesCarrossel = () => {
   const [attributes, setAttributes] = useState([])
-  const urlCms = env.URL_CMS
+  const urlCms = process.env.REACT_APP_URL_CMS
 
   useEffect(() => {
     cms.get('api/therapies/?populate=foto_divulgacao').then((response) => {
