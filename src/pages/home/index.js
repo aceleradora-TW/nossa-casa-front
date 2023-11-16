@@ -14,7 +14,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-export function HomePage () {
+export function HomePage() {
   const [attributes, setAttributes] = useState([])
   const [galeria, setGaleria] = useState([])
   const [toggle, setToggle] = useState(false)
@@ -42,13 +42,14 @@ export function HomePage () {
           url: process.env.REACT_APP_URL_CMS + image.attributes.url
         }
       })
-
+      for(let i = images.length; i > 6; i--){
+        images.pop()
+      }
       setGaleria(images)
     }).catch(error => {
       throw new Error(error)
     })
   }, [])
-
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
     '--swiper-navigation-color': '#FFFFFF',
