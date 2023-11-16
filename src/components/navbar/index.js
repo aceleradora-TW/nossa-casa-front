@@ -30,7 +30,7 @@ const NavBar = () => {
           href={linkParceiro}
           rel="noreferrer"
         >
-          Ser parceire
+          Ser Parceire
         </a>
       </div>
       <span className="icon-menu" onClick={onClickMenu}>

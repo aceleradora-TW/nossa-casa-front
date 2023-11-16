@@ -78,7 +78,7 @@ const Events = () => {
                         <h3 className="title">{events.name}</h3>
                       </div>
                       <div className='styled-button'>
-                        <NavLink to={`${events.id}`} >Saiba Mais</NavLink>
+                        <NavLink to={`${events.id}`} >Ver mais</NavLink>
                       </div>
                     </div>
                   </SwiperSlide>

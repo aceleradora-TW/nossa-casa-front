@@ -12,7 +12,7 @@ export const StyledAbout = styled.div`
     font-size: 2.25rem;
     text-align: left;
     margin-bottom: 90px;
-    margin-left: 0px;
+    padding-left: 20px;
   }
   body {
     overflow-x: hidden;
@@ -25,13 +25,13 @@ export const StyledAbout = styled.div`
     height: 70%;
     width: 90%;
     margin: 0 auto;
-    grid-row-gap: 30px;
-    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+    grid-column-gap: 90px;
 
   }
   .topic {
     height: 100%;
-    width: 100%;
+    width: 95%;
     font-weight: 800;
 
     h3 {
