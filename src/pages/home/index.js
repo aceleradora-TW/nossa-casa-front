@@ -108,9 +108,9 @@ export function HomePage () {
               <p className='Textparagraph'>
                 A Nossa Casa existe há 5 anos no Município de Guarulhos, a segunda maior cidade do Estado de São Paulo, com cerca de 1.379.182 habitantes, sendo destes 45% autodeclarados negros (soma de pretos e pardos), 51,3% mulheres e em sua maioria residentes de áreas periféricas da cidade e de alguma forma em situação de vulnerabilidade, seja financeira, social ou emocional. Guarulhos é gigante e tem muitas necessidades.
               </p>
-              <div className='styled-button'>
+              <button className='styled-button'>
               <Link className="button-about" to={`/sobre`}> Ver mais </Link>
-              </div>
+              </button>
             </div>
             <div className='foto'>
               <img src={fotoNossaCasa} />

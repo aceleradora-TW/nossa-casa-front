@@ -100,11 +100,12 @@ const Home = styled.div`
         width: 100%;
         display: flex;
         justify-content: space-around;
+        max-width: 1440px;
       }
-        @media (max-width: 767px) {
-          flex-wrap: wrap;
-          height: 100%;
-        }
+      @media (max-width: 767px) {
+        flex-wrap: wrap;
+        height: 100%;
+      }
 
         .text {
           box-sizing: border-box;
@@ -131,16 +132,23 @@ const Home = styled.div`
           }
         }
       }
+    }
 
-      button {
-        background: #f5bc4a;
-        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
-        border-radius: 3px;
-        color: #000000;
-        border: none;
-        font-size: 1rem;
-        width: 163px;
-        height: 56px;
+    button.styled-button {
+      background: #f5bc4a;
+      box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
+      border-radius: 3px;
+      border: none;
+      font-size: 1rem;
+      width: 163px;
+      height: 56px;
+      cursor: pointer;
+      padding: 10px;
+      margin-top: 1.6rem;
+      margin-bottom: 1.6rem;
+
+      .button-about {
+        text-decoration: none;
         font-weight: 600;
         cursor: pointer;
       }
@@ -199,10 +207,9 @@ const Home = styled.div`
     }
 
 
-  @media (max-width: 1280px) {
-    .galeria{
-      height: 950px;
-    }
+      .text button {
+        margin-bottom: 0;
+      }
     }
 
    
@@ -217,63 +224,58 @@ const Home = styled.div`
     height: 627px;
   }
 
-main .about {
-  height: auto;
-  padding: 10px;
-}
-
-  main .about .content {
+  .galeria {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fafafa;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    flex-direction: row;
-    margin-top: 5rem;
-    margin-bottom: 4rem;
-  }
+    gap: 30px;
 
-  .content .text {
-    box-sizing: border-box;
-    text-align: justify;
-    width: 40%;
-    margin-bottom: auto;
-  }
-
-  .foto img {
-    width: 110%;
-    max-width: auto;
-    margin-left: 3%;
-    border-radius: 3px;
-    margin-bottom: 4.6rem;
-  }
-
-  @media screen and (min-width: 720px) and (max-width:2920px) {
-    .content > div {
-      width: auto;
-      max-width: auto;
-    }
-
-    .content h2 {
+    .titulo-galeria {
+      align-self: flex-start;
+      margin-left: 12.5%;
       font-size: 2.25rem;
-      margin-bottom: 30px;
-    }
-
-    .content .Textparagraph {
-      font-size: 1.4rem;
-      font-weight: 500;
-      line-height: 35px;
-    }
-
-    .content .text h2 {
-      font-size: 2rem;
-      color: #516B84;
+      font-weight: 700;
+      color: #516b84;
+      line-height: 64px;
+      text-align: center;
+      font-size: 3.125rem;
       cursor: default;
     }
 
-    .content .text .Textparagraph {
-      font-size: 25px;
-      color: #54636F;
-      cursor: default;
+    .painel {
+      width: 75%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 25px;
+      grid-row-gap: 25px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        max-width: auto;
+        margin-left: 3%;
+        border-radius: 3px;
+        margin-bottom: 3.5rem;
+      }
+    }
+    .container-painel {
+      display: flex;
+      justify-content: center;
+    }
+    button {
+      background: #516b84;
+      border-radius: 3px;
+      color: #fafafa;
+      border: none;
+      font-size: 0.75rem;
+      width: 182px;
+      height: 40px;
+      cursor: pointer;
     }
   }
   .button-about{
