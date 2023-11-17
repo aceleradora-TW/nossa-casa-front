@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const NavBarComponent = styled.nav.attrs((props) => ({
-  className: props.className || '',
+  className: props.className || ''
 }))`
   top: 0;
   position: fixed;
