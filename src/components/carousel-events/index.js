@@ -7,7 +7,7 @@ import { cms } from '../../client'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import EventsComponent from './styled.js'
 
-const Events = () => {
+const CarouselEvents = () => {
   const [attributesEvents, setAttributesEvents] = useState([])
   const urlCms = process.env.REACT_APP_URL_CMS
   useEffect(() => {
@@ -90,4 +90,4 @@ const Events = () => {
     </EventsComponent >
   )
 }
-export default Events
+export default CarouselEvents

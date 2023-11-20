@@ -1,7 +1,7 @@
 import Modal from 'react-modal'
 import { useState } from 'react'
 import { CssModalGlobal } from '../global-styles'
-import closeIcon from '../galery-modal/close-icon.svg'
+import closeIcon from '../modal-gallery/close-icon.svg'
 
 const ModalWorkshops = () => {
   const [showModal, setShowModal] = useState(false)
