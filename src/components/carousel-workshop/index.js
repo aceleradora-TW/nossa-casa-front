@@ -10,7 +10,7 @@ import ModalWorkshops from '../modal-oficinas'
 import VerMais from './styled'
 import { Link } from 'react-router-dom'
 
-const WorkshopsCarrossel = () => {
+const CarouselWorkshop = () => {
   const [attributes, setAttributes] = useState([])
   const urlCms = process.env.REACT_APP_URL_CMS
 
@@ -101,4 +101,4 @@ const WorkshopsCarrossel = () => {
     </CssCarrosselGlobal>
   )
 }
-export default WorkshopsCarrossel
+export default CarouselWorkshop

@@ -21,7 +21,7 @@ export function HomePage() {
   const urlCms = process.env.REACT_APP_URL_CMS
 
   useEffect(() => {
-    cms.get('api/events/?populate=foto_divulgacao').then((response) => {
+    cms.get('api/CarouselEvents/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
       const event = data.map((data) => {
         if (data.attributes.destaque) {
