@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/navbar/index'
-import Parceires from '../../components/parceires'
+import Partners from '../../components/partners'
 import Footer from '../../components/footer'
 import CarouselTherapies from '../../components/carousel-therapies'
 
@@ -9,7 +9,7 @@ export const TherapiesPage = () => {
     <>
       <NavBar />
       <CarouselTherapies />
-        <Parceires />
+        <Partners />
         <Footer />
         </>
   )

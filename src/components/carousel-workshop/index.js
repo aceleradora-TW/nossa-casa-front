@@ -6,7 +6,7 @@ import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 
 import { cms } from '../../client'
-import ModalWorkshops from '../modal-oficinas'
+import ModalWorkshops from '../modal-workshops'
 import VerMais from './styled'
 import { Link } from 'react-router-dom'
 

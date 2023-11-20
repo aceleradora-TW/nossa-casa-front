@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
-import Parceires from '../../components/parceires'
+import Partners from '../../components/partners'
 import Footer from '../../components/footer'
 import CarouselWorkshop from '../../components/carousel-workshop'
 
@@ -9,7 +9,7 @@ export const WorkshopsPage = () => {
     <>
       <NavBar />
       <CarouselWorkshop />
-      <Parceires />
+      <Partners />
       <Footer />
     </>
   )

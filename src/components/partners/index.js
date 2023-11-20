@@ -4,15 +4,15 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { cms } from '../../client'
-import Facebook from '../parceires/face-icon.png'
-import Instagram from '../parceires/instagram-icon.png'
-import Twitter from '../parceires/twitter-icon.png'
-import Whatsapp from '../parceires/whatsapp-icon.png'
+import Facebook from '../partners/face-icon.png'
+import Instagram from '../partners/instagram-icon.png'
+import Twitter from '../partners/twitter-icon.png'
+import Whatsapp from '../partners/whatsapp-icon.png'
 import ParceireComponents from './styled.js'
 
 const linkParceire = process.env.REACT_APP_LINK_PARCEIRO
 
-const Parceires = () => {
+const Partners = () => {
   const [attributes, setAttributes] = useState([])
   const urlCms = process.env.REACT_APP_URL_CMS
 
@@ -97,4 +97,4 @@ const Parceires = () => {
     </ParceireComponents >
   )
 }
-export default Parceires
+export default Partners

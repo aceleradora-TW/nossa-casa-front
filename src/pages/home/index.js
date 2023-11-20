@@ -8,7 +8,7 @@ import mural from './mural.png'
 import NavBar from '../../components/navbar'
 import ModalGallery from '../../components/modal-gallery'
 import fotoNossaCasa from './nossacasa.png'
-import Parceires from '../../components/parceires'
+import Partners from '../../components/partners'
 import Footer from '../../components/footer'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -131,7 +131,7 @@ export function HomePage() {
           </div>
           <ModalGallery type={'gallery'} />
         </section>
-        <Parceires />
+        <Partners />
         <Footer />
       </main >
     </Home >
