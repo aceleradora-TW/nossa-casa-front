@@ -29,7 +29,6 @@ export const EventsPageDescription = () => {
     cms.get(`api/events/${id}/?populate=parceires&populate=fotos_evento`).then((response) => {
       const { data } = response.data
       setEvent(data)
-
       const fotoDivulgacao = data.attributes.fotos_evento
       const images = fotoDivulgacao.data.map(
         (image) => {
@@ -97,14 +96,14 @@ export const EventsPageDescription = () => {
                         <br />
                         {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
                       </p>
-                      )
+                    )
                     : (
                       <p>
                         {`${week(event.attributes?.data_inicio)}, ${handleDate(event.attributes?.data_inicio)} até ${week(event.attributes?.data_fim)}, ${handleDate(event.attributes?.data_fim)}`}
                         <br />
                         {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
                       </p>
-                      )
+                    )
                 }
               </li>
               <li>
