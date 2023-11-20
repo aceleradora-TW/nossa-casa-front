@@ -5,14 +5,15 @@ import { cms } from '../../client'
 import {
   faUser,
   faPenToSquare,
-  faLock,
   faHandHoldingDollar,
   faCalendarDays,
   faLocationDot,
-  faRectangleXmark
+  faRectangleXmark,
+  faBullhorn
 } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
+import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
@@ -20,31 +21,38 @@ import 'swiper/css/thumbs'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 
-export const DetailsTherapies = () => {
-  const [therapies, setTherapies] = useState([])
+export const WorkshopDetails = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [workshops, setWorkshops] = useState([])
   const [galleryPhoto, setGalleryPhoto] = useState([])
   const { id } = useParams()
-
   useEffect(() => {
     cms
-      .get(`api/therapies/${id}/?populate=parceires&populate=foto_terapias`)
+      .get(`api/workshops/${id}/?populate=parceires&populate=foto_oficina`)
       .then((response) => {
         const { data } = response.data
-        const photoTherapy = data.attributes.foto_terapias
-        const images = photoTherapy.data.map((image) => {
+        const photoWorkshop = data.attributes.foto_oficina
+        const images = photoWorkshop.data.map((image) => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: process.env.REACT_APP_URL_CMS + image.attributes?.url
+            url: env.URL_CMS + image.attributes?.url
           }
         })
         setGalleryPhoto(images)
-        setTherapies(data)
+        setWorkshops(data)
       })
   }, [])
-
-  const handleDate = (date) => {
+  const daysOfWeekInPtBr = [
+    'Domingo',
+    'Segunda',
+    'Terça',
+    'Quarta',
+    'Quinta',
+    'Sexta',
+    'Sábado'
+  ]
+  const formatDate = (date) => {
     const day = date.toLocaleDateString(undefined, {
       day: 'numeric',
       Timezone: 'UTF'
@@ -54,38 +62,44 @@ export const DetailsTherapies = () => {
       year: 'numeric',
       Timezone: 'UTF'
     })
-    return [day, month, year].join(' ')
+    return `${daysOfWeekInPtBr[date.getDay()]}, ${day} ${month} ${year}`
+  }
+  const formatWorkshopDuration = (workshop) =>
+    `, ${workshop.attributes?.horario_inicio} > ${workshop.attributes?.horario_fim}`
+
+  const endsOnSameDay = (workshop) =>
+    workshop.attributes?.data_inicio === workshop.attributes?.data_fim
+
+  const formatWorkshopDates = (workshop) => {
+    if (workshop && workshop.attributes && workshop.attributes.data_inicio && workshop.attributes.data_fim) {
+      return endsOnSameDay(workshop)
+        ? formatDate(new Date(workshop.attributes?.data_inicio))
+        : `${formatDate(new Date(workshop.attributes?.data_inicio))} 
+        até ${formatDate(new Date(workshop.attributes?.data_fim))}`
+    }
   }
 
   return (
     <>
       <Details>
-        <section className="description-section">
-          <Link className="closeButton" to={'/therapies'}>
+        <section className='description-section'>
+          <Link className="close-button" to={'/workshops'}>
             <FontAwesomeIcon
               icon={faRectangleXmark}
               size="2xl"
               style={{ color: 'black' }}
             />
           </Link>
-          <h1 className="title">{therapies.attributes?.nome}</h1>
+          <h1 className="title">{workshops.attributes?.nome}</h1>
           <span className="span-detais">
-            <ul id="containerDetails">
+            <ul id="container-details">
               <li>
                 <div className="start-date">
-                  <p className="start-date">
-                    <div className="spacingDate">
-                      <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
-                      <p>{`
-                     ${handleDate(
-                       new Date(therapies.attributes?.data_inicio)
-                     )} •
-                    ${therapies.attributes?.horario_inicio} >
-                    ${handleDate(new Date(therapies.attributes?.data_fim))} 
-                      • ${therapies.attributes?.horario_fim}
-                      `}</p>
-                    </div>
-                  </p>
+                  <div className="spacingDate">
+                    <FontAwesomeIcon icon={faCalendarDays} size="lg" />
+                    <p>{formatWorkshopDates(workshops)}</p>
+                    <p>{formatWorkshopDuration(workshops)}</p>
+                  </div>
                 </div>
               </li>
               <li>
@@ -100,7 +114,7 @@ export const DetailsTherapies = () => {
                       }}
                     />
                     <div className="spacingMoney">
-                      {therapies.attributes?.preco}
+                      {workshops.attributes?.preco}
                     </div>
                   </p>
                 </div>
@@ -110,17 +124,20 @@ export const DetailsTherapies = () => {
                   <p className="local">
                     <div className="spacingLocal">
                       <FontAwesomeIcon icon={faLocationDot} size="lg" />
-                      Terapia presencial em {therapies.attributes?.local}
+                      Oficina presencial em {workshops.attributes?.local}
                     </div>
                   </p>
                 </div>
               </li>
               <li>
-                <div className="therapieType">
+                <div className="workshopType">
                   <p className="type">
-                    <FontAwesomeIcon icon={faLock} size="lg" />
+                    <FontAwesomeIcon icon={faBullhorn}
+                      style={{ '--fa-primary-color': '#000000', '--fa-secondary-color': '#000000', '--fa-secondary-opacity': '1', transform: 'rotate(-15deg)' }}
+                      size="lg"
+                    />
                     <div className="spacingType">
-                      {therapies.attributes?.tipo}
+                      {workshops.attributes?.tipo}
                     </div>
                   </p>
                 </div>
@@ -129,49 +146,39 @@ export const DetailsTherapies = () => {
                 <div className="partners">
                   <p className="partner">
                     <div className="parce">
-                      {therapies.attributes?.parceires?.data.map(
-                        (parceire, index) => {
-                          if (parceire !== null || parceire !== undefined) {
-                            return (
-                              <>
-                                <FontAwesomeIcon icon={faUser} size="lg" />
-                                <p key={index} className="spacing-partners">
-                                  {parceire.attributes?.nome}{' '}
-                                </p>
-                              </>
-                            )
-                          }
-                          return null
-                        }
-                      )}
+                      {workshops.attributes?.parceires?.data
+                        .filter(partner => partner !== null && partner !== undefined)
+                        .map((partner, index) => (<>
+                          <FontAwesomeIcon icon={faUser} size="lg" />
+                          <p key={index} className="spacing-partners">
+                            {partner.attributes?.nome}
+                          </p>
+                        </>)
+                        )}
                     </div>
                   </p>
                 </div>
               </li>
               <li>
-                {therapies.attributes?.url_agendamento == null && (
+                {workshops.attributes?.url_inscricao == null && (
                   <>
                     <div className="inscriptionIcon">
                       <div>
                         <FontAwesomeIcon icon={faPenToSquare} size="lg" />
                       </div>
-                      <p className="inscription">
-                        {' '}
-                        Inscrição não é necessária
-                      </p>
+                      <h1 className="inscription"> Inscrição não é necessária</h1>
                     </div>
                   </>
                 )}
               </li>
             </ul>
           </span>
-
-          <p className="description">Descrição da terapia</p>
-          <p className="descriptionCMS">{therapies.attributes?.descricao}</p>
-          {therapies.attributes?.url_agendamento !== null && (
+          <p className="description">Descrição da oficina</p>
+          <p className="descriptionCMS">{workshops.attributes?.descricao}</p>
+          {workshops.attributes?.url_inscricao !== null && (
             <a
               className="button-inscription"
-              href={therapies.attributes?.url_agendamento}
+              href={workshops.attributes?.url_inscricao}
               target="_blank"
               rel="noreferrer"
             >
@@ -187,9 +194,9 @@ export const DetailsTherapies = () => {
                 '--swiper-pagination-color': ''
               }}
               loop={true}
+              thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
               spaceBetween={10}
               navigation={true}
-              thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper2"
             >
@@ -199,27 +206,27 @@ export const DetailsTherapies = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="style-swiper-fotos">
-              <Swiper
-                onSwiper={setThumbsSwiper}
-                loop={true}
-                spaceBetween={10}
-                slidesPerView={7}
-                freeMode={true}
-                watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper"
-              >
-                {galleryPhoto.map((image) => (
-                  <SwiperSlide key={image.id}>
-                    <img src={image.url} alt={image.name} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
+          </div>
+          <div className='style-swiper-fotos'>
+            <Swiper
+              onSwiper={setThumbsSwiper}
+              loop={true}
+              spaceBetween={10}
+              slidesPerView={7}
+              freeMode={true}
+              watchSlidesProgress={true}
+              modules={[FreeMode, Navigation, Thumbs]}
+              className="second-carousel"
+            >
+              {galleryPhoto.map((image) => (
+                <SwiperSlide key={image.id}>
+                  <img src={image.url} alt={image.name} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </section>
-      </Details>
+      </Details >
     </>
   )
 }

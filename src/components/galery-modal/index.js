@@ -4,7 +4,7 @@ import closeIcon from './close-icon.svg'
 import { buttonTextByTypes } from '../../types/constants'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
-import env from 'react-dotenv'
+
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
@@ -32,7 +32,7 @@ const ModalGallery = ({ type }) => {
           (image, id) => {
             return {
               id,
-              url: env.URL_CMS + image.attributes.url
+              url: process.env.REACT_APP_URL_CMS + image.attributes.url
             }
           }
         )

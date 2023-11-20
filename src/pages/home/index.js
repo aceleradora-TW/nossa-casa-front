@@ -10,16 +10,15 @@ import ModalGallery from '../../components/galery-modal'
 import fotoNossaCasa from './nossacasa.png'
 import Parceires from '../../components/parceires'
 import Footer from '../../components/footer'
-import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-export function HomePage () {
+export function HomePage() {
   const [attributes, setAttributes] = useState([])
   const [galeria, setGaleria] = useState([])
   const [toggle, setToggle] = useState(false)
-  const urlCms = env.URL_CMS
+  const urlCms = process.env.REACT_APP_URL_CMS
 
   useEffect(() => {
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
@@ -40,16 +39,17 @@ export function HomePage () {
       const images = response.data.data.attributes.fotos.data.map((image, id) => {
         return {
           id,
-          url: env.URL_CMS + image.attributes.url
+          url: process.env.REACT_APP_URL_CMS + image.attributes.url
         }
       })
-
+      for(let i = images.length; i > 6; i--){
+        images.pop()
+      }
       setGaleria(images)
     }).catch(error => {
       throw new Error(error)
     })
   }, [])
-
   const swiperStyle = {
     '--swiper-pagination-color': '#FFFFFF',
     '--swiper-navigation-color': '#FFFFFF',
@@ -108,9 +108,9 @@ export function HomePage () {
               <p className='Textparagraph'>
                 A Nossa Casa existe há 5 anos no Município de Guarulhos, a segunda maior cidade do Estado de São Paulo, com cerca de 1.379.182 habitantes, sendo destes 45% autodeclarados negros (soma de pretos e pardos), 51,3% mulheres e em sua maioria residentes de áreas periféricas da cidade e de alguma forma em situação de vulnerabilidade, seja financeira, social ou emocional. Guarulhos é gigante e tem muitas necessidades.
               </p>
-              <div className='styled-button'>
+              <button className='styled-button'>
               <Link className="button-about" to={`/sobre`}> Ver mais </Link>
-              </div>
+              </button>
             </div>
             <div className='foto'>
               <img src={fotoNossaCasa} />

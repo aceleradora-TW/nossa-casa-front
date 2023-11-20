@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import env from 'react-dotenv'
 import { NavLink } from 'react-router-dom'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -10,7 +9,7 @@ import EventsComponent from './styled.js'
 
 const Events = () => {
   const [attributesEvents, setAttributesEvents] = useState([])
-  const urlCms = env.URL_CMS
+  const urlCms = process.env.REACT_APP_URL_CMS
   useEffect(() => {
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data

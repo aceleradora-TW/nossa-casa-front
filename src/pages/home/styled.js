@@ -65,6 +65,7 @@ const Home = styled.div`
         text-align: justify;
         z-index: 1;
       }
+
       img {
         width: 100%;
         height: 100%;
@@ -88,11 +89,11 @@ const Home = styled.div`
 
     .about {
       background-color: #ffffff;
-      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
+      padding-top: 47px;
 
       .content {
         padding: 5vh;
@@ -100,6 +101,11 @@ const Home = styled.div`
         width: 100%;
         display: flex;
         justify-content: space-around;
+        max-width: 1440px;
+      }
+      @media (max-width: 767px) {
+        flex-wrap: wrap;
+        height: 100%;
       }
       .text {
         box-sizing: border-box;
@@ -126,6 +132,8 @@ const Home = styled.div`
           width: 100%;
           max-width: 100%;
         }
+        align-items: center;
+        padding-left: 50px;
       }
     }
 
@@ -268,20 +276,14 @@ const Home = styled.div`
     margin-bottom: 4rem;
   }
 
-  .content .text {
-    box-sizing: border-box;
-    text-align: justify;
-    width: 40%;
-    margin-bottom: auto;
-  }
+    @media ((min-width: 768px) and (max-width: 1440px)) {
+      section.about {
+        margin-bottom: 0;
+      }
 
-  .foto img {
-    width: 110%;
-    max-width: auto;
-    margin-left: 3%;
-    border-radius: 3px;
-    margin-bottom: 4.6rem;
-  }
+      .about .content {
+        height: auto;
+      }
 
   .button-about {
     color: black;
@@ -289,16 +291,10 @@ const Home = styled.div`
     text-decoration: none;
   }
 
-  .styled-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f5bc4a;
-    width: 146px;
-    height: 40px;
-    border: none;
-    margin-top: 1rem;
-  }
+      .text button {
+        margin-bottom: 0;
+      }
+    }
 
   @media ((min-width: 768px) and (max-width: 1440px)) {
     section.about {
@@ -401,5 +397,4 @@ const Home = styled.div`
     }
   }
 `
-
 export default Home
