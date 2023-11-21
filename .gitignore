@@ -1,6 +1,3 @@
-# Arquivos de execucao do yarn
-.yarn/
-
 # dependencies
 /node_modules
 /.pnp
