@@ -6,6 +6,7 @@ export const StyledAbout = styled.div`
   z-index: 10;
   background-color: #ffffff;
 
+
   .about-title {
     margin-top: 5%;
     color: #54636e;
@@ -32,7 +33,7 @@ export const StyledAbout = styled.div`
   .topic {
     height: 100%;
     width: 95%;
-    font-weight: 800;
+    font-weight: 500;
 
     h3 {
       color: #54636e;
@@ -41,8 +42,7 @@ export const StyledAbout = styled.div`
     }
 
     p {
-      color: #000;
-      font-size: 1rem;
+      font-size: 10rem;
       text-align: justify;
     }
   }
