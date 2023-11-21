@@ -8,26 +8,25 @@ const PageAbout = () => {
   useEffect(() => {
     cms.get('api/plural-sobre-nos/?populate=foto').then((response) => {
       const { data } = response.data
-      setAbout(data)
+      const aboutDescription = data.map(description => description.attributes)
+      setAbout(aboutDescription)
+      console.log(aboutDescription)
     })
+
   }, [])
-  console.log(about)
   return (
     <>
-      <NavBar />
       <StyledAbout>
         <div className="container">
           <div>
             <ul>
-            {about.map((events) =>
-              <li>{events}</li>
-            )}
+              {about.map((index, key) =>
+                <li key={key}>{index}</li>
+              )}
             </ul>
           </div>
-          <img src="" />
-          <p>teste</p>
           <div>
-
+            <p>teste</p>
           </div>
         </div>
       </StyledAbout>
