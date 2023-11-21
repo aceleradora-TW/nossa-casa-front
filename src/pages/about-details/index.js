@@ -9,9 +9,9 @@ const PageAbout = () => {
     cms.get('api/plural-sobre-nos/?populate=foto').then((response) => {
       const { data } = response.data
       setAbout(data)
-      console.log(data.attributes)
     })
-  })
+  }, [])
+  console.log(about)
   return (
     <>
       <NavBar />
@@ -19,7 +19,9 @@ const PageAbout = () => {
         <div className="container">
           <div>
             <ul>
-              <li>teste</li>
+            {about.map((events) =>
+              <li>{events}</li>
+            )}
             </ul>
           </div>
           <img src="" />
