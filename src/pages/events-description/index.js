@@ -1,6 +1,6 @@
 import EventsStyleDescription from './styled'
 import { useState, useEffect } from 'react'
-import { cms } from '../../service/client'
+import { cms } from '../../client'
 import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -18,7 +18,7 @@ import {
   faPenToSquare,
   faHandHoldingDollar,
   faCalendarDays,
-  faLocationDot,
+  faLocationDot
 } from '@fortawesome/free-solid-svg-icons'
 
 export const EventsPageDescription = () => {
@@ -47,7 +47,7 @@ export const EventsPageDescription = () => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: env.URL_CMS + image.attributes?.url,
+            url: process.env.REACT_APP_URL_CMS + image.attributes?.url
           }
         })
         setGaleria(images)
@@ -58,10 +58,10 @@ export const EventsPageDescription = () => {
             type: 'workshops',
             name: oficina.attributes.nome,
             url:
-              env.URL_CMS +
+            process.env.REACT_APP_URL_CMS +
               oficina.attributes.foto_divulgacao.data[0].attributes.url,
             data_inicio: oficina.attributes.data_inicio,
-            horario_inicio: oficina.attributes.horario_inicio,
+            horario_inicio: oficina.attributes.horario_inicio
           }
         })
         activitiesList.push(oficinas)
@@ -73,10 +73,10 @@ export const EventsPageDescription = () => {
             id: evento.id,
             name: evento.attributes.nome,
             url:
-              env.URL_CMS +
+            process.env.REACT_APP_URL_CMS +
               evento.attributes.foto_divulgacao.data.attributes.url,
             data_inicio: evento.attributes.data_inicio,
-            horario_inicio: evento.attributes.horario_inicio,
+            horario_inicio: evento.attributes.horario_inicio
           }
           // })
         })
@@ -90,12 +90,12 @@ export const EventsPageDescription = () => {
     const dateObject = new Date(date)
     const day = dateObject.toLocaleDateString(undefined, {
       day: 'numeric',
-      timeZone: 'UTC',
+      timeZone: 'UTC'
     })
     const month = dateObject.toLocaleDateString('pt-BR', { month: 'short' })
     const year = dateObject.toLocaleDateString(undefined, {
       year: '2-digit',
-      timeZone: 'UTC',
+      timeZone: 'UTC'
     })
     return [day, month, year].join(' ')
   }
@@ -110,7 +110,7 @@ export const EventsPageDescription = () => {
       'Quarta',
       'Quinta',
       'Sexta',
-      'Sábado',
+      'Sábado'
     ]
     return daysWeek[indexWeek]
   }
@@ -192,7 +192,7 @@ export const EventsPageDescription = () => {
                     '--fa-primary-color': '#00000',
                     '--fa-secondary-color': '#00000',
                     '--fa-secondary-opacity': '1',
-                    transform: 'rotate(-30deg)',
+                    transform: 'rotate(-30deg)'
                   }}
                   size="lg"
                 />
@@ -241,16 +241,16 @@ export const EventsPageDescription = () => {
                 breakpoints={{
                   '@0.00': {
                     slidesPerView: 1,
-                    spaceBetween: 1,
+                    spaceBetween: 1
                   },
                   '@0.75': {
                     slidesPerView: 2,
-                    spaceBetween: 2,
+                    spaceBetween: 2
                   },
                   '@1.00': {
                     slidesPerView: 3,
-                    spaceBetween: 3,
-                  },
+                    spaceBetween: 3
+                  }
                 }}
                 modules={[Navigation]}
                 className="mySwiper"
@@ -302,12 +302,12 @@ export const EventsPageDescription = () => {
             <Swiper
               style={{
                 '--swiper-navigation-color': '#516B84',
-                '--swiper-pagination-color': '',
+                '--swiper-pagination-color': ''
               }}
               loop={true}
               spaceBetween={10}
               navigation={true}
-              thumbs={{ swiper: thumbsSwiper }}
+              thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
               modules={[FreeMode, Navigation, Thumbs]}
               className="first-carousel"
             >

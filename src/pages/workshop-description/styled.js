@@ -10,7 +10,7 @@ const Details = styled.div`
     flex-direction: column;
   }
 
-  #containerDetails {
+  #container-details {
     display: grid;
     grid-template-columns: 70% 30%;
     grid-template-rows: repeat(3, 1fr);
@@ -19,7 +19,7 @@ const Details = styled.div`
     height: 30vh;
   }
 
-  .closeButton {
+  .close-button {
     position: relative;
     left: 100%;
   }
@@ -31,26 +31,32 @@ const Details = styled.div`
   }
 
   .start-date,
-  .data-fim, .local, .partners, .parce, .day{
+  .data-fim {
     font-size: 20px;
   }
 
+  .local {
+    font-size: 20px;
+  }
+  .partners {
+    font-size: 20px;
+  }
   .description-section {
     margin: 0 10vw;
   }
 
   .description {
-    font-weight: bold;
+    font-weight: 900;
     font-size: 30px;
     padding-top: 60px;
     padding-bottom: 20px;
   }
 
   .descriptionCMS {
-    font-size: 20px;
+    font-size: 17px;
     text-align: justify;
     width: 85%;
-    line-height: 23px;
+    font-weight: bold;
   }
 
   .button-close,
@@ -64,27 +70,35 @@ const Details = styled.div`
   }
 
   .inscription {
-    font-size: 20px;
     margin-top: 4px;
+    font-weight: bold;
     margin-left: 10px;
   }
 
   .spacingMoney,
   .spacingType {
-    font-size: 20px;
     margin-left: 30px;
     margin-top: -14px;
+    font-weight: bold;
   }
 
   .spacingDate,
   .spacingLocal {
+    font-weight: bold;
     width: 70%;
     display: flex;
-    align-items: center;
 
     svg {
       padding-right: 10px;
     }
+
+    p {
+      line-height: 1.2;
+    }
+  }
+
+  .parce {
+    font-weight: bold;
   }
 
   .spacing-partners {
@@ -93,19 +107,26 @@ const Details = styled.div`
     margin-right: 1.5em;
   }
 
+  .day {
+    font-weight: 400;
+    font-size: 23px;
+    font-weight: bold;
+  }
+
   .button-inscription {
     background: #f5bc4a;
     border-radius: 3px;
     border: none;
     font-size: 14px;
-    width: 10%;
-    height: 40px;
+    width: 20%;
+    height: 60px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
     margin-top: 50px;
+    font-weight: bold;
     text-decoration: none;
     color: black;
     margin-bottom: 3em;
@@ -123,31 +144,7 @@ const Details = styled.div`
     align-items: center;
     background-color: #e4e7eb;
     img {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      padding-bottom: 30px;
     }
-  }
-  .mySwiper {
-    height: 20%;
-    box-sizing: border-box;
-    padding: 10px 0;
-  }
-
-  .mySwiper .swiper-slide {
-    width: 25%;
-    height: 100%;
-    opacity: 0.4;
-  }
-
-  .mySwiper .swiper-slide-thumb-active {
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    opacity: 3;
-    border: 5px solid #f5bc4a;
   }
 
   .swiper-slide img {
@@ -156,18 +153,58 @@ const Details = styled.div`
     height: 30em;
     object-fit: cover;
   }
+
   .style-img-swiper {
+    background-color: #e4e7eb;
     padding-top: 5rem;
-    img {
-      width: 70rem;
-      height: 40rem;
+  }
+
+  .style-img-swiper img {
+    width: 60rem;
+    height: 40rem;
+    object-fit: fill;
+  }
+
+  .style-swiper-fotos img {
+    width: 8rem;
+    height: 7rem;
+  }
+
+  .second-carousel {
+    margin-right: 16.5%;
+    margin-left: 16.5%;
+    height: 20%;
+    box-sizing: border-box;
+    padding-top: 1rem;
+  }
+
+  .first-carousel {
+    padding-top: 5%;
+  }
+
+  .second-carousel .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+  }
+
+  .second-carousel .swiper-slide-thumb-active {
+    * {
+      margin: 0;
+      padding: 0;
     }
-    .style-swiper-fotos {
-      img {
-        width: 10rem;
-        height: 10rem;
-      }
-    }
+    opacity: 3;
+    border: 5px solid #f5bc4a;
+  }
+
+  .container-button-exit {
+    margin-right: 2%;
+    display: flex;
+    justify-content: right;
+  }
+
+  .close-button {
+    font-size: 1em;
   }
 `
 export default Details
