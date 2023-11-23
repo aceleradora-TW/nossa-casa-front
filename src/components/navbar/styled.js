@@ -52,16 +52,11 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     color: #f5bc4a;
     font-weight: bold;
   }
-  .container-logo {
-    max-height: 100%;
-    width: auto;
-    height: 96%;
-    display: flex;
-  }
 
   .icon-menu {
     font-size: 30px;
     cursor: pointer;
+    display: none;
   }
 
   .aparece {
@@ -70,7 +65,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
   }
 
   /* smartphones */
-  @media (min-width: 320px) {
+  @media ((min-width: 320px) and (max-width: 767px)){
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
@@ -80,6 +75,9 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     .container-logo {
       grid-area: logo;
       justify-self: start;
+      max-height: 100%;
+      width: auto;
+      height: 96%;
     }
 
     .icon-menu {
@@ -99,6 +97,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
         padding: 15px;
         border-top: 1px solid darkgray;
       }
+    }
       .redirecionamento-false{
         display: none  !important;
       }
@@ -106,11 +105,10 @@ const NavBarComponent = styled.nav.attrs((props) => ({
         text-align: center;
         border-top: none;
       }
-    }
-  }
+  
 
   /* Desktop , PCs*/
-  @media (min-width: 801px) {
+
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -118,13 +116,9 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     justify-content: space-between;
     z-index: 1000;
 
-    .icon-menu {
-      display: none;
-    }
-
-    .redirecionamento-false{
+    /* .redirecionamento-false{
       display: flex;
-      background-color: red;
+      background-color: blue;
       width: 60vw;
       justify-content: space-around;
       align-items: center;
@@ -139,7 +133,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
         width: auto;
         text-transform: capitalize;
       }
-    }
+    } */
 
     .ser-parceire {
       color: black;
@@ -150,13 +144,12 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       height: 80px;
       left: 121px;
     }
-    @media (min-width: 1023px) {
+  }
+
+  @media (min-width: 1023px) {
       .redirecionamento-false{
         gap: 40px;
       }
     }
-
-  }
 `
-
 export default NavBarComponent
