@@ -9,20 +9,38 @@ const NavBarComponent = styled.nav.attrs((props) => ({
   overflow: hidden;
   background-color: black;
   width: 100%;
+  height: 100px;
+  padding: 0 30px;
   align-items: center;
   color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 
-  .redirecionamento-false{
-      display: flex;
-      background-color: red;
-      width: 60vw;
-      align-items: center;
+  .container-logo{
+    img{
+      max-width: 10vw;
     }
+  }
 
+  .redirecionamento-false {
+    display: flex;
+    width: 60vw;
+    height: 50px;
+    align-items: center;
+    justify-content: space-around;
+  
   .ser-parceire {
     background-color: #f5bc4a;
+    height: 4vw;
+    width: 9rem;
+    display: grid;
+    place-items: center;
     font-weight: bold;
     border-radius: 5px;
+    color: black;
     &:hover {
       color: #e4e7eb;
     }
@@ -35,13 +53,13 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       );
     }
   }
+}
 
   a {
     color: #ffffff;
     text-decoration: none;
     text-align: center;
-    font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 14px;
     text-transform: uppercase;
     &:hover {
@@ -64,20 +82,16 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     flex-direction: column;
   }
 
-  /* smartphones */
-  @media ((min-width: 320px) and (max-width: 767px)){
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-      'logo . icon'
-      'menu menu menu';
+  @media ((min-width: 320px) and (max-width: 767px)) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
 
     .container-logo {
-      grid-area: logo;
-      justify-self: start;
-      max-height: 100%;
-      width: auto;
-      height: 96%;
+      img {
+        max-width: 50%;
+      }
     }
 
     .icon-menu {
@@ -91,6 +105,12 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       grid-area: menu;
       gap: 0;
       padding-top: 15px;
+      background-color: black;
+      width: 100vw;
+      z-index: 5;
+      position: fixed;
+      top: 100px;
+      left: 0;
       a {
         width: 100%;
         text-align: left;
@@ -98,58 +118,22 @@ const NavBarComponent = styled.nav.attrs((props) => ({
         border-top: 1px solid darkgray;
       }
     }
-      .redirecionamento-false{
-        display: none  !important;
-      }
-      .ser-parceire {
-        text-align: center;
-        border-top: none;
-      }
-  
-
-  /* Desktop , PCs*/
-
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 15px 60px;
-    justify-content: space-between;
-    z-index: 1000;
-
-    /* .redirecionamento-false{
-      display: flex;
-      background-color: blue;
-      width: 60vw;
-      justify-content: space-around;
-      align-items: center;
+    .redirecionamento-false {
+      display: none !important;
     }
-
-    .redirecionamento-true{
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      a {
-        border: none;
-        width: auto;
-        text-transform: capitalize;
-      }
-    } */
+    .ser-parceire {
+      text-align: center !important;
+      font-weight: bold;
+      border-radius: 5px;
+      background-color: #f5bc4a;
+    }
 
     .ser-parceire {
       color: black;
       padding: 15px;
     }
 
-    img {
-      height: 80px;
-      left: 121px;
-    }
   }
 
-  @media (min-width: 1023px) {
-      .redirecionamento-false{
-        gap: 40px;
-      }
-    }
 `
 export default NavBarComponent
