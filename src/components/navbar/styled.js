@@ -12,6 +12,13 @@ const NavBarComponent = styled.nav.attrs((props) => ({
   align-items: center;
   color: white;
 
+  .redirecionamento-false{
+      display: flex;
+      background-color: red;
+      width: 60vw;
+      align-items: center;
+    }
+
   .ser-parceire {
     background-color: #f5bc4a;
     font-weight: bold;
@@ -81,8 +88,8 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       justify-self: end;
     }
 
-    .redirecionamento {
-      display: none;
+    .redirecionamento-true {
+      display: grid;
       grid-area: menu;
       gap: 0;
       padding-top: 15px;
@@ -92,7 +99,9 @@ const NavBarComponent = styled.nav.attrs((props) => ({
         padding: 15px;
         border-top: 1px solid darkgray;
       }
-
+      .redirecionamento-false{
+        display: none  !important;
+      }
       .ser-parceire {
         text-align: center;
         border-top: none;
@@ -113,12 +122,16 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       display: none;
     }
 
-    .redirecionamento {
+    .redirecionamento-false{
       display: flex;
-      flex-direction: row;
+      background-color: red;
+      width: 60vw;
+      justify-content: space-around;
+      align-items: center;
     }
 
-    .redirecionamento {
+    .redirecionamento-true{
+      display: flex;
       flex-wrap: wrap;
       align-items: center;
       a {
@@ -138,10 +151,11 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       left: 121px;
     }
     @media (min-width: 1023px) {
-      .redirecionamento {
+      .redirecionamento-false{
         gap: 40px;
       }
     }
+
   }
 `
 
