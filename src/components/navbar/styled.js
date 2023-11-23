@@ -21,7 +21,8 @@ const NavBarComponent = styled.nav.attrs((props) => ({
 
   .container-logo{
     img{
-      max-width: 10vw;
+      width: 10vw;
+      max-width: 100px;
     }
   }
 
@@ -35,6 +36,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
   .ser-parceire {
     background-color: #f5bc4a;
     height: 4vw;
+    max-height: 50px;
     width: 9rem;
     display: grid;
     place-items: center;
@@ -66,6 +68,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       color: #f5bc4a;
     }
   }
+
   a.active {
     color: #f5bc4a;
     font-weight: bold;
@@ -87,10 +90,9 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       align-items: center;
       justify-content: space-between;
 
-
     .container-logo {
       img {
-        max-width: 50%;
+      min-width: 80px;
       }
     }
 
@@ -118,9 +120,11 @@ const NavBarComponent = styled.nav.attrs((props) => ({
         border-top: 1px solid darkgray;
       }
     }
+
     .redirecionamento-false {
       display: none !important;
     }
+
     .ser-parceire {
       text-align: center !important;
       font-weight: bold;
@@ -132,7 +136,6 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       color: black;
       padding: 15px;
     }
-
   }
 
 `
