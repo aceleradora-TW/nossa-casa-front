@@ -114,12 +114,15 @@ const Home = styled.div`
         height: 100%;
         width: 100%;
         max-width: 800px;
+        align-items: center;
+        padding-left: 50px;
         h2 {
           font-size: 26px;
-          margin-bottom: 30px;
+          margin-bottom: 15px;
+          margin-left: 23px;
         }
-        align-items: center;
       }
+
       .foto {
         height: 100%;
         width: 100%;
@@ -132,32 +135,34 @@ const Home = styled.div`
           width: 100%;
           max-width: 100%;
         }
-        align-items: center;
-        padding-left: 50px;
       }
     }
 
-    button {
+    button.styled-button {
       background: #f5bc4a;
       box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
       border-radius: 3px;
-      color: #000000;
       border: none;
       font-size: 1rem;
       width: 163px;
       height: 56px;
-      font-weight: 600;
       cursor: pointer;
       padding: 10px;
       margin-top: 1.6rem;
       margin-bottom: 1.6rem;
+
+      .button-about {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #000000;
+      }
     }
   }
 
   .galeria {
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #fafafa;
+    padding-top:30px;
+    background-color: #fafafa;  
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -166,68 +171,76 @@ const Home = styled.div`
 
     .titulo-galeria {
       align-self: flex-start;
-      margin-left: 12.5%;
-      font-size: 2.25rem;
+      margin-left: 8.3%;
       font-weight: 700;
-      color: #516b84;
       line-height: 64px;
-      text-align: center;
       font-size: 3.125rem;
+      color: #516b84;
       cursor: default;
     }
 
-    .painel {
-      width: 75%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 25px;
-      grid-row-gap: 25px;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-        height: 100%;
-        max-width: auto;
-        margin-left: 3%;
-        border-radius: 3px;
-        margin-bottom: 3.5rem;
-      }
-    }
     .container-painel {
-      display: flex;
-      justify-content: center;
-    }
+        display: flex;
+        align-self: normal;
+        margin: 0 8.3%;
+
+        .painel {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          grid-column-gap: 1%;
+          grid-row-gap: 2%;
+          justify-content: center;
+
+          li img {
+            width: 100%;
+            height: 100%;
+            max-height: 400px;
+            min-width: 100px;
+            border-radius: 4px;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+      }
     button {
       background: #516b84;
       border-radius: 3px;
       color: #fafafa;
       border: none;
-      font-size: 0.75rem;
-      width: 182px;
-      height: 40px;
+      font-size: 1rem;
+      width: 148px;
+      height: 56px;
       cursor: pointer;
+      margin-top: 15px;
+      margin-bottom: 60px;
     }
   }
   .parceires {
-    background-color: aliceblue;
-    height: 697px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     h2 {
-      font-size: 2.5rem;
       margin-top: 30px;
-      margin-bottom: 10px;
       cursor: default;
     }
 
     p {
-      margin-bottom: 40px;
       cursor: default;
     }
 
-    .carrossel-perfis {
+    .perfil {
+        width: 30%;
+
+        h3 {
+          text-align: center;
+          cursor: default;
+        }
+
+        p {
+          cursor: default;
+        }
+      }
+    /* .carrossel-perfis {
       height: 60%;
       display: flex;
       justify-content: center;
@@ -248,53 +261,33 @@ const Home = styled.div`
           cursor: default;
         }
       }
-    }
+    } */
   }
 
-  .about {
+  /* .about {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    box-sizing: border-box;
-    align-items: center;
-    height: 627px;
+    box-sizing: border-box; /
+    align-items: center; 
+    height: 627px; / 
   }
 
-  main .about {
-    height: auto;
-    padding: 10px;
-  }
+  main .about { //
+    height: auto;//
+    padding: 10px;//
+  }//
 
   main .about .content {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    flex-direction: row;
-    margin-top: 5rem;
-    margin-bottom: 4rem;
-  }
-
-    @media ((min-width: 768px) and (max-width: 1440px)) {
-      section.about {
-        margin-bottom: 0;
-      }
-
-      .about .content {
-        height: auto;
-      }
-
-  .button-about {
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-      .text button {
-        margin-bottom: 0;
-      }
-    }
+    align-items: center; / 
+    justify-content: space-evenly; /
+    width: 100%; 
+    flex-direction: row; /
+    margin-top: 5rem; /
+    margin-bottom: 4rem; /
+  } */ 
 
   @media ((min-width: 768px) and (max-width: 1440px)) {
     section.about {
@@ -310,10 +303,10 @@ const Home = styled.div`
     }
   }
 
-  @media (max-width: 767px) {
+  /* @media (max-width: 767px) {
     flex-wrap: wrap;
     height: 100%;
-  }
+  } */
 
   @media ((min-width: 320px) and (max-width: 767px)) {
     .swiper-button-next,
@@ -391,10 +384,15 @@ const Home = styled.div`
     }
   }
 
-  @media (max-width: 1280px) {
-    .galeria {
-      height: 950px;
+  @media screen and (max-width: 767px) {
+    .galeria .titulo-galeria{
+      font-size:2.75rem;
+    }
+    .painel{
+      grid-template-columns: repeat(2 ,1fr);
+      grid-template-rows: repeat(2 ,1fr);
     }
   }
+
 `
 export default Home
