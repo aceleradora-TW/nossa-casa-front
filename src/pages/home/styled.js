@@ -103,10 +103,10 @@ const Home = styled.div`
         justify-content: space-around;
         max-width: 1440px;
       }
-      @media (max-width: 767px) {
+      /* @media (max-width: 767px) {
         flex-wrap: wrap;
         height: 100%;
-      }
+      } */
       .text {
         box-sizing: border-box;
         text-align: justify;
@@ -115,11 +115,11 @@ const Home = styled.div`
         width: 100%;
         max-width: 800px;
         align-items: center;
-        padding-left: 50px;
+      
         h2 {
           font-size: 26px;
           margin-bottom: 15px;
-          margin-left: 23px;
+          
         }
       }
 
@@ -127,7 +127,7 @@ const Home = styled.div`
         height: 100%;
         width: 100%;
         max-width: 800px;
-        margin-left: 3%;
+        margin-left: 3%; /*voltar*/
         border-radius: 3px;
         margin-bottom: 4.6rem;
         img {
@@ -290,7 +290,7 @@ const Home = styled.div`
   } */ 
 
   @media ((min-width: 768px) and (max-width: 1440px)) {
-    section.about {
+    section .about {
       margin-bottom: 0;
     }
 
@@ -355,11 +355,12 @@ const Home = styled.div`
       }
     }
 
-    .about .content {
+    main .about .content {
       flex-direction: column;
       height: initial;
       justify-content: initial;
       padding: 2vh;
+
     }
 
     .about {
@@ -367,13 +368,13 @@ const Home = styled.div`
       height: initial;
     }
 
-    .about .foto {
+    .about .content .foto {
       order: -1;
       margin-bottom: 2rem;
-      margin-left: 0;
+      margin-left: initial;
     }
 
-    .about .text {
+    .about .content .text {
       display: flex;
       flex-direction: column;
       padding: 0;
