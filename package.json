@@ -52,7 +52,7 @@
     ]
   },
   "engines": {
-    "node": ">=14.x.x <=16.x.x || >=20.9.x"
+    "node": ">=14.x.x <=16.x.x || ^20.9.x"
   },
   "browserslist": {
     "production": [
