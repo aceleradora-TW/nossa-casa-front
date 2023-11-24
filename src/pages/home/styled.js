@@ -96,38 +96,38 @@ const Home = styled.div`
       padding-top: 47px;
 
       .content {
-        padding: 5vh;
+        padding: 0;
         height: 500px;
         width: 100%;
         display: flex;
         justify-content: space-around;
-        max-width: 1440px;
+        max-width: 1600px;
       }
-      /* @media (max-width: 767px) {
-        flex-wrap: wrap;
-        height: 100%;
-      } */
       .text {
         box-sizing: border-box;
         text-align: justify;
-        padding: 2% 2%;
+        padding: 0 2%;
         height: 100%;
         width: 100%;
-        max-width: 800px;
+        max-width: 700px;
         align-items: center;
-      
+
         h2 {
-          font-size: 26px;
+          font-size: 2.5em;
           margin-bottom: 15px;
-          
+        }
+
+        .Textparagraph {
+          font-size: 1.5em;
+          line-height: 1.5em;
         }
       }
 
       .foto {
         height: 100%;
         width: 100%;
-        max-width: 800px;
-        margin-left: 3%; /*voltar*/
+        max-width: 700px;
+        margin-left: 1%; /*voltar*/
         border-radius: 3px;
         margin-bottom: 4.6rem;
         img {
@@ -161,8 +161,8 @@ const Home = styled.div`
   }
 
   .galeria {
-    padding-top:30px;
-    background-color: #fafafa;  
+    padding-top: 30px;
+    background-color: #fafafa;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -180,30 +180,30 @@ const Home = styled.div`
     }
 
     .container-painel {
-        display: flex;
-        align-self: normal;
-        margin: 0 8.3%;
+      display: flex;
+      align-self: normal;
+      margin: 0 8.3%;
 
-        .painel {
+      .painel {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 1%;
+        grid-row-gap: 2%;
+        justify-content: center;
+
+        li img {
           width: 100%;
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: repeat(2, 1fr);
-          grid-column-gap: 1%;
-          grid-row-gap: 2%;
-          justify-content: center;
-
-          li img {
-            width: 100%;
-            height: 100%;
-            max-height: 400px;
-            min-width: 100px;
-            border-radius: 4px;
-            object-fit: cover;
-            object-position: center;
-          }
+          height: 100%;
+          max-height: 400px;
+          min-width: 100px;
+          border-radius: 4px;
+          object-fit: cover;
+          object-position: center;
         }
       }
+    }
     button {
       background: #516b84;
       border-radius: 3px;
@@ -218,7 +218,6 @@ const Home = styled.div`
     }
   }
   .parceires {
-
     h2 {
       margin-top: 30px;
       cursor: default;
@@ -229,68 +228,21 @@ const Home = styled.div`
     }
 
     .perfil {
-        width: 30%;
+      width: 30%;
 
-        h3 {
-          text-align: center;
-          cursor: default;
-        }
-
-        p {
-          cursor: default;
-        }
+      h3 {
+        text-align: center;
+        cursor: default;
       }
-    /* .carrossel-perfis {
-      height: 60%;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      cursor: default;
 
-      .perfil {
-        background-color: cadetblue;
-        width: 30%;
-
-        h3 {
-          text-align: center;
-          cursor: default;
-        }
-
-        p {
-          text-align: center;
-          cursor: default;
-        }
+      p {
+        cursor: default;
       }
-    } */
+    }
   }
-
-  /* .about {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    box-sizing: border-box; /
-    align-items: center; 
-    height: 627px; / 
-  }
-
-  main .about { //
-    height: auto;//
-    padding: 10px;//
-  }//
-
-  main .about .content {
-    display: flex;
-    align-items: center; / 
-    justify-content: space-evenly; /
-    width: 100%; 
-    flex-direction: row; /
-    margin-top: 5rem; /
-    margin-bottom: 4rem; /
-  } */ 
 
   @media ((min-width: 768px) and (max-width: 1440px)) {
-    section .about {
+    main section .about {
       margin-bottom: 0;
     }
 
@@ -298,15 +250,30 @@ const Home = styled.div`
       height: auto;
     }
 
-    .text button {
+    .about .content .text button {
       margin-bottom: 0;
     }
-  }
 
-  /* @media (max-width: 767px) {
-    flex-wrap: wrap;
-    height: 100%;
-  } */
+    .about .content .foto {
+      height: 330px;
+      padding: 0 2% 0 0;
+    }
+
+    .about .content .text h2 {
+      font-size: 1.75em;
+    }
+
+    .about .content .text .Textparagraph {
+      font-size: 1em;
+      line-height: 1.5em;
+    }
+
+    .galeria .titulo-galeria {
+      font-size: 2.75rem;
+      align-self: center;
+      margin-left: initial;
+    }
+  }
 
   @media ((min-width: 320px) and (max-width: 767px)) {
     .swiper-button-next,
@@ -330,14 +297,13 @@ const Home = styled.div`
           line-height: default;
           max-height: 100%;
           overflow-x: hidden;
-          font-size: .9rem;
+          font-size: 0.9rem;
           white-space: normal;
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
           -webkit-line-clamp: 10;
           -webkit-box-orient: vertical;
-
         }
         .descrição::-webkit-scrollbar {
           width: 10px;
@@ -360,12 +326,12 @@ const Home = styled.div`
       height: initial;
       justify-content: initial;
       padding: 2vh;
-
     }
 
-    .about {
+    main section.about {
       justify-content: initial;
       height: initial;
+      padding-top: initial;
     }
 
     .about .content .foto {
@@ -380,18 +346,39 @@ const Home = styled.div`
       padding: 0;
     }
 
+    .about .content .text h2 {
+      font-size: 1.5em;
+    }
+
+    .about .content .text .Textparagraph {
+      font-size: 1em;
+      line-height: 1.5em;
+    }
+
     .text button {
       margin-bottom: 0;
     }
-  }
 
-  @media screen and (max-width: 767px) {
-    .galeria .titulo-galeria{
-      font-size:2.75rem;
+    .galeria{
+      padding-top: initial;
+      gap: 10px;
     }
-    .painel{
-      grid-template-columns: repeat(2 ,1fr);
-      grid-template-rows: repeat(2 ,1fr);
+
+    .galeria .titulo-galeria {
+      font-size: 1.75rem;
+      margin-left: initial;
+      align-self: center;
+    }
+    .painel {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+    .galeria button{
+      margin-bottom: 30px
+    }
+
+    .parceires p{
+      padding: 100px;
     }
   }
 
