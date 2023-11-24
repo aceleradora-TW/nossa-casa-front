@@ -127,7 +127,7 @@ const Home = styled.div`
         height: 100%;
         width: 100%;
         max-width: 700px;
-        margin-left: 1%; /*voltar*/
+        margin-left: 1%;
         border-radius: 3px;
         margin-bottom: 4.6rem;
         img {
@@ -217,6 +217,7 @@ const Home = styled.div`
       margin-bottom: 60px;
     }
   }
+
   .parceires {
     h2 {
       margin-top: 30px;
@@ -375,10 +376,6 @@ const Home = styled.div`
     }
     .galeria button{
       margin-bottom: 30px
-    }
-
-    .parceires p{
-      padding: 100px;
     }
   }
 
