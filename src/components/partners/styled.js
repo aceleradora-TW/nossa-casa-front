@@ -10,7 +10,7 @@ const ParceireComponents = styled.section`
     margin-bottom: 10px;
   }
 
-  .description-parceires {
+  .description-partners {
     color: black;
     margin-bottom: 40px;
     display: flex;
@@ -39,7 +39,7 @@ const ParceireComponents = styled.section`
     justify-content: center;
   }
 
-  .img-perfil {
+  .img-profile {
     object-fit: cover;
     object-position: center;
     height: 150px;
@@ -62,12 +62,12 @@ const ParceireComponents = styled.section`
     box-sizing: border-box;
   }
 
-  .profile > .perfil-descricao {
+  .profile > .description-profile {
     max-width: 100%;
     word-wrap: break-word;
   }
 
-  .icones-rede-sociais {
+  .icons-social-media {
     display: flex;
     justify-content: center;
     border-radius: none;
@@ -88,7 +88,7 @@ const ParceireComponents = styled.section`
     justify-content: center;
     padding: 30px;
 
-    .button-parceire {
+    .button-partners {
       background: #516b84;
       border-radius: 3px;
       border: none;
@@ -109,7 +109,7 @@ const ParceireComponents = styled.section`
     }
   }
   @media (max-width: 1440px){
-    .description-parceires{
+    .description-partners {
       padding-left: 10px;
     }
   }

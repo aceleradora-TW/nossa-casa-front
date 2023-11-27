@@ -31,7 +31,7 @@ const Partners = () => {
       background: '#F5BC4A'
     }}>
       <h2>Parceires</h2>
-      <p className='description-parceires'>
+      <p className='description-partners'>
         A Nossa Casa é uma Associação sem fins lucrativos, composta por profissionais, artistas e ativistas do Município de Guarulhos.
       </p>
       <Swiper
@@ -64,16 +64,16 @@ const Partners = () => {
                     <div className='profile'>
                       <div>
                         {partners.foto?.data?.map(foto => (
-                          <img className='img-perfil' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
+                          <img className='img-profile' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
                         ))
                         }
                       </div>
                       <h3>{partners.nome}</h3>
                       <p>{partners.especializacao}</p>
-                      <p className='perfil-descricao'>
+                      <p className='description-profile'>
                         {partners.descricao}
                       </p>
-                      <div className='icones-rede-sociais'>
+                      <div className='icons-social-media'>
                         <a href={partners.whatsapp}><img src={Whatsapp} /></a>
                         <a href={partners.twitter}><img src={Twitter} /></a>
                         <a href={partners.facebook}><img src={Facebook} /></a>
@@ -88,7 +88,7 @@ const Partners = () => {
         </section>
       </Swiper>
       <div className='styled-button'>
-        <div className='button-parceire'>
+        <div className='button-partners'>
           <a target='_blank' href={linkParceire} rel="noreferrer">
             Ser parceire
           </a>
