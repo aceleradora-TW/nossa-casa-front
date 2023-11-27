@@ -91,11 +91,11 @@ export const WorkshopDetails = () => {
             />
           </Link>
           <h1 className="title">{workshops.attributes?.nome}</h1>
-          <span className="span-detais">
+          <span className="span-details">
             <ul id="container-details">
               <li>
                 <div className="start-date">
-                  <div className="spacingDate">
+                  <div className="spacing-date">
                     <FontAwesomeIcon icon={faCalendarDays} size="lg" />
                     <p>{formatWorkshopDates(workshops)}</p>
                     <p>{formatWorkshopDuration(workshops)}</p>
@@ -113,7 +113,7 @@ export const WorkshopDetails = () => {
                         '--fa-primary-opacity': '1'
                       }}
                     />
-                    <div className="spacingMoney">
+                    <div className="spacing-money">
                       {workshops.attributes?.preco}
                     </div>
                   </p>
@@ -122,7 +122,7 @@ export const WorkshopDetails = () => {
               <li>
                 <div className="div-local">
                   <p className="local">
-                    <div className="spacingLocal">
+                    <div className="spacing-local">
                       <FontAwesomeIcon icon={faLocationDot} size="lg" />
                       Oficina presencial em {workshops.attributes?.local}
                     </div>
@@ -136,7 +136,7 @@ export const WorkshopDetails = () => {
                       style={{ '--fa-primary-color': '#000000', '--fa-secondary-color': '#000000', '--fa-secondary-opacity': '1', transform: 'rotate(-15deg)' }}
                       size="lg"
                     />
-                    <div className="spacingType">
+                    <div className="spacing-type">
                       {workshops.attributes?.tipo}
                     </div>
                   </p>
@@ -162,7 +162,7 @@ export const WorkshopDetails = () => {
               <li>
                 {workshops.attributes?.url_inscricao == null && (
                   <>
-                    <div className="inscriptionIcon">
+                    <div className="inscription-icon">
                       <div>
                         <FontAwesomeIcon icon={faPenToSquare} size="lg" />
                       </div>
@@ -174,7 +174,7 @@ export const WorkshopDetails = () => {
             </ul>
           </span>
           <p className="description">Descrição da oficina</p>
-          <p className="descriptionCMS">{workshops.attributes?.descricao}</p>
+          <p className="description-cms">{workshops.attributes?.descricao}</p>
           {workshops.attributes?.url_inscricao !== null && (
             <a
               className="button-inscription"
@@ -207,7 +207,7 @@ export const WorkshopDetails = () => {
               ))}
             </Swiper>
           </div>
-          <div className='style-swiper-fotos'>
+          <div className='style-swiper-photos'>
             <Swiper
               onSwiper={setThumbsSwiper}
               loop={true}

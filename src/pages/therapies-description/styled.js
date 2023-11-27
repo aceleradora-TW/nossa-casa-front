@@ -5,7 +5,7 @@ const Details = styled.div`
     padding: 0;
   }
 
-  .span-detais {
+  .span-details {
     display: flex;
     flex-direction: column;
   }
@@ -19,7 +19,7 @@ const Details = styled.div`
     height: 30vh;
   }
 
-  .closeButton {
+  .close-button {
     position: relative;
     left: 100%;
   }
@@ -31,7 +31,7 @@ const Details = styled.div`
   }
 
   .start-date,
-  .data-fim, .local, .partners, .parce, .day{
+  .date-end, .local, .partners, .parce, .day{
     font-size: 20px;
   }
 
@@ -46,7 +46,7 @@ const Details = styled.div`
     padding-bottom: 20px;
   }
 
-  .descriptionCMS {
+  .description-cms {
     font-size: 20px;
     text-align: justify;
     width: 85%;
@@ -58,7 +58,7 @@ const Details = styled.div`
     padding-left: 90px;
   }
 
-  .inscriptionIcon {
+  .inscription-icon {
     width: 20vw;
     display: flex;
   }
@@ -69,15 +69,15 @@ const Details = styled.div`
     margin-left: 10px;
   }
 
-  .spacingMoney,
-  .spacingType {
+  .spacing-money,
+  .spacing-type {
     font-size: 20px;
     margin-left: 30px;
     margin-top: -14px;
   }
 
-  .spacingDate,
-  .spacingLocal {
+  .spacing-date,
+  .spacing-local {
     width: 70%;
     display: flex;
     align-items: center;
@@ -162,7 +162,7 @@ const Details = styled.div`
       width: 70rem;
       height: 40rem;
     }
-    .style-swiper-fotos {
+    .style-swiper-photos {
       img {
         width: 10rem;
         height: 10rem;

@@ -27,7 +27,7 @@ li {
   padding-top: 1.7em;
 }
 
-.parceires p{
+.partners p{
   margin-right: 1em;
 }
 .style-icon {
@@ -120,7 +120,7 @@ p {
   height: 40rem;
 }
 
-.style-swiper-fotos img {
+.style-swiper-photos img {
   width: 9rem;
   height: 9rem;
 }

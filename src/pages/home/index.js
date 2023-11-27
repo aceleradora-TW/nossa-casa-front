@@ -89,7 +89,7 @@ export function HomePage() {
                       <div className='slide-container'>
                         <h2 className="slide-title"> {attribute.data?.nome} </h2>
                         <div className='event-container'>
-                          <p className="descricao"> {attribute.data?.descricao}</p>
+                          <p className="description"> {attribute.data?.descricao}</p>
                         </div>
                         <Link to='#' className='ver-mais'>Ver mais sobre o evento</Link>
                         <img src={urlCms + attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slide-image" />
@@ -105,7 +105,7 @@ export function HomePage() {
           <div className='content'>
             <div className='text'>
               <h2>SOBRE O NOSSA CASA</h2>
-              <p className='Textparagraph'>
+              <p className='text-paragraph'>
                 A Nossa Casa existe há 5 anos no Município de Guarulhos, a segunda maior cidade do Estado de São Paulo, com cerca de 1.379.182 habitantes, sendo destes 45% autodeclarados negros (soma de pretos e pardos), 51,3% mulheres e em sua maioria residentes de áreas periféricas da cidade e de alguma forma em situação de vulnerabilidade, seja financeira, social ou emocional. Guarulhos é gigante e tem muitas necessidades.
               </p>
               <button className='styled-button'>
@@ -117,8 +117,8 @@ export function HomePage() {
             </div>
           </div >
         </section >
-        <section className="galeria">
-          <h2 className='titulo-galeria'>Galeria de fotos</h2>
+        <section className="galery">
+          <h2 className='title-galery'>Galeria de fotos</h2>
           <div className='container-painel'>
             <ul className='painel'>
               {galeria.map((fotos) => (

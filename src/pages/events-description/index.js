@@ -113,7 +113,7 @@ export const EventsPageDescription = () => {
                 </div>
                 {event?.attributes?.local}
               </li>
-              <li className='parceires'>
+              <li className='partners'>
                 {event?.attributes?.parceires?.data.map((parceire) => {
                   if (parceire !== null || parceire !== undefined) {
                     return (
@@ -195,7 +195,7 @@ export const EventsPageDescription = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className='style-swiper-fotos'>
+            <div className='style-swiper-photos'>
               <Swiper
                 onSwiper={setThumbsSwiper}
                 loop={true}

@@ -57,7 +57,7 @@ const Home = styled.div`
         align-items: center;
       }
 
-      .descricao {
+      .description {
         font-family: 'Inter', sans-serif;
         font-size: 1.3rem;
         line-height: 30px;
@@ -117,7 +117,7 @@ const Home = styled.div`
           margin-bottom: 15px;
         }
 
-        .Textparagraph {
+        .text-paragraph {
           font-size: 1.5em;
           line-height: 1.5em;
         }
@@ -160,7 +160,7 @@ const Home = styled.div`
     }
   }
 
-  .galeria {
+  .galery {
     padding-top: 30px;
     background-color: #fafafa;
     display: flex;
@@ -169,7 +169,7 @@ const Home = styled.div`
     align-items: center;
     gap: 30px;
 
-    .titulo-galeria {
+    .title-galery {
       align-self: flex-start;
       margin-left: 8.3%;
       font-weight: 700;
@@ -218,7 +218,7 @@ const Home = styled.div`
     }
   }
 
-  .parceires {
+  .partners {
     h2 {
       margin-top: 30px;
       cursor: default;
@@ -264,12 +264,12 @@ const Home = styled.div`
       font-size: 1.75em;
     }
 
-    .about .content .text .Textparagraph {
+    .about .content .text .text-paragraph {
       font-size: 1em;
       line-height: 1.5em;
     }
 
-    .galeria .titulo-galeria {
+    .galery .title-galery {
       font-size: 2.75rem;
       align-self: center;
       margin-left: initial;
@@ -294,7 +294,7 @@ const Home = styled.div`
         height: 50vh !important;
         font-weight: bold;
 
-        .descricao {
+        .description {
           line-height: default;
           max-height: 100%;
           overflow-x: hidden;
@@ -306,15 +306,15 @@ const Home = styled.div`
           -webkit-line-clamp: 10;
           -webkit-box-orient: vertical;
         }
-        .descrição::-webkit-scrollbar {
+        .description::-webkit-scrollbar {
           width: 10px;
         }
 
-        .descrição::-webkit-scrollbar-track {
+        .description::-webkit-scrollbar-track {
           background: #ffffff;
         }
 
-        .descrição::-webkit-scrollbar-thumb {
+        .description::-webkit-scrollbar-thumb {
           background-color: grey;
           border-radius: 10px;
           border: 3px solid #ffffff;
@@ -335,7 +335,7 @@ const Home = styled.div`
       padding-top: initial;
     }
 
-    .about .content .foto {
+    .about .content .photo {
       order: -1;
       margin-bottom: 2rem;
       margin-left: initial;
@@ -351,7 +351,7 @@ const Home = styled.div`
       font-size: 1.5em;
     }
 
-    .about .content .text .Textparagraph {
+    .about .content .text .text-paragraph {
       font-size: 1em;
       line-height: 1.5em;
     }
@@ -360,12 +360,12 @@ const Home = styled.div`
       margin-bottom: 0;
     }
 
-    .galeria{
+    .galery {
       padding-top: initial;
       gap: 10px;
     }
 
-    .galeria .titulo-galeria {
+    .galery .title-galery {
       font-size: 1.75rem;
       margin-left: initial;
       align-self: center;
@@ -374,7 +374,7 @@ const Home = styled.div`
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
     }
-    .galeria button{
+    .galery button{
       margin-bottom: 30px
     }
   }

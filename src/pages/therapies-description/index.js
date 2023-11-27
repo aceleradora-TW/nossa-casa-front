@@ -61,7 +61,7 @@ export const DetailsTherapies = () => {
     <>
       <Details>
         <section className="description-section">
-          <Link className="closeButton" to={'/therapies'}>
+          <Link className="close-button" to={'/therapies'}>
             <FontAwesomeIcon
               icon={faRectangleXmark}
               size="2xl"
@@ -69,12 +69,12 @@ export const DetailsTherapies = () => {
             />
           </Link>
           <h1 className="title">{therapies.attributes?.nome}</h1>
-          <span className="span-detais">
+          <span className="span-details">
             <ul id="containerDetails">
               <li>
                 <div className="start-date">
                   <p className="start-date">
-                    <div className="spacingDate">
+                    <div className="spacing-date">
                       <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
                       <p>{`
                      ${handleDate(
@@ -99,7 +99,7 @@ export const DetailsTherapies = () => {
                         '--fa-primary-opacity': '1'
                       }}
                     />
-                    <div className="spacingMoney">
+                    <div className="spacing-money">
                       {therapies.attributes?.preco}
                     </div>
                   </p>
@@ -108,7 +108,7 @@ export const DetailsTherapies = () => {
               <li>
                 <div className="div-local">
                   <p className="local">
-                    <div className="spacingLocal">
+                    <div className="spacing-local">
                       <FontAwesomeIcon icon={faLocationDot} size="lg" />
                       Terapia presencial em {therapies.attributes?.local}
                     </div>
@@ -119,7 +119,7 @@ export const DetailsTherapies = () => {
                 <div className="therapieType">
                   <p className="type">
                     <FontAwesomeIcon icon={faLock} size="lg" />
-                    <div className="spacingType">
+                    <div className="spacing-type">
                       {therapies.attributes?.tipo}
                     </div>
                   </p>
@@ -151,7 +151,7 @@ export const DetailsTherapies = () => {
               <li>
                 {therapies.attributes?.url_agendamento == null && (
                   <>
-                    <div className="inscriptionIcon">
+                    <div className="inscription-icon">
                       <div>
                         <FontAwesomeIcon icon={faPenToSquare} size="lg" />
                       </div>
@@ -167,7 +167,7 @@ export const DetailsTherapies = () => {
           </span>
 
           <p className="description">Descrição da terapia</p>
-          <p className="descriptionCMS">{therapies.attributes?.descricao}</p>
+          <p className="description-cms">{therapies.attributes?.descricao}</p>
           {therapies.attributes?.url_agendamento !== null && (
             <a
               className="button-inscription"
@@ -199,7 +199,7 @@ export const DetailsTherapies = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="style-swiper-fotos">
+            <div className="style-swiper-photos">
               <Swiper
                 onSwiper={setThumbsSwiper}
                 loop={true}

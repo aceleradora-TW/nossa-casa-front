@@ -6,7 +6,7 @@ const EventsContainer = styled.div`
     height: 100vh;
     
     
-    .carrossel-eventos {
+    .carousel-events {
       background-color: #DADADA;
       height: 748px;
       width: 100%;
@@ -15,7 +15,7 @@ const EventsContainer = styled.div`
       align-items: center;
       gap: 20px;
 
-      .evento {
+      .event {
         width: 25%;
 
         p {
@@ -40,7 +40,7 @@ const EventsContainer = styled.div`
       }
     }
 
-    .parceires {
+    .partners {
       height: 697px;
       display: flex;
       flex-direction: column;
@@ -56,7 +56,7 @@ const EventsContainer = styled.div`
         margin-bottom: 40px;
       }
 
-      .carrossel-perfis {
+      .carousel-profile {
         height: 60%;
         display: flex;
         justify-content: center;

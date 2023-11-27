@@ -55,7 +55,7 @@ const Partners = () => {
         modules={[Navigation]}
         className="my-swiper"
       >
-        <section className='parceires'>
+        <section className='partners'>
           <div className="swiper-slide">
             <ul>
               {attributes.map((partners) =>

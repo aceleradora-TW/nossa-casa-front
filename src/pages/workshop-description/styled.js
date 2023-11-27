@@ -5,7 +5,7 @@ const Details = styled.div`
     padding: 0;
   }
 
-  .span-detais {
+  .span-details {
     display: flex;
     flex-direction: column;
   }
@@ -31,7 +31,7 @@ const Details = styled.div`
   }
 
   .start-date,
-  .data-fim {
+  .date-end {
     font-size: 20px;
   }
 
@@ -52,7 +52,7 @@ const Details = styled.div`
     padding-bottom: 20px;
   }
 
-  .descriptionCMS {
+  .description-cms {
     font-size: 17px;
     text-align: justify;
     width: 85%;
@@ -64,7 +64,7 @@ const Details = styled.div`
     padding-left: 90px;
   }
 
-  .inscriptionIcon {
+  .inscription-icon {
     width: 20vw;
     display: flex;
   }
@@ -75,15 +75,15 @@ const Details = styled.div`
     margin-left: 10px;
   }
 
-  .spacingMoney,
-  .spacingType {
+  .spacing-money,
+  .spacing-type {
     margin-left: 30px;
     margin-top: -14px;
     font-weight: bold;
   }
 
-  .spacingDate,
-  .spacingLocal {
+  .spacing-date,
+  .spacing-local {
     font-weight: bold;
     width: 70%;
     display: flex;
@@ -165,7 +165,7 @@ const Details = styled.div`
     object-fit: fill;
   }
 
-  .style-swiper-fotos img {
+  .style-swiper-photos img {
     width: 8rem;
     height: 7rem;
   }
