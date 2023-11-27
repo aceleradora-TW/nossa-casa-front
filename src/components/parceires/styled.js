@@ -10,7 +10,7 @@ const ParceireComponents = styled.section`
     margin-bottom: 10px;
   }
 
-  p {
+  .description-parceires {
     color: black;
     margin-bottom: 40px;
     display: flex;
@@ -110,6 +110,11 @@ const ParceireComponents = styled.section`
           display: flex;
         justify-content: center;
       }
+    }
+  }
+  @media (max-width: 1440px){
+    .description-parceires{
+      padding-left: 10px;
     }
   }
 
