@@ -146,7 +146,7 @@ p {
 
 }
 //modal galerias
-.topo {
+.top {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -154,7 +154,7 @@ p {
     padding-right: 20px;
   }
 
-  .topo > .h2-modal-galery {
+  .top > .h2-modal-galery {
     margin: 0;
     margin-left: 25%;
     font-size: 2.25rem;
@@ -240,11 +240,11 @@ p {
 
   @media (max-width: 1280px) {
 
-    .topo {
+    .top {
       margin-bottom: 30px;
     }
 
-    .topo > .h2-modal-galery {
+    .top > .h2-modal-galery {
       margin-left: 20%;
     }
     .swiper-slide-view {
@@ -262,7 +262,7 @@ p {
 
   @media (min-width: 1281px) {
 
-    .topo > .h2-modal-galery {
+    .top > .h2-modal-galery {
       margin-left: 20%;
     }
     .swiper {

@@ -36,7 +36,7 @@ const CarouselEvents = () => {
   return (
 
     <EventsComponent style={{ background: '#FFFFFF' }}>
-      <div className='carrossel'>
+      <div className='carousel'>
         <h1>EVENTOS</h1>
         <p>A  Nossa Casa realiza diversos eventos culturais que vão de festivais, rodas de conversa, apresentações musicais, exposições de arte visual, entre outros.
           Confira aqui nossa programação e participe!.</p>
@@ -60,7 +60,7 @@ const CarouselEvents = () => {
           }
         }}
         modules={[Navigation]}
-        className="mySwiper"
+        className="my-swiper"
       >
         <section>
           <div className="swiper-slide">
@@ -70,7 +70,7 @@ const CarouselEvents = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img className="img-foto" src={urlCms + events.image_url} />
+                        <img className="img-photo" src={urlCms + events.image_url} />
                       </div>
                       <div>
                         <p className="date">{events.date.toLocaleDateString('pt-BR', { Timezone: 'UTF' })}</p>

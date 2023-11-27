@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const EventsComponent = styled.div`
-.carrossel{
+.carousel {
       height: 300px;
     
       h1 {
@@ -18,7 +18,7 @@ const EventsComponent = styled.div`
       }
     }
 
-.mySwiper{
+.my-swiper {
   position: relative;
   z-index: 0;
 }
@@ -28,7 +28,7 @@ const EventsComponent = styled.div`
   height: 70vh;
   padding-left: 3em;
   margin-right: 20px;
-  .img-foto{
+  .img-photo{
     width: 45vh;
     height: 35vh;
   }

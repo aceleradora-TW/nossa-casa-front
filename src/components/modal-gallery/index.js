@@ -53,7 +53,7 @@ const ModalGallery = ({ type }) => {
           <img className="exit" src={closeIcon} onClick={closeAndRefresh} />
           {type === 'gallery' && (
             <>
-              <div className="topo">
+              <div className="top">
                 <h2 className="h2-modal-galery">Fotos da Nossa Casa</h2>
               </div>
               <Swiper

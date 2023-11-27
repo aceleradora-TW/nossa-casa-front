@@ -24,7 +24,7 @@ const ParceireComponents = styled.section`
     align-items: center;
   }
 
-  .perfil {
+  .profile {
     padding: 10px 0;
     width: 100%;
     max-width: 500px;
@@ -34,7 +34,7 @@ const ParceireComponents = styled.section`
     align-items: center;
   }
 
-  .perfil > div {
+  .profile > div {
     display: flex;
     justify-content: center;
   }
@@ -54,7 +54,7 @@ const ParceireComponents = styled.section`
     margin-bottom: 3px;
   }
 
-  .perfil p {
+  .profile p {
     margin: 1px;
     padding: 2%;
     color: black;
@@ -62,7 +62,7 @@ const ParceireComponents = styled.section`
     box-sizing: border-box;
   }
 
-  .perfil > .perfil-descricao {
+  .profile > .perfil-descricao {
     max-width: 100%;
     word-wrap: break-word;
   }

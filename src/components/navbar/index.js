@@ -10,7 +10,7 @@ const NavBar = () => {
   const [toggle, setToggle] = useState(false)
   const onClickMenu = () => setToggle(!toggle)
 
-  const newLocal = 'ser-parceire'
+  const newLocal = 'be-partner'
 
   return (
     <NavBarComponent>

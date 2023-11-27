@@ -208,7 +208,7 @@ export const DetailsTherapies = () => {
                 freeMode={true}
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper"
+                className="my-swiper"
               >
                 {galleryPhoto.map((image) => (
                   <SwiperSlide key={image.id}>

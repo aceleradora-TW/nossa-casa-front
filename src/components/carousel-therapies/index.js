@@ -35,7 +35,7 @@ const CarouselTherapies = () => {
 
   return (
     <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
-      <div className="carrossel">
+      <div className="carousel">
         <h1>Terapias</h1>
         <p>
           Ao longo da história, espaços de autocuidado e bem-estar foram
@@ -70,7 +70,7 @@ const CarouselTherapies = () => {
           }
         }}
         modules={[Navigation]}
-        className="mySwiper"
+        className="my-swiper"
       >
         <section>
           <div className="swiper-slide">

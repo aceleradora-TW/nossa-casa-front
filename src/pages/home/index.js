@@ -64,7 +64,7 @@ export function HomePage() {
       <NavBar />
       <main>
         {toggle &&
-          <section className="carrossel">
+          <section className="carousel">
             <Swiper
               modules={[Pagination, Navigation, Keyboard, Autoplay]}
               pagination={{

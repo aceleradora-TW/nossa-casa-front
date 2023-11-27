@@ -34,7 +34,7 @@ const CarouselWorkshop = () => {
 
   return (
     <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
-      <div className="carrossel">
+      <div className="carousel">
         <h1>Oficinas</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
@@ -64,7 +64,7 @@ const CarouselWorkshop = () => {
           }
         }}
         modules={[Navigation]}
-        className="mySwiper"
+        className="my-swiper"
       >
         <section>
           <div className="swiper-slide">

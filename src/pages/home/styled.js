@@ -12,7 +12,7 @@ const Home = styled.div`
       margin-bottom: 32px;
     }
 
-    .carrossel {
+    .carousel {
       background-color: #010101;
       color: #ffffff;
       .swiper-button-next {
@@ -234,7 +234,7 @@ const Home = styled.div`
       gap: 20px;
       cursor: default;
 
-      .perfil {
+      .profile {
         background-color: cadetblue;
         width: 30%;
 

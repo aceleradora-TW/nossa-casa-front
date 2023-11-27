@@ -129,19 +129,19 @@ const Details = styled.div`
       padding-bottom: 30px;
     }
   }
-  .mySwiper {
+  .my-swiper {
     height: 20%;
     box-sizing: border-box;
     padding: 10px 0;
   }
 
-  .mySwiper .swiper-slide {
+  .my-swiper .swiper-slide {
     width: 25%;
     height: 100%;
     opacity: 0.4;
   }
 
-  .mySwiper .swiper-slide-thumb-active {
+  .my-swiper .swiper-slide-thumb-active {
     * {
       margin: 0;
       padding: 0;

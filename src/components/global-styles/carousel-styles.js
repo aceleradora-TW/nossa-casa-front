@@ -5,7 +5,7 @@ export const CssCarrosselGlobal = styled.div`
   margin: 0;
   padding: 0;
 }
-  .carrossel {
+  .carousel {
     background-color: #fafafa;
     height: 300px;
     h1 {
@@ -22,7 +22,7 @@ export const CssCarrosselGlobal = styled.div`
     }
   }
 
-  .mySwiper {
+  .my-swiper {
     background-color: #fafafa;
     position: relative;
     z-index: 0;

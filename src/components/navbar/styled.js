@@ -12,7 +12,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
   align-items: center;
   color: white;
 
-  .ser-parceire {
+  .be-partner {
     background-color: #f5bc4a;
     font-weight: bold;
     border-radius: 5px;
@@ -93,7 +93,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
         border-top: 1px solid darkgray;
       }
 
-      .ser-parceire {
+      .be-partner {
         text-align: center;
         border-top: none;
       }
@@ -128,7 +128,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       }
     }
 
-    .ser-parceire {
+    .be-partner {
       color: black;
       padding: 15px;
     }

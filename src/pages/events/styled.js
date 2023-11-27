@@ -62,7 +62,7 @@ const EventsContainer = styled.div`
         justify-content: center;
         gap: 20px;
 
-        .perfil {
+        .profile {
           background-color: cadetblue;
           width: 30%;
 

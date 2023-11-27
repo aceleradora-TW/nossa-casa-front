@@ -53,7 +53,7 @@ const Partners = () => {
           }
         }}
         modules={[Navigation]}
-        className="mySwiper"
+        className="my-swiper"
       >
         <section className='parceires'>
           <div className="swiper-slide">
@@ -61,7 +61,7 @@ const Partners = () => {
               {attributes.map((partners) =>
                 <li key={partners.nome}>
                   <SwiperSlide key={partners.nome}>
-                    <div className='perfil'>
+                    <div className='profile'>
                       <div>
                         {partners.foto?.data?.map(foto => (
                           <img className='img-perfil' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
