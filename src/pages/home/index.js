@@ -129,7 +129,9 @@ export function HomePage() {
               ))}
             </ul>
           </div>
-          <ModalGallery type={'gallery'} />
+          <button className='styled-button-galery'>
+          <Link className="button-galery" to={`/galerydetails`}> Ver mais </Link>
+          </button>
         </section>
         <Parceires />
         <Footer />
