@@ -42,7 +42,7 @@ const Home = styled.div`
         height: 100%;
       }
       .slide-container :not(:last-child) {
-        margin: 0 6%;
+        margin: 0 10%;
       }
       .event-container {
         width: 60%;
@@ -76,31 +76,29 @@ const Home = styled.div`
       .ver-mais {
         z-index: 1;
         background-color: #f5bc4a;
-        border-radius: 5px;
-        width: 250px;
+        width: 180px;
         height: 40px;
-        padding: 12px;
+        padding: 10px;
         color: #000000;
         text-decoration: none;
         text-align: center;
+        font-size: 0.9rem;
         font-weight: bolder;
       }
     }
 
     .about {
-      background-color: blue;
-      //background-color: #ffffff;
+      background-color: #ffffff;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-      margin: 0 5%;
-      height: 627px;
+      padding-top: 47px;
 
       .content {
         padding: 0;
         height: 500px;
-        width: 100%;
+        width: 85%;
         display: flex;
         justify-content: space-around;
         max-width: 1600px;
@@ -135,17 +133,10 @@ const Home = styled.div`
         img {
           height: 100%;
           width: 100%;
-          max-width: 800px;
-          border-radius: 3px;
-         
-          img {
-            height: 101%;
-            width: 97%;
-            max-width: 100%;
-            padding-left:20px;
-          }
+          max-width: 100%;
         }
       }
+    }
 
     button.styled-button {
       background: #f5bc4a;
@@ -157,7 +148,7 @@ const Home = styled.div`
       height: 56px;
       cursor: pointer;
       padding: 10px;
-      margin-top: 1.6rem;
+      margin-top: 2rem;
       margin-bottom: 1.6rem;
 
       .button-about {
@@ -167,7 +158,7 @@ const Home = styled.div`
         color: #000000;
       }
     }
-    }
+  }
 
   .galeria {
     padding-top: 30px;
@@ -390,5 +381,3 @@ const Home = styled.div`
 
 `
 export default Home
-
-
