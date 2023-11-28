@@ -8,28 +8,23 @@ const PageAbout = () => {
   useEffect(() => {
     cms.get('api/plural-sobre-nos/?populate=foto').then((response) => {
       const { data } = response.data
-      console.log(data)
       const aboutDescription = data.map(description => {
-        if(description.attributes){
+        if (description.attributes) {
           return {
-            descricao1: description.attributes.descricao1,
-            descricao2: description.attributes.descricao2,
-            descricao3: description.attributes.descricao3,
-            descricao4: description.attributes.descricao4,
-            descricao5: description.attributes.descricao5
+            descricao: description.attributes.descricao,
+            foto: description.attributes.foto.data.attributes.url
           }
-        }})
+        }
+      })
       setAbout(aboutDescription)
+      console.log(about)
     })
   }, [])
-  console.log(about[0].descricao1)
   return (
     <>
       <StyledAbout>
         <div className="container">
           <div>
-            <ul>
-            </ul>
           </div>
           <div>
             <p>teste</p>
