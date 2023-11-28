@@ -5,18 +5,19 @@ import { useEffect, useState } from "react"
 
 const PageAbout = () => {
   const [about, setAbout] = useState([])
+  const urlCms = process.env.REACT_APP_URL_CMS
   useEffect(() => {
     cms.get('api/plural-sobre-nos/?populate=foto').then((response) => {
       const { data } = response.data
-      const aboutDescription = data.map(description => {
-        if (description.attributes) {
+      if (data) {
+        const aboutDescription = data.map(description => {
           return {
             descricao: description.attributes.descricao,
             foto: description.attributes.foto.data.attributes.url
           }
-        }
-      })
-      setAbout(aboutDescription)
+        })
+        setAbout(aboutDescription)
+      }
     })
   }, [])
   return (
@@ -25,13 +26,13 @@ const PageAbout = () => {
         <div className="container">
           <div>
             <ul>
-              {about.map((descrition, key) =>
-                <li key={key}>{descrition.descricao}</li>
+              {about.map((description, key) =>
+                <li key={key}>{description.descricao}</li>
               )}
             </ul>
           </div>
           <div>
-            <p>{about.foto}</p>
+            <img src={urlCms + about[0].foto} />
           </div>
         </div>
       </StyledAbout>
