@@ -6,6 +6,5 @@ export const GaleryStyled = styled.div`
     border: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: red;
   }
 `

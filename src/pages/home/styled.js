@@ -158,27 +158,6 @@ const Home = styled.div`
         color: #000000;
       }
     }
-
-    button.styled-button-galery {
-      background-color: #516b84;
-      box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
-      border-radius: 3px;
-      border: none;
-      font-size: 1rem;
-      width: 163px;
-      height: 56px;
-      cursor: pointer;
-      padding: 10px;
-      margin-top: 1.6rem;
-      margin-bottom: 1.6rem;
-
-      .button-galery {
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1rem;
-        color: #fafafa;
-      }
-    }
   }
 
   .galeria {
@@ -225,18 +204,26 @@ const Home = styled.div`
         }
       }
     }
-    button {
-      background: #516b84;
-      border-radius: 3px;
-      color: #fafafa;
-      border: none;
-      font-size: 1rem;
-      width: 148px;
-      height: 56px;
-      cursor: pointer;
-      margin-top: 15px;
-      margin-bottom: 60px;
-    }
+      .button-galery {
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #fafafa;
+        background-color: #516b84;
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
+        border-radius: 3px;
+        border: none;
+        font-size: 1rem;
+        width: 163px;
+        height: 56px;
+        cursor: pointer;
+        padding: 10px;
+        margin-top: 1.6rem;
+        margin-bottom: 1.6rem;
+      }
   }
 
   .parceires {

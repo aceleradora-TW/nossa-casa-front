@@ -129,9 +129,7 @@ export function HomePage() {
               ))}
             </ul>
           </div>
-          <button className='styled-button-galery'>
-          <Link className="button-galery" to={`/galerydetails`}> Ver mais </Link>
-          </button>
+          <Link className='button-galery' to={`/galerydetails`}> Ver mais </Link>
         </section>
         <Parceires />
         <Footer />
