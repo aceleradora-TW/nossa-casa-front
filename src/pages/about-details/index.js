@@ -24,10 +24,14 @@ const PageAbout = () => {
       <StyledAbout>
         <div className="container">
           <div>
-            <ul></ul>
+            <ul>
+              {about.map((descrition, key) =>
+                <li key={key}>{descrition.descricao}</li>
+              )}
+            </ul>
           </div>
           <div>
-            <p>teste</p>
+            <p>{about.foto}</p>
           </div>
         </div>
       </StyledAbout>
