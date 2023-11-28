@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const VerMais = styled.div`
+const SeeMore = styled.div`
   .styled-button {
     display: flex;
     justify-content: center;
@@ -18,4 +18,4 @@ const VerMais = styled.div`
   }
 `
 
-export default VerMais
+export default SeeMore

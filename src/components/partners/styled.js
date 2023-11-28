@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const ParceireComponents = styled.section`
+const PartnerComponents = styled.section`
   h2 {
     color: black;
     display: flex;
@@ -126,4 +126,4 @@ const ParceireComponents = styled.section`
     }
   }
 `
-export default ParceireComponents
+export default PartnerComponents

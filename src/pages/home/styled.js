@@ -73,7 +73,7 @@ const Home = styled.div`
         opacity: 50%;
       }
 
-      .ver-mais {
+      .see-more {
         z-index: 1;
         background-color: #f5bc4a;
         width: 180px;
@@ -123,7 +123,7 @@ const Home = styled.div`
         }
       }
 
-      .foto {
+      .photo {
         height: 100%;
         width: 100%;
         max-width: 700px;
@@ -255,7 +255,7 @@ const Home = styled.div`
       margin-bottom: 0;
     }
 
-    .about .content .foto {
+    .about .content .photo {
       height: 330px;
       padding: 0 2% 0 0;
     }

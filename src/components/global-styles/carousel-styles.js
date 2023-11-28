@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CssCarrosselGlobal = styled.div`
+export const CssCarouselGlobal = styled.div`
 *{
   margin: 0;
   padding: 0;

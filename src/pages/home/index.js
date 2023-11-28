@@ -7,7 +7,7 @@ import Home from './styled'
 import mural from './mural.png'
 import NavBar from '../../components/navbar'
 import ModalGallery from '../../components/modal-gallery'
-import fotoNossaCasa from './nossacasa.png'
+import photoOurHouse from './nossacasa.png'
 import Partners from '../../components/partners'
 import Footer from '../../components/footer'
 import 'swiper/css'
@@ -91,7 +91,7 @@ export function HomePage() {
                         <div className='event-container'>
                           <p className="description"> {attribute.data?.descricao}</p>
                         </div>
-                        <Link to='#' className='ver-mais'>Ver mais sobre o evento</Link>
+                        <Link to='#' className='see-more'>Ver mais sobre o evento</Link>
                         <img src={urlCms + attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slide-image" />
                       </div>
                     </SwiperSlide>
@@ -112,8 +112,8 @@ export function HomePage() {
               <Link className="button-about" to={`/sobre`}> Ver mais </Link>
               </button>
             </div>
-            <div className='foto'>
-              <img src={fotoNossaCasa} />
+            <div className='photo'>
+              <img src={photoOurHouse} />
             </div>
           </div >
         </section >

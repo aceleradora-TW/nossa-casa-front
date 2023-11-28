@@ -1,4 +1,4 @@
-import { CssCarrosselGlobal } from '../global-styles'
+import { CssCarouselGlobal } from '../global-styles'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 
 import { cms } from '../../client'
 import ModalWorkshops from '../modal-workshops'
-import VerMais from './styled'
+import SeeMore from './styled'
 import { Link } from 'react-router-dom'
 
 const CarouselWorkshop = () => {
@@ -33,7 +33,7 @@ const CarouselWorkshop = () => {
   }, [])
 
   return (
-    <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
+    <CssCarouselGlobal style={{ background: '#F5BC4A' }}>
       <div className="carousel">
         <h1>Oficinas</h1>
         <p>
@@ -83,13 +83,13 @@ const CarouselWorkshop = () => {
                         <p className="date">{workshops.data}</p>
                         <h3 className="title">{workshops.name}</h3>
                       </div>
-                      <VerMais>
+                      <SeeMore>
                         <div className="styled-button">
                           <Link className="button-text" to={`${workshops.id}`}>
                             Saiba Mais
                           </Link>
                         </div>
-                      </VerMais>
+                      </SeeMore>
                     </div>
                   </SwiperSlide>
                 </li>
@@ -98,7 +98,7 @@ const CarouselWorkshop = () => {
           </div>
         </section>
       </Swiper>
-    </CssCarrosselGlobal>
+    </CssCarouselGlobal>
   )
 }
 export default CarouselWorkshop

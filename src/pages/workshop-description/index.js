@@ -198,7 +198,7 @@ export const WorkshopDetails = () => {
               spaceBetween={10}
               navigation={true}
               modules={[FreeMode, Navigation, Thumbs]}
-              className="mySwiper2"
+              className="my-swiper-2"
             >
               {galleryPhoto.map((image) => (
                 <SwiperSlide key={image.id}>

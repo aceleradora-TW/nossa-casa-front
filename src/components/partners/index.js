@@ -8,7 +8,7 @@ import Facebook from '../partners/face-icon.png'
 import Instagram from '../partners/instagram-icon.png'
 import Twitter from '../partners/twitter-icon.png'
 import Whatsapp from '../partners/whatsapp-icon.png'
-import ParceireComponents from './styled.js'
+import PartnerComponents from './styled.js'
 
 const linkParceire = process.env.REACT_APP_LINK_PARCEIRO
 
@@ -27,7 +27,7 @@ const Partners = () => {
   }, [])
 
   return (
-    <ParceireComponents style={{
+    <PartnerComponents style={{
       background: '#F5BC4A'
     }}>
       <h2>Parceires</h2>
@@ -94,7 +94,7 @@ const Partners = () => {
           </a>
         </div>
       </div>
-    </ParceireComponents >
+    </PartnerComponents >
   )
 }
 export default Partners

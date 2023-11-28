@@ -116,7 +116,7 @@ export const DetailsTherapies = () => {
                 </div>
               </li>
               <li>
-                <div className="therapieType">
+                <div className="therapie-type">
                   <p className="type">
                     <FontAwesomeIcon icon={faLock} size="lg" />
                     <div className="spacing-type">
@@ -191,7 +191,7 @@ export const DetailsTherapies = () => {
               navigation={true}
               thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
               modules={[FreeMode, Navigation, Thumbs]}
-              className="mySwiper2"
+              className="my-swiper-2"
             >
               {galleryPhoto.map((image) => (
                 <SwiperSlide key={image.id}>

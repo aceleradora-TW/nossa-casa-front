@@ -1,4 +1,4 @@
-import { CssCarrosselGlobal } from '../global-styles'
+import { CssCarouselGlobal } from '../global-styles'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -6,7 +6,7 @@ import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 
 import { cms } from '../../client'
-import VerMais from './styled'
+import SeeMore from './styled'
 import { Link } from 'react-router-dom'
 
 const CarouselTherapies = () => {
@@ -34,7 +34,7 @@ const CarouselTherapies = () => {
   }, [])
 
   return (
-    <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
+    <CssCarouselGlobal style={{ background: '#F5BC4A' }}>
       <div className="carousel">
         <h1>Terapias</h1>
         <p>
@@ -88,13 +88,13 @@ const CarouselTherapies = () => {
                       <div>
                         <h1 className="title">{therapies.name}</h1>
                       </div>
-                      <VerMais>
+                      <SeeMore>
                         <div className="styled-button">
                           <Link className="button-writing" to={`${therapies.id}`}>
                             Saiba Mais
                           </Link>
                         </div>
-                      </VerMais>
+                      </SeeMore>
                     </div>
                   </SwiperSlide>
                 </li>
@@ -103,7 +103,7 @@ const CarouselTherapies = () => {
           </div>
         </section>
       </Swiper>
-    </CssCarrosselGlobal>
+    </CssCarouselGlobal>
   )
 }
 export default CarouselTherapies
