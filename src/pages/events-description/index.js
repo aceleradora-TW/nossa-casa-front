@@ -30,7 +30,7 @@ export const EventsPageDescription = () => {
       const { data } = response.data
       setEvent(data)
 
-      const fotoDivulgacao = data.attributes.fotos_evento
+      const fotoDivulgacao = data.filter(event => event !== null && event !== undefined).attributes.fotos_evento
       const images = fotoDivulgacao.data.map(
         (image) => {
           return {

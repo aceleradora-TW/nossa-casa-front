@@ -31,7 +31,7 @@ export const WorkshopDetails = () => {
       .get(`api/workshops/${id}/?populate=parceires&populate=foto_oficina`)
       .then((response) => {
         const { data } = response.data
-        const photoWorkshop = data.attributes.foto_oficina
+        const photoWorkshop = data.filter(workshop => workshop !== null && workshop !== undefined).attributes.foto_oficina
         const images = photoWorkshop.data.map((image) => {
           return {
             id: image.id,

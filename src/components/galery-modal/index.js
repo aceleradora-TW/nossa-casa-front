@@ -28,7 +28,10 @@ const ModalGallery = ({ type }) => {
     cms
       .get('api/gallery/?populate=fotos')
       .then((response) => {
-        const images = response.data.data.attributes.fotos.data.map(
+        const { data } = response.data
+        const images = data
+        .filter(gallery => gallery !== null && gallery !== undefined)
+        .data.attributes.fotos.data.map(
           (image, id) => {
             return {
               id,

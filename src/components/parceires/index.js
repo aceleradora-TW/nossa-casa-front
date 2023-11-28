@@ -19,9 +19,11 @@ const Parceires = () => {
   useEffect(() => {
     cms.get('api/partners/?populate=foto').then((response) => {
       const { data } = response.data
-      const partners = data.map((data) => {
-        return data.attributes
-      })
+      const partners = data
+        .filter(partner => partner !== null && partner !== undefined)
+        .map((data) => {
+          return data.attributes
+        })
       setAttributes(partners)
     })
   }, [])

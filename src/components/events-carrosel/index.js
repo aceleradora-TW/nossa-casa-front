@@ -65,7 +65,7 @@ const Events = () => {
         <section>
           <div className="swiper-slide">
             <ul>
-              {attributesEvents.map((events, index) =>
+              {attributesEvents?.map((events, index) =>
                 <li key={index}>
                   <SwiperSlide>
                     <div>

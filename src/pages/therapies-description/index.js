@@ -31,7 +31,7 @@ export const DetailsTherapies = () => {
       .get(`api/therapies/${id}/?populate=parceires&populate=foto_terapias`)
       .then((response) => {
         const { data } = response.data
-        const photoTherapy = data.attributes.foto_terapias
+        const photoTherapy = data.filter(therapy => therapy !== null && therapy !== undefined).attributes.foto_terapias
         const images = photoTherapy.data.map((image) => {
           return {
             id: image.id,

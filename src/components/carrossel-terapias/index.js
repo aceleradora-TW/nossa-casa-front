@@ -16,16 +16,17 @@ const TherapiesCarrossel = () => {
   useEffect(() => {
     cms.get('api/therapies/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
-      const therapies = data.map((data) => {
-        if (data) {
-          return {
-            id: data.id,
-            name: data.attributes.nome,
-            image_url: data.attributes.foto_divulgacao.data[0].attributes.url
+      const therapies = data
+        .filter(therapy => therapy !== null && therapy !== undefined)
+        .map((data) => {
+          if (data) {
+            return {
+              id: data.id,
+              name: data.attributes.nome,
+              image_url: data.attributes.foto_divulgacao.data[0].attributes.url
+            }
           }
-        }
-        return data.attributes
-      })
+        })
       const therapiesSortedByName = therapies.sort((a, b) =>
         a.nome < b.nome ? -1 : 1
       )
