@@ -19,6 +19,7 @@ export const CssCarrosselGlobal = styled.div`
       padding-left: 6em;
       width: 92%;
       text-align: justify;
+      line-height: 1.3em;
     }
   }
 
