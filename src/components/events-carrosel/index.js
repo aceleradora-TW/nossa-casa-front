@@ -5,6 +5,7 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { cms } from '../../client'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { CssCarrosselGlobal } from '../global-styles'
 import EventsComponent from './styled.js'
 
 const Events = () => {
@@ -35,11 +36,11 @@ const Events = () => {
   }, [])
   return (
 
-    <EventsComponent style={{ background: '#FFFFFF' }}>
+    <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
       <div className='carrossel'>
-        <h1>EVENTOS</h1>
+        <h1>Eventos</h1>
         <p>A  Nossa Casa realiza diversos eventos culturais que vão de festivais, rodas de conversa, apresentações musicais, exposições de arte visual, entre outros.
-          Confira aqui nossa programação e participe!.</p>
+          Confira aqui nossa programação e participe!</p>
       </div>
       <Swiper
         slidesPerView={3}
@@ -70,15 +71,17 @@ const Events = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img className="img-foto" src={urlCms + events.image_url} />
+                        <img className="img" src={urlCms + events.image_url} />
                       </div>
                       <div>
                         <p className="date">{events.date.toLocaleDateString('pt-BR', { Timezone: 'UTF' })}</p>
                         <h3 className="title">{events.name}</h3>
                       </div>
+                      <EventsComponent>
                       <div className='styled-button'>
-                        <NavLink to={`${events.id}`} >Saiba Mais</NavLink>
+                        <NavLink className="button-writing" to={`${events.id}`} >Ver mais</NavLink>
                       </div>
+                      </ EventsComponent>
                     </div>
                   </SwiperSlide>
                 </li>
@@ -87,7 +90,7 @@ const Events = () => {
           </div>
         </section>
       </Swiper>
-    </EventsComponent >
+    </CssCarrosselGlobal>
   )
 }
 export default Events

@@ -6,13 +6,14 @@ export const StyledAbout = styled.div`
   z-index: 10;
   background-color: #ffffff;
 
+
   .about-title {
     margin-top: 5%;
     color: #54636e;
     font-size: 2.25rem;
     text-align: left;
     margin-bottom: 90px;
-    margin-left: 0px;
+    padding-left: 20px;
   }
   body {
     overflow-x: hidden;
@@ -24,14 +25,15 @@ export const StyledAbout = styled.div`
     grid-template-rows: 1fr 1fr;
     height: 70%;
     width: 90%;
-    margin: auto;
-    grid-row-gap: 30px;
-    grid-column-gap: 50px;
+    margin: 0 auto;
+    grid-row-gap: 50px;
+    grid-column-gap: 90px;
+
   }
   .topic {
     height: 100%;
-    width: 100%;
-    margin: 0 0px;
+    width: 95%;
+    font-weight: 500;
 
     h3 {
       color: #54636e;
@@ -40,8 +42,7 @@ export const StyledAbout = styled.div`
     }
 
     p {
-      color: #000;
-      font-size: 1rem;
+      font-size: 10rem;
       text-align: justify;
     }
   }
@@ -96,13 +97,13 @@ export const StyledAbout = styled.div`
       display: block;
       text-align: left;
       width: 38%;
-      margin-left: 11.3rem;
+      margin-left: 5.3rem;
       font-size: 1.9rem;
       margin-bottom: 3%;
     }
 
     .topic {
-      width: 70%;
+      /* width: 70%; */
       margin: 0 20px;
 
       h3 {

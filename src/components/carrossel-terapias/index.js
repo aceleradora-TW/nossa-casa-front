@@ -91,7 +91,7 @@ const TherapiesCarrossel = () => {
                       <VerMais>
                         <div className="styled-button">
                           <Link className="button-writing" to={`${therapies.id}`}>
-                            Saiba Mais
+                            Ver mais
                           </Link>
                         </div>
                       </VerMais>

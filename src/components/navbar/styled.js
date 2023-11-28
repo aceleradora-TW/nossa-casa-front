@@ -36,7 +36,6 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     font-weight: 400;
     font-size: 1.2rem;
     line-height: 14px;
-    text-transform: uppercase;
     &:hover {
       color: #f5bc4a;
     }
@@ -124,7 +123,6 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       a {
         border: none;
         width: auto;
-        text-transform: capitalize;
       }
     }
 
