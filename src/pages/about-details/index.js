@@ -17,7 +17,6 @@ const PageAbout = () => {
         }
       })
       setAbout(aboutDescription)
-      console.log(about)
     })
   }, [])
   return (
@@ -25,6 +24,7 @@ const PageAbout = () => {
       <StyledAbout>
         <div className="container">
           <div>
+            <ul></ul>
           </div>
           <div>
             <p>teste</p>
