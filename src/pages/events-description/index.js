@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
 import { Link, NavLink } from 'react-router-dom'
+import { formatWorkshopDates } from '../../helpers/format-data'
 import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -27,64 +28,67 @@ export const EventsPageDescription = () => {
   const [galeria, setGaleria] = useState([])
   const [activities, setActivities] = useState([])
   const { id } = useParams()
-  const activitiesList = []
   useEffect(() => {
     cms
-      .get(
-        `api/events/${id}/?populate=parceires
-        &populate=fotos_evento
-        &populate=subeventos
-        &populate=oficinas
-        &populate=oficinas.foto_divulgacao
-        &populate=subeventos.foto_divulgacao`
-      )
+      .get(`api/events/${id}/`, {
+        params: {
+          populate: [
+            'parceires',
+            'fotos_evento',
+            'subeventos',
+            'oficinas',
+            'oficinas.foto_divulgacao',
+            'subeventos.foto_divulgacao'
+          ]
+        }
+      })
       .then((response) => {
-        const { data } = response.data
-        setEvent(data)
-
-        const fotoDivulgacao = data.attributes.fotos_evento
+        const { data } = response.data;
+        setEvent(data);
+  
+        const fotoDivulgacao = data.attributes.fotos_evento;
         const images = fotoDivulgacao.data.map((image) => {
           return {
             id: image.id,
             name: image.attributes?.name,
             url: process.env.REACT_APP_URL_CMS + image.attributes?.url
-          }
-        })
-        setGaleria(images)
+          };
+        });
+        setGaleria(images);
+  
         const oficinas = data.attributes.oficinas.data.map((oficina) => {
-          console.log(oficina)
           return {
             id: oficina.id,
             type: 'workshops',
             name: oficina.attributes.nome,
             url:
-            process.env.REACT_APP_URL_CMS +
+              process.env.REACT_APP_URL_CMS +
               oficina.attributes.foto_divulgacao.data[0].attributes.url,
             data_inicio: oficina.attributes.data_inicio,
             horario_inicio: oficina.attributes.horario_inicio
-          }
-        })
-        activitiesList.push(oficinas)
-        console.log('oficinas', data.attributes.oficinas.data)
-        console.log('subeventos', data.attributes.subeventos.data)
+          };
+        });
+  
         const subeventos = data.attributes.subeventos.data.map((evento) => {
           return {
             type: 'events',
             id: evento.id,
             name: evento.attributes.nome,
             url:
-            process.env.REACT_APP_URL_CMS +
+              process.env.REACT_APP_URL_CMS +
               evento.attributes.foto_divulgacao.data.attributes.url,
             data_inicio: evento.attributes.data_inicio,
             horario_inicio: evento.attributes.horario_inicio
-          }
-          // })
-        })
-        activitiesList.push(subeventos)
-        setActivities(activitiesList)
-        console.log('OFICINAAASSS NOVA', oficinas)
+          };
+        });
+  
+        setActivities([
+          subeventos,
+          oficinas
+        ])
       })
-  }, [id])
+  }, [id]);
+  
 
   const handleDate = (date) => {
     const dateObject = new Date(date)
@@ -99,22 +103,6 @@ export const EventsPageDescription = () => {
     })
     return [day, month, year].join(' ')
   }
-
-  const week = (date) => {
-    const dateAsDateObject = new Date(date)
-    const indexWeek = dateAsDateObject.getDay()
-    const daysWeek = [
-      'Domingo',
-      'Segunda',
-      'Terça',
-      'Quarta',
-      'Quinta',
-      'Sexta',
-      'Sábado'
-    ]
-    return daysWeek[indexWeek]
-  }
-
   return (
     <div className="full-container">
       <EventsStyleDescription>
@@ -136,25 +124,8 @@ export const EventsPageDescription = () => {
               <div className="style-icon">
                 <FontAwesomeIcon icon={faCalendarDays} />{' '}
               </div>
-              {event.attributes?.data_inicio === event.attributes?.data_fim ? (
-                <p>
-                  {`${week(event.attributes?.data_inicio)}, ${handleDate(
-                    event.attributes?.data_inicio
-                  )}`}
-                  <br />
-                  {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
-                </p>
-              ) : (
-                <p>
-                  {`${week(event.attributes?.data_inicio)}, ${handleDate(
-                    event.attributes?.data_inicio
-                  )} até ${week(event.attributes?.data_fim)}, ${handleDate(
-                    event.attributes?.data_fim
-                  )}`}
-                  <br />
-                  {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
-                </p>
-              )}
+
+              {formatWorkshopDates(event)}
             </li>
             <li>
               <div className="style-icon">
@@ -163,26 +134,21 @@ export const EventsPageDescription = () => {
               {event?.attributes?.local}
             </li>
             <li className="parceires">
-              {event?.attributes?.parceires?.data.map((parceire) => {
-                if (parceire !== null || parceire !== undefined) {
-                  return (
-                    <>
-                      <FontAwesomeIcon icon={faUser} className="style-icon" />
-                      <p key={parceire.id}>{parceire.attributes?.nome}</p>
-                    </>
-                  )
-                }
-                return null
-              })}
+              {event?.attributes?.parceires?.data
+                ?.filter((partner) => partner !== null || partner !== undefined)
+                ?.map((partner) => (
+                  <>
+                    <FontAwesomeIcon icon={faUser} className="style-icon" />
+                    <p key={partner.id}>{partner.attributes?.nome}</p>
+                  </>
+                ))}
             </li>
 
             <li>
               <div className="style-icon">
                 <FontAwesomeIcon icon={faHandHoldingDollar} />
               </div>
-              {event?.attributes?.preco !== null
-                ? event?.attributes?.preco
-                : 'Evento Gratuito'}
+              {event?.attributes?.preco ?? 'Evento Gratuito'}
             </li>
             <li>
               <div className="style-icon">
@@ -258,7 +224,7 @@ export const EventsPageDescription = () => {
                 <section>
                   <div className="swiper-slide-atividades">
                     <ul>
-                      {activities?.map((activit) => {
+                      {activities.map((activit) => {
                         return activit.map((item) => {
                           return (
                             <li key={item.id}>
@@ -290,7 +256,8 @@ export const EventsPageDescription = () => {
                         })
 
                         // }
-                      })}
+                      }
+                       )}
                     </ul>
                   </div>
                 </section>
@@ -307,7 +274,10 @@ export const EventsPageDescription = () => {
               loop={true}
               spaceBetween={10}
               navigation={true}
-              thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+              thumbs={{
+                swiper:
+                  thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
+              }}
               modules={[FreeMode, Navigation, Thumbs]}
               className="first-carousel"
             >
