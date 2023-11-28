@@ -21,8 +21,8 @@ const WorkshopsCarrossel = () => {
         .filter(workshop => workshop !== null && workshop !== undefined)
         .map(workshop => ({
           id: workshop.id,
-          name: workshop.attributes.nome,
-          imageUrl: workshop.attributes.foto_divulgacao.data[0].attributes.url
+          name: workshop.attributes?.nome,
+          imageUrl: workshop.attributes?.foto_divulgacao.data[0].attributes?.url
         }))
 
       const workshopsSortedByName = workshops.sort((a, b) =>

@@ -22,32 +22,37 @@ export function HomePage() {
 
   useEffect(() => {
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
-      const { data } = response.data
-      const event = data.map((data) => {
-        if (data.attributes.destaque) {
-          setToggle(!toggle)
-          return {
-            id: data?.id,
-            data: data?.attributes
+      const { data } = response.data ? response.data : []
+      if (data) {
+        const event = data.map((data) => {
+          if (data.attributes.destaque) {
+            setToggle(!toggle)
+            return {
+              id: data?.id,
+              data: data?.attributes
+            }
           }
-        }
-        return false
-      })
-      setAttributes(event)
+          return false
+        })
+        setAttributes(event)
+      }
     })
     cms.get('api/gallery/?populate=fotos').then((response) => {
-      const images = response.data.data.attributes.fotos.data.map((image, id) => {
-        return {
-          id,
-          url: process.env.REACT_APP_URL_CMS + image.attributes.url
+      const { data } = response.data.data.attributes.fotos
+      if (data) {
+        const images = data
+          .filter(gallery => gallery !== null && gallery !== undefined)
+          .map((image, id) => {
+            return {
+              id,
+              url: process.env.REACT_APP_URL_CMS + image.attributes.url
+            }
+          })
+        for (let i = images.length; i > 6; i--) {
+          images.pop()
         }
-      })
-      for(let i = images.length; i > 6; i--){
-        images.pop()
+        setGaleria(images)
       }
-      setGaleria(images)
-    }).catch(error => {
-      throw new Error(error)
     })
   }, [])
   const swiperStyle = {
@@ -58,7 +63,7 @@ export function HomePage() {
     },
     width: '100%'
   }
-  console.log(attributes)
+  
   return (
     <Home $background={mural}>
       <NavBar />
@@ -109,7 +114,7 @@ export function HomePage() {
                 A Nossa Casa existe há 5 anos no Município de Guarulhos, a segunda maior cidade do Estado de São Paulo, com cerca de 1.379.182 habitantes, sendo destes 45% autodeclarados negros (soma de pretos e pardos), 51,3% mulheres e em sua maioria residentes de áreas periféricas da cidade e de alguma forma em situação de vulnerabilidade, seja financeira, social ou emocional. Guarulhos é gigante e tem muitas necessidades.
               </p>
               <button className='styled-button'>
-              <Link className="button-about" to={`/sobre`}> Ver mais </Link>
+                <Link className="button-about" to={`/sobre`}> Ver mais </Link>
               </button>
             </div>
             <div className='foto'>
