@@ -254,8 +254,6 @@ export const EventsPageDescription = () => {
                             </li>
                           )
                         })
-
-                        // }
                       }
                        )}
                     </ul>
