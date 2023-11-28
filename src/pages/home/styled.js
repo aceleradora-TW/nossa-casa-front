@@ -58,12 +58,20 @@ const Home = styled.div`
       }
 
       .descricao {
+        background-color: red;
         font-family: 'Inter', sans-serif;
         font-size: 1.3rem;
         line-height: 30px;
         cursor: default;
         text-align: justify;
         z-index: 1;
+        overflow: hidden;
+        white-space: normal;
+        max-height: 100%;
+        text-overflow: ellipsis;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 15;
+        -webkit-box-orient: vertical;
       }
 
       img {
@@ -243,6 +251,8 @@ const Home = styled.div`
   }
 
   @media ((min-width: 768px) and (max-width: 1440px)) {
+
+    
     main section .about {
       margin-bottom: 0;
     }
