@@ -44,8 +44,8 @@ Os valores que devem ser atribuídos a eles dependerão do ambiente.
 Para um ambiente **local**(sua maquína) um arquivo `.env` precisa ser criado na raiz do projeto.
 
 ```bash
-URL_BACKEND=http://localhost:9000
-URL_CMS=http://localhost:1337
+REACT_APP_URL_BACKEND=http://localhost:9000
+REACT_APP_URL_CMS=http://localhost:1337
 REACT_APP_LINK_PARCEIRO=https://docs.google.com/forms/d/e/1FAIpQLSfsRwJx-7Wa5VIOSFaH3DAAoOr3iTJFQ27qBOj5aJ5dHTUk1Q/viewform
 ```
 
