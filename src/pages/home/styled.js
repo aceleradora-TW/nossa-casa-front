@@ -70,7 +70,7 @@ const Home = styled.div`
         max-height: 100%;
         text-overflow: ellipsis;
         display: -webkit-box !important;
-        -webkit-line-clamp: 15;
+        -webkit-line-clamp: 8;
         -webkit-box-orient: vertical;
       }
 
