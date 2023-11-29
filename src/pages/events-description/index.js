@@ -80,12 +80,6 @@ export const EventsPageDescription = () => {
             horario_inicio: evento.attributes.horario_inicio,
           }
         })
-
-        // setActivities([
-        //   subeventos,
-        //   oficinas
-        // ])
-
         setActivities(subeventos.concat(oficinas))
         console.log('ACTIVITIES', activities)
       })
