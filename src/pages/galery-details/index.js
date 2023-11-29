@@ -38,7 +38,7 @@ export const GaleryDetails = () => {
     <>
       <NavBar/>
       <GaleryStyled>
-        <div>
+        <div className="container">
               <div className="topo">
                 <h2 className="h2-modal-galery">Fotos da Nossa Casa</h2>
               </div>
@@ -55,9 +55,6 @@ export const GaleryDetails = () => {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="first-carousel"
               >
-                <SwiperSlide>
-                  <p>SIM</p>
-                </SwiperSlide>
                   {galeria.map((fotos) =>
                   (
                     <SwiperSlide key={fotos.id}>
@@ -80,9 +77,6 @@ export const GaleryDetails = () => {
                     <img src={image.url} />
                   </SwiperSlide>
                 ))}
-                <SwiperSlide>
-                  <p>SIM</p>
-                </SwiperSlide>
               </Swiper>
         </div>
       </GaleryStyled>
