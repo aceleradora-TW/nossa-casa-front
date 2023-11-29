@@ -48,10 +48,12 @@ export const GaleryDetails = () => {
                   '--swiper-pagination-color': '#FFF',
                   position: 'unset'
                 }}
+                loop={true}
                 spaceBetween={10}
                 navigation={true}
+                thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="swiper-slide-view"
+                className="first-carousel"
               >
                 <SwiperSlide>
                   <p>SIM</p>
@@ -64,12 +66,14 @@ export const GaleryDetails = () => {
                   ))}
               </Swiper>
               <Swiper
+                onSwiper={setThumbsSwiper}
+                loop={true}
                 spaceBetween={10}
-                slidesPerView={6}
+                slidesPerView={7}
                 freeMode={true}
                 watchSlidesProgress={true}
-                modules={[FreeMode, Navigation]}
-                className="swiper-thumbnails"
+                modules={[FreeMode, Navigation, Thumbs]}
+                className="second-carousel"
               >
                 {galeria.map((image) => (
                   <SwiperSlide key={image.id}>
