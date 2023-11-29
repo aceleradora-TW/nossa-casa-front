@@ -98,7 +98,7 @@ const Home = styled.div`
       .content {
         padding: 0;
         height: 500px;
-        width: 100%;
+        width: 85%;
         display: flex;
         justify-content: space-around;
         max-width: 1600px;
@@ -148,7 +148,7 @@ const Home = styled.div`
       height: 56px;
       cursor: pointer;
       padding: 10px;
-      margin-top: 1.6rem;
+      margin-top: 2rem;
       margin-bottom: 1.6rem;
 
       .button-about {
