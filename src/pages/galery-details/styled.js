@@ -43,7 +43,7 @@ export const GaleryStyled = styled.div`
   }
   .swiper {
     width: 100%;
-    height: 300px;
+    height: 30%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -56,6 +56,17 @@ export const GaleryStyled = styled.div`
     background-size: cover;
     background-position: center;
   }
-  
+  .first-carousel img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+  }
+
+  .second-carousel img {
+    width: 30px;
+    height: 30px;
+  }
   }
 `
