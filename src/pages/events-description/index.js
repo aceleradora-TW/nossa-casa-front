@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
 import { Link, NavLink } from 'react-router-dom'
 import { formatWorkshopDates } from '../../helpers/format-data'
-import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
@@ -19,7 +18,7 @@ import {
   faPenToSquare,
   faHandHoldingDollar,
   faCalendarDays,
-  faLocationDot
+  faLocationDot,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const EventsPageDescription = () => {
@@ -38,24 +37,24 @@ export const EventsPageDescription = () => {
             'subeventos',
             'oficinas',
             'oficinas.foto_divulgacao',
-            'subeventos.foto_divulgacao'
-          ]
-        }
+            'subeventos.foto_divulgacao',
+          ],
+        },
       })
       .then((response) => {
-        const { data } = response.data;
-        setEvent(data);
-  
-        const fotoDivulgacao = data.attributes.fotos_evento;
+        const { data } = response.data
+        setEvent(data)
+
+        const fotoDivulgacao = data.attributes.fotos_evento
         const images = fotoDivulgacao.data.map((image) => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: process.env.REACT_APP_URL_CMS + image.attributes?.url
-          };
-        });
-        setGaleria(images);
-  
+            url: process.env.REACT_APP_URL_CMS + image.attributes?.url,
+          }
+        })
+        setGaleria(images)
+
         const oficinas = data.attributes.oficinas.data.map((oficina) => {
           return {
             id: oficina.id,
@@ -65,10 +64,10 @@ export const EventsPageDescription = () => {
               process.env.REACT_APP_URL_CMS +
               oficina.attributes.foto_divulgacao.data[0].attributes.url,
             data_inicio: oficina.attributes.data_inicio,
-            horario_inicio: oficina.attributes.horario_inicio
-          };
-        });
-  
+            horario_inicio: oficina.attributes.horario_inicio,
+          }
+        })
+
         const subeventos = data.attributes.subeventos.data.map((evento) => {
           return {
             type: 'events',
@@ -78,28 +77,30 @@ export const EventsPageDescription = () => {
               process.env.REACT_APP_URL_CMS +
               evento.attributes.foto_divulgacao.data.attributes.url,
             data_inicio: evento.attributes.data_inicio,
-            horario_inicio: evento.attributes.horario_inicio
-          };
-        });
-  
-        setActivities([
-          subeventos,
-          oficinas
-        ])
+            horario_inicio: evento.attributes.horario_inicio,
+          }
+        })
+
+        // setActivities([
+        //   subeventos,
+        //   oficinas
+        // ])
+
+        setActivities(subeventos.concat(oficinas))
+        console.log('ACTIVITIES', activities)
       })
-  }, [id]);
-  
+  }, [id])
 
   const handleDate = (date) => {
     const dateObject = new Date(date)
     const day = dateObject.toLocaleDateString(undefined, {
       day: 'numeric',
-      timeZone: 'UTC'
+      timeZone: 'UTC',
     })
     const month = dateObject.toLocaleDateString('pt-BR', { month: 'short' })
     const year = dateObject.toLocaleDateString(undefined, {
       year: '2-digit',
-      timeZone: 'UTC'
+      timeZone: 'UTC',
     })
     return [day, month, year].join(' ')
   }
@@ -139,7 +140,7 @@ export const EventsPageDescription = () => {
                 ?.map((partner) => (
                   <>
                     <FontAwesomeIcon icon={faUser} className="style-icon" />
-                    <p key={partner.id}>{partner.attributes?.nome}</p>
+                    <p key={crypto.randomUUID()}>{partner.attributes?.nome}</p>
                   </>
                 ))}
             </li>
@@ -158,7 +159,7 @@ export const EventsPageDescription = () => {
                     '--fa-primary-color': '#00000',
                     '--fa-secondary-color': '#00000',
                     '--fa-secondary-opacity': '1',
-                    transform: 'rotate(-30deg)'
+                    transform: 'rotate(-30deg)',
                   }}
                   size="lg"
                 />
@@ -194,93 +195,88 @@ export const EventsPageDescription = () => {
           )}
         </div>
 
-        {activities.length > 0 &&
-          (activities[0].length > 0 || activities[1].length > 0) && (
-            <section>
-              <div className="carrossel">
-                <h1>PROGRAMAÇÃO</h1>
-              </div>
-              <Swiper
-                slidesPerView={3}
-                spaceBetween={-110}
-                navigation={true}
-                breakpoints={{
-                  '@0.00': {
-                    slidesPerView: 1,
-                    spaceBetween: 1
-                  },
-                  '@0.75': {
-                    slidesPerView: 2,
-                    spaceBetween: 2
-                  },
-                  '@1.00': {
-                    slidesPerView: 3,
-                    spaceBetween: 3
-                  }
-                }}
-                modules={[Navigation]}
-                className="mySwiper"
-              >
-                <section>
-                  <div className="swiper-slide-atividades">
-                    <ul>
-                      {activities.map((activit) => {
-                        return activit.map((item) => {
-                          return (
-                            <li key={item.id}>
-                              <div>{item.name}</div>
-                              <SwiperSlide>
-                                <span className="slide-itens">
-                                  <img className="img-foto" src={item.url} />
-                                  <div>
-                                    <h3 className="title">{item.name}</h3>
-                                    {event.attributes?.data_inicio !==
-                                      event.attributes?.data_fim && (
-                                      <h5 className="date">
-                                        {handleDate(item.data_inicio)}
-                                      </h5>
-                                    )}
-                                    <h5 className="hour">
-                                      {item.horario_inicio}
-                                    </h5>
-                                  </div>
-                                  <div className="styled-button">
-                                    <NavLink to={`/${item.type}/${item.id}`}>
-                                      Saiba Mais
-                                    </NavLink>
-                                  </div>
-                                </span>
-                              </SwiperSlide>
-                            </li>
-                          )
-                        })
-                      }
-                       )}
-                    </ul>
-                  </div>
-                </section>
-              </Swiper>
-            </section>
-          )}
+        {activities.length > 0 && (
+          <section>
+            <div className="carrossel">
+              <h1>PROGRAMAÇÃO</h1>
+            </div>
+            <Swiper
+              slidesPerView={3}
+              spaceBetween={-110}
+              navigation={true}
+              breakpoints={{
+                '@0.00': {
+                  slidesPerView: 1,
+                  spaceBetween: 1,
+                },
+                '@0.75': {
+                  slidesPerView: 2,
+                  spaceBetween: 2,
+                },
+                '@1.00': {
+                  slidesPerView: 3,
+                  spaceBetween: 3,
+                },
+              }}
+              modules={[Navigation]}
+              className="mySwiper"
+            >
+              <section>
+                <div className="swiper-slide-atividades">
+                  <ul>
+                    {activities.map((item) => {
+                      // return activit.map((item) => {
+                      return (
+                        <li key={crypto.randomUUID()}>
+                          <div>{item.name}</div>
+                          <SwiperSlide key={crypto.randomUUID()}>
+                            <span className="slide-itens">
+                              <img className="img-foto" src={item.url} />
+                              <div>
+                                <h3 className="title">{item.name}</h3>
+                                {event.attributes?.data_inicio !==
+                                  event.attributes?.data_fim && (
+                                  <h5 className="date">
+                                    {handleDate(item.data_inicio)}
+                                  </h5>
+                                )}
+                                <h5 className="hour">{item.horario_inicio}</h5>
+                              </div>
+                              <div className="styled-button">
+                                <NavLink to={`/${item.type}/${item.id}`}>
+                                  Saiba Mais
+                                </NavLink>
+                              </div>
+                            </span>
+                          </SwiperSlide>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              </section>
+            </Swiper>
+          </section>
+        )}
         <section className="container-carousel">
           <div className="style-img-swiper">
             <Swiper
               style={{
                 '--swiper-navigation-color': '#516B84',
-                '--swiper-pagination-color': ''
+                '--swiper-pagination-color': '',
               }}
               loop={true}
               spaceBetween={10}
               navigation={true}
               thumbs={{
                 swiper:
-                  thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
+                  thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
               }}
               modules={[FreeMode, Navigation, Thumbs]}
               className="first-carousel"
             >
               {galeria.map((image) => (
-                <SwiperSlide key={image.id}>
+                <SwiperSlide key={crypto.randomUUID()}>
                   <img src={image.url} alt={image.name} />
                 </SwiperSlide>
               ))}
@@ -297,7 +293,7 @@ export const EventsPageDescription = () => {
                 className="second-carousel"
               >
                 {galeria.map((image) => (
-                  <SwiperSlide key={image.id}>
+                  <SwiperSlide key={crypto.randomUUID()}>
                     <img src={image.url} alt={image.name} />
                   </SwiperSlide>
                 ))}
