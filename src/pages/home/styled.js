@@ -58,7 +58,6 @@ const Home = styled.div`
       }
 
       .descricao {
-        background-color: red;
         font-family: 'Inter', sans-serif;
         font-size: 1.3rem;
         line-height: 30px;

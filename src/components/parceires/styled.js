@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 
 const ParceireComponents = styled.section`
-
-
-
-    
   h2 {
     color: black;
     display: flex;
@@ -26,6 +22,11 @@ const ParceireComponents = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
   }
 
   .perfil {
@@ -112,27 +113,18 @@ const ParceireComponents = styled.section`
       }
     }
   }
-  @media (max-width: 1440px){
-    .description-parceires{
+  @media (max-width: 1440px) {
+    .description-parceires {
       padding-left: 10px;
     }
   }
 
   @media (max-width: 767px) {
-
-    .swiper-button-next, .swiper-button-prev  {
+    .swiper-button-next,
+    .swiper-button-prev {
       display: block !important;
       color: white;
     }
-    /* .swiper-button-next {
-      right: 20px;
-      transform: rotate(90deg);
-    }
-
-    .swiper-button-prev {
-      left: 20px;
-      transform: rotate(90deg);
-    } */
   }
 `
 export default ParceireComponents
