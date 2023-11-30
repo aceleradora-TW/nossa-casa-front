@@ -10,12 +10,12 @@ const daysOfWeekInPtBr = [
 const formatDate = (date) => {
   const day = date.toLocaleDateString(undefined, {
     day: 'numeric',
-    Timezone: 'UTF'
+    timeZone: 'UTC'
   })
   const month = date.toLocaleDateString('pt-BR', { month: 'short' })
   const year = date.toLocaleDateString(undefined, {
     year: 'numeric',
-    Timezone: 'UTF'
+    timeZone: 'UTC'
   })
   return `${daysOfWeekInPtBr[date.getDay()]}, ${day} ${month} ${year}`
 }
