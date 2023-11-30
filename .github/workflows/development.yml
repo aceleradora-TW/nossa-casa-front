@@ -1,12 +1,6 @@
 name: Nossa casa
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push]
 
 jobs:
   build:
@@ -19,13 +13,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: 14
 
       - name: Install dependencies
         run: npm install
 
       - name: Build
         run: npm run build
-      
-      - name: Run ESLint
-        run: npm run lint

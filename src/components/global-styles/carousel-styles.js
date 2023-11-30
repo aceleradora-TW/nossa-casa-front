@@ -7,18 +7,19 @@ export const CssCarrosselGlobal = styled.div`
 }
   .carrossel {
     background-color: #fafafa;
-    height: 300px;
+    height: 350px;
     h1 {
-      padding-left: 1.5em;
-      padding-top: 4em;
-      font-size: 2em;
+      padding-left: 3em;
+      padding-top: 3em;
+      font-size: 2.5rem;
     }
     p {
+      font-size: 1.3em;
       padding-top: 3em;
-      padding-left: 3em;
-      line-height: 1.5em;
-      width: 90%;
+      padding-left: 6em;
+      width: 92%;
       text-align: justify;
+      line-height: 1.3em;
     }
   }
 

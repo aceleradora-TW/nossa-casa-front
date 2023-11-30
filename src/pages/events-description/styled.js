@@ -81,7 +81,7 @@ const EventsStyleDescription = styled.div`
     }
   }
 
-  .button-enrollment {
+  .button-inscription {
     background: #f5bc4a;
     border-radius: 0.188em;
     font-size: 1.2em;
@@ -90,7 +90,7 @@ const EventsStyleDescription = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 43%;
+    margin: 0 auto;
     margin-top: 3.3em;
     text-decoration: none;
     color: black;
