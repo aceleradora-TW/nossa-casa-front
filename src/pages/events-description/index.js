@@ -74,99 +74,119 @@ export const EventsPageDescription = () => {
   }
 
   return (
-    <div className='full-container'>
+    <>
       <EventsStyleDescription>
-        <div className='container-button-exit'>
-          <Link className='close-button' to={'/events'} ><FontAwesomeIcon icon={faRectangleXmark} size="2xl" style={{ color: 'black' }} /></Link>
-        </div>
-        <div className='title'>
-          <h1>{event?.attributes?.nome}</h1>
-        </div>
-        <div className='container'>
-          <div className='text'>
-            <ul>
+        <section className="description-section">
+          <Link className="closeButton" to={'/events'}>
+            <FontAwesomeIcon
+              icon={faRectangleXmark}
+              size="2xl"
+              style={{ color: 'black' }}
+            />
+          </Link>
+          <h1 className="title">{event.attributes?.nome}</h1>
+          <span className="span-detais">
+            <ul id="containerDetails">
               <li>
-                <div className='style-icon'>
-                  <FontAwesomeIcon icon={faCalendarDays} />{' '}
-                </div>
-                {
-                  event.attributes?.data_inicio === event.attributes?.data_fim
-                    ? (
-                      <p>
-                        {`${week(event.attributes?.data_inicio)}, ${handleDate(event.attributes?.data_inicio)}`}
-                        <br />
-                        {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
-                      </p>
-                      )
-                    : (
-                      <p>
-                        {`${week(event.attributes?.data_inicio)}, ${handleDate(event.attributes?.data_inicio)} até ${week(event.attributes?.data_fim)}, ${handleDate(event.attributes?.data_fim)}`}
-                        <br />
-                        {`${event?.attributes?.horario_inicio} > ${event?.attributes?.horario_fim}`}
-                      </p>
-                      )
-                }
-              </li>
-              <li>
-                <div className='style-icon'>
-                  <FontAwesomeIcon icon={faLocationDot} />
-                </div>
-                {event?.attributes?.local}
-              </li>
-              <li className='parceires'>
-                {event?.attributes?.parceires?.data.map((parceire) => {
-                  if (parceire !== null || parceire !== undefined) {
-                    return (
-                      <>
-                        <FontAwesomeIcon icon={faUser} className='style-icon' />
-                        <p key={parceire.id}>
-                          {parceire.attributes?.nome}
-                        </p>
-                      </>
-                    )
-                  } return null
-                })}
-              </li>
-            </ul>
-          </div>
-          <div className='text2'>
-            <ul>
-              <li>
-                <div className='style-icon'>
-                  <FontAwesomeIcon icon={faHandHoldingDollar} />
-                </div>
-                {event?.attributes?.preco !== null ? (event?.attributes?.preco) : 'Evento Gratuito'}
-              </li>
-              <li>
-                <div className='style-icon'>
-                  <FontAwesomeIcon icon={faBullhorn}
-                    style={{ '--fa-primary-color': '#00000', '--fa-secondary-color': '#00000', '--fa-secondary-opacity': '1', transform: 'rotate(-30deg)' }}
-                    size="lg"
-                  />
-                </div>
-                {event?.attributes?.tipo}
-              </li>
-              <li>
-                {event?.attributes?.url_inscricao === null && (
-                  <div id='no-registration'>
-                    <div className='style-icon'>
-                      <FontAwesomeIcon icon={faPenToSquare} />
+                <div className="start-date">
+                  <p className="start-date">
+                    <div className="spacingDate">
+                      <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
+                      <p>{`
+                     ${handleDate(
+                       new Date(event.attributes?.data_inicio)
+                     )} •
+                    ${event.attributes?.horario_inicio} >
+                    ${handleDate(new Date(event.attributes?.data_fim))} 
+                      • ${event.attributes?.horario_fim}
+                      `}</p>
                     </div>
-                    Inscrição não é necessária
-                  </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="div-price">
+                  <p className="price">
+                    <FontAwesomeIcon
+                      icon={faHandHoldingDollar}
+                      size="lg"
+                      style={{
+                        '--fa-secondary-color': '#ffffff',
+                        '--fa-primary-opacity': '1'
+                      }}
+                    />
+                    <div className="spacingMoney">
+                      {event.attributes?.preco}
+                    </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="div-local">
+                  <p className="local">
+                    <div className="spacingLocal">
+                      <FontAwesomeIcon icon={faLocationDot} size="lg" />
+                      Evento presencial em {event.attributes?.local}
+                    </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="TypeEvent">
+                  <p className="type">
+                    <FontAwesomeIcon icon={faBullhorn} size="lg" />
+                    <div className="spacingType">
+                      {event.attributes?.tipo}
+                    </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className="partners">
+                  <p className="partner">
+                    <div className="parce">
+                      {event.attributes?.parceires?.data.map(
+                        (parceire, index) => {
+                          if (parceire !== null || parceire !== undefined) {
+                            return (
+                              <>
+                                <FontAwesomeIcon icon={faUser} size="lg" />
+                                <p key={index} className="spacing-partners">
+                                  {parceire.attributes?.nome}{' '}
+                                </p>
+                              </>
+                            )
+                          }
+                          return null
+                        }
+                      )}
+                    </div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                {event.attributes?.url_agendamento == null && (
+                  <>
+                    <div className="inscriptionIcon">
+                      <div>
+                        <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                      </div>
+                      <p className="inscription">
+                        {' '}
+                        Inscrição não é necessária
+                      </p>
+                    </div>
+                  </>
                 )}
               </li>
             </ul>
-          </div>
-        </div>
-        <div className='description'>
-          <p className='text-title-description'>Descrição</p>
-          <p>{event?.attributes?.descricao}</p>
-        </div>
-        <div className='Container-button'>
-          {event.attributes?.url_inscricao !== null && (
+          </span>
+
+          <p className="description">Descrição da terapia</p>
+          <p className="descriptionCMS">{event.attributes?.descricao}</p>
+          {event.attributes?.url_agendamento !== null && (
             <a
-              className="button-enrollment"
+              className="button-inscription"
               href={event.attributes?.url_inscricao}
               target="_blank"
               rel="noreferrer"
@@ -174,9 +194,9 @@ export const EventsPageDescription = () => {
               Inscreva-se
             </a>
           )}
-        </div>
-        <section className='container-carousel'>
-          <div className='style-img-swiper'>
+        </section>
+        <section className="page">
+          <div className="style-img-swiper">
             <Swiper
               style={{
                 '--swiper-navigation-color': '#516B84',
@@ -187,7 +207,7 @@ export const EventsPageDescription = () => {
               navigation={true}
               thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
               modules={[FreeMode, Navigation, Thumbs]}
-              className="first-carousel"
+              className="mySwiper2"
             >
               {galeria.map((image) => (
                 <SwiperSlide key={image.id}>
@@ -195,7 +215,7 @@ export const EventsPageDescription = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className='style-swiper-fotos'>
+            <div className="style-swiper-fotos">
               <Swiper
                 onSwiper={setThumbsSwiper}
                 loop={true}
@@ -204,7 +224,7 @@ export const EventsPageDescription = () => {
                 freeMode={true}
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="second-carousel"
+                className="mySwiper"
               >
                 {galeria.map((image) => (
                   <SwiperSlide key={image.id}>
@@ -213,9 +233,9 @@ export const EventsPageDescription = () => {
                 ))}
               </Swiper>
             </div>
-          </div >
+          </div>
         </section>
-      </EventsStyleDescription >
-    </div>
+        </EventsStyleDescription>
+    </>
   )
 }

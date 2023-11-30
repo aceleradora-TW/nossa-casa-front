@@ -60,7 +60,6 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     text-align: center;
     font-size: 1rem;
     line-height: 14px;
-    text-transform: uppercase;
   }
 
   a.active {
@@ -124,13 +123,17 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       font-weight: bold;
       border-radius: 5px;
       background-color: #f5bc4a;
-    }
-
-    .ser-parceire {
       color: black;
       padding: 15px;
+    .redirecionamento {
+      flex-wrap: wrap;
+      align-items: center;
+      a {
+        border: none;
+        width: auto;
+      }
     }
   }
-
+  }
 `
 export default NavBarComponent

@@ -96,35 +96,38 @@ const Home = styled.div`
       padding-top: 47px;
 
       .content {
-        padding: 5vh;
+        padding: 0;
         height: 500px;
-        width: 100%;
+        width: 85%;
         display: flex;
         justify-content: space-around;
-        max-width: 1440px;
-      }
-      @media (max-width: 767px) {
-        flex-wrap: wrap;
-        height: 100%;
+        max-width: 1600px;
       }
       .text {
         box-sizing: border-box;
         text-align: justify;
-        padding: 2% 2%;
+        padding: 0 2%;
         height: 100%;
         width: 100%;
-        max-width: 800px;
-        h2 {
-          font-size: 26px;
-          margin-bottom: 30px;
-        }
+        max-width: 700px;
         align-items: center;
+
+        h2 {
+          font-size: 2.5em;
+          margin-bottom: 15px;
+        }
+
+        .Textparagraph {
+          font-size: 1.5em;
+          line-height: 1.5em;
+        }
       }
+
       .foto {
         height: 100%;
         width: 100%;
-        max-width: 800px;
-        margin-left: 3%;
+        max-width: 700px;
+        margin-left: 1%;
         border-radius: 3px;
         margin-bottom: 4.6rem;
         img {
@@ -132,31 +135,33 @@ const Home = styled.div`
           width: 100%;
           max-width: 100%;
         }
-        align-items: center;
-        padding-left: 50px;
       }
     }
 
-    button {
+    button.styled-button {
       background: #f5bc4a;
       box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
       border-radius: 3px;
-      color: #000000;
       border: none;
       font-size: 1rem;
       width: 163px;
       height: 56px;
-      font-weight: 600;
       cursor: pointer;
       padding: 10px;
-      margin-top: 1.6rem;
+      margin-top: 2rem;
       margin-bottom: 1.6rem;
+
+      .button-about {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #000000;
+      }
     }
   }
 
   .galeria {
-    max-width: 1200px;
-    margin: 0 auto;
+    padding-top: 30px;
     background-color: #fafafa;
     display: flex;
     flex-direction: column;
@@ -166,138 +171,79 @@ const Home = styled.div`
 
     .titulo-galeria {
       align-self: flex-start;
-      margin-left: 12.5%;
-      font-size: 2.25rem;
+      margin-left: 8.3%;
       font-weight: 700;
-      color: #516b84;
       line-height: 64px;
-      text-align: center;
       font-size: 3.125rem;
+      color: #516b84;
       cursor: default;
     }
 
-    .painel {
-      width: 75%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 25px;
-      grid-row-gap: 25px;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-        height: 100%;
-        max-width: auto;
-        margin-left: 3%;
-        border-radius: 3px;
-        margin-bottom: 3.5rem;
-      }
-    }
     .container-painel {
       display: flex;
-      justify-content: center;
+      align-self: normal;
+      margin: 0 8.3%;
+
+      .painel {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 1%;
+        grid-row-gap: 2%;
+        justify-content: center;
+
+        li img {
+          width: 100%;
+          height: 100%;
+          max-height: 400px;
+          min-width: 100px;
+          border-radius: 4px;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
     }
     button {
       background: #516b84;
       border-radius: 3px;
       color: #fafafa;
       border: none;
-      font-size: 0.75rem;
-      width: 182px;
-      height: 40px;
+      font-size: 1rem;
+      width: 148px;
+      height: 56px;
       cursor: pointer;
+      margin-top: 15px;
+      margin-bottom: 60px;
     }
   }
-  .parceires {
-    background-color: aliceblue;
-    height: 697px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
+  .parceires {
     h2 {
-      font-size: 2.5rem;
       margin-top: 30px;
-      margin-bottom: 10px;
       cursor: default;
     }
 
     p {
-      margin-bottom: 40px;
       cursor: default;
     }
 
-    .carrossel-perfis {
-      height: 60%;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      cursor: default;
+    .perfil {
+      width: 30%;
 
-      .perfil {
-        background-color: cadetblue;
-        width: 30%;
+      h3 {
+        text-align: center;
+        cursor: default;
+      }
 
-        h3 {
-          text-align: center;
-          cursor: default;
-        }
-
-        p {
-          text-align: center;
-          cursor: default;
-        }
+      p {
+        cursor: default;
       }
     }
   }
-
-  .about {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    box-sizing: border-box;
-    align-items: center;
-    height: 627px;
-  }
-
-  main .about {
-    height: auto;
-    padding: 10px;
-  }
-
-  main .about .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    flex-direction: row;
-    margin-top: 5rem;
-    margin-bottom: 4rem;
-  }
-
-    @media ((min-width: 768px) and (max-width: 1440px)) {
-      section.about {
-        margin-bottom: 0;
-      }
-
-      .about .content {
-        height: auto;
-      }
-
-  .button-about {
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-      .text button {
-        margin-bottom: 0;
-      }
-    }
 
   @media ((min-width: 768px) and (max-width: 1440px)) {
-    section.about {
+    main section .about {
       margin-bottom: 0;
     }
 
@@ -305,14 +251,29 @@ const Home = styled.div`
       height: auto;
     }
 
-    .text button {
+    .about .content .text button {
       margin-bottom: 0;
     }
-  }
 
-  @media (max-width: 767px) {
-    flex-wrap: wrap;
-    height: 100%;
+    .about .content .foto {
+      height: 330px;
+      padding: 0 2% 0 0;
+    }
+
+    .about .content .text h2 {
+      font-size: 1.75em;
+    }
+
+    .about .content .text .Textparagraph {
+      font-size: 1em;
+      line-height: 1.5em;
+    }
+
+    .galeria .titulo-galeria {
+      font-size: 2.75rem;
+      align-self: center;
+      margin-left: initial;
+    }
   }
 
   @media ((min-width: 320px) and (max-width: 767px)) {
@@ -337,14 +298,13 @@ const Home = styled.div`
           line-height: default;
           max-height: 100%;
           overflow-x: hidden;
-          font-size: .9rem;
+          font-size: 0.9rem;
           white-space: normal;
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
           -webkit-line-clamp: 10;
           -webkit-box-orient: vertical;
-
         }
         .descrição::-webkit-scrollbar {
           width: 10px;
@@ -362,39 +322,62 @@ const Home = styled.div`
       }
     }
 
-    .about .content {
+    main .about .content {
       flex-direction: column;
       height: initial;
       justify-content: initial;
       padding: 2vh;
     }
 
-    .about {
+    main section.about {
       justify-content: initial;
       height: initial;
+      padding-top: initial;
     }
 
-    .about .foto {
+    .about .content .foto {
       order: -1;
       margin-bottom: 2rem;
-      margin-left: 0;
+      margin-left: initial;
     }
 
-    .about .text {
+    .about .content .text {
       display: flex;
       flex-direction: column;
       padding: 0;
     }
 
+    .about .content .text h2 {
+      font-size: 1.5em;
+    }
+
+    .about .content .text .Textparagraph {
+      font-size: 1em;
+      line-height: 1.5em;
+    }
+
     .text button {
       margin-bottom: 0;
     }
-  }
 
-  @media (max-width: 1280px) {
-    .galeria {
-      height: 950px;
+    .galeria{
+      padding-top: initial;
+      gap: 10px;
+    }
+
+    .galeria .titulo-galeria {
+      font-size: 1.75rem;
+      margin-left: initial;
+      align-self: center;
+    }
+    .painel {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+    .galeria button{
+      margin-bottom: 30px
     }
   }
+
 `
 export default Home

@@ -10,7 +10,7 @@ const ParceireComponents = styled.section`
     margin-bottom: 10px;
   }
 
-  p {
+  .description-parceires {
     color: black;
     margin-bottom: 40px;
     display: flex;
@@ -86,26 +86,35 @@ const ParceireComponents = styled.section`
   .styled-button {
     display: flex;
     justify-content: center;
-    padding: 30px;
+    width: 107em;
+    padding-top: 40px;
+    padding-bottom: 60px;
 
-    .button-parceire {
-      background: #516b84;
-      border-radius: 3px;
-      border: none;
-      width: 182px;
-      height: 56px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      a {
-        font-weight: 900;
-        color: #fafafa;
-        text-decoration: none;
+      .button-parceire{
+        background: #516B84;
+        border-radius: 3px;
+        border: none;
+        font-size: 14px;
+        width: 200px;
+        height: 40px;
+        cursor: pointer;
         display: flex;
         justify-content: center;
+        align-items: center;
+        
+        
+
+        a{
+          text-decoration: none;
+          color: white;
+          display: flex;
+        justify-content: center;
       }
+    }
+  }
+  @media (max-width: 1440px){
+    .description-parceires{
+      padding-left: 10px;
     }
   }
 

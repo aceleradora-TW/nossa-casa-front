@@ -31,7 +31,7 @@ const Parceires = () => {
       background: '#F5BC4A'
     }}>
       <h2>Parceires</h2>
-      <p>
+      <p className='description-parceires'>
         A Nossa Casa é uma Associação sem fins lucrativos, composta por profissionais, artistas e ativistas do Município de Guarulhos.
       </p>
       <Swiper
