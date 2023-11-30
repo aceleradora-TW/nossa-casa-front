@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
 const ParceireComponents = styled.section`
+
+
+
+    
   h2 {
     color: black;
     display: flex;
@@ -114,8 +118,13 @@ const ParceireComponents = styled.section`
     }
   }
 
-  @media (max-width: 760px) {
-    .swiper-button-next {
+  @media (max-width: 767px) {
+
+    .swiper-button-next, .swiper-button-prev  {
+      display: block !important;
+      color: white;
+    }
+    /* .swiper-button-next {
       right: 20px;
       transform: rotate(90deg);
     }
@@ -123,7 +132,7 @@ const ParceireComponents = styled.section`
     .swiper-button-prev {
       left: 20px;
       transform: rotate(90deg);
-    }
+    } */
   }
 `
 export default ParceireComponents
