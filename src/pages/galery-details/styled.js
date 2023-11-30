@@ -31,7 +31,6 @@ export const GaleryStyled = styled.div`
     padding-top: 2%;
   }
   .topo {
-    padding-bottom: 7% ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,26 +46,34 @@ export const GaleryStyled = styled.div`
     margin-left: auto;
     margin-right: auto;
   }
-
-  .swiper-slide {
+  .first-carousel .swiper-slide {
     text-align: center;
     font-size: 18px;
     display: flex;
+    height: 500px;
     justify-content: center;
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+  }
+
+  .second-carousel .swiper-slide {
+    text-align: center;
+    border: solid black 2px
   }
   .first-carousel img{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 90%;
-    height: 100%;
   }
 
   .second-carousel img {
-    width: 30px;
-    height: 30px;
+    width: 100px;
+    height: 100px;
   }
   }
 `
