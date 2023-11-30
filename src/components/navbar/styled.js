@@ -43,9 +43,6 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     font-weight: bold;
     border-radius: 5px;
     color: black;
-    &:hover {
-      color: #e4e7eb;
-    }
     &:active {
       background: linear-gradient(
         360deg,
@@ -64,9 +61,6 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     font-size: 1rem;
     line-height: 14px;
     text-transform: uppercase;
-    &:hover {
-      color: #f5bc4a;
-    }
   }
 
   a.active {
