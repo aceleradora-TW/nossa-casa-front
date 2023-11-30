@@ -9,16 +9,40 @@ const NavBarComponent = styled.nav.attrs((props) => ({
   overflow: hidden;
   background-color: black;
   width: 100%;
+  height: 100px;
+  padding: 0 30px;
   align-items: center;
   color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 
+  .container-logo{
+    img{
+      width: 10vw;
+      max-width: 100px;
+    }
+  }
+
+  .redirecionamento-false {
+    display: flex;
+    width: 60vw;
+    height: 50px;
+    align-items: center;
+    justify-content: space-around;
+  
   .ser-parceire {
     background-color: #f5bc4a;
+    height: 4vw;
+    max-height: 50px;
+    width: 9rem;
+    display: grid;
+    place-items: center;
     font-weight: bold;
     border-radius: 5px;
-    &:hover {
-      color: #e4e7eb;
-    }
+    color: black;
     &:active {
       background: linear-gradient(
         360deg,
@@ -28,32 +52,25 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       );
     }
   }
+}
 
   a {
     color: #ffffff;
     text-decoration: none;
     text-align: center;
-    font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 14px;
-    &:hover {
-      color: #f5bc4a;
-    }
   }
+
   a.active {
     color: #f5bc4a;
     font-weight: bold;
-  }
-  .container-logo {
-    max-height: 100%;
-    width: auto;
-    height: 96%;
-    display: flex;
   }
 
   .icon-menu {
     font-size: 30px;
     cursor: pointer;
+    display: none;
   }
 
   .aparece {
@@ -61,17 +78,15 @@ const NavBarComponent = styled.nav.attrs((props) => ({
     flex-direction: column;
   }
 
-  /* smartphones */
-  @media (min-width: 320px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-      'logo . icon'
-      'menu menu menu';
+  @media ((min-width: 320px) and (max-width: 767px)) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
     .container-logo {
-      grid-area: logo;
-      justify-self: start;
+      img {
+      min-width: 80px;
+      }
     }
 
     .icon-menu {
@@ -80,43 +95,36 @@ const NavBarComponent = styled.nav.attrs((props) => ({
       justify-self: end;
     }
 
-    .redirecionamento {
-      display: none;
+    .redirecionamento-true {
+      display: grid;
       grid-area: menu;
       gap: 0;
       padding-top: 15px;
+      background-color: black;
+      width: 100vw;
+      z-index: 5;
+      position: fixed;
+      top: 100px;
+      left: 0;
       a {
         width: 100%;
         text-align: left;
         padding: 15px;
         border-top: 1px solid darkgray;
       }
-
-      .ser-parceire {
-        text-align: center;
-        border-top: none;
-      }
-    }
-  }
-
-  /* Desktop , PCs*/
-  @media (min-width: 801px) {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 15px 60px;
-    justify-content: space-between;
-    z-index: 1000;
-
-    .icon-menu {
-      display: none;
     }
 
-    .redirecionamento {
-      display: flex;
-      flex-direction: row;
+    .redirecionamento-false {
+      display: none !important;
     }
 
+    .ser-parceire {
+      text-align: center !important;
+      font-weight: bold;
+      border-radius: 5px;
+      background-color: #f5bc4a;
+      color: black;
+      padding: 15px;
     .redirecionamento {
       flex-wrap: wrap;
       align-items: center;
@@ -125,22 +133,7 @@ const NavBarComponent = styled.nav.attrs((props) => ({
         width: auto;
       }
     }
-
-    .ser-parceire {
-      color: black;
-      padding: 15px;
-    }
-
-    img {
-      height: 80px;
-      left: 121px;
-    }
-    @media (min-width: 1023px) {
-      .redirecionamento {
-        gap: 40px;
-      }
-    }
+  }
   }
 `
-
 export default NavBarComponent
