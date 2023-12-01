@@ -123,26 +123,15 @@ export const EventsPageDescription = () => {
             </li>
             <li>
               <div className="style-icon">
-                <FontAwesomeIcon icon={faLocationDot} />
-              </div>
-              {event?.attributes?.local}
-            </li>
-            <li className="parceires">
-              {event?.attributes?.parceires?.data
-                ?.filter((partner) => partner !== null || partner !== undefined)
-                ?.map((partner) => (
-                  <>
-                    <FontAwesomeIcon icon={faUser} className="style-icon" />
-                    <p key={crypto.randomUUID()}>{partner.attributes?.nome}</p>
-                  </>
-                ))}
-            </li>
-
-            <li>
-              <div className="style-icon">
                 <FontAwesomeIcon icon={faHandHoldingDollar} />
               </div>
               {event?.attributes?.preco ?? 'Evento Gratuito'}
+            </li>
+            <li>
+              <div className="style-icon">
+                <FontAwesomeIcon icon={faLocationDot} />
+              </div>
+              {event?.attributes?.local}
             </li>
             <li>
               <div className="style-icon">
@@ -159,6 +148,18 @@ export const EventsPageDescription = () => {
               </div>
               {event?.attributes?.tipo}
             </li>
+            <li className="parceires">
+              {event?.attributes?.parceires?.data
+                ?.filter((partner) => partner !== null || partner !== undefined)
+                ?.map((partner) => (
+                  <>
+                    <FontAwesomeIcon icon={faUser} className="style-icon" />
+                    <p key={crypto.randomUUID()}>{partner.attributes?.nome}</p>
+                  </>
+                ))}
+            </li>
+
+            
             <li>
               {event?.attributes?.url_inscricao === null && (
                 <div id="no-registration">
