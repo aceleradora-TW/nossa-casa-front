@@ -66,11 +66,17 @@ export const GaleryDetails = () => {
                 onSwiper={setThumbsSwiper}
                 loop={true}
                 spaceBetween={10}
-                slidesPerView={3}
+                // slidesPerView={3}
                 freeMode={true}
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="second-carousel"
+                breakpoints={{
+                  320: {slidesPerView: 3},
+                  520: {slidesPerView: 4},
+                  700: {slidesPerView: 5},
+                  1100: {slidesPerView: 6}
+                }}
               >
                 {galeria.map((image) => (
                   <SwiperSlide key={image.id}>

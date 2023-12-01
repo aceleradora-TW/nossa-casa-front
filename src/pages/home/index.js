@@ -129,7 +129,7 @@ export function HomePage() {
               ))}
             </ul>
           </div>
-          <Link className='button-galery' to={`/galerydetails`}> Ver mais </Link>
+          <Link className='button-galery' to={`/galerydetails`}> Saber mais </Link>
         </section>
         <Parceires />
         <Footer />

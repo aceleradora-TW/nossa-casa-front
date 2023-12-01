@@ -7,30 +7,73 @@ export const GaleryStyled = styled.div`
     padding: 0;
     box-sizing: border-box;
   }
-/* 
-  .container {
-    padding-top: 130px;
-  }
-  .topo {
-    padding-bottom:81px ;
+
+  .container{
+    
+    .topo {
+    padding: 2%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-top: -35px;
   }
 
   .topo > .h2-modal-galery {
-    margin: 0;
-    font-size: 2.25rem;
+    font-size: 2.7rem;
     color: #54636E;
-  } */
+  }
+  .swiper {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .swiper-button-next,
+    .swiper-button-prev {
+      margin: 2% 10%;
+    }
+
+  .first-carousel .swiper-slide {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .second-carousel {
+      margin-top: 1%;
+  }
+
+  .second-carousel .swiper-slide {
+    width: 90px;
+    height: 90px;
+    opacity: 0.7;
+  }
+  .second-carousel .swiper-slide-thumb-active {
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    opacity: 1;
+    border: 5px solid #f5bc4a;
+  }
+
+  .first-carousel img{
+    max-width: 99%;
+    max-height: 99%;
+    min-height: 500px;
+    min-width: 500px;
+  }
+  .second-carousel img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 
   @media ((min-width: 320px) and (max-width: 767px)) {
-
-    .container {
-    padding-top: 2%;
-  }
-  .topo {
+    .container{
+      .topo {
+    padding: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,33 +90,24 @@ export const GaleryStyled = styled.div`
     margin-right: auto;
   }
   .first-carousel .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    display: flex;
     height: 500px;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
   }
 
-  .second-carousel .swiper-slide {
-    text-align: center;
-    border: solid black 2px
-  }
+  .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+
   .first-carousel img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
+    max-width: 99%;
+    max-height:500px;
+    min-height: 300px;
+    min-width: 300px;
   }
 
-  .second-carousel img {
-    width: 100px;
-    height: 100px;
-  }
+    }
   }
 `
