@@ -1,16 +1,11 @@
 import styled from 'styled-components'
 const EventsStyleDescription = styled.div`
-* {
+  * {
     margin: 0;
     padding: 0;
   }
 
-  .span-detais {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #containerDetails {
+  .container {
     display: grid;
     grid-template-columns: 70% 30%;
     grid-template-rows: repeat(3, 1fr);
@@ -19,129 +14,148 @@ const EventsStyleDescription = styled.div`
     height: 30vh;
   }
 
-  .closeButton {
-    position: relative;
-    left: 100%;
+  h1 {
+    font-size: 1.2em;
+  }
+
+  .text,
+  .text2 {
+    width: 35%;
+  }
+
+  li {
+    display: flex;
+    font-size: 20px;
+    padding-top: 1.7em;
+  }
+
+  .parceires p {
+    margin-right: 1em;
+  }
+  .style-icon {
+    margin-right: 1em;
+  }
+
+  p {
+    margin-right: 0.1em;
   }
 
   .title {
-    font-size: 50px;
-    padding-bottom: 70px;
-    font-weight: bold;
-  }
+    font-size: 2.188em;
+    margin: 1em 0;
 
-  .start-date,
-  .data-fim, .local, .partners, .parce, .day{
-    font-size: 20px;
+    p {
+      font-size: 1.875em;
+      padding-top: 1.875em;
+      margin-right: 5em;
+    }
   }
 
   .description-section {
     margin: 0 10vw;
   }
 
-  .description {
+  #no-registration {
+    display: flex;
+  }
+
+  .text-title-description {
+    font-size: 1.875em;
     font-weight: bold;
-    font-size: 30px;
-    padding-top: 60px;
-    padding-bottom: 20px;
   }
 
-  .descriptionCMS {
-    font-size: 20px;
+  .description {
     text-align: justify;
-    width: 85%;
-    line-height: 23px;
+    padding-top: 6em;
+    font-size: 1.25em;
+    line-height: 1.3em;
+    width: 92%;
   }
 
-  .button-close,
-  .button-container {
-    padding-left: 90px;
-  }
+  .description {
+    padding-top: 1em;
 
-  .inscriptionIcon {
-    width: 20vw;
-    display: flex;
-  }
+    p {
+    padding-top: 3em;
 
-  .inscription {
-    font-size: 20px;
-    margin-top: 4px;
-    margin-left: 10px;
-  }
-
-  .spacingMoney,
-  .spacingType {
-    font-size: 20px;
-    margin-left: 30px;
-    margin-top: -14px;
-  }
-
-  .spacingDate,
-  .spacingLocal {
-    width: 70%;
-    display: flex;
-    align-items: center;
-
-    svg {
-      padding-right: 10px;
     }
-  }
-
-  .spacing-partners {
-    display: inline-block;
-    padding-left: 8px;
-    margin-right: 1.5em;
   }
 
   .button-inscription {
     background: #f5bc4a;
-    border-radius: 3px;
-    border: none;
-    font-size: 14px;
-    width: 10%;
-    height: 40px;
-    cursor: pointer;
+    border-radius: 0.188em;
+    font-size: 1.2em;
+    width: 20%;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    margin-top: 50px;
+    margin: 0 auto;
+    margin-top: 3.3em;
     text-decoration: none;
     color: black;
-    margin-bottom: 3em;
   }
 
-  .page {
+  .container-carousel {
     background-color: #e4e7eb;
-    width: 100vw;
-    margin-top: 5%;
   }
+
   .swiper-slide {
     background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e4e7eb;
-    img {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      padding-bottom: 30px;
-    }
   }
-  .mySwiper {
+
+  .slide-itens {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 22vw;
+    height: 17vw;
+    object-fit: cover;
+  }
+
+  .style-img-swiper {
+    background-color: #e4e7eb;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3rem;
+    padding-top: 5rem;
+  }
+
+  .style-img-swiper img {
+    width: 70rem;
+    height: 40rem;
+  }
+
+  .style-swiper-fotos img {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  .second-carousel {
+    margin-left: 5rem;
+    margin-right: 5rem;
     height: 20%;
     box-sizing: border-box;
     padding: 10px 0;
   }
 
-  .mySwiper .swiper-slide {
+  .first-carousel {
+    padding-top: 5%;
+  }
+
+  .second-carousel .swiper-slide {
     width: 25%;
     height: 100%;
     opacity: 0.4;
   }
 
-  .mySwiper .swiper-slide-thumb-active {
+  .second-carousel .swiper-slide-thumb-active {
     * {
       margin: 0;
       padding: 0;
@@ -150,23 +164,73 @@ const EventsStyleDescription = styled.div`
     border: 5px solid #f5bc4a;
   }
 
-  .swiper-slide img {
-    display: block;
-    width: 30em;
-    height: 30em;
-    object-fit: cover;
+  .container-button-exit {
+    margin-right: 2%;
+    display: flex;
+    justify-content: right;
   }
-  .style-img-swiper {
-    padding-top: 5rem;
-    img {
-      width: 70rem;
-      height: 40rem;
+
+  .close-button {
+    font-size: 1em;
+  }
+
+  .carrossel {
+    height: 25vh;
+    align-self: flex-start;
+
+    h1 {
+      margin: 3em 10vw 1.5em 10vw;
+      font-size: 2em;
     }
-    .style-swiper-fotos {
-      img {
-        width: 10rem;
-        height: 10rem;
-      }
+    p {
+      padding-top: 3em;
+      padding-left: 3em;
+      line-height: 1.5em;
+      width: 90%;
+      text-align: justify;
+    }
+  }
+
+  .mySwiper {
+    position: relative;
+    z-index: 0;
+    width: 100vw;
+  }
+  .swiper-slide-atividades {
+    display: flex;
+    align-items: center;
+    height: 70vh;
+    padding-left: 3em;
+    margin-right: 20px;
+    .img-foto-atividades {
+      width: 45vw;
+      height: 35vh;
+    }
+    h3 {
+      padding-top: 5px;
+    }
+  }
+
+  .date,
+  .hour {
+    color: grey;
+    margin: 5px, 0;
+  }
+
+  .styled-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5bc4a;
+    width: 146px;
+    height: 40px;
+    border: none;
+    margin-top: 1rem;
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
+      color: black;
     }
   }
 `

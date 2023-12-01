@@ -5,7 +5,8 @@ import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import { formatWorkshopDates } from '../../helpers/format-data'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
@@ -24,25 +25,64 @@ export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [galeria, setGaleria] = useState([])
+  const [activities, setActivities] = useState([])
   const { id } = useParams()
   useEffect(() => {
-    cms.get(`api/events/${id}/?populate=parceires&populate=fotos_evento`).then((response) => {
-      const { data } = response.data
-      setEvent(data)
+    cms
+      .get(`api/events/${id}/`, {
+        params: {
+          populate: [
+            'parceires',
+            'fotos_evento',
+            'subeventos',
+            'oficinas',
+            'oficinas.foto_divulgacao',
+            'subeventos.foto_divulgacao'
+          ]
+        }
+      })
+      .then((response) => {
+        const { data } = response.data
+        setEvent(data)
 
-      const fotoDivulgacao = data.attributes.fotos_evento
-      const images = fotoDivulgacao.data.map(
-        (image) => {
+        const fotoDivulgacao = data.attributes.fotos_evento
+        const images = fotoDivulgacao.data.map((image) => {
           return {
             id: image.id,
             name: image.attributes?.name,
             url: process.env.REACT_APP_URL_CMS + image.attributes?.url
           }
-        }
-      )
-      setGaleria(images)
-    })
-  }, [])
+        })
+        setGaleria(images)
+
+        const oficinas = data.attributes.oficinas.data.map((oficina) => {
+          return {
+            id: oficina.id,
+            type: 'workshops',
+            name: oficina.attributes.nome,
+            url:
+              process.env.REACT_APP_URL_CMS +
+              oficina.attributes.foto_divulgacao.data[0].attributes.url,
+            data_inicio: oficina.attributes.data_inicio,
+            horario_inicio: oficina.attributes.horario_inicio
+          }
+        })
+
+        const subeventos = data.attributes.subeventos.data.map((evento) => {
+          return {
+            type: 'events',
+            id: evento.id,
+            name: evento.attributes.nome,
+            url:
+              process.env.REACT_APP_URL_CMS +
+              evento.attributes.foto_divulgacao.data.attributes.url,
+            data_inicio: evento.attributes.data_inicio,
+            horario_inicio: evento.attributes.horario_inicio
+          }
+        })
+        setActivities(subeventos.concat(oficinas))
+      })
+  }, [id])
 
   const handleDate = (date) => {
     const dateObject = new Date(date)
@@ -57,134 +97,87 @@ export const EventsPageDescription = () => {
     })
     return [day, month, year].join(' ')
   }
-
-  const week = (date) => {
-    const dateAsDateObject = new Date(date)
-    const indexWeek = dateAsDateObject.getDay()
-    const daysWeek = [
-      'Domingo',
-      'Segunda',
-      'Terça',
-      'Quarta',
-      'Quinta',
-      'Sexta',
-      'Sábado'
-    ]
-    return daysWeek[indexWeek]
-  }
-
   return (
-    <>
+    <div className="full-container">
       <EventsStyleDescription>
-        <section className="description-section">
-          <Link className="closeButton" to={'/events'}>
+        <div className="container-button-exit">
+          <Link className="close-button" to={'/events'}>
             <FontAwesomeIcon
               icon={faRectangleXmark}
               size="2xl"
               style={{ color: 'black' }}
             />
           </Link>
-          <h1 className="title">{event.attributes?.nome}</h1>
-          <span className="span-detais">
-            <ul id="containerDetails">
-              <li>
-                <div className="start-date">
-                  <p className="start-date">
-                    <div className="spacingDate">
-                      <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
-                      <p>{`
-                     ${handleDate(
-                       new Date(event.attributes?.data_inicio)
-                     )} •
-                    ${event.attributes?.horario_inicio} >
-                    ${handleDate(new Date(event.attributes?.data_fim))} 
-                      • ${event.attributes?.horario_fim}
-                      `}</p>
-                    </div>
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="div-price">
-                  <p className="price">
-                    <FontAwesomeIcon
-                      icon={faHandHoldingDollar}
-                      size="lg"
-                      style={{
-                        '--fa-secondary-color': '#ffffff',
-                        '--fa-primary-opacity': '1'
-                      }}
-                    />
-                    <div className="spacingMoney">
-                      {event.attributes?.preco}
-                    </div>
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="div-local">
-                  <p className="local">
-                    <div className="spacingLocal">
-                      <FontAwesomeIcon icon={faLocationDot} size="lg" />
-                      Evento presencial em {event.attributes?.local}
-                    </div>
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="TypeEvent">
-                  <p className="type">
-                    <FontAwesomeIcon icon={faBullhorn} size="lg" />
-                    <div className="spacingType">
-                      {event.attributes?.tipo}
-                    </div>
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="partners">
-                  <p className="partner">
-                    <div className="parce">
-                      {event.attributes?.parceires?.data.map(
-                        (parceire, index) => {
-                          if (parceire !== null || parceire !== undefined) {
-                            return (
-                              <>
-                                <FontAwesomeIcon icon={faUser} size="lg" />
-                                <p key={index} className="spacing-partners">
-                                  {parceire.attributes?.nome}{' '}
-                                </p>
-                              </>
-                            )
-                          }
-                          return null
-                        }
-                      )}
-                    </div>
-                  </p>
-                </div>
-              </li>
-              <li>
-                {event.attributes?.url_agendamento == null && (
-                  <>
-                    <div className="inscriptionIcon">
-                      <div>
-                        <FontAwesomeIcon icon={faPenToSquare} size="lg" />
-                      </div>
-                      <p className="inscription">
-                        {' '}
-                        Inscrição não é necessária
-                      </p>
-                    </div>
-                  </>
-                )}
-              </li>
-            </ul>
-          </span>
+        </div>
+        <section className="description-section">
+          <div className="title">
+            <h1>{event?.attributes?.nome}</h1>
+          </div>
+          <ul className="container">
+            <li>
+              <div className="style-icon">
+                <FontAwesomeIcon icon={faCalendarDays} />{' '}
+              </div>
 
-          <p className="description">Descrição da terapia</p>
-          <p className="descriptionCMS">{event.attributes?.descricao}</p>
-          {event.attributes?.url_agendamento !== null && (
+              {formatWorkshopDates(event)}
+            </li>
+            <li>
+              <div className="style-icon">
+                <FontAwesomeIcon icon={faHandHoldingDollar} />
+              </div>
+              {event?.attributes?.preco ?? 'Evento Gratuito'}
+            </li>
+            <li>
+              <div className="style-icon">
+                <FontAwesomeIcon icon={faLocationDot} />
+              </div>
+              {event?.attributes?.local}
+            </li>
+            <li>
+              <div className="style-icon">
+                <FontAwesomeIcon
+                  icon={faBullhorn}
+                  style={{
+                    '--fa-primary-color': '#00000',
+                    '--fa-secondary-color': '#00000',
+                    '--fa-secondary-opacity': '1',
+                    transform: 'rotate(-30deg)'
+                  }}
+                  size="lg"
+                />
+              </div>
+              {event?.attributes?.tipo}
+            </li>
+            <li className="parceires">
+              {event?.attributes?.parceires?.data
+                ?.filter((partner) => partner !== null || partner !== undefined)
+                ?.map((partner) => (
+                  <>
+                    <FontAwesomeIcon icon={faUser} className="style-icon" />
+                    <p key={crypto.randomUUID()}>{partner.attributes?.nome}</p>
+                  </>
+                ))}
+            </li>
+
+            
+            <li>
+              {event?.attributes?.url_inscricao === null && (
+                <div id="no-registration">
+                  <div className="style-icon">
+                    <FontAwesomeIcon icon={faPenToSquare} />
+                  </div>
+                  Inscrição não é necessária
+                </div>
+              )}
+            </li>
+          </ul>
+          <div className="description">
+            <p className="text-title-description">Descrição</p>
+            <p>{event?.attributes?.descricao}</p>
+          </div>
+        </section>
+        <div className="Container-button">
+          {event.attributes?.url_inscricao !== null && (
             <a
               className="button-inscription"
               href={event.attributes?.url_inscricao}
@@ -194,8 +187,71 @@ export const EventsPageDescription = () => {
               Inscreva-se
             </a>
           )}
-        </section>
-        <section className="page">
+        </div>
+
+        {activities.length > 0 && (
+          <section>
+            <div className="carrossel">
+              <h1>PROGRAMAÇÃO</h1>
+            </div>
+            <Swiper
+              slidesPerView={3}
+              spaceBetween={-110}
+              navigation={true}
+              breakpoints={{
+                '@0.00': {
+                  slidesPerView: 1,
+                  spaceBetween: 1
+                },
+                '@0.75': {
+                  slidesPerView: 2,
+                  spaceBetween: 2
+                },
+                '@1.00': {
+                  slidesPerView: 3,
+                  spaceBetween: 3
+                }
+              }}
+              modules={[Navigation]}
+              className="mySwiper"
+            >
+              <section>
+                <div className="swiper-slide-atividades">
+                  <ul>
+                    {activities.map((item) => {
+                      return (
+                        <li key={crypto.randomUUID()}>
+                          <div>{item.name}</div>
+                          <SwiperSlide key={crypto.randomUUID()}>
+                            <span className="slide-itens">
+                              <img className="img-foto" src={item.url} />
+                              <div>
+                                <h3 className="title">{item.name}</h3>
+                                {event.attributes?.data_inicio !==
+                                  event.attributes?.data_fim && (
+                                  <h5 className="date">
+                                    {handleDate(item.data_inicio)}
+                                  </h5>
+                                )}
+                                <h5 className="hour">{item.horario_inicio}</h5>
+                              </div>
+                              <div className="styled-button">
+                                <NavLink to={`/${item.type}/${item.id}`}>
+                                  Saiba Mais
+                                </NavLink>
+                              </div>
+                            </span>
+                          </SwiperSlide>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              </section>
+            </Swiper>
+          </section>
+        )}
+        <section className="container-carousel">
           <div className="style-img-swiper">
             <Swiper
               style={{
@@ -205,12 +261,15 @@ export const EventsPageDescription = () => {
               loop={true}
               spaceBetween={10}
               navigation={true}
-              thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+              thumbs={{
+                swiper:
+                  thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
+              }}
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper2"
             >
               {galeria.map((image) => (
-                <SwiperSlide key={image.id}>
+                <SwiperSlide key={crypto.randomUUID()}>
                   <img src={image.url} alt={image.name} />
                 </SwiperSlide>
               ))}
@@ -227,7 +286,7 @@ export const EventsPageDescription = () => {
                 className="mySwiper"
               >
                 {galeria.map((image) => (
-                  <SwiperSlide key={image.id}>
+                  <SwiperSlide key={crypto.randomUUID()}>
                     <img src={image.url} alt={image.name} />
                   </SwiperSlide>
                 ))}
@@ -235,7 +294,7 @@ export const EventsPageDescription = () => {
             </div>
           </div>
         </section>
-        </EventsStyleDescription>
-    </>
+      </EventsStyleDescription>
+    </div>
   )
 }
