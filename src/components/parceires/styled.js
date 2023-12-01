@@ -86,9 +86,7 @@ const ParceireComponents = styled.section`
   .styled-button {
     display: flex;
     justify-content: center;
-    width: 107em;
-    padding-top: 40px;
-    padding-bottom: 60px;
+    padding: 25px 0 ;
 
       .button-parceire{
         background: #516B84;
