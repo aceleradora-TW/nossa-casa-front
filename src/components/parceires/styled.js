@@ -24,6 +24,11 @@ const ParceireComponents = styled.section`
     align-items: center;
   }
 
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+  }
+
   .perfil {
     padding: 10px 0;
     width: 100%;
@@ -110,21 +115,17 @@ const ParceireComponents = styled.section`
       }
     }
   }
-  @media (max-width: 1440px){
-    .description-parceires{
+  @media (max-width: 1440px) {
+    .description-parceires {
       padding-left: 10px;
     }
   }
 
-  @media (max-width: 760px) {
-    .swiper-button-next {
-      right: 20px;
-      transform: rotate(90deg);
-    }
-
+  @media (max-width: 767px) {
+    .swiper-button-next,
     .swiper-button-prev {
-      left: 20px;
-      transform: rotate(90deg);
+      display: block !important;
+      color: white;
     }
   }
 `

@@ -64,6 +64,13 @@ const Home = styled.div`
         cursor: default;
         text-align: justify;
         z-index: 1;
+        overflow: hidden;
+        white-space: normal;
+        max-height: 100%;
+        text-overflow: ellipsis;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;
       }
 
       img {
@@ -243,6 +250,8 @@ const Home = styled.div`
   }
 
   @media ((min-width: 768px) and (max-width: 1440px)) {
+
+    
     main section .about {
       margin-bottom: 0;
     }
