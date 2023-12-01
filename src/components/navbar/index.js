@@ -19,7 +19,7 @@ const NavBar = () => {
           <img src={logo} />
         </NavLink>
       </div>
-      <div className={`redirecionamento ${toggle}`}>
+      <div className={`redirecionamento-${toggle}`}>
         <NavLink to={'/sobre'} activeClassName="active" >Sobre</NavLink>
         <NavLink to={'/events'} activeClassName="active" >Eventos</NavLink>
         <NavLink to={'/therapies'} activeClassName="active" >Terapias</NavLink>
