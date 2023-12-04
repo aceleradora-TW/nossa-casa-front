@@ -24,6 +24,11 @@ const PartnerComponents = styled.section`
     align-items: center;
   }
 
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+  }
+
   .profile {
     padding: 10px 0;
     width: 100%;
@@ -86,24 +91,26 @@ const PartnerComponents = styled.section`
   .styled-button {
     display: flex;
     justify-content: center;
-    padding: 30px;
+    padding: 25px 0 ;
 
-    .button-partners {
-      background: #516b84;
-      border-radius: 3px;
-      border: none;
-      width: 182px;
-      height: 56px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      a {
-        font-weight: 900;
-        color: #fafafa;
-        text-decoration: none;
+      .button-partners{
+        background: #516B84;
+        border-radius: 3px;
+        border: none;
+        font-size: 14px;
+        width: 200px;
+        height: 40px;
+        cursor: pointer;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+
+        a{
+          text-decoration: none;
+          color: white;
+          display: flex;
         justify-content: center;
       }
     }
@@ -114,15 +121,11 @@ const PartnerComponents = styled.section`
     }
   }
 
-  @media (max-width: 760px) {
-    .swiper-button-next {
-      right: 20px;
-      transform: rotate(90deg);
-    }
-
+  @media (max-width: 767px) {
+    .swiper-button-next,
     .swiper-button-prev {
-      left: 20px;
-      transform: rotate(90deg);
+      display: block !important;
+      color: white;
     }
   }
 `

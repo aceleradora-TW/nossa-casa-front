@@ -36,7 +36,7 @@ export const WorkshopDetails = () => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: env.URL_CMS + image.attributes?.url
+            url: process.env.REACT_APP_URL_CMS + image.attributes?.url
           }
         })
         setGalleryPhoto(images)
