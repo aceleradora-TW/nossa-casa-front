@@ -46,6 +46,7 @@ export const GaleryDetails = () => {
                 style={{
                   '--swiper-navigation-color': '#516B84',
                   '--swiper-pagination-color': '#FFF',
+                  '--swiper-navigation-sides-offset': '10%',
                   position: 'unset'
                 }}
                 loop={true}

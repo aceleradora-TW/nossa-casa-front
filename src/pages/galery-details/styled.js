@@ -11,7 +11,7 @@ export const GaleryStyled = styled.div`
   .container{
     
     .topo {
-    padding: 2%;
+    /* padding: 2%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +19,7 @@ export const GaleryStyled = styled.div`
 
   .topo > .h2-modal-galery {
     font-size: 2.7rem;
+    margin: 1% 0;
     color: #54636E;
   }
   .swiper {
@@ -26,11 +27,6 @@ export const GaleryStyled = styled.div`
     margin-left: auto;
     margin-right: auto;
   }
-
-  .swiper-button-next,
-    .swiper-button-prev {
-      margin: 2% 10%;
-    }
 
   .first-carousel .swiper-slide {
     height: 600px;
@@ -40,7 +36,7 @@ export const GaleryStyled = styled.div`
   }
 
   .second-carousel {
-      margin-top: 1%;
+       margin-top: 1%;
   }
 
   .second-carousel .swiper-slide {
@@ -62,6 +58,8 @@ export const GaleryStyled = styled.div`
     max-height: 99%;
     min-height: 500px;
     min-width: 500px;
+    object-fit: cover;
+   
   }
   .second-carousel img{
       width: 100%;
@@ -69,6 +67,7 @@ export const GaleryStyled = styled.div`
       object-fit: cover;
     }
   }
+
 
   @media ((min-width: 320px) and (max-width: 767px)) {
     .container{
