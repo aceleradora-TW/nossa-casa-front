@@ -20,31 +20,15 @@ const PageAbout = () => {
       }
     })
   }, [])
-
-  //Experimentando usar o useEffect para ver o comportamento da variavel about
-  // useEffect(() => {
-  //   console.log(about)
-  // }, [about])
-
   return (
     <>
       <StyledAbout>
-        <div className="container">
-          <div>
-            <ul>
-              {about.map((description, key) => (
-                <li key={key}>{description.descricao}</li>
-              ))}
-            </ul>
-          </div>
-          {about.length > 0 ? (
-            <div>
-              <img src={urlCms + about[0].foto} />
-            </div>
-          ) : (
-            <div></div>
-          )}
-        </div>
+        {about.length > 0 ? <img src={urlCms + about[0].foto} /> : <div></div>}
+        <ul>
+            {about.map((description, key) => (
+              <li key={key}>{description.descricao}</li>
+            ))}
+          </ul>
       </StyledAbout>
     </>
   )
