@@ -7,6 +7,7 @@ export const StyledAbout = styled.div`
   }
 
   display: inline-block;
+  padding-top: 3rem;
 
   ul{
     text-align: justify;

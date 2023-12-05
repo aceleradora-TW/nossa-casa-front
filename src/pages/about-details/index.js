@@ -22,6 +22,7 @@ const PageAbout = () => {
   }, [])
   return (
     <>
+      <NavBar></NavBar>
       <StyledAbout>
         {about.length > 0 ? <img src={urlCms + about[0].foto} /> : <div></div>}
         <ul>
