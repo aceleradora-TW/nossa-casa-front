@@ -3,6 +3,7 @@ import NavBar from '../../components/navbar'
 import { cms } from '../../client'
 import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 
 const PageAbout = () => {
   const [about, setAbout] = useState([])
@@ -26,24 +27,11 @@ const PageAbout = () => {
       <NavBar></NavBar>
       <StyledAbout>
         {about.length > 0 ? <img src={urlCms + about[0].foto} /> : <div></div>}
-
-        {/* Verifica o tipo retornado na description */}
-        {about.length > 0 ? console.log(typeof about[0].descricao ) : <div></div>}
-        <ul>
-          {about.map((description, key) => (
-            <li key={key}>{console.log(typeof description.descricao)}</li>
-          ))}
-        </ul>
-
-        {/* <ReactMarkdown>
-          {about.length > 0 ? (
-            <ul>
-              <li>{about[0].descricao}</li>
-            </ul>
-          ) : (
-            <div></div>
-          )}
-        </ReactMarkdown> */}
+        <div className='description'>
+          <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+            {about.length > 0 ? about[0].descricao : ''}
+          </ReactMarkdown>
+        </div>
       </StyledAbout>
     </>
   )
