@@ -9,29 +9,28 @@ const PageAbout = () => {
   const [about, setAbout] = useState([])
   const urlCms = process.env.REACT_APP_URL_CMS
   useEffect(() => {
-    cms.get('api/plural-sobre-nos/?populate=foto').then((response) => {
+    cms.get('api/sobre-nos/?populate=foto').then((response) => {
       const { data } = response.data
-      if (data) {
-        const aboutDescription = data.map((description) => {
-          return {
-            descricao: description.attributes?.descricao,
-            foto: description.attributes?.foto?.data?.attributes?.url
-          }
-        })
-        setAbout(aboutDescription)
+
+      const aboutDescription = {
+        descricao: data.attributes?.descricao,
+        foto: urlCms + data.attributes?.foto?.data?.attributes?.url
       }
+      setAbout(aboutDescription)
     })
   }, [])
   return (
     <>
       <NavBar></NavBar>
       <StyledAbout>
-        {about.length > 0 ? <img src={urlCms + about[0].foto} /> : <div></div>}
-        <div className='description'>
+        {!!about.foto ? <img src={about.foto} /> : <div>Não encontrado</div>}
+        {!!about.descricao ?
+        <div className="description">
           <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-            {about.length > 0 ? about[0].descricao : ''}
+            {about.descricao}
           </ReactMarkdown>
         </div>
+        : <div>Não encontrado</div>}
       </StyledAbout>
     </>
   )

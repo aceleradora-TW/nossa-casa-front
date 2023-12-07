@@ -9,9 +9,8 @@ export const StyledAbout = styled.div`
   display: inline-block;
   padding-top: 3rem;
 
-  ul{
+  .description{
     text-align: justify;
-    font-size: 22px;
     margin: 0 3rem 2rem 3rem;
   }
 
@@ -20,7 +19,7 @@ export const StyledAbout = styled.div`
     shape-outside: url('urlCms + about[0].foto');
     margin: 0 3rem 2rem 3rem;
     height: 600px;
-    width: 600px;
+    width: 800px;
   }
   
   
