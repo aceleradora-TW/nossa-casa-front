@@ -6,12 +6,13 @@ import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 
 const PageAbout = () => {
-  const [about, setAbout] = useState([])
+  const [about, setAbout] = useState({foto: '', descricao: ''})
   const urlCms = process.env.REACT_APP_URL_CMS
   useEffect(() => {
     cms.get('api/sobre-nos/?populate=foto').then((response) => {
+      console.log({response});
       const { data } = response.data
-
+      
       const aboutDescription = {
         descricao: data.attributes?.descricao,
         foto: urlCms + data.attributes?.foto?.data?.attributes?.url
@@ -23,8 +24,8 @@ const PageAbout = () => {
     <>
       <NavBar></NavBar>
       <StyledAbout>
-        {!!about.foto ? <img src={about.foto} /> : <div>Não encontrado</div>}
-        {!!about.descricao ?
+        {about.foto ? <img src={about.foto} /> : <div>Não encontrado</div>}
+        {about.descricao  ?
         <div className="description">
           <ReactMarkdown rehypePlugins={[rehypeRaw]}>
             {about.descricao}
