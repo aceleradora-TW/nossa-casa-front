@@ -33,7 +33,6 @@ export const GaleryDetails = () => {
         throw new Error(error)
       })
   }, [])
-  console.log(galeria)
   return(
     <>
       <NavBar/>

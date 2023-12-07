@@ -58,7 +58,6 @@ export function HomePage() {
     },
     width: '100%'
   }
-  console.log(attributes)
   return (
     <Home $background={mural}>
       <NavBar />
