@@ -9,18 +9,21 @@ export const GaleryStyled = styled.div`
   }
 
   .container{
-    
-    .topo {
-    /* padding: 2%; */
+    height: calc(100vh - 100px);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    
+    .top {
+    width: 100%;
+    margin: 1% 0;
   }
 
-  .topo > .h2-modal-galery {
+  .top > .h2-modal-galery {
     font-size: 2.7rem;
-    margin: 1% 0;
     color: #54636E;
+    text-align: center;
   }
   .swiper {
     width: 70%;
@@ -29,84 +32,67 @@ export const GaleryStyled = styled.div`
   }
 
   .first-carousel .swiper-slide {
-    height: 600px;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .second-carousel {
-       margin-top: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
 
   .second-carousel .swiper-slide {
     width: 90px;
-    height: 90px;
-    opacity: 0.7;
+    max-height: 90px;
+    opacity: 0.5;
   }
   .second-carousel .swiper-slide-thumb-active {
-    * {
-      margin: 0;
-      padding: 0;
-    }
     opacity: 1;
     border: 5px solid #f5bc4a;
   }
 
   .first-carousel img{
-    max-width: 99%;
-    max-height: 99%;
-    min-height: 500px;
-    min-width: 500px;
-    object-fit: cover;
-   
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      object-position: center;   
+
   }
   .second-carousel img{
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;  
     }
   }
 
 
-  @media ((min-width: 320px) and (max-width: 767px)) {
-    .container{
-      .topo {
-    padding: 2%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  @media (min-width: 320px) and (max-width: 767px) {
+  .container {
+
+    .top {
+      padding: 2% 0;
+    }
+
+    .top > .h2-modal-galery {
+    font-size: 1.9rem;
   }
 
-  .topo > .h2-modal-galery {
-    font-size: 1.7rem;
-    color: #54636E;
-  }
-  .swiper {
-    width: 100%;
-    height: 30%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .first-carousel .swiper-slide {
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    .swiper {
+      width: 99%;
+    }
 
-  .swiper-button-next,
+    .first-carousel .swiper-slide {
+      max-height: 100%;
+    }
+
+    .swiper-button-next,
     .swiper-button-prev {
       display: none;
     }
-
-  .first-carousel img{
-    max-width: 99%;
-    max-height:500px;
-    min-height: 300px;
-    min-width: 300px;
   }
+}
 
-    }
-  }
 `

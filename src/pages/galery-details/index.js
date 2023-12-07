@@ -39,7 +39,7 @@ export const GaleryDetails = () => {
       <NavBar/>
       <GaleryStyled>
         <div className="container">
-              <div className="topo">
+              <div className="top">
                 <h2 className="h2-modal-galery">Fotos da Nossa Casa</h2>
               </div>
               <Swiper
