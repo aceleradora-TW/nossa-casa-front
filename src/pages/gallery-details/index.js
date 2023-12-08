@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import NavBar from "../../components/navbar"
-import { GaleryStyled } from "./styled"
+import { GalleryStyled } from "./styled"
 import { cms } from "../../client"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
@@ -10,9 +10,9 @@ import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 
-export const GaleryDetails = () => {
+export const GalleryDetails = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
-  const [galeria, setGaleria] = useState([])
+  const [gallery, setGallery] = useState([])
 
   useEffect(() => {
     cms
@@ -27,7 +27,7 @@ export const GaleryDetails = () => {
           }
         )
 
-        setGaleria(images)
+        setGallery(images)
       })
       .catch((error) => {
         throw new Error(error)
@@ -36,7 +36,7 @@ export const GaleryDetails = () => {
   return(
     <>
       <NavBar/>
-      <GaleryStyled>
+      <GalleryStyled>
         <div className="container">
               <div className="top">
                 <h2 className="h2-modal-galery">Fotos da Nossa Casa</h2>
@@ -55,7 +55,7 @@ export const GaleryDetails = () => {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="first-carousel"
               >
-                  {galeria.map((fotos) =>
+                  {gallery.map((fotos) =>
                   (
                     <SwiperSlide key={fotos.id}>
                       <img src={fotos.url} />
@@ -66,7 +66,6 @@ export const GaleryDetails = () => {
                 onSwiper={setThumbsSwiper}
                 loop={true}
                 spaceBetween={10}
-                // slidesPerView={3}
                 freeMode={true}
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
@@ -78,14 +77,14 @@ export const GaleryDetails = () => {
                   1100: {slidesPerView: 6}
                 }}
               >
-                {galeria.map((image) => (
+                {gallery.map((image) => (
                   <SwiperSlide key={image.id}>
                     <img src={image.url} />
                   </SwiperSlide>
                 ))}
               </Swiper>
         </div>
-      </GaleryStyled>
+      </GalleryStyled>
     </>
   )
 }

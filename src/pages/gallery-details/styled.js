@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const GaleryStyled = styled.div`
+export const GalleryStyled = styled.div`
   *{
     margin: 0;
     border: 0;

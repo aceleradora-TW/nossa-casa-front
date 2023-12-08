@@ -128,7 +128,7 @@ export function HomePage() {
               ))}
             </ul>
           </div>
-          <Link className='button-galery' to={`/galerydetails`}> Saber mais </Link>
+          <Link className='button-galery' to={`/gallerydetails`}> Saber mais </Link>
         </section>
         <Parceires />
         <Footer />
