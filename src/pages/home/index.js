@@ -58,7 +58,6 @@ export function HomePage() {
     },
     width: '100%'
   }
-  console.log(attributes)
   return (
     <Home $background={mural}>
       <NavBar />
@@ -129,7 +128,7 @@ export function HomePage() {
               ))}
             </ul>
           </div>
-          <ModalGallery type={'gallery'} />
+          <Link className='button-galery' to={`/gallerydetails`}> Saber mais </Link>
         </section>
         <Parceires />
         <Footer />
