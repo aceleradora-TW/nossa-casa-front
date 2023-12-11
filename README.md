@@ -1,4 +1,4 @@
-# Nossa Casa Frontend [![Nossa casa](https://github.com/aceleradora-TW/nossa-casa-front/actions/workflows/development.yml/badge.svg?branch=main)](https://github.com/aceleradora-TW/nossa-casa-front/actions/workflows/development.yml)
+# Nossa Casa Frontend
 
 ## Tecnologias
 

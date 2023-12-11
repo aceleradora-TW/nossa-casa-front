@@ -46,17 +46,17 @@ const Details = styled.div`
   }
 
   .description {
-    font-weight: 900;
+    font-weight:bold;
     font-size: 30px;
     padding-top: 60px;
     padding-bottom: 20px;
   }
 
   .descriptionCMS {
-    font-size: 17px;
+    font-size: 20px;
     text-align: justify;
     width: 85%;
-    font-weight: bold;
+    line-height: 23px;
   }
 
   .button-close,
@@ -70,21 +70,20 @@ const Details = styled.div`
   }
 
   .inscription {
+    font-size: 20px;
     margin-top: 4px;
-    font-weight: bold;
     margin-left: 10px;
   }
 
   .spacingMoney,
   .spacingType {
+    font-size: 20px;
     margin-left: 30px;
     margin-top: -14px;
-    font-weight: bold;
   }
 
   .spacingDate,
   .spacingLocal {
-    font-weight: bold;
     width: 70%;
     display: flex;
 
@@ -107,11 +106,6 @@ const Details = styled.div`
     margin-right: 1.5em;
   }
 
-  .day {
-    font-weight: 400;
-    font-size: 23px;
-    font-weight: bold;
-  }
 
   .button-inscription {
     background: #f5bc4a;

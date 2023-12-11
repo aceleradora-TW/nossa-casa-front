@@ -64,6 +64,13 @@ const Home = styled.div`
         cursor: default;
         text-align: justify;
         z-index: 1;
+        overflow: hidden;
+        white-space: normal;
+        max-height: 100%;
+        text-overflow: ellipsis;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;
       }
 
       img {
@@ -98,7 +105,7 @@ const Home = styled.div`
       .content {
         padding: 0;
         height: 500px;
-        width: 100%;
+        width: 85%;
         display: flex;
         justify-content: space-around;
         max-width: 1600px;
@@ -148,7 +155,7 @@ const Home = styled.div`
       height: 56px;
       cursor: pointer;
       padding: 10px;
-      margin-top: 1.6rem;
+      margin-top: 2rem;
       margin-bottom: 1.6rem;
 
       .button-about {
@@ -204,18 +211,26 @@ const Home = styled.div`
         }
       }
     }
-    button {
-      background: #516b84;
-      border-radius: 3px;
-      color: #fafafa;
-      border: none;
-      font-size: 1rem;
-      width: 148px;
-      height: 56px;
-      cursor: pointer;
-      margin-top: 15px;
-      margin-bottom: 60px;
-    }
+      .button-galery {
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #fafafa;
+        background-color: #516b84;
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
+        border-radius: 3px;
+        border: none;
+        font-size: 1rem;
+        width: 163px;
+        height: 56px;
+        cursor: pointer;
+        padding: 10px;
+        margin-top: 1.6rem;
+        margin-bottom: 1.6rem;
+      }
   }
 
   .parceires {
@@ -243,6 +258,8 @@ const Home = styled.div`
   }
 
   @media ((min-width: 768px) and (max-width: 1440px)) {
+
+    
     main section .about {
       margin-bottom: 0;
     }

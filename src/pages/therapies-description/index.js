@@ -5,7 +5,7 @@ import { cms } from '../../client'
 import {
   faUser,
   faPenToSquare,
-  faLock,
+  faBullhorn,
   faHandHoldingDollar,
   faCalendarDays,
   faLocationDot,
@@ -118,7 +118,7 @@ export const DetailsTherapies = () => {
               <li>
                 <div className="therapieType">
                   <p className="type">
-                    <FontAwesomeIcon icon={faLock} size="lg" />
+                    <FontAwesomeIcon icon={faBullhorn} size="lg" />
                     <div className="spacingType">
                       {therapies.attributes?.tipo}
                     </div>
