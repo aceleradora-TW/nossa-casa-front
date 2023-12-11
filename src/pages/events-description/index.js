@@ -5,7 +5,7 @@ import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { formatWorkshopDates } from '../../helpers/format-data'
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -13,13 +13,13 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import {
   faBullhorn,
-  faRectangleXmark,
   faUser,
   faPenToSquare,
   faHandHoldingDollar,
   faCalendarDays,
   faLocationDot
 } from '@fortawesome/free-solid-svg-icons'
+import NavBar from '../../components/navbar'
 
 export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
@@ -99,15 +99,9 @@ export const EventsPageDescription = () => {
   }
   return (
     <div className="full-container">
+      <NavBar/>
       <EventsStyleDescription>
         <div className="container-button-exit">
-          <Link className="close-button" to={'/events'}>
-            <FontAwesomeIcon
-              icon={faRectangleXmark}
-              size="2xl"
-              style={{ color: 'black' }}
-            />
-          </Link>
         </div>
         <section className="description-section">
           <div className="title">
