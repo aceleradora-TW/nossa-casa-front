@@ -54,10 +54,11 @@ export const StyledAbout = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-color: red;
 
       .photo{
         margin: initial;
+        display: flex;
+        justify-content: center;
       }
 
       h1 {
@@ -83,12 +84,11 @@ export const StyledAbout = styled.div`
       height: initial;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      background-color: red;
+      align-items: center;
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 1.75rem;
     }
 
     h2,
@@ -96,7 +96,7 @@ export const StyledAbout = styled.div`
     h4,
     h5,
     h6 {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
     }
 
     p {
@@ -109,6 +109,10 @@ export const StyledAbout = styled.div`
       justify-content: center;
       width: 90%;
       margin: 0;
+    }
+
+    .description{
+      margin: 0 2rem;
     }
   }
 `
