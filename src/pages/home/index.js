@@ -91,7 +91,7 @@ export function HomePage() {
                           <p className="descricao"> {attribute.data?.descricao}</p>
                         </div>
                         <Link to={`/events/${attribute?.id}`} className='ver-mais'>Ver mais sobre o evento</Link>
-                        <img src={urlCms + attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slide-image" />
+                        <img src={attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slide-image" />
                       </div>
                     </SwiperSlide>
                   )
