@@ -8,7 +8,6 @@ import {
   faHandHoldingDollar,
   faCalendarDays,
   faLocationDot,
-  faRectangleXmark,
   faBullhorn
 } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -17,6 +16,7 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
+import NavBar from '../../components/navbar'
 import { Link, useParams } from 'react-router-dom'
 
 export const WorkshopDetails = () => {
@@ -79,15 +79,9 @@ export const WorkshopDetails = () => {
 
   return (
     <>
+      <NavBar/>
       <Details>
         <section className='description-section'>
-          <Link className="close-button" to={'/workshops'}>
-            <FontAwesomeIcon
-              icon={faRectangleXmark}
-              size="2xl"
-              style={{ color: 'black' }}
-            />
-          </Link>
           <h1 className="title">{workshops.attributes?.nome}</h1>
           <span className="span-detais">
             <ul id="container-details">

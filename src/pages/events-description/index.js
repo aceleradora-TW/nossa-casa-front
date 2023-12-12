@@ -12,13 +12,13 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import {
   faBullhorn,
-  faRectangleXmark,
   faUser,
   faPenToSquare,
   faHandHoldingDollar,
   faCalendarDays,
   faLocationDot
 } from '@fortawesome/free-solid-svg-icons'
+import NavBar from '../../components/navbar'
 
 export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
@@ -94,15 +94,9 @@ export const EventsPageDescription = () => {
   }
   return (
     <div className="full-container">
+      <NavBar/>
       <EventsStyleDescription>
         <div className="container-button-exit">
-          <Link className="close-button" to={'/events'}>
-            <FontAwesomeIcon
-              icon={faRectangleXmark}
-              size="2xl"
-              style={{ color: 'black' }}
-            />
-          </Link>
         </div>
         <section className="description-section">
           <div className="title">

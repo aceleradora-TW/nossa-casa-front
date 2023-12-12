@@ -36,6 +36,8 @@ export const CssCarrosselGlobal = styled.div`
     .img {
       width: 45vh;
       height: 35vh;
+      object-fit: cover;
+      object-position: center;
     }
     h3 {
       padding-top: 5px;
