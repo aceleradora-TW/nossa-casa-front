@@ -13,13 +13,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
-import env from 'react-dotenv'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
-import { useParams } from 'react-router'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export const WorkshopDetails = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
@@ -36,7 +34,7 @@ export const WorkshopDetails = () => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: process.env.REACT_APP_URL_CMS + image.attributes?.url
+            url: image.attributes?.url
           }
         })
         setGalleryPhoto(images)

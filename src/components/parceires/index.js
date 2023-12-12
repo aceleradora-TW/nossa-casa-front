@@ -64,7 +64,7 @@ const Parceires = () => {
                     <div className='perfil'>
                       <div>
                         {partners.foto?.data?.map(foto => (
-                          <img className='img-perfil' key={foto.attributes.url} src={urlCms + foto.attributes.url} />
+                          <img className='img-perfil' key={foto.attributes.url} src={foto.attributes.url} />
                         ))
                         }
                       </div>

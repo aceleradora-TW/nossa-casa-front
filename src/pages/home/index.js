@@ -39,7 +39,7 @@ export function HomePage() {
       const images = response.data.data.attributes.fotos.data.map((image, id) => {
         return {
           id,
-          url: process.env.REACT_APP_URL_CMS + image.attributes.url
+          url: image.attributes.url
         }
       })
       for (let i = images.length; i > 6; i--) {
