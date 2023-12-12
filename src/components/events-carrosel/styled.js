@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const EventsComponent = styled.div`
- .styled-button {
+  .styled-button {
     display: flex;
     justify-content: center;
     align-items: center;
