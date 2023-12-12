@@ -77,7 +77,9 @@ const Details = styled.div`
   }
 
   .spacingDate,
-  .spacingLocal {
+  .spacingMoney,
+  .spacingLocal,
+  .parce {
     width: 70%;
     display: flex;
     align-items: center;
@@ -167,6 +169,80 @@ const Details = styled.div`
         width: 10rem;
         height: 10rem;
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .style-img-swiper img {
+      width: 30rem;
+      height: 30rem;
+    }
+
+    .style-img-swiper .style-swiper-fotos {
+      img {
+        width: 8rem;
+        height: 8rem;
+      }
+    }
+
+    .mySwiper {
+      padding: 10px;
+    }
+
+    .descriptionCMS {
+      width: initial;
+    }
+
+    #containerDetails {
+      display: flex;
+      height: initial;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .start-date,
+    .data-fim, 
+    .local, 
+    .partners, 
+    .parce, 
+    .day,
+    .spacingMoney,
+    .spacingType,
+    .inscription {
+      font-size: 15px;
+    }
+
+    .inscriptionIcon {
+      width: 100%;
+    }
+
+    .spacingDate,
+    .spacingMoney,
+    .spacingLocal,
+    .parce {
+      width: 100%;
+      gap: 13px;
+    }
+
+    .spacingDate,
+    .spacingMoney,
+    .spacingLocal,
+    .parce {
+      svg {
+        padding-right: 0px;
+      }
+    }
+
+    .inscription {
+      margin-left: 0px;
+    }
+
+    .spacing-partners {
+      padding-left: 0px;
+    }
+
+    .spacing-partners {
+      padding-left: 0px;
     }
   }
 `
