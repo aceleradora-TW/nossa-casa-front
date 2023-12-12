@@ -33,7 +33,7 @@ const WorkshopsCarrossel = () => {
   }, [])
 
   return (
-    <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
+    <CssCarrosselGlobal style={{ background: '#FAFAFA' }}>
       <div className="carrossel">
         <h1>Oficinas</h1>
         <p>

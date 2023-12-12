@@ -36,7 +36,7 @@ const Events = () => {
   }, [])
   return (
 
-    <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
+    <CssCarrosselGlobal style={{ background: '#FAFAFA' }}>
       <div className='carrossel'>
         <h1>Eventos</h1>
         <p>A  Nossa Casa realiza diversos eventos culturais que vão de festivais, rodas de conversa, apresentações musicais, exposições de arte visual, entre outros.

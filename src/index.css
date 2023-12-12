@@ -29,6 +29,13 @@ time, mark, audio, video {
   font-family: 'Inter', sans-serif;
   vertical-align: baseline;
 }
+p, a{
+  font-weight: 200;
+}
+
+h1, h2, h3, h4{
+  font-weight: 300;
+}
 
 html, body {
   font-family: 'Inter', sans-serif;

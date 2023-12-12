@@ -34,7 +34,7 @@ const TherapiesCarrossel = () => {
   }, [])
 
   return (
-    <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
+    <CssCarrosselGlobal style={{ background: '#FAFAFA' }}>
       <div className="carrossel">
         <h1>Terapias</h1>
         <p>
