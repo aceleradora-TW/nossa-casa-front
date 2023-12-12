@@ -13,7 +13,7 @@ const PageAbout = () => {
       const { data } = response.data
       const aboutDescription = {
         descricao: data.attributes?.descricao,
-        foto: urlCms + data.attributes?.foto?.data?.attributes?.url
+        foto: data.attributes?.foto?.data?.attributes?.url
       }
       setAbout(aboutDescription)
     })
