@@ -76,7 +76,7 @@ const WorkshopsCarrossel = () => {
                       <div>
                         <img
                           className="img"
-                          src={urlCms + workshops.imageUrl}
+                          src={workshops.imageUrl}
                         />
                       </div>
                       <div>

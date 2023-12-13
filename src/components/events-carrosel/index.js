@@ -71,7 +71,7 @@ const Events = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img className="img" src={urlCms + events.image_url} />
+                        <img className="img" src={events.image_url} />
                       </div>
                       <div>
                         <p className="date">{events.date.toLocaleDateString('pt-BR', { Timezone: 'UTF' })}</p>

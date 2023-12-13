@@ -39,7 +39,7 @@ export function HomePage() {
       const images = response.data.data.attributes.fotos.data.map((image, id) => {
         return {
           id,
-          url: process.env.REACT_APP_URL_CMS + image.attributes.url
+          url: image.attributes.url
         }
       })
       for (let i = images.length; i > 6; i--) {
@@ -91,7 +91,7 @@ export function HomePage() {
                           <p className="descricao"> {attribute.data?.descricao}</p>
                         </div>
                         <Link to={`/events/${attribute?.id}`} className='ver-mais'>Ver mais sobre o evento</Link>
-                        <img src={urlCms + attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slide-image" />
+                        <img src={attribute.data?.foto_divulgacao?.data?.attributes?.url} className="slide-image" />
                       </div>
                     </SwiperSlide>
                   )

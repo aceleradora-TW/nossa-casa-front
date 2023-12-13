@@ -8,8 +8,7 @@ import {
   faBullhorn,
   faHandHoldingDollar,
   faCalendarDays,
-  faLocationDot,
-  faRectangleXmark
+  faLocationDot
 } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
@@ -17,8 +16,8 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
-import { useParams } from 'react-router'
-import { Link } from 'react-router-dom'
+import NavBar from '../../components/navbar'
+import { Link, useParams } from 'react-router-dom'
 
 export const DetailsTherapies = () => {
   const [therapies, setTherapies] = useState([])
@@ -36,7 +35,7 @@ export const DetailsTherapies = () => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: process.env.REACT_APP_URL_CMS + image.attributes?.url
+            url: image.attributes?.url
           }
         })
         setGalleryPhoto(images)
@@ -59,15 +58,9 @@ export const DetailsTherapies = () => {
 
   return (
     <>
+      <NavBar/>
       <Details>
         <section className="description-section">
-          <Link className="closeButton" to={'/therapies'}>
-            <FontAwesomeIcon
-              icon={faRectangleXmark}
-              size="2xl"
-              style={{ color: 'black' }}
-            />
-          </Link>
           <h1 className="title">{therapies.attributes?.nome}</h1>
           <span className="span-detais">
             <ul id="containerDetails">

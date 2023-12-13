@@ -78,6 +78,8 @@ const Home = styled.div`
         height: 100%;
         position: fixed;
         opacity: 50%;
+        object-fit: cover;
+        object-position: center;
       }
 
       .ver-mais {
