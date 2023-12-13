@@ -244,6 +244,41 @@ const Details = styled.div`
     .spacing-partners {
       padding-left: 0px;
     }
+
+    .inscriptionIcon {
+      gap: 10px;
+    }
+
+    @media (max-width: 425px) {
+      .style-img-swiper img {
+        width: 20rem;
+        height: 20rem;
+      }
+
+      .style-img-swiper .style-swiper-fotos img {
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .style-img-swiper img {
+        width: 16rem;
+        height: 16rem;
+      }
+
+      .style-img-swiper .style-swiper-fotos img {
+        width: 4rem;
+        height: 4em;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .style-img-swiper img {
+        width: 13rem;
+        height: 13rem;
+      }
+    }
   }
 `
 export default Details
