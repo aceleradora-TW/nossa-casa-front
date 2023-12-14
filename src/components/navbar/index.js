@@ -4,6 +4,7 @@ import NavBarComponent from './styled'
 import logo from './logoMarca.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import Whatsapp from './whatsapp.png'
 const linkParceiro = process.env.REACT_APP_LINK_PARCEIRO
 
 const NavBar = () => {
@@ -32,7 +33,9 @@ const NavBar = () => {
         >
           Ser parceire
         </a>
+        <a href={'https://chat.whatsapp.com/BndMXO2VZY7CS04IiJ9An2'}><img src={Whatsapp}/></a>
       </div>
+      
       <span className="icon-menu" onClick={onClickMenu}>
         <FontAwesomeIcon icon={faBars} />
       </span>
