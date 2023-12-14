@@ -159,7 +159,7 @@ export const DetailsTherapies = () => {
             </ul>
           </span>
 
-          <p className="description">Descrição da terapia</p>
+          <p className="description">Descrição</p>
           <p className="descriptionCMS">{therapies.attributes?.descricao}</p>
           {therapies.attributes?.url_agendamento !== null && (
             <a

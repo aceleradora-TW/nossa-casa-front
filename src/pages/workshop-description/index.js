@@ -165,7 +165,7 @@ export const WorkshopDetails = () => {
               </li>
             </ul>
           </span>
-          <p className="description">Descrição da oficina</p>
+          <p className="description">Descrição</p>
           <p className="descriptionCMS">{workshops.attributes?.descricao}</p>
           {workshops.attributes?.url_inscricao !== null && (
             <a
