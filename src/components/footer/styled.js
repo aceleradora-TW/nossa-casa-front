@@ -18,7 +18,7 @@ footer {
 
   div {
     color: white;
-    width: 180px;
+    width: 210px;
     display: flex;
     align-items: center;
     justify-content: space-between;
