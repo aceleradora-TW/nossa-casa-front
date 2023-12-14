@@ -32,6 +32,11 @@ const EventsStyleDescription = styled.div`
   .parceires p {
     margin-right: 1em;
   }
+
+  .parceires div{
+    display: flex;
+  }
+
   .style-icon {
     margin-right: 1em;
   }
@@ -231,6 +236,24 @@ const EventsStyleDescription = styled.div`
     a {
       text-decoration: none;
       color: black;
+    }
+  }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .container{
+      
+    }
+    .parceires {
+      gap: 0.75rem;
+      flex-direction: column;
+    }
+  }
+
+
+  @media (max-width: 1024px){
+    .container{
+      display: flex;
+      flex-direction: column;
+      height: initial;
     }
   }
 `
