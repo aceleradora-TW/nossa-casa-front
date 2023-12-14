@@ -2,7 +2,7 @@ import { CssCarrosselGlobal } from '../global-styles'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 
 import { cms } from '../../client'
@@ -49,21 +49,13 @@ const WorkshopsCarrossel = () => {
         slidesPerView={3}
         spaceBetween={-110}
         navigation={true}
+        pagination={{clickable: true}}
         breakpoints={{
-          '@0.00': {
-            slidesPerView: 1,
-            spaceBetween: 1
-          },
-          '@0.75': {
-            slidesPerView: 2,
-            spaceBetween: 2
-          },
-          '@1.00': {
-            slidesPerView: 3,
-            spaceBetween: 3
-          }
+          320: {slidesPerView: 1, spaceBetween:1},
+          660: {slidesPerView: 2},
+          1280: {slidesPerView: 3, spaceBetween:1}
         }}
-        modules={[Navigation]}
+        modules={[Navigation, Pagination]}
         className="mySwiper"
       >
         <section>
