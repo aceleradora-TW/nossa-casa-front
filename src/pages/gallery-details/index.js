@@ -22,7 +22,7 @@ export const GalleryDetails = () => {
           (image, id) => {
             return {
               id,
-              url: process.env.REACT_APP_URL_CMS + image.attributes.url
+              url: image.attributes.url
             }
           }
         )

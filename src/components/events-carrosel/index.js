@@ -36,7 +36,7 @@ const Events = () => {
   }, [])
   return (
 
-    <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
+    <CssCarrosselGlobal style={{ background: '#FAFAFA' }}>
       <div className='carrossel'>
         <h1>Eventos</h1>
         <p>A  Nossa Casa realiza diversos eventos culturais que vão de festivais, rodas de conversa, apresentações musicais, exposições de arte visual, entre outros.
@@ -71,7 +71,7 @@ const Events = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img className="img" src={urlCms + events.image_url} />
+                        <img className="img" src={events.image_url} />
                       </div>
                       <div>
                         <p className="date">{events.date.toLocaleDateString('pt-BR', { Timezone: 'UTF' })}</p>

@@ -4,14 +4,12 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
-
 import { cms } from '../../client'
 import VerMais from './styled'
 import { Link } from 'react-router-dom'
 
 const TherapiesCarrossel = () => {
   const [attributes, setAttributes] = useState([])
-  const urlCms = process.env.REACT_APP_URL_CMS
 
   useEffect(() => {
     cms.get('api/therapies/?populate=foto_divulgacao').then((response) => {
@@ -34,7 +32,7 @@ const TherapiesCarrossel = () => {
   }, [])
 
   return (
-    <CssCarrosselGlobal style={{ background: '#F5BC4A' }}>
+    <CssCarrosselGlobal style={{ background: '#FAFAFA' }}>
       <div className="carrossel">
         <h1>Terapias</h1>
         <p>
@@ -82,7 +80,7 @@ const TherapiesCarrossel = () => {
                       <div>
                         <img
                           className="img"
-                          src={urlCms + therapies.image_url}
+                          src={therapies.image_url}
                         />
                       </div>
                       <div>

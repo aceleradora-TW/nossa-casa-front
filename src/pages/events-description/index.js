@@ -1,11 +1,10 @@
 import EventsStyleDescription from './styled'
 import { useState, useEffect } from 'react'
 import { cms } from '../../client'
-import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useParams} from 'react-router-dom'
 import { formatWorkshopDates } from '../../helpers/format-data'
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -13,13 +12,13 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import {
   faBullhorn,
-  faRectangleXmark,
   faUser,
   faPenToSquare,
   faHandHoldingDollar,
   faCalendarDays,
   faLocationDot
 } from '@fortawesome/free-solid-svg-icons'
+import NavBar from '../../components/navbar'
 
 export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
@@ -50,7 +49,7 @@ export const EventsPageDescription = () => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url: process.env.REACT_APP_URL_CMS + image.attributes?.url
+            url:  image.attributes?.url
           }
         })
         setGaleria(images)
@@ -60,9 +59,7 @@ export const EventsPageDescription = () => {
             id: oficina.id,
             type: 'workshops',
             name: oficina.attributes.nome,
-            url:
-              process.env.REACT_APP_URL_CMS +
-              oficina.attributes.foto_divulgacao.data[0].attributes.url,
+            url: oficina.attributes.foto_divulgacao.data[0].attributes.url,
             data_inicio: oficina.attributes.data_inicio,
             horario_inicio: oficina.attributes.horario_inicio
           }
@@ -73,9 +70,7 @@ export const EventsPageDescription = () => {
             type: 'events',
             id: evento.id,
             name: evento.attributes.nome,
-            url:
-              process.env.REACT_APP_URL_CMS +
-              evento.attributes.foto_divulgacao.data.attributes.url,
+            url:evento.attributes.foto_divulgacao.data.attributes.url,
             data_inicio: evento.attributes.data_inicio,
             horario_inicio: evento.attributes.horario_inicio
           }
@@ -99,15 +94,9 @@ export const EventsPageDescription = () => {
   }
   return (
     <div className="full-container">
+      <NavBar/>
       <EventsStyleDescription>
         <div className="container-button-exit">
-          <Link className="close-button" to={'/events'}>
-            <FontAwesomeIcon
-              icon={faRectangleXmark}
-              size="2xl"
-              style={{ color: 'black' }}
-            />
-          </Link>
         </div>
         <section className="description-section">
           <div className="title">
