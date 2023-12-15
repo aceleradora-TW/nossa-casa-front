@@ -89,8 +89,7 @@ export const WorkshopDetails = () => {
                 <div className="start-date">
                   <div className="spacingDate">
                     <FontAwesomeIcon icon={faCalendarDays} size="lg" />
-                    <p>{formatWorkshopDates(workshops)}</p>
-                    <p>{formatWorkshopDuration(workshops)}</p>
+                    <p>{formatWorkshopDates(workshops)} {formatWorkshopDuration(workshops)}</p>
                   </div>
                 </div>
               </li>
@@ -205,6 +204,20 @@ export const WorkshopDetails = () => {
               loop={true}
               spaceBetween={10}
               slidesPerView={7}
+              breakpoints={{
+                '@0.00': {
+                  slidesPerView: 2,
+                  spaceBetween: 1
+                },
+                '@0.75': {
+                  slidesPerView: 4,
+                  spaceBetween: 1
+                },
+                '@1.00': {
+                  slidesPerView: 7,
+                  spaceBetween: 1
+                }
+              }}
               freeMode={true}
               watchSlidesProgress={true}
               modules={[FreeMode, Navigation, Thumbs]}

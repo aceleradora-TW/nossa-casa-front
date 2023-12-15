@@ -15,7 +15,7 @@ const Details = styled.div`
     grid-template-columns: 70% 30%;
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-row-gap: 9px;
     height: 30vh;
   }
 
@@ -42,11 +42,11 @@ const Details = styled.div`
     font-size: 20px;
   }
   .description-section {
-    margin: 0 10vw;
+    margin: 10vh 10vw;
   }
 
   .description {
-    font-weight:bold;
+    font-weight: bold;
     font-size: 30px;
     padding-top: 60px;
     padding-bottom: 20px;
@@ -55,7 +55,7 @@ const Details = styled.div`
   .descriptionCMS {
     font-size: 20px;
     text-align: justify;
-    width: 85%;
+    width: 90%;
     line-height: 23px;
   }
 
@@ -82,9 +82,13 @@ const Details = styled.div`
     margin-top: -14px;
   }
 
+  .spacingDate:nth-child(n + 2){
+    background-color: blue;
+  }
+
   .spacingDate,
   .spacingLocal {
-    width: 70%;
+    width: 100%;
     display: flex;
 
     svg {
@@ -105,7 +109,6 @@ const Details = styled.div`
     padding-left: 8px;
     margin-right: 1.5em;
   }
-
 
   .button-inscription {
     background: #f5bc4a;
@@ -141,11 +144,15 @@ const Details = styled.div`
     }
   }
 
+  .swiper-wrapper {
+    width: 100%;
+  }
+
   .swiper-slide img {
     display: block;
-    width: 30em;
-    height: 30em;
     object-fit: cover;
+    object-position: center;
+    padding-bottom: 30px;
   }
 
   .style-img-swiper {
@@ -154,19 +161,19 @@ const Details = styled.div`
   }
 
   .style-img-swiper img {
-    width: 60rem;
+    width: 100%;
+    max-width: 70rem;
     height: 40rem;
-    object-fit: fill;
   }
 
   .style-swiper-fotos img {
-    width: 8rem;
+    width: 20vw;
+    min-width: 5rem;
     height: 7rem;
+    margin: 0 50px;
   }
 
   .second-carousel {
-    margin-right: 16.5%;
-    margin-left: 16.5%;
     height: 20%;
     box-sizing: border-box;
     padding-top: 1rem;
@@ -199,6 +206,51 @@ const Details = styled.div`
 
   .close-button {
     font-size: 1em;
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    .button-inscription {
+      width: 50%;
+      max-width: 175px;
+    }
+    .descriptionCMS {
+      /* background-color: red; */
+      width: 80vw;
+      margin: 0 auto;
+      font-size: clamp(5px, 100%, 20px);
+    }
+    .description-section h1 {
+      font-size: 30px;
+      margin: 0;
+      padding-bottom: 10%;
+    }
+
+    .span-detais #container-details {
+      grid-template-columns: initial;
+      .start-date,
+    .data-fim, 
+    .local, 
+    .partners, 
+    .parce, 
+    .day,
+    .spacingMoney,
+    .spacingType,
+    .inscription {
+      font-size: 15px;
+    }
+      li {
+        padding-bottom: 3%;
+      }
+    }
+
+    .start-date .spacingDate p {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 1024px) {
   }
 `
 export default Details

@@ -32,6 +32,11 @@ const EventsStyleDescription = styled.div`
   .parceires p {
     margin-right: 1em;
   }
+
+  .parceires div {
+    display: flex;
+  }
+
   .style-icon {
     margin-right: 1em;
   }
@@ -76,8 +81,7 @@ const EventsStyleDescription = styled.div`
     padding-top: 1em;
 
     p {
-    padding-top: 3em;
-
+      padding-top: 3em;
     }
   }
 
@@ -98,10 +102,10 @@ const EventsStyleDescription = styled.div`
 
   .container-carousel {
     background-color: #e4e7eb;
+    width: 100vw;
   }
 
   .swiper-slide {
-    background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,57 +116,43 @@ const EventsStyleDescription = styled.div`
     flex-direction: column;
   }
 
-  .swiper-slide img {
+  .mySwiper .swiper-slide img {
     display: block;
     width: 22vw;
     height: 17vw;
     object-fit: cover;
+    object-position: center;
+  }
+
+  .mySwiper2 .swiper-slide img {
+    padding-bottom: 30px;
   }
 
   .style-img-swiper {
     background-color: #e4e7eb;
-    margin-left: 5%;
-    margin-right: 5%;
     margin-top: 3rem;
     padding-top: 5rem;
   }
 
   .style-img-swiper img {
-    width: 70rem;
+    width: 100%;
+    max-width: 70rem;
     height: 40rem;
+    object-fit: cover;
+    object-position: center;
   }
 
-  .style-swiper-fotos img {
-    width: 9rem;
-    height: 9rem;
-  }
-
-  .second-carousel {
-    margin-left: 5rem;
-    margin-right: 5rem;
-    height: 20%;
-    box-sizing: border-box;
-    padding: 10px 0;
-  }
-
-  .first-carousel {
-    padding-top: 5%;
-  }
-
-  .second-carousel .swiper-slide {
-    width: 25%;
-    height: 100%;
+  .style-swiper-fotos {
+    padding-top: 1px;
     opacity: 0.4;
+    img {
+      object-fit: cover;
+      object-position: center;
+      width: 9rem;
+      height: 9rem;
+    }
   }
 
-  .second-carousel .swiper-slide-thumb-active {
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    opacity: 3;
-    border: 5px solid #f5bc4a;
-  }
 
   .container-button-exit {
     margin-right: 2%;
@@ -232,6 +222,77 @@ const EventsStyleDescription = styled.div`
       text-decoration: none;
       color: black;
     }
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: initial;
+
+      p{
+      font-size: 15px;
+    }
+     
+    }
+
+    .parceires {
+      gap: 0.75rem;
+      flex-direction: column;
+    }
+
+    .description p {
+      padding-top: 1rem;
+      font-size: 20px;
+    }
+
+    .text-title-description{
+      font-size: 30px !important;
+
+    }
+
+    .button-inscription {
+      width: 50%;
+      max-width: 175px;
+    }
+
+    .mySwiper2 {
+      display: flex;
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .style-swiper-fotos {
+      .swiper-free-mode > .swiper-wrapper {
+        display: flex;
+      }
+      img {
+        width: 20vw !important;
+        min-width: 5rem !important;
+        object-fit: cover;
+      }
+    }
+    .slide-itens {
+   width: 80vw;
+   img {
+    width: 100% !important;
+    height:  40vw !important;
+   }
+   .title{
+    font-size: 1.9rem
+   }
+  }
+  }
+
+  @media (max-width: 1024px) {
+    .style-swiper-fotos {
+    img {
+      margin-right: 50px;
+    }
+  }
+   
   }
 `
 export default EventsStyleDescription

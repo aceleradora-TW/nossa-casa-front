@@ -4,7 +4,7 @@ import { cms } from '../../client'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
-import { Link, NavLink, useParams} from 'react-router-dom'
+import { Link, NavLink, useParams } from 'react-router-dom'
 import { formatWorkshopDates } from '../../helpers/format-data'
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -49,7 +49,7 @@ export const EventsPageDescription = () => {
           return {
             id: image.id,
             name: image.attributes?.name,
-            url:  image.attributes?.url
+            url: image.attributes?.url
           }
         })
         setGaleria(images)
@@ -70,7 +70,7 @@ export const EventsPageDescription = () => {
             type: 'events',
             id: evento.id,
             name: evento.attributes.nome,
-            url:evento.attributes.foto_divulgacao.data.attributes.url,
+            url: evento.attributes.foto_divulgacao.data.attributes.url,
             data_inicio: evento.attributes.data_inicio,
             horario_inicio: evento.attributes.horario_inicio
           }
@@ -94,10 +94,9 @@ export const EventsPageDescription = () => {
   }
   return (
     <div className="full-container">
-      <NavBar/>
+      <NavBar />
       <EventsStyleDescription>
-        <div className="container-button-exit">
-        </div>
+        <div className="container-button-exit"></div>
         <section className="description-section">
           <div className="title">
             <h1>{event?.attributes?.nome}</h1>
@@ -107,20 +106,20 @@ export const EventsPageDescription = () => {
               <div className="style-icon">
                 <FontAwesomeIcon icon={faCalendarDays} />{' '}
               </div>
-
-              {formatWorkshopDates(event)}
+              <p>{formatWorkshopDates(event)}</p>
             </li>
             <li>
               <div className="style-icon">
                 <FontAwesomeIcon icon={faHandHoldingDollar} />
               </div>
-              {event?.attributes?.preco ?? 'Evento Gratuito'}
+              <p>{event?.attributes?.preco ?? 'Evento Gratuito'}</p>
+              
             </li>
             <li>
               <div className="style-icon">
                 <FontAwesomeIcon icon={faLocationDot} />
               </div>
-              {event?.attributes?.local}
+              <p>{event?.attributes?.local}</p>
             </li>
             <li>
               <div className="style-icon">
@@ -135,27 +134,33 @@ export const EventsPageDescription = () => {
                   size="lg"
                 />
               </div>
-              {event?.attributes?.tipo}
+              <p>{event?.attributes?.tipo}</p>
+              
             </li>
             <li className="parceires">
-              {event?.attributes?.parceires?.data
-                ?.filter((partner) => partner !== null || partner !== undefined)
-                ?.map((partner) => (
-                  <>
-                    <FontAwesomeIcon icon={faUser} className="style-icon" />
-                    <p key={crypto.randomUUID()}>{partner.attributes?.nome}</p>
-                  </>
-                ))}
+                {event?.attributes?.parceires?.data
+                  ?.filter(
+                    (partner) => partner !== null || partner !== undefined
+                  )
+                  ?.map((partner) => (
+                    <>
+                    <div>
+                      <FontAwesomeIcon icon={faUser} className="style-icon" />
+                      <p key={crypto.randomUUID()}>
+                        {partner.attributes?.nome}
+                      </p>
+                    </div>
+                    </>
+                  ))}
             </li>
 
-            
             <li>
               {event?.attributes?.url_inscricao === null && (
                 <div id="no-registration">
                   <div className="style-icon">
                     <FontAwesomeIcon icon={faPenToSquare} />
                   </div>
-                  Inscrição não é necessária
+                  <p>Inscrição não é necessária</p>
                 </div>
               )}
             </li>
@@ -271,12 +276,26 @@ export const EventsPageDescription = () => {
                 slidesPerView={7}
                 freeMode={true}
                 watchSlidesProgress={true}
+                breakpoints={{
+                  '@0.00': {
+                    slidesPerView: 3,
+                    spaceBetween: 1
+                  },
+                  '@0.75': {
+                    slidesPerView: 4,
+                    spaceBetween: 2
+                  },
+                  '@1.00': {
+                    slidesPerView: 7,
+                    spaceBetween: 1
+                  }
+                }}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper"
+                className="mySwiper2"
               >
                 {galeria.map((image) => (
                   <SwiperSlide key={crypto.randomUUID()}>
-                    <img src={image.url} alt={image.name} />
+                    <img className="" src={image.url} alt={image.name} />
                   </SwiperSlide>
                 ))}
               </Swiper>
