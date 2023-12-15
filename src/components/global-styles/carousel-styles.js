@@ -28,6 +28,9 @@ export const CssCarrosselGlobal = styled.div`
     background-color: #fafafa;
     position: relative;
     z-index: 0;
+    .swiper-pagination {
+      display: none;
+    }
   }
   .swiper-slide {
     display: flex;
@@ -44,11 +47,42 @@ export const CssCarrosselGlobal = styled.div`
       padding-top: 5px;
       cursor: default;
     }
-@media (min-width: 600px) {
-  .img {
+    
+}
+
+@media (max-width: 880px){
+  .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+}
+
+@media (max-width: 767px) {
+  .mySwiper{
+    .swiper-pagination {
+      display: block;
+    }
+    .swiper-slide {
+      .img {
       width: 37vh;
       height: 35vh;
     }
+    }
+  }
 }
+
+@media (max-width: 1200px) and (min-height: 1000px){
+  .mySwiper{
+    .swiper-pagination {
+      display: block;
+    }
+  .swiper-slide {
+      .img {
+      width: 45vw;
+      height: 35vh;
+    }
+    }
+  }
 }
+
 `
