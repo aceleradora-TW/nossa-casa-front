@@ -100,7 +100,7 @@ const Details = styled.div`
     border-radius: 3px;
     border: none;
     font-size: 14px;
-    width: 10%;
+    width: 170px;
     height: 40px;
     cursor: pointer;
     display: flex;
@@ -248,6 +248,10 @@ const Details = styled.div`
     .inscriptionIcon {
       gap: 10px;
     }
+    .button-inscription {
+      width: 50%;
+      max-width: 175px;
+    }
 
     @media (max-width: 425px) {
       .style-img-swiper img {
@@ -278,6 +282,7 @@ const Details = styled.div`
         width: 13rem;
         height: 13rem;
       }
+      
     }
   }
 `
