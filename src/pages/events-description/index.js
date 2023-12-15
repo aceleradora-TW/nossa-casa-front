@@ -106,20 +106,20 @@ export const EventsPageDescription = () => {
               <div className="style-icon">
                 <FontAwesomeIcon icon={faCalendarDays} />{' '}
               </div>
-
-              {formatWorkshopDates(event)}
+              <p>{formatWorkshopDates(event)}</p>
             </li>
             <li>
               <div className="style-icon">
                 <FontAwesomeIcon icon={faHandHoldingDollar} />
               </div>
-              {event?.attributes?.preco ?? 'Evento Gratuito'}
+              <p>{event?.attributes?.preco ?? 'Evento Gratuito'}</p>
+              
             </li>
             <li>
               <div className="style-icon">
                 <FontAwesomeIcon icon={faLocationDot} />
               </div>
-              {event?.attributes?.local}
+              <p>{event?.attributes?.local}</p>
             </li>
             <li>
               <div className="style-icon">
@@ -134,7 +134,8 @@ export const EventsPageDescription = () => {
                   size="lg"
                 />
               </div>
-              {event?.attributes?.tipo}
+              <p>{event?.attributes?.tipo}</p>
+              
             </li>
             <li className="parceires">
                 {event?.attributes?.parceires?.data
@@ -159,7 +160,7 @@ export const EventsPageDescription = () => {
                   <div className="style-icon">
                     <FontAwesomeIcon icon={faPenToSquare} />
                   </div>
-                  Inscrição não é necessária
+                  <p>Inscrição não é necessária</p>
                 </div>
               )}
             </li>

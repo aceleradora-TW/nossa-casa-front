@@ -153,32 +153,6 @@ const EventsStyleDescription = styled.div`
     }
   }
 
-  /* .second-carousel {
-    margin-left: 5rem;
-    margin-right: 5rem;
-    height: 20%;
-    box-sizing: border-box;
-    padding: 10px 0;
-  } */
-
-  /* .first-carousel {
-    padding-top: 5%;
-  } */
-
-  /* .second-carousel .swiper-slide {
-    width: 25%;
-    height: 100%;
-    opacity: 0.4;
-  } */
-
-  /* .second-carousel .swiper-slide-thumb-active {
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    opacity: 3;
-    border: 5px solid #f5bc4a;
-  } */
 
   .container-button-exit {
     margin-right: 2%;
@@ -250,7 +224,18 @@ const EventsStyleDescription = styled.div`
     }
   }
 
-  @media (min-width: 320px) and (max-width: 767px) {
+  @media (min-width: 320px) and (max-width: 768px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: initial;
+
+      p{
+      font-size: 15px;
+    }
+     
+    }
+
     .parceires {
       gap: 0.75rem;
       flex-direction: column;
@@ -258,6 +243,12 @@ const EventsStyleDescription = styled.div`
 
     .description p {
       padding-top: 1rem;
+      font-size: 20px;
+    }
+
+    .text-title-description{
+      font-size: 30px !important;
+
     }
 
     .button-inscription {
@@ -274,11 +265,8 @@ const EventsStyleDescription = styled.div`
     }
 
     .style-swiper-fotos {
-      background-color: cyan;
       .swiper-free-mode > .swiper-wrapper {
         display: flex;
-        /* justify-content: space-around; */
-        /* gap: 10%; */
       }
       img {
         width: 20vw !important;
@@ -286,14 +274,25 @@ const EventsStyleDescription = styled.div`
         object-fit: cover;
       }
     }
+    .slide-itens {
+   width: 80vw;
+   img {
+    width: 100% !important;
+    height:  40vw !important;
+   }
+   .title{
+    font-size: 1.9rem
+   }
+  }
   }
 
   @media (max-width: 1024px) {
-    .container {
-      display: flex;
-      flex-direction: column;
-      height: initial;
+    .style-swiper-fotos {
+    img {
+      margin-right: 50px;
     }
+  }
+   
   }
 `
 export default EventsStyleDescription
