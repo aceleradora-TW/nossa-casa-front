@@ -44,7 +44,6 @@ const Events = () => {
       </div>
       <Swiper
         slidesPerView={3}
-        spaceBetween={-110}
         navigation={true}
         pagination={{clickable: true}}
         breakpoints={{

@@ -59,15 +59,30 @@ export const CssCarrosselGlobal = styled.div`
 
 @media (max-width: 767px) {
   .mySwiper{
+    .swiper-pagination {
+      display: block;
+    }
     .swiper-slide {
       .img {
       width: 37vh;
       height: 35vh;
     }
     }
+  }
+}
+
+@media (max-width: 1200px) and (min-height: 1000px){
+  .mySwiper{
     .swiper-pagination {
       display: block;
     }
+  .swiper-slide {
+      .img {
+      width: 45vw;
+      height: 35vh;
+    }
+    }
   }
 }
+
 `
