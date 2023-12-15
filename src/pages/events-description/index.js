@@ -276,11 +276,11 @@ export const EventsPageDescription = () => {
                 freeMode={true}
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper"
+                className="mySwiper2"
               >
                 {galeria.map((image) => (
                   <SwiperSlide key={crypto.randomUUID()}>
-                    <img src={image.url} alt={image.name} />
+                    <img className="" src={image.url} alt={image.name} />
                   </SwiperSlide>
                 ))}
               </Swiper>

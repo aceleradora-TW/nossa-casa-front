@@ -46,7 +46,7 @@ const Details = styled.div`
   }
 
   .description {
-    font-weight:bold;
+    font-weight: bold;
     font-size: 30px;
     padding-top: 60px;
     padding-bottom: 20px;
@@ -55,7 +55,7 @@ const Details = styled.div`
   .descriptionCMS {
     font-size: 20px;
     text-align: justify;
-    width: 85%;
+    width: 90%;
     line-height: 23px;
   }
 
@@ -106,7 +106,6 @@ const Details = styled.div`
     margin-right: 1.5em;
   }
 
-
   .button-inscription {
     background: #f5bc4a;
     border-radius: 3px;
@@ -143,9 +142,10 @@ const Details = styled.div`
 
   .swiper-slide img {
     display: block;
-    width: 30em;
-    height: 30em;
     object-fit: cover;
+    object-position: center;
+    margin-right: 16.5%;
+    margin-left: 16.5%;
   }
 
   .style-img-swiper {
@@ -156,7 +156,6 @@ const Details = styled.div`
   .style-img-swiper img {
     width: 60rem;
     height: 40rem;
-    object-fit: fill;
   }
 
   .style-swiper-fotos img {
@@ -199,6 +198,29 @@ const Details = styled.div`
 
   .close-button {
     font-size: 1em;
+  }
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    .description-section h1 {
+      margin: 0;
+      padding-bottom: 10%;
+    }
+
+    .span-detais #container-details {
+      grid-template-columns: initial;
+      li {
+        padding-bottom: 3%;
+      }
+
+      .start-date .spacingDate p {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
   }
 `
 export default Details
