@@ -124,16 +124,19 @@ const EventsStyleDescription = styled.div`
     object-position: center;
   }
 
+  .mySwiper2 .swiper-slide img {
+    padding-bottom: 30px;
+  }
+
   .style-img-swiper {
     background-color: #e4e7eb;
-    margin-left: 5%;
-    margin-right: 5%;
     margin-top: 3rem;
     padding-top: 5rem;
   }
 
   .style-img-swiper img {
-    width: 70rem;
+    width: 100%;
+    max-width: 70rem;
     height: 40rem;
     object-fit: cover;
     object-position: center;
@@ -141,6 +144,7 @@ const EventsStyleDescription = styled.div`
 
   .style-swiper-fotos {
     padding-top: 1px;
+    opacity: 0.4;
     img {
       object-fit: cover;
       object-position: center;
@@ -261,10 +265,26 @@ const EventsStyleDescription = styled.div`
       max-width: 175px;
     }
 
-    .mySwiper2 .swiper-slide img {
-      display: block;
-      width: 30rem;
-      height: 30rem;
+    .mySwiper2 {
+      display: flex;
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .style-swiper-fotos {
+      background-color: cyan;
+      .swiper-free-mode > .swiper-wrapper {
+        display: flex;
+        /* justify-content: space-around; */
+        /* gap: 10%; */
+      }
+      img {
+        width: 20vw !important;
+        min-width: 5rem !important;
+        object-fit: cover;
+      }
     }
   }
 

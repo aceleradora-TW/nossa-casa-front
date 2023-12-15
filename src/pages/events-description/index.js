@@ -275,6 +275,20 @@ export const EventsPageDescription = () => {
                 slidesPerView={7}
                 freeMode={true}
                 watchSlidesProgress={true}
+                breakpoints={{
+                  '@0.00': {
+                    slidesPerView: 3,
+                    spaceBetween: 1
+                  },
+                  '@0.75': {
+                    slidesPerView: 4,
+                    spaceBetween: 2
+                  },
+                  '@1.00': {
+                    slidesPerView: 7,
+                    spaceBetween: 1
+                  }
+                }}
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper2"
               >
