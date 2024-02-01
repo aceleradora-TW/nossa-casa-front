@@ -18,6 +18,8 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import NavBar from '../../components/navbar'
 import { Link, useParams } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 
 export const DetailsTherapies = () => {
   const [therapies, setTherapies] = useState([])
@@ -158,9 +160,16 @@ export const DetailsTherapies = () => {
               </li>
             </ul>
           </span>
-
-          <p className="description">Descrição</p>
-          <p className="descriptionCMS">{therapies.attributes?.descricao}</p>
+          <div className="description">
+            <p className="text-title-description">Descrição</p>
+            {(
+              <div>
+                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                {therapies?.attributes?.descricao}
+                </ReactMarkdown>
+              </div>
+            )}
+          </div>
           {therapies.attributes?.url_agendamento !== null && (
             <a
               className="button-inscription"
