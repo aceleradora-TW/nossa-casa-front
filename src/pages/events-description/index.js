@@ -19,6 +19,8 @@ import {
   faLocationDot
 } from '@fortawesome/free-solid-svg-icons'
 import NavBar from '../../components/navbar'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 
 export const EventsPageDescription = () => {
   const [event, setEvent] = useState([])
@@ -162,7 +164,13 @@ export const EventsPageDescription = () => {
           </ul>
           <div className="description">
             <p className="text-title-description">Descrição</p>
-            <p>{event?.attributes?.descricao}</p>
+            {(
+              <div>
+                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                {event?.attributes?.descricao}
+                </ReactMarkdown>
+              </div>
+            )}
           </div>
         </section>
         <div className="Container-button">

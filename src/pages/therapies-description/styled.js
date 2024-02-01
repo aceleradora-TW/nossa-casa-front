@@ -38,7 +38,18 @@ const Details = styled.div`
   .description-section {
     margin: 0 10vw;
   }
+  
+.container-description {
+  padding-top: 1em;
+    li {
+      padding-top: 0em;
+    }
 
+    p {
+    padding-top: 1em;
+
+    }
+}
   .description {
     font-weight: bold;
     font-size: 30px;
