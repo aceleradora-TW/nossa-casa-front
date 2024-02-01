@@ -52,12 +52,19 @@ const Details = styled.div`
     padding-bottom: 20px;
   }
 
-  .descriptionCMS {
-    font-size: 20px;
-    text-align: justify;
-    width: 85%;
-    line-height: 23px;
-  }
+  .container-description {
+  padding-top: 1em;
+  font-size: 20px;
+  line-height: 23px;
+    li {
+      padding-top: 0em;
+    }
+
+    p {
+    padding-top: 1em;
+
+    }
+}
 
   .button-close,
   .button-container {

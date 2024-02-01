@@ -163,7 +163,7 @@ export const DetailsTherapies = () => {
           <div className='container-description'>
             <p className="description">Descrição</p>
             {(
-                <div className=''>
+                <div>
                   <ReactMarkdown rehypePlugins={[rehypeRaw]}>
                   {therapies?.attributes?.descricao}
                   </ReactMarkdown>

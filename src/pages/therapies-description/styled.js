@@ -41,6 +41,8 @@ const Details = styled.div`
   
 .container-description {
   padding-top: 1em;
+  font-size: 20px;
+  line-height: 23px;
     li {
       padding-top: 0em;
     }
@@ -55,13 +57,6 @@ const Details = styled.div`
     font-size: 30px;
     padding-top: 60px;
     padding-bottom: 20px;
-  }
-
-  .descriptionCMS {
-    font-size: 20px;
-    text-align: justify;
-    width: 85%;
-    line-height: 23px;
   }
 
   .button-close,
