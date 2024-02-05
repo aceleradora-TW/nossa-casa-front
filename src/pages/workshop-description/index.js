@@ -71,9 +71,9 @@ export const WorkshopDetails = () => {
   const formatWorkshopDates = (workshop) => {
     if (workshop && workshop.attributes && workshop.attributes.data_inicio && workshop.attributes.data_fim) {
       return endsOnSameDay(workshop)
-        ? formatDate(new Date(workshop.attributes?.data_inicio))
-        : `${formatDate(new Date(workshop.attributes?.data_inicio))} 
-        até ${formatDate(new Date(workshop.attributes?.data_fim))}`
+      ? formatDate(new Date(`${workshop.attributes?.data_inicio}T00:00:00-0300`))
+      : `${formatDate(new Date(`${workshop.attributes?.data_inicio}T00:00:00-0300`))} 
+      até ${formatDate(new Date(`${workshop.attributes?.data_fim}T00:00:00-0300`))}`
     }
   }
 
