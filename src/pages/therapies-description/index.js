@@ -71,10 +71,10 @@ export const DetailsTherapies = () => {
                       <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
                       <p>{`
                      ${handleDate(
-                       new Date(therapies.attributes?.data_inicio)
+                       new Date(`${therapies.attributes?.data_inicio}T00:00:00-0300`)
                      )} •
                     ${therapies.attributes?.horario_inicio} >
-                    ${handleDate(new Date(therapies.attributes?.data_fim))} 
+                    ${handleDate(new Date(`${therapies.attributes?.data_fim}T00:00:00-0300`))} 
                       • ${therapies.attributes?.horario_fim}
                       `}</p>
                     </div>
