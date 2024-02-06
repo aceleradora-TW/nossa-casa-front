@@ -65,6 +65,7 @@ const EventsStyleDescription = styled.div`
   }
 
   .text-title-description {
+    padding-bottom: 0.5em;
     font-size: 1.875em;
     font-weight: bold;
   }
@@ -79,9 +80,13 @@ const EventsStyleDescription = styled.div`
 
   .description {
     padding-top: 1em;
+    li {
+      padding-top: 0em;
+    }
 
     p {
-      padding-top: 3em;
+    padding-top: 1em;
+
     }
   }
 

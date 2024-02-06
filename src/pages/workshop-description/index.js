@@ -18,6 +18,8 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import NavBar from '../../components/navbar'
 import { Link, useParams } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 
 export const WorkshopDetails = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
@@ -164,8 +166,16 @@ export const WorkshopDetails = () => {
               </li>
             </ul>
           </span>
-          <p className="description">Descrição</p>
-          <p className="descriptionCMS">{workshops.attributes?.descricao}</p>
+          <div className="description">
+            <p className="text-title-description">Descrição</p>
+            {(
+              <div className='descriptionCMS'>
+                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                {workshops.attributes?.descricao}
+                </ReactMarkdown>
+              </div>
+            )}
+          </div>
           {workshops.attributes?.url_inscricao !== null && (
             <a
               className="button-inscription"
