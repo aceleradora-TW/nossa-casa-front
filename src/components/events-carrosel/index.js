@@ -18,7 +18,7 @@ const Events = () => {
           return {
             id: data.id,
             name: data.attributes.nome,
-            date: new Date(`${data.attributes.data_inicio}T00:00:00-0300`),
+            date: new Date(data.attributes.data_inicio).toLocaleDateString('pt-BR', {timeZone: 'UTC'}),
             image_url: data.attributes.foto_divulgacao.data.attributes.url,
             time_start: data.attributes.horario_inicio,
             time_end: data.attributes.horario_fim,
@@ -65,7 +65,7 @@ const Events = () => {
                         <img className="img" src={events.image_url} />
                       </div>
                       <div>
-                        <p className="date">{events.date.toLocaleDateString('pt-BR', { Timezone: 'UTC' })}</p>
+                        <p className="date">{events.date}</p>
                         <h3 className="title">{events.name}</h3>
                       </div>
                       <EventsComponent>
