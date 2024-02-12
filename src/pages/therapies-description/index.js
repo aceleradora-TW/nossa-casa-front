@@ -18,6 +18,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import NavBar from '../../components/navbar'
 import { Link, useParams } from 'react-router-dom'
+import { formatWorkshopDates, formatWorkshopDuration } from '../../helpers/format-data'
 
 export const DetailsTherapies = () => {
   const [therapies, setTherapies] = useState([])
@@ -69,14 +70,7 @@ export const DetailsTherapies = () => {
                   <p className="start-date">
                     <div className="spacingDate">
                       <FontAwesomeIcon icon={faCalendarDays} size="lg" />{' '}
-                      <p>{`
-                     ${handleDate(
-                       new Date(`${therapies.attributes?.data_inicio}T00:00:00-0300`)
-                     )} •
-                    ${therapies.attributes?.horario_inicio} >
-                    ${handleDate(new Date(`${therapies.attributes?.data_fim}T00:00:00-0300`))} 
-                      • ${therapies.attributes?.horario_fim}
-                      `}</p>
+                      <p>{formatWorkshopDates(therapies)} {formatWorkshopDuration(therapies)}</p>
                     </div>
                   </p>
                 </div>
