@@ -16,10 +16,8 @@ const endsOnSameDay = (workshop) =>
 
 export const formatWorkshopDates = (workshop) => {
   if (
-    workshop &&
-    workshop.attributes &&
-    workshop.attributes.data_inicio &&
-    workshop.attributes.data_fim
+    workshop?.attributes?.data_inicio &&
+    workshop?.attributes?.data_fim
   ) {
     return endsOnSameDay(workshop)
       ? formatDate(new Date(workshop.attributes?.data_inicio))

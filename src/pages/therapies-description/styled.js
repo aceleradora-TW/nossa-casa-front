@@ -39,18 +39,30 @@ const Details = styled.div`
     margin: 0 10vw;
   }
 
-  .description {
+  .text-title-description {
+    padding-bottom: 0.5em;
+    font-size: 1.875em;
     font-weight: bold;
-    font-size: 30px;
-    padding-top: 60px;
-    padding-bottom: 20px;
   }
 
-  .descriptionCMS {
-    font-size: 20px;
+  .description {
     text-align: justify;
-    width: 85%;
-    line-height: 23px;
+    padding-top: 6em;
+    font-size: 1.25em;
+    line-height: 1.3em;
+    width: 92%;
+  }
+
+  .description {
+    padding-top: 1em;
+    li {
+      padding-top: 0em;
+    }
+
+    p {
+    padding-top: 1em;
+
+    }
   }
 
   .button-close,
