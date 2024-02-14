@@ -18,6 +18,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import NavBar from '../../components/navbar'
 import { Link, useParams } from 'react-router-dom'
+import { formatWorkshopDates, formatWorkshopDuration } from '../../helpers/format-data'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 
@@ -44,19 +45,6 @@ export const DetailsTherapies = () => {
         setTherapies(data)
       })
   }, [])
-
-  const handleDate = (date) => {
-    const day = date.toLocaleDateString(undefined, {
-      day: 'numeric',
-      Timezone: 'UTF'
-    })
-    const month = date.toLocaleDateString('pt-BR', { month: 'short' })
-    const year = date.toLocaleDateString(undefined, {
-      year: 'numeric',
-      Timezone: 'UTF'
-    })
-    return [day, month, year].join(' ')
-  }
 
   return (
     <>

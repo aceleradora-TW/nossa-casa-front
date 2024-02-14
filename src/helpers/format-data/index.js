@@ -1,11 +1,12 @@
 const formatDate = (date) => {
-  return new Intl.DateTimeFormat('pt-BR', {
+  const dateFormated = new Intl.DateTimeFormat('pt-BR', {
     timeZone: 'UTC',
     day: '2-digit',
     month: 'short',
     year: 'numeric',
     weekday: 'long',
   }).format(date)
+  return dateFormated[0].toUpperCase()+ dateFormated.slice(1,)
 }
 
 export const formatWorkshopDuration = (workshop) =>
