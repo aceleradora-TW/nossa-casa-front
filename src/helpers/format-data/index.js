@@ -1,6 +1,6 @@
 const formatDate = (date) => {
   const dateFormated = new Intl.DateTimeFormat('pt-BR', {
-    timeZone: 'America/Sao_Paulo',
+    timeZone: 'UTC',
     day: '2-digit',
     month: 'short',
     year: 'numeric',
