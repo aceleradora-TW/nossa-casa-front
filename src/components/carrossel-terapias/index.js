@@ -18,6 +18,10 @@ const TherapiesCarrossel = () => {
         if (data) {
           return {
             id: data.id,
+            date: new Date(data.attributes.data_inicio).toLocaleDateString(
+              'pt-BR',
+              { timeZone: 'UTC' },
+            ),
             name: data.attributes.nome,
             image_url: data.attributes.foto_divulgacao.data[0].attributes.url
           }
@@ -75,7 +79,8 @@ const TherapiesCarrossel = () => {
                         />
                       </div>
                       <div>
-                        <h1 className="title">{therapies.name}</h1>
+                        <p className="date">{therapies.date}</p>
+                        <h3 className="title">{therapies.name}</h3>
                       </div>
                       <VerMais>
                         <div className="styled-button">
