@@ -10,6 +10,7 @@ import {
   faLocationDot,
   faBullhorn
 } from '@fortawesome/free-solid-svg-icons'
+import { formatWorkshopDates, formatWorkshopDuration } from '../../helpers/format-data'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
 import 'swiper/css'
@@ -43,41 +44,6 @@ export const WorkshopDetails = () => {
         setWorkshops(data)
       })
   }, [])
-  const daysOfWeekInPtBr = [
-    'Domingo',
-    'Segunda',
-    'Terça',
-    'Quarta',
-    'Quinta',
-    'Sexta',
-    'Sábado'
-  ]
-  const formatDate = (date) => {
-    const day = date.toLocaleDateString(undefined, {
-      day: 'numeric',
-      Timezone: 'UTF'
-    })
-    const month = date.toLocaleDateString('pt-BR', { month: 'short' })
-    const year = date.toLocaleDateString(undefined, {
-      year: 'numeric',
-      Timezone: 'UTF'
-    })
-    return `${daysOfWeekInPtBr[date.getDay()]}, ${day} ${month} ${year}`
-  }
-  const formatWorkshopDuration = (workshop) =>
-    `, ${workshop.attributes?.horario_inicio} > ${workshop.attributes?.horario_fim}`
-
-  const endsOnSameDay = (workshop) =>
-    workshop.attributes?.data_inicio === workshop.attributes?.data_fim
-
-  const formatWorkshopDates = (workshop) => {
-    if (workshop && workshop.attributes && workshop.attributes.data_inicio && workshop.attributes.data_fim) {
-      return endsOnSameDay(workshop)
-        ? formatDate(new Date(workshop.attributes?.data_inicio))
-        : `${formatDate(new Date(workshop.attributes?.data_inicio))} 
-        até ${formatDate(new Date(workshop.attributes?.data_fim))}`
-    }
-  }
 
   return (
     <>
