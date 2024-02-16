@@ -18,15 +18,15 @@ const WorkshopsCarrossel = () => {
     cms.get('api/workshops/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
       const workshops = data
-        .filter(workshop => workshop !== null && workshop !== undefined)
-        .map(workshop => ({
+        .filter((workshop) => workshop !== null && workshop !== undefined)
+        .map((workshop) => ({
           id: workshop.id,
           name: workshop.attributes.nome,
-          imageUrl: workshop.attributes.foto_divulgacao.data[0].attributes.url
+          imageUrl: workshop.attributes.foto_divulgacao.data[0].attributes.url,
         }))
 
       const workshopsSortedByName = workshops.sort((a, b) =>
-        a.nome < b.nome ? -1 : 1
+        a.nome < b.nome ? -1 : 1,
       )
       setAttributes(workshopsSortedByName)
     })
@@ -37,22 +37,30 @@ const WorkshopsCarrossel = () => {
       <div className="carrossel">
         <h1>Oficinas</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          accumsan accumsan elit vel ullamcorper. Vestibulum ante ipsum primis
-          in faucibus orci luctus et ultrices posuere cubilia curae; Nullam eget
-          ligula et libero volutpat tristique. Duis tincidunt dolor dolor, vel
-          pulvinar tellus mattis id.
+          A Nossa Casa é reconhecida por sua ampla variedade de oficinas, que
+          vão desde atividades de lambe-lambe, dança, ChatGPT, contação de
+          histórias, caderno de artista e gastronomia vegana até o emocionante
+          bike-teatro e o criativo Laboratório de Produção Cultural. Estamos
+          totalmente comprometidos em articular e promover essas atividades,
+          enriquecendo a comunidade e fortalecendo os laços de solidariedade e
+          inclusão que nos definem. 
+          <br/>
+          <br/>
+          Ao oferecer oficinas e workshops, a Nossa
+          Casa também fomenta a Economia Solidária, tanto para educadores quanto
+          para os participantes, que recebem capacitação, conhecimento e
+          possibilidades de novos caminhos.
         </p>
       </div>
 
       <Swiper
         slidesPerView={3}
         navigation={true}
-        pagination={{clickable: true}}
+        pagination={{ clickable: true }}
         breakpoints={{
-          320: {slidesPerView: 1, spaceBetween:1},
-          660: {slidesPerView: 2},
-          1280: {slidesPerView: 3, spaceBetween:1}
+          320: { slidesPerView: 1, spaceBetween: 1 },
+          660: { slidesPerView: 2 },
+          1280: { slidesPerView: 3, spaceBetween: 1 },
         }}
         modules={[Navigation, Pagination]}
         className="mySwiper"
@@ -65,10 +73,7 @@ const WorkshopsCarrossel = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img
-                          className="img"
-                          src={workshops.imageUrl}
-                        />
+                        <img className="img" src={workshops.imageUrl} />
                       </div>
                       <div>
                         <p className="date">{workshops.data}</p>
