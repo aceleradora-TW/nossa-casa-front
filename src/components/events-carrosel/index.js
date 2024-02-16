@@ -66,7 +66,6 @@ const Events = () => {
                       </div>
                       <div>
                         <p className="date">{events.date}</p>
-                        {console.log(events.date)}
                         <h3 className="title">{events.name}</h3>
                       </div>
                       <EventsComponent>
