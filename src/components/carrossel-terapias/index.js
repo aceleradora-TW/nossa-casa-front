@@ -20,7 +20,7 @@ const TherapiesCarrossel = () => {
             id: data.id,
             date: new Date(data.attributes.data_inicio).toLocaleDateString(
               'pt-BR',
-              { timeZone: 'UTC' },
+              { timeZone: 'UTC' }
             ),
             name: data.attributes.nome,
             image_url: data.attributes.foto_divulgacao.data[0].attributes.url
@@ -40,27 +40,28 @@ const TherapiesCarrossel = () => {
       <div className="carrossel">
         <h1>Terapias</h1>
         <p>
-          Ao longo da história, espaços de autocuidado e bem-estar foram
-          associados às classes mais abastadas. Ainda hoje, a população negra,
-          LGBTs, mulheres e moradores de periferias têm acesso limitado a esses
-          locais, enfrentando rotinas maçantes e exclusão social. A Clínica
-          Social da Nossa Casa visa democratizar o acesso a serviços como
-          psicoterapia, massoterapia, yoga, reiki, entre outros. Com
-          profissionais oferecendo preços acessíveis, busca proporcionar saúde e
-          bem-estar para todes, promovendo qualidade de vida, autonomia e
-          dignidade. Conheça mais sobre os serviços oferecidos e entre em
-          contato.
+          Entendendo a importância da Saúde Integrativa, a Nossa Casa fomenta e
+          oferece serviços e produtos na área da saúde, com o objetivo de tornar
+          a qualidade de vida acessível a todos. Assim, promovemos espaços e
+          eventos dedicados à saúde mental, física e emocional, oferecendo
+          atividades como massoterapia, rodas de conversa, reiki, yoga,
+          acupuntura e outras práticas.
+          <br />
+          <br />
+          Além disso, possuímos a Clínica Social na área de Psicologia, onde o
+          atendimento psicoterapêutico é oferecido de maneira acessível,
+          popular, crítica e humanizada.
         </p>
       </div>
 
       <Swiper
         slidesPerView={3}
         navigation={true}
-        pagination={{clickable: true}}
+        pagination={{ clickable: true }}
         breakpoints={{
-          320: {slidesPerView: 1, spaceBetween:1},
-          660: {slidesPerView: 2},
-          1280: {slidesPerView: 3, spaceBetween:1}
+          320: { slidesPerView: 1, spaceBetween: 1 },
+          660: { slidesPerView: 2 },
+          1280: { slidesPerView: 3, spaceBetween: 1 }
         }}
         modules={[Navigation, Pagination]}
         className="mySwiper"
@@ -73,18 +74,26 @@ const TherapiesCarrossel = () => {
                   <SwiperSlide>
                     <div>
                       <div>
-                        <img
-                          className="img"
-                          src={therapies.image_url}
-                        />
+                        <img className="img" src={therapies.image_url} />
                       </div>
                       <div>
-                        <p className="date">{therapies.date}</p>
+                        {console.log(therapies.date)}
+                      { 
+                      therapies.date === "01/01/1970" ? (
+                        <p></p>                         
+                        ) : (
+                          <p className="date">
+                          {therapies.date}
+                        </p>
+                        )}
                         <h3 className="title">{therapies.name}</h3>
                       </div>
                       <VerMais>
                         <div className="styled-button">
-                          <Link className="button-writing" to={`${therapies.id}`}>
+                          <Link
+                            className="button-writing"
+                            to={`${therapies.id}`}
+                          >
                             Ver mais
                           </Link>
                         </div>
