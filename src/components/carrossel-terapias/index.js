@@ -77,7 +77,6 @@ const TherapiesCarrossel = () => {
                         <img className="img" src={therapies.image_url} />
                       </div>
                       <div>
-                        {console.log(therapies.date)}
                       { 
                       therapies.date === "01/01/1970" ? (
                         <p></p>                         
