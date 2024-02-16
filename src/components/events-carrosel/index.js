@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { FreeMode, Navigation, Pagination } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import { cms } from '../../client'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { CssCarrosselGlobal } from '../global-styles'
@@ -10,7 +10,6 @@ import EventsComponent from './styled.js'
 
 const Events = () => {
   const [attributesEvents, setAttributesEvents] = useState([])
-  const urlCms = process.env.REACT_APP_URL_CMS
   useEffect(() => {
     cms.get('api/events/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
@@ -19,7 +18,7 @@ const Events = () => {
           return {
             id: data.id,
             name: data.attributes.nome,
-            date: new Date(data.attributes.data_inicio),
+            date: new Date(data.attributes.data_inicio).toLocaleDateString('pt-BR', {timeZone: 'UTC'}),
             image_url: data.attributes.foto_divulgacao.data.attributes.url,
             time_start: data.attributes.horario_inicio,
             time_end: data.attributes.horario_fim,
@@ -36,6 +35,7 @@ const Events = () => {
       }
     })
   }, [])
+  
   return (
     <CssCarrosselGlobal style={{ background: '#FAFAFA' }}>
       <div className="carrossel">

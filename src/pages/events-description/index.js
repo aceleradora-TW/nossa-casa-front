@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
 import { Link, NavLink, useParams } from 'react-router-dom'
-import { formatWorkshopDates } from '../../helpers/format-data'
+import { formatWorkshopDates, formatWorkshopDuration } from '../../helpers/format-data'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
@@ -108,7 +108,7 @@ export const EventsPageDescription = () => {
               <div className="style-icon">
                 <FontAwesomeIcon icon={faCalendarDays} />{' '}
               </div>
-              <p>{formatWorkshopDates(event)}</p>
+              <p>{formatWorkshopDates(event)} {formatWorkshopDuration(event)}</p>
             </li>
             <li>
               <div className="style-icon">
