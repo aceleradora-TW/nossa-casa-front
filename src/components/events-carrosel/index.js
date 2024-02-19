@@ -25,7 +25,7 @@ const Events = () => {
             type: data.attributes.tipo,
             location: data.attributes.local,
             price: data.attributes.preco,
-            description: data.attributes.descricao,
+            description: data.attributes.descricao
           }
         })
         const eventsOrdered = events
@@ -64,7 +64,7 @@ const Events = () => {
         breakpoints={{
           320: { slidesPerView: 1, spaceBetween: 1 },
           660: { slidesPerView: 2 },
-          1280: { slidesPerView: 3, spaceBetween: 1 },
+          1280: { slidesPerView: 3, spaceBetween: 1 }
         }}
         modules={[Navigation, Pagination]}
         className="mySwiper"
@@ -80,11 +80,15 @@ const Events = () => {
                         <img className="img" src={events.image_url} />
                       </div>
                       <div>
-                        <p className="date">
-                          {events.date.toLocaleDateString('pt-BR', {
-                            Timezone: 'UTF',
-                          })}
+                      { 
+                      events.date === "01/01/1970" ? (
+                        <p></p>
+                          
+                        ) : (
+                          <p className="date">
+                          {events.date}
                         </p>
+                        )}
                         <h3 className="title">{events.name}</h3>
                       </div>
                       <EventsComponent>

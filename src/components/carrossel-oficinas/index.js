@@ -17,18 +17,25 @@ const WorkshopsCarrossel = () => {
   useEffect(() => {
     cms.get('api/workshops/?populate=foto_divulgacao').then((response) => {
       const { data } = response.data
-      const workshops = data
-        .filter((workshop) => workshop !== null && workshop !== undefined)
-        .map((workshop) => ({
-          id: workshop.id,
-          name: workshop.attributes.nome,
-          imageUrl: workshop.attributes.foto_divulgacao.data[0].attributes.url,
-        }))
+      if (data) {
+        const workshops = data.map((workshop) => {
+          return {
+            id: workshop.id,
+            name: workshop.attributes.nome,
+            date: new Date(workshop.attributes.data_inicio).toLocaleDateString(
+              'pt-BR',
+              { timeZone: 'UTC' }
+            ),
+            imageUrl:
+              workshop.attributes.foto_divulgacao.data[0].attributes.url
+          }
+        })
 
-      const workshopsSortedByName = workshops.sort((a, b) =>
-        a.nome < b.nome ? -1 : 1,
-      )
-      setAttributes(workshopsSortedByName)
+        const workshopsSortedByName = workshops.sort((a, b) =>
+          a.nome < b.nome ? -1 : 1
+        )
+        setAttributes(workshopsSortedByName)
+      }
     })
   }, [])
 
@@ -60,7 +67,7 @@ const WorkshopsCarrossel = () => {
         breakpoints={{
           320: { slidesPerView: 1, spaceBetween: 1 },
           660: { slidesPerView: 2 },
-          1280: { slidesPerView: 3, spaceBetween: 1 },
+          1280: { slidesPerView: 3, spaceBetween: 1 }
         }}
         modules={[Navigation, Pagination]}
         className="mySwiper"
@@ -76,7 +83,14 @@ const WorkshopsCarrossel = () => {
                         <img className="img" src={workshops.imageUrl} />
                       </div>
                       <div>
-                        <p className="date">{workshops.data}</p>
+                      { 
+                        workshops.date === "01/01/1970" ? (
+                        <p></p>                
+                        ) : (
+                          <p className="date">
+                          {workshops.date}
+                        </p>
+                        )}
                         <h3 className="title">{workshops.name}</h3>
                       </div>
                       <VerMais>

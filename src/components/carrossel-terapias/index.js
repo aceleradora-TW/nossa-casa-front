@@ -18,14 +18,18 @@ const TherapiesCarrossel = () => {
         if (data) {
           return {
             id: data.id,
+            date: new Date(data.attributes.data_inicio).toLocaleDateString(
+              'pt-BR',
+              { timeZone: 'UTC' }
+            ),
             name: data.attributes.nome,
-            image_url: data.attributes.foto_divulgacao.data[0].attributes.url,
+            image_url: data.attributes.foto_divulgacao.data[0].attributes.url
           }
         }
         return data.attributes
       })
       const therapiesSortedByName = therapies.sort((a, b) =>
-        a.nome < b.nome ? -1 : 1,
+        a.nome < b.nome ? -1 : 1
       )
       setAttributes(therapiesSortedByName)
     })
@@ -57,7 +61,7 @@ const TherapiesCarrossel = () => {
         breakpoints={{
           320: { slidesPerView: 1, spaceBetween: 1 },
           660: { slidesPerView: 2 },
-          1280: { slidesPerView: 3, spaceBetween: 1 },
+          1280: { slidesPerView: 3, spaceBetween: 1 }
         }}
         modules={[Navigation, Pagination]}
         className="mySwiper"
@@ -73,7 +77,15 @@ const TherapiesCarrossel = () => {
                         <img className="img" src={therapies.image_url} />
                       </div>
                       <div>
-                        <h1 className="title">{therapies.name}</h1>
+                      { 
+                      therapies.date === "01/01/1970" ? (
+                        <p></p>                         
+                        ) : (
+                          <p className="date">
+                          {therapies.date}
+                        </p>
+                        )}
+                        <h3 className="title">{therapies.name}</h3>
                       </div>
                       <VerMais>
                         <div className="styled-button">
