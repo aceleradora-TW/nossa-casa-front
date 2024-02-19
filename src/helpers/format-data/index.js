@@ -4,7 +4,7 @@ const formatDate = (date) => {
     day: '2-digit',
     month: 'short',
     year: 'numeric',
-    weekday: 'long',
+    weekday: 'long'
   }).format(date)
   return dateFormated[0].toUpperCase() + dateFormated.slice(1)
 }
