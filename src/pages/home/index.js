@@ -13,6 +13,7 @@ import Footer from '../../components/footer'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import { About } from '../home-refatorada/components/about'
 
 export function HomePage() {
   const [attributes, setAttributes] = useState([])
@@ -100,6 +101,7 @@ export function HomePage() {
             </Swiper>
           </section>
         }
+        <About image={fotoNossaCasa} />
         <section className='about'>
           <div className='content'>
             <div className='text'>
